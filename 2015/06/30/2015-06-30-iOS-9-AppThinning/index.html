@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS 9 App Thinning | New World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ios 9 新技术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 9 App Thinning">
+<meta property="og:url" content="https://runningyoung.github.io/2015/06/30/2015-06-30-iOS-9-AppThinning/index.html">
+<meta property="og:site_name" content="New World">
+<meta property="og:description" content="ios 9 新技术">
+<meta property="og:image" content="http://image.tianjimedia.com/uploadImages/2015/161/03/91DR50WK1903_000_600.jpg">
+<meta property="og:image" content="http://image.tianjimedia.com/uploadImages/2015/161/N13P3TFYRU14.jpg">
+<meta property="og:image" content="http://image.tianjimedia.com/uploadImages/2015/161/816L89V993TV.png">
+<meta property="og:image" content="http://image.tianjimedia.com/uploadImages/2015/161/29/9A3C64950D0G_000_600.jpg">
+<meta property="og:image" content="http://image.tianjimedia.com/uploadImages/2015/161/52/9YT01J6015KJ_000_600.jpg">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20150612/1434086475497159.jpg">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20150612/1434086520291526.jpg">
+<meta property="og:updated_time" content="2015-07-03T03:31:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 9 App Thinning">
+<meta name="twitter:description" content="ios 9 新技术">
+<meta name="twitter:image" content="http://image.tianjimedia.com/uploadImages/2015/161/03/91DR50WK1903_000_600.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="New World" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://runningyoung.github.io/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+  
+      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="https://runningyoung.github.io/apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = https://runningyoung.github.io;
+      </script>
+  
+
+  
+
+  
+      <script>
+          var _hmt = _hmt || [];
+          (function() {
+              var hm = document.createElement("script");
+              hm.src = "//hm.baidu.com/hm.js?200c79969158a0fa1fe0632060fe4221";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+          })();
+      </script>
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="https://runningyoung.github.io/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">RunningYoung</a></h1>
+        </hgroup>
+
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        
+                        <li>About Me</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="https://runningyoung.github.io/">主页</a></li>
+                        
+                            <li><a href="https://runningyoung.github.io/archives/">所有文章</a></li>
+                        
+                            <li><a href="https://runningyoung.github.io/tags/">标签云</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="/1033773876@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/RunningYoung" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/BDD/" style="font-size: 10px;">BDD</a> <a href="/tags/Block/" style="font-size: 10px;">Block</a> <a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/dependency-injection/" style="font-size: 10px;">dependency injection</a> <a href="/tags/ios-9-新技术/" style="font-size: 10px;">ios 9 新技术</a> <a href="/tags/jenkins/" style="font-size: 20px;">jenkins</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">专注于iOS开发</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">RunningYoung</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="https://runningyoung.github.io/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">RunningYoung</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="/1033773876@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/RunningYoung" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-2015-06-30-iOS-9-AppThinning" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/30/2015-06-30-iOS-9-AppThinning/" class="article-date">
+      <time datetime="2015-06-30T07:34:20.000Z" itemprop="datePublished">2015-06-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS 9 App Thinning
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios-9-新技术/">ios 9 新技术</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>##iOS 9的App Thinning方案如何节省存储空间</p>
+<p>　存储空间不够是很多iOS用户遇到的问题，苹果在2015全球开发者大会(WWDC 2015)上简要介绍了一个关于节省iOS存储空间的解决方案——App Thinning，这项功能可以让iOS设备在很多安装应用、更新应用以及运行应用等多种场景中仅下载需要的代码而不是所有的资源，这样iOS应用占用的空间就会减少很多，从而节省出更多的剩余存储空间。</p>
+<p><img src="http://image.tianjimedia.com/uploadImages/2015/161/03/91DR50WK1903_000_600.jpg" alt="alt text" title="Title"></p>
+<p><img src="http://image.tianjimedia.com/uploadImages/2015/161/N13P3TFYRU14.jpg" alt="alt text" title="Title"></p>
+<p>　以下请看Gamelook整理的应用瘦身功能以及On-demand资源内容的详细介绍（更多详细内容请参考官网<a href="https://developer.apple.com/ios/pre-release/" target="_blank" rel="external">英文地址</a>）：</p>
+<p>　App Thinning功能中其实有三个独立的机制，分别是App Slicing、on-demand resources以及Bitcode，它们在节省iOS应用资源方面发挥着各自的作用。</p>
+<p>####App Slicing<br>　　Slicing就是创造并传输为不同目标设备而设计的变体应用包（variant,以下简称定制化下载包）的处理过程。一个定制化下载包仅包含针对特定设备所需要的可执行架构以及资源。你可以继续开发并且把完整版本的应用上传到iTunes Connect，然后App Store会根据玩家设备类型和分辨率创造并传输对应的应用。这里，你可以认为资源根据玩家设备分辨率和类型的不同而分割成了多种类型，GPU资源也根据设备能力进行了切分，当用户安装应用的时候，他们可以下载并安装适合自己设备的定制化应用包。</p>
+<p>　　Xcode会在研发过程中模拟分割，所以你可以在本地创作并测试定制应用包，当你在一个设备上研发并运行应用的时候，Xcode会对其进行分割，当你创造一个档案的时候，Xcode会包含完整版的应用，但允许你从档案中输出不同的定制应用包。</p>
+<p>　　提醒：对于iOS应用来说，应用分割仅支持最新版本的iTunes，以及运行iOS 9.0或者更高系统的设备，否则的话，App Store将会为用户分发统一的安装包。。</p>
+<p>　　<img src="http://image.tianjimedia.com/uploadImages/2015/161/816L89V993TV.png" alt="alt text" title="Title"></p>
+<p>　　应用分割是在研发过程和分销过程中进行的，基本处理程序如下：</p>
+<p>　　　　1.在Xcode里，定位目标设备并在资源目录中提供多种分辨率图形，你必须使用资源目录这样才能进行分割。</p>
+<p>　　　　2.在模拟器或者一个设备上研发并运行应用。</p>
+<p>　　　　3.Xcode会为选定设备类型生成变体包，提高调试销量并允许你在本地设备进行变体包测试。</p>
+<p>　　　　4.创建应用档案并为特定设备输出对应的变体应用包。</p>
+<p>　　　　5.在目标设备测试所有的变体包以更早的发现硬件配置方面的问题。</p>
+<p>　　　　6.把应用上传到iTunes Connect。</p>
+<p>　　　　7.App Store从档案中创建单独的应用定制包，定制包的数量取决于Xcode项目中　　所存在的架构和资源的数量。</p>
+<p>　　　　8.在iTunes Connect当中，向制定测试者们分发测试版的应用。</p>
+<p>　　　　9.测试者们通过TestFlight在你的应用所支持的设备上安装测试版本，　　　　TestFlight会根据用户设备的不同而下载特定的变体应用包。</p>
+<p>　　　　注意：为了测试App Store在应用发布之前为你创造的变体包，最好是只邀请内部测试者（你团队里的iTunes Connect用户）并且使用TestFlight下载变体包。如果邀请了外部测试者（比如只通过邮箱地址登录），那么他们就必须等待Beta App Review在他们下载变体包之前通过了你的应用。</p>
+<p>　　　　10.然后在iTunes Connect里发布你的应用。</p>
+<p>　　　　11.用户在应用支持的设备上进行安装，App Store应用下载会根据用户设备类型分发变体应用包。</p>
+<p>####Bitcode</p>
+<p>　　Bitcode是一个已编译程序（Compiled Program）的中间代码（intermediate representation）。如果你上传到iTunes Connect里的应用包含bitcode的话，就可以被编译和链接到App Store。加入Bitcode可以让苹果在未来对你的应用二进制（app binary）进行再次优化，而不需要你向App Store提交新版本。</p>
+<p>　　注意：对于iOS应用来说，Bitcode是默认但可选择的。如果你提供Bitcode，那么应用包里的所有应用和框架都需要加入Bitcode，而watchOS应用则必须加入Bitcode。<br>　　Bitcode使得开发者上传应用程序时不必非提交预编译的二进制文件，只需要上<br>传“intermediate representation(直译为中间代表)”即可。而用户下载时，App Slicing可以根据用户需求，来判断你是需要32位还是64位。</p>
+<p>　　也就是说，在用户下载应用之前，App Store在自动编译应用程序。这样，即使开发者没有给他们的代码添加标签，应用也能够执行App Slicing的部分功能，仅下载设备需要的32或64位代码。不过Bitcode也意味着如果苹果完善编译器提高代码效率，用户下载应用时苹果进行的完善会自动整合进去。<br>　　虽然有评论表示，App Thinning这个新特性有时候也会带来不方便。比如用户坐十几个小时飞机，期间一直在玩游戏，持续过关斩将，但是因为没有下载所以不能继续玩下去，会感觉比较无奈。不过，对于大多数用户的应用场景来说，App Thinning将为iOS设备用户节省很多应用所需要的存储空间，对于16GB容量的iOS设备用户来说效果则更加明显。</p>
+<p>　　iOS 9的更新包体积从原来的4.6GB降至现在的1.3GB，让不少8GB、16GB的iPhone和iPad老用户非常开心。而App Thinning方案进一步减小了系统在运行应用等多种实用情景时的存储资源占用，令人期待。</p>
+<p>####ODR(On-Demand)</p>
+<p>　　On-Demand资源指的是你可以通过关键词和命令的方式进行分组归类的资源，比如图像和音频，App Store会把这些资源放在苹果服务器上并且为你管理下载。On-Demand资源可以加快下载速度并缩小应用包体，提高用户的首次登录体验。比如，一款游戏应用可以根据等级和任务的不同把资源分组，在玩家达到下一个等级或者完成一个任务之后才会用到后续的资源，同样，应用也可以只在用户进行IAP购买的时候提供对应的资源。</p>
+<p>　　当一些on-demand资源不再需要而且磁盘空间较少的时候，操作系统会自动清除它们。如果你在App Store之外对自己的应用进行测试或者分发，那就需要你自己来管理这些On-Demand资源。需要注意的是，可执行的on-demand资源是不支持的，App Store也会对on-Demand资源进行分割（即上面说过的Slicing），进一步提高用户体验。</p>
+<p>对于用户们来说，on-demand资源是以透明的形式在后台运作的，当用户需要对应功能的时候，这些资源就会被提供。</p>
+<p>　　ODR(on-demand resources 随需应变资源)是iOS减少应用资源消耗的另外一种方法。比如多级游戏，用户需要的通常都是他们当前的级数以及下一级。ODR意味着用户可以下载他们需要的几级游戏。随着你的级数不断增加，应用再下载其他级数，并将用户成功过关的级数删掉。<br>　　　　<img src="http://image.tianjimedia.com/uploadImages/2015/161/29/9A3C64950D0G_000_600.jpg" alt="alt text" title="Title"></p>
+<p>　　 当用户点击应用内容的时候，就会动态从App Store上进行下载，也就是说用户只会在需要的时候占用存储空间。这项功能有趣之处还在于当将这些内容在后台进行下载之后，当存储空间紧张的时候会自动进行删除。<br>　　 　　　　<img src="http://image.tianjimedia.com/uploadImages/2015/161/52/9YT01J6015KJ_000_600.jpg" alt="alt text" title="Title"></p>
+<p>####喵神眼中的 ：App Thinning<br>　　app 开发对尺寸的要求近乎苛刻。因为 iOS app 为了后向兼容，现在都同时包含了 32 bit 和 64 bit 两个 slice。另外在图片资源方面，更是 1x 2x 3x 的图像一应俱全 (好吧现在 1x 应该不太需要了)。而用户使用 app 时，因为设备是特定的，其实只需要其中的一套资源。但是现在在购买和下载的时候却是把整个 app 包都下载了。</p>
+<p>　　Apple 终于意识到了这件事情有多傻，iOS 9 中终于可以仅选择需要的内容 (Slicing) 下载了。这对用户来说是很大的利好，因为只需要升级到 iOS 9，就可以节省很多流量。对于开发者来说，并没有太多要做的事情，只需要使用 asset catalog 来管理素材标记 2x 3x 就可以了。</p>
+<p>　　给 App 瘦身的另一个手段是提交 Bitcode 给 Apple，而不是最终的二进制。Bitcode 是 LLVM 的中间码，在编译器更新时，Apple 可以用你之前提交的 Bitcode 进行优化，这样你就不必在编译器更新后再次提交你的 app，也能享受到编译器改进所带来的好处。Bitcode 支持在新项目中是默认开启的，没有特别理由的话，你也不需要将它特意关掉。</p>
+<p>　　最后就是按需加载的资源。这可能在游戏中应用场景会多一些。你可以用 tag 来组织像图像或者声音这样的资源，比如把它们标记为 level1，level2 这样。然后一开始只需要下载 level1 的内容，在玩的过程中再去下载 level2。或者也可以通过这个来推后下载那些需要内购才能获得的资源文件。在一些大型游戏里这是很常见的优化方法，现在在 iOS 9 里也可以方便地使用了.</p>
+<p>####第二部分：什么是On-Demand资源</p>
+<p>　　提示：这是一个正在研发的API或技术的概要文件，苹果公司提供这些信息主要是为了帮助你通过苹果产品使用这些技术或者编程界面而做好计划，该信息有可能会在未来发生改变，本文当中提到的软件应该以最终发布的操作系统测试和最终文档为准，未来有可能会提供新版本的文档信息。</p>
+<p>　　On-Demand资源指的是寄存在App Store并与应用下载包分离的应用内容，使用On-demand资源可以让应用包体更小，安装时间更短。</p>
+<p>　　本部分文档主要是提供你的应用使用on-demand资源所需要的信息。在阅读本文档之前，你首先应该熟悉资源编程，想要获得更多信息，请参考资源编程指南。</p>
+<p>#####On-Demand资源是有生命周期的</p>
+<p>　　On-Demand资源可以让应用包体更小，下载速度更快，应用内容更丰富，主要是通过在App Store存储资源的方式实现，与你的应用包体是分开的。</p>
+<p>　　苹果操作系统会根据你的应用请求而管理on-demand资源的下载和存储，基本运作流程如下：应用请求资源-使用资源-然后释放请求。被下载之后，这些资源会通过多次登录而留存在用户设备上，让应用体验更快。</p>
+<p>　　On-Demand资源是默认自动开启的，前提是你的项目支持对应的OS版本。</p>
+<p>　　标签主要用于辨识和对on-demand资源进行分组。</p>
+<p>　　在研发过程中，标签用于辨识和分组on-demand资源，标签名字可以用于辨识资源和应用的关系。Xcode会提供创造和管理标签的工具，同时在应用被安装之后或者安装完成之后指定特殊标签。</p>
+<p>　　在运行期间，应用负责管理标签。</p>
+<p>　　应用请求会通过操作系统获得标签，然后系统会下载并检查组件资源并且下载所有不存在于用户设备上的所需资源。在此过程中，应用可以追踪下载过程，如果有必要还可以调整优先级。</p>
+<p>　　标签被使用完之后，在从存储中移除标签的时候，应用可以设定一个系统预留优先级，优先级较低的标签会首先被清除。</p>
+<p>　　在与系统互动的时候会用到2个classes：NsbundleResourceRequest用来管理标签的使用、追踪下载并调整下载优先级；NSBundle的一个扩展class被用来设定标签的预留优先级。</p>
+<p>　　On-demand资源可以是多种类型，但可执行代码除外。</p>
+<p>#####有关资源的一些信息</p>
+<p>　　在电脑程序中，资源指的是和程序的可执行代码同时存在的数据文件。有了资源文件，你的代码就可以极大的简化，不必通过创造复杂的数据或者图形设置写复杂的代码。比如，和用代码按像素形式来创造图像不同的是，在图形编辑器中创造资源可以更加有效率和实用。为了充分利用资源的优势，你的代码只需要在运行的时候加载并使用即可。</p>
+<p>　　除了简化你的代码之外，资源还是所有应用国际化管理非常重要的一部分。你在应用里不需要编写字符串并以及其他用户可见的内容，你可以把这些内容放在外部的资源文件里，这样本地化应用的时候就变得非常简单，你只需要为每一种所支持的语言创造新版本的资源文件即可。OS X和iOS也使用了这样方式管理本地化资源，根据用户的偏好语言加载需要的资源文件。</p>
+<p>　　本文件提供有关OS X和iOS系统支持的资源类型信息以及你如何在写代码的时候使用这些资源的指导。本文件并不针对资源创作过程，大多数的资源都是通过第三方或者开发者自己的工具提供，另外，尽管本文的讲述的是应用中的资源使用，但这些信息同样适用于其它类型的可执行包，包括框架和插件。</p>
+<p>　　在阅读本文档之前，你需要熟悉应用包体的组织结构，理解这个结构可以让管理变得更容易，并且寻找你的应用所需要使用的资源也更为便捷。</p>
+<p>　　应用可以包含很多类型的资源，但有些资源是由iOS和OS X直接支持的。</p>
+<p>　　Nib文件存储你的应用的UI对象</p>
+<p>　　Nib文件是用来创作iOS和Mac应用的经典文件类型，一个nib文件就是你希望在运行期间重新创作的一系列freeze-dried对象数据档案。Nib文件通常用于存储预置的窗口、视图以及其他可视化对象，但是也可以用来存储非可视化对象，比如controllers。</p>
+<p>　　你可以在Xcode中通过Interface Builder编辑Nib文件，它可以提供一个i额图形编辑器来管理对象。当你随后把一个nib文件加载到应用中的时候，nib加载代码会实例化文件中的每一个对象，并且会把它重新存储于你在Interface Builder中所定义的state中。这样，你在Interface Builder中看到的就和应用运行中所看到的内容一致了。</p>
+<p>　　字符串资源包含可本地化的文本。</p>
+<p>　　在iOS和Mac应用中，图像、音频和影响资源的重要性很高，图像可以用来创造独特的视觉风格，音频和影像文件同样可以强化整体的用户应用体验，同时可以简化代码。两种操作系统都支持加载并在应用中呈现这些资源。</p>
+<p>　　哪些应用适合使用On-Demand资源功能？</p>
+<p>　　On-Demand资源指的是和应用下载包分离并且存在App Store上的应用内容，应用请求一系列的on-demand资源，操作系统管理下载和存储。可以使用on-demand资源获得优势的应用包扩：</p>
+<p>　　1.初始化资源延迟加载的应用，这些应用的一些资源属于应用的主要功能，但在初次登录的时候却用不到，资源会被标记为需要初始化，当应用运行的时候，操作系统会自动下载这些资源，比如图形编辑应用。</p>
+<p>　　2.应用资源需要延迟加载的应用：这类应用只在特定情况下使用一些资源，比如在一个带有很多关卡的游戏中，只有玩家们进入特定的关卡才需要使用对应的资源。</p>
+<p>　　3.需要远程存储低使用率资源的应用：这类应用的有些资源使用率非常低，只有在需要的时候才加载这部分资源。比如有些应用的新手教程资源只有在第一次打开应用的时候才会用到，以后可能再也不会用到，后来的一些功能教学也只是用到的时候才加载，随后再也不使用。</p>
+<p>　　4.需要远程存储IAP资源的应用：这类应用通过IAP提供额外的资源，这些资源只有在用户购买的时候才会被用到，比如，一个用户购买SuperGeeky表情包的时候，这个表情资源才会被用到。</p>
+<p>　　5.首次登录需要加载资源的应用：这类应用有些资源是只需要初次登录的时候才加载，并且在重复登录的时候用不到。比如一个只有在首次登录时才加入教学内容的应用。</p>
+<p>　　在研发过程中，开发者可以为on-demand资源分配一个或者多个标签，也就是你用来辨识特定资源的字符串，你可以通过标签的名字来决定对应资源在应用中的使用，比如游戏中第五级采用到的资源可以用与level5相关的标签。<br>　　<br>　　　　 　　　　<img src="http://cc.cocimg.com/api/uploads/20150612/1434086475497159.jpg" alt="alt text" title="Title"></p>
+<p>#####On-Demand资源的循环周期</p>
+<p>　　带有标签的资源使用流程大致如下：</p>
+<p>　　带标签的资源被存储在App Store里-应用通过标签请求使用资源-系统下载资源包-保存资源包-使用完成后系统释放资源包。</p>
+<p>　　存储大小限制</p>
+<p>　　App Store对于on-demand资源使用是有存储空间限制的，具体请参考下表。<br>　　<br>　　　　　　 　　　　<img src="http://cc.cocimg.com/api/uploads/20150612/1434086520291526.jpg" alt="alt text" title="Title"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">RunningYoung</a></p>
+        <p><span>Created:</span>2015-06-30, 15:34:20</p>
+        <p><span>Updated:</span>2015-07-03, 11:31:29</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/" title="iOS 9 App Thinning">https://runningyoung.github.io/2015/06/30/2015-06-30-iOS-9-AppThinning/</a>
+            <span class="copy-path" data-clipboard-text="From https://runningyoung.github.io/2015/06/30/2015-06-30-iOS-9-AppThinning/　　By RunningYoung" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">
+                    BDD开发 calabash 和 cucumber的使用
+                </a>
+            </div>
+        
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+<script>
+    var valueHide = "Hide";
+    var valueShow = "Show";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+
+    
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'runningyoung'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/" title="Pre: BDD开发 calabash 和 cucumber的使用">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 RunningYoung
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/RunningYoung/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by runningyoung
+            </div>
+        </div>
+
+        
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+        </script>
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >Site Visitors: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">Page Hits: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(https://runningyoung.github.io/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-64735170-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

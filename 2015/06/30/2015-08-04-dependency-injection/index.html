@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="utf-8">
+  
+  <title>关于IOS依赖注入(DI)那些事 | New World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="dependency injection">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于IOS依赖注入(DI)那些事">
+<meta property="og:url" content="https://runningyoung.github.io/2015/06/30/2015-08-04-dependency-injection/index.html">
+<meta property="og:site_name" content="New World">
+<meta property="og:description" content="dependency injection">
+<meta property="og:image" content="http://m1.yea.im/1O8.png">
+<meta property="og:updated_time" content="2015-08-10T03:40:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于IOS依赖注入(DI)那些事">
+<meta name="twitter:description" content="dependency injection">
+<meta name="twitter:image" content="http://m1.yea.im/1O8.png">
+  
+    <link rel="alternative" href="/atom.xml" title="New World" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://runningyoung.github.io/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+  
+      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="https://runningyoung.github.io/apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = https://runningyoung.github.io;
+      </script>
+  
+
+  
+
+  
+      <script>
+          var _hmt = _hmt || [];
+          (function() {
+              var hm = document.createElement("script");
+              hm.src = "//hm.baidu.com/hm.js?200c79969158a0fa1fe0632060fe4221";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+          })();
+      </script>
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="https://runningyoung.github.io/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">RunningYoung</a></h1>
+        </hgroup>
+
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        
+                        <li>About Me</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="https://runningyoung.github.io/">主页</a></li>
+                        
+                            <li><a href="https://runningyoung.github.io/archives/">所有文章</a></li>
+                        
+                            <li><a href="https://runningyoung.github.io/tags/">标签云</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="/1033773876@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/RunningYoung" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/BDD/" style="font-size: 10px;">BDD</a> <a href="/tags/Block/" style="font-size: 10px;">Block</a> <a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/dependency-injection/" style="font-size: 10px;">dependency injection</a> <a href="/tags/ios-9-新技术/" style="font-size: 10px;">ios 9 新技术</a> <a href="/tags/jenkins/" style="font-size: 20px;">jenkins</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">专注于iOS开发</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">RunningYoung</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="https://runningyoung.github.io/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">RunningYoung</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="/1033773876@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/RunningYoung" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-2015-08-04-dependency-injection" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/30/2015-08-04-dependency-injection/" class="article-date">
+      <time datetime="2015-06-30T07:34:20.000Z" itemprop="datePublished">2015-06-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于IOS依赖注入(DI)那些事
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dependency-injection/">dependency injection</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>##dependency injection 关于IOS依赖注入那些事</p>
+<p>　    本文介绍的是另一个屎上最牛叉的ios开发新框架，<strong><em>最大的特点就是：帮助我们开发出松散耦合(loose coupled)、可维护、可测试的代码和程序。这条原则的做法是大家熟知的面向接口，或者说是面向抽象编程。</em></strong> 众所周知 该编程思想在各大语言中都有体现如 jave C++ PHP以及.net中。当然设计模式的广泛程度远远大于这些，IOS 当然也不例外。 <strong><em>本文主要介绍本人在学习dependency injection的时候的学习过程以及对一些学习资料的总结，主要介绍ios中的两大框架<a href="https://github.com/atomicobject/objection" target="_blank" rel="external">objection</a>和<a href="http://typhoonframework.org/" target="_blank" rel="external">Typhoon</a>。</em></strong>   闲话不多吹下面进入正题。</p>
+<p>###什么是dependency injection？　    </p>
+<p>####简单来说：<br>　    关于什么是依赖注入，在Stack Overflow上面有一个问题，<a href="http://stackoverflow.com/questions/1638919/how-to-explain-dependency-injection-to-a-5-year-old" target="_blank" rel="external">如何向一个5岁的小孩解释依赖注入</a>，其中得分最高的一个答案是：</p>
+<blockquote>
+<p>“When you go and get things out of the refrigerator for yourself, you can cause problems. You might leave the door open, you might get something Mommy or Daddy doesn’t want you to have. You might even be looking for something we don’t even have or which has expired.</p>
+<p>What you should be doing is stating a need, “I need something to drink with lunch,” and then we will make sure you have something when you sit down to eat.”</p>
+</blockquote>
+<p>映射到面向对象程序开发中就是：高层类(5岁小孩)应该依赖底层基础设施(家长)来提供必要的服务。</p>
+<p>编写松耦合的代码说起来很简单，但是实际上写着写着就变成了紧耦合。</p>
+<p>####更详细点的解释：</p>
+<p>依赖倒置解决了高层次模块依赖于低层次模块和其细节的问题。</p>
+<p>　　Dependency injection 是一个将行为从依赖中分离的技术，简单地说，它允许开发者定义一个方法函数依赖于外部其他各种交互，而不需要编码如何获得这些外部交互的实例。 这样就在各种组件之间解耦，从而获得干净的代码，相比依赖的硬编码， 一个组件只有在运行时才调用其所需要的其他组件，因此在代码运行时，通过特定的框架或容器，将其所需要的其他依赖组件进行注入，主动推入。</p>
+<p>　　依赖注入可以看成是 反转控制 inversion of control 的一个特例。反转的是依赖，而不是其他，JNDI也是一种反转控制，它反转的JNDI名称或资源。参考： <a href="http://martinfowler.com/articles/injection.html" target="_blank" rel="external">“Inversion of Control Containers and the Dependency Injection pattern”</a>。</p>
+<p>　　依赖注入是最早Spring和piconcontainer等提出，如今已经是一个缺省主流模式，并扩展到前端如Angular.js等等。</p>
+<p>　　依赖注入与IOC模式类似工厂模式，是一种解决调用者和被调用者依赖耦合关系的模式，自2004年诞生以来，至今已经成为Java和其他领域的主流模式。它解决了对象之间的依赖关系，使得对象只依赖IOC/DI容器，不再直接相互依赖，实现松耦合，然后在对象创建时，由IOC/DI容器将其依赖的对象注入Inject其体内，故又称依赖注入依赖注射模式，最大程度实现松耦合，特别是Autowiring/Autowired自动配对引入，再结合Java的垃圾回收机制，使得在Java中，对象不再需要开发者自己创建，也需要开发者自己销毁，只需要直接使用即可，大大提升了开发效率。</p>
+<p>　　详细解释：依赖注入说白一点，就是容器将某个类依赖的其他类注入到这个类中。
+　　</p>
+<p>###为什么要用dependency injection<br>　    依赖注入框架的运用可以帮我们将APP的设计分割成好几个模块，分给不同的开人员，当完成开发之后再进行合并充分解决了团队之间模块化分工的不足.借objic.io上一篇<a href="http://www.objc.io/issues/15-testing/dependency-injection/" target="_blank" rel="external">关于Dependency Injection</a>的一句话:</p>
+<blockquote>
+<p>My initial motivation for exploring DI came from doing test-driven development, because in TDD you constantly wrestle with the question of “How do I write a unit test for this?” But I discovered that DI is actually concerned with a bigger idea: that our code should be composed of modules that we snap together to build an application.</p>
+<p>There are many benefits to such an approach. Graham Lee’s article, <a href="http://www.bignerdranch.com/blog/dependency-injection-ios/" target="_blank" rel="external">“Dependency Injection, iOS and You,”</a> describes some of them: “to adapt… to new requirements, make bug fixes, add new features, and test components in isolation.” </p>
+</blockquote>
+<p>大体意思:</p>
+<p>我在探索DI最初的动机来自做测试驱动的开发，因为在TDD你不断地与问题搏斗“我怎样写单元测试吗？”但我发现，DI实际上是涉及一个更大的想法：即我们的代码应该由我们扣合在一起来构建应用程序模块。</p>
+<p>有许多好处，这样的做法。格雷厄姆李的文章，<a href="http://www.bignerdranch.com/blog/dependency-injection-ios/" target="_blank" rel="external">“依赖注入，iOS和你”</a>，介绍了其中一些：“适应……新的要求，作出错误修复，隔离增加新的功能以及测试组件。”</p>
+<p>用文字说这些概念其实很抽象，下面用几张图片说明下：</p>
+<p>通过objection实现依赖注入后，就能更好地实现SRP(Single Responsibility Principle)，代码更简洁，心情更舒畅，生活更美好。拿Pinterest来说，下面的页面就可以划分为3个Section。</p>
+<p><a href="../images/blog/DI01.png" title="Title">点击查看图片</a></p>
+<p><img src="http://m1.yea.im/1O8.png" alt="点击查看图片"></p>
+<p>各个Section可以由不同的人负责，然后串到一起就行，也能一定程度地避免MVC(Mess View Controller)的出现,对于提高开发成员的效率也会有不少的帮助。</p>
+<p>　    <strong>其实用简单的一句话来说就是： 通过DI设计模式，将项目模块化，以提高开发效率。</strong>  </p>
+<p>###dependency injection试图解决什么问题呢<br><strong>我们知道，在IOS基本教程中有一个定律告诉我们：所有的对象都必须创建；或者说：使用对象之前必须创建，但是现在我们可以不必一定遵循这个定律了，我们可以从DI容器中直接获得一个对象然后直接使用，无需事先创建它们。</strong></p>
+<p>　　<strong>这种变革，就如同我们无需考虑对象销毁一样；因为IOS的 ARC 帮助我们实现了对象销毁；现在又无需考虑对象创建，对象的创建和销毁都无需考虑了，这给编程带来的影响是巨大的</strong></p>
+<p>我们可以通过一篇博文了解下原理,该文章是由Limboy大神写的<a href="http://limboy.me/ios/2014/04/15/use-objection-to-decouple-ios-project.html" target="_blank" rel="external">使用objection来模块化开发iOS项目</a></p>
+<p>这里提前介绍了一个DI框架就是Objection,详细介绍就去看博文，在此只分析下DI的设计原理:</p>
+<p><strong>类似于Objection的大部分DI框架，主要为我们提供了一个容器,来管理创建销毁对象，我们并不会过多考虑创建对象的方法内容以及其再其他类中的依赖关系，这些都在框架中为我们解决了，我们只需要再需要的时候调用即可，并不需要重复的导入import，避免不同类直接多次重复的import导致的依赖循环问题。</strong></p>
+<p>###那么问题来了？如何学习dependency injection呢<br>　    　    <strong>ios有关DI依赖注入的框架比较好用的有两个：<a href="https://github.com/atomicobject/objection" target="_blank" rel="external">objection</a> 和 <a href="https://github.com/appsquickly/Typhoon" target="_blank" rel="external">Typhoon</a></strong></p>
+<p>下面就从几个方便来介绍下这两个框架</p>
+<p>####一：<a href="https://github.com/atomicobject/objection" target="_blank" rel="external">objection</a> 和 <a href="https://github.com/appsquickly/Typhoon" target="_blank" rel="external">Typhoon</a>这两个框架有什么区别呢<br>其实这两个框架各有优势：</p>
+<p>1.objection框架，使用起来比较灵活，用法比较简单。示例代码如下：</p>
+<p>属性注册：</p>
+<pre><code>@class Engine, Brakes;
+
+@interface Car : NSObject
+{
+  Engine *engine;
+  Brakes *brakes;
+   BOOL awake;  
+}
+
+// Will be filled in by objection
+@property(nonatomic, strong) Engine *engine;
+// Will be filled in by objection
+@property(nonatomic, strong) Brakes *brakes;
+@property(nonatomic) BOOL awake;
+
+@implementation Car
+objection_requires(@&quot;engine&quot;, @&quot;brakes&quot;) //属性的依赖注入
+@synthesize engine, brakes, awake;
+@end
+</code></pre><p>方法注入：</p>
+<pre><code>@implementation Truck
+objection_requires(@&quot;engine&quot;, @&quot;brakes&quot;)
+objection_initializer(truckWithMake:model:)//方法的依赖注入
++ (instancetype)truckWithMake:(NSString *) make model: (NSString *)model {
+  ...
+}
+@end
+</code></pre><p>2.对比来说Typhoon的使用起来就比较规范，首先需要创建一个 TyphoonAssembly的子类。其需要注入的方法和属性都需要写在这个统一个子类中，当然可以实现不同的子类来完成不同的功能</p>
+<pre><code>@interface MiddleAgesAssembly : TyphoonAssembly
+
+- (Knight*)basicKnight;
+
+- (Knight*)cavalryMan;
+
+- (id&lt;Quest&gt;)defaultQuest;
+
+@end
+</code></pre><p>属性注入：</p>
+<pre><code>- (Knight *)cavalryMan
+{
+    return [TyphoonDefinition withClass:[CavalryMan class] 
+    configuration:^(TyphoonDefinition *definition) {
+
+    [definition injectProperty:@selector(quest) with:[self defaultQuest]];
+    [definition injectProperty:@selector(damselsRescued) with:@(12)];
+}];
+}
+</code></pre><p>方法注入：</p>
+<pre><code>- (Knight *)knightWithMethodInjection
+{
+       return [TyphoonDefinition withClass:[Knight class] 
+    configuration:^(TyphoonDefinition *definition) {
+    [definition injectMethod:@selector(setQuest:andDamselsRescued:) 
+        parameters:^(TyphoonMethod *method) {
+
+        [method injectParameterWith:[self defaultQuest]];
+        [method injectParameterWith:@321];
+    }];
+}];
+}
+</code></pre><p>3.当然还有一些硬性的区别就是Typhoon现在已经支持Swift。</p>
+<p>4.两者维护时间都超过2年以上。</p>
+<p>Tythoon官方介绍的优势：</p>
+<pre><code>1）Non-invasive. No macros or XML required. Uses powerful ObjC runtime instrumentation.
+
+2）No magic strings – supports IDE refactoring, code-completion and compile-time checking.
+
+3）Provides full-modularization and encapsulation of configuration details. Let your architecture tell a story.
+
+4）Dependencies declared in any order. (The order that makes sense to humans).
+
+5）Makes it easy to have multiple configurations of the same base-class or protocol.
+
+ 6）Supports injection of view controllers and storyboard integration. Supports both initializer and property injection, plus life-cycle management.
+
+7）Powerful memory management features. Provides pre-configured objects, without the memory overhead of singletons.
+
+8）Excellent support for circular dependencies.
+
+9）Lean. Has a very low footprint, so is appropriate for CPU and memory constrained devices.
+
+10）While being feature-packed, Typhoon weighs-in at just 3000 lines of code in total.
+
+ 11）Battle-tested — used in all kinds of Appstore-featured apps.
+</code></pre><p>大体翻译过来：</p>
+<pre><code>1)非侵入性。不需要宏或XML。使用强大的ObjC运行时仪器。
+2)没有魔法字符串——支持IDE重构,完成和编译时检查。
+3)提供full-modularization和封装的配置细节。让你的架构告诉一个故事。
+4)依赖关系中声明的任何顺序。(对人类有意义的顺序)。
+5)很容易有多个配置相同的基类或协议。
+6)支持注射的视图控制器和故事板集成。同时支持初始化器和属性注入,以及生命周期管理。
+7)强大的内存管理功能。提供预配置对象,没有单件的内存开销。
+8)优秀的支持循环依赖。
+9)精益。占用很低,所以适合CPU和内存受限的设备。
+10),功能强大,台风重总共只有3000行代码。
+11)久经沙场,用于各种Appstore-featured应用。
+</code></pre><p>　    　    针对这两个框架网上教程并不多，收集了一些比较有用的资料。最主要的用法还得看官方文档分别在：</p>
+<p><a href="https://github.com/atomicobject/objection" target="_blank" rel="external">objection</a> 和 <a href="https://github.com/appsquickly/Typhoon" target="_blank" rel="external">Typhoon</a></p>
+<p>###大体学习步骤：</p>
+<p>####（一）了解依赖注入的原理</p>
+<p>依赖注入各大语言都一样，相关资料：</p>
+<p>其中最需要看的是来自</p>
+<p>objc.io官网的博文 <a href="http://www.objc.io/issues/15-testing/dependency-injection/" target="_blank" rel="external">Dependency Injection</a> 和 Typhoon原创大神(Graham Lee)的文章 <a href="https://www.bignerdranch.com/blog/dependency-injection-ios/" target="_blank" rel="external">Dependency Injection, iOS and You</a> 不看后悔一辈子^_^</p>
+<p>1.<a href="http://blog.csdn.net/column/details/aopbrief.html" target="_blank" rel="external">CSDN专题系列–依赖注入及AOP简述</a></p>
+<p>2.<a href="http://blog.csdn.net/yqj2065/article/details/8510074" target="_blank" rel="external">某知名博主写的文章–依赖注入（Dependency Injection）模式</a></p>
+<p>3.<a href="http://kb.cnblogs.com/page/45266/4/" target="_blank" rel="external">来自博客园的深度理解–深度理解依赖注入</a></p>
+<p>4.<a href="http://blog.csdn.net/linshaolie/article/details/47037941#report" target="_blank" rel="external">国人翻译的国外牛人的文章—依赖注入——让iOS代码更简洁</a></p>
+<p>####进阶内容了解和学习框架</p>
+<p>#####首先来看看有关objection的资料<br>资料比较少</p>
+<p>1.Limboy大大大神的–<a href="http://limboy.me/ios/2014/04/15/use-objection-to-decouple-ios-project.html" target="_blank" rel="external">使用objection来模块化开发iOS项目</a></p>
+<p>2.<a href="https://github.com/atomicobject/objection" target="_blank" rel="external">objection的官方github文档</a></p>
+<p>#####其次Typhoon的教程可能就比较详细了—-<a href="http://typhoonframework.org/" target="_blank" rel="external">官网</a></p>
+<p>1.<a href="https://github.com/appsquickly/Typhoon/wiki/Quick-Start" target="_blank" rel="external">首先来看官方github文档详细程度已经不需要其他教程了</a>😄😄😄</p>
+<p>2.<a href="http://datab.us/Search/Typhoon%2BFramework%2BPrimer%2BPlayListIDPLhU81D62nv-Yd5jCW9LRjI4_AfI5NwJhe" target="_blank" rel="external">关于Typhoon的视频教程</a></p>
+<p>3.<a href="http://blog.csdn.net/liangliang103377/article/details/47279819" target="_blank" rel="external">国外大神的教程整理 翻译（一）</a></p>
+<p>4.<a href="http://blog.csdn.net/liangliang103377/article/details/47279863" target="_blank" rel="external">国外大神的教程整理 翻译（二）</a></p>
+<p>5.<a href="http://blog.csdn.net/liangliang103377/article/details/47279899" target="_blank" rel="external">国外大神的教程整理 翻译（三）</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">RunningYoung</a></p>
+        <p><span>Created:</span>2015-06-30, 15:34:20</p>
+        <p><span>Updated:</span>2015-08-10, 11:40:04</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/2015/06/30/2015-08-04-dependency-injection/" title="关于IOS依赖注入(DI)那些事">https://runningyoung.github.io/2015/06/30/2015-08-04-dependency-injection/</a>
+            <span class="copy-path" data-clipboard-text="From https://runningyoung.github.io/2015/06/30/2015-08-04-dependency-injection/　　By RunningYoung" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2015/06/30/2015-07-20-ReactiveCocoa/">
+                    ReactiveCocoa 学习之路(史上最全攻略)
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">
+                    BDD开发 calabash 和 cucumber的使用
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+<script>
+    var valueHide = "Hide";
+    var valueShow = "Show";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+
+    
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'runningyoung'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2015/06/30/2015-07-20-ReactiveCocoa/" title="Pre: ReactiveCocoa 学习之路(史上最全攻略)">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/" title="Next: BDD开发 calabash 和 cucumber的使用">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 RunningYoung
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/RunningYoung/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by runningyoung
+            </div>
+        </div>
+
+        
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+        </script>
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >Site Visitors: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">Page Hits: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(https://runningyoung.github.io/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-64735170-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

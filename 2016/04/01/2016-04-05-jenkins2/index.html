@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2) | New World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)Jenkins 系统设置 前期准备Jenkins 插件安装
+安装GitLab插件
+因为我们项目用的是GitLab来管理源代码，jenkins本身并没有自带GitLab插件，所以我们需要依次选择 ***系统管理 -&amp;gt; 管理插件*** 在&amp;quot;***可选插件***&amp;quot;中选择GitLab Plugin 和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)">
+<meta property="og:url" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/index.html">
+<meta property="og:site_name" content="New World">
+<meta property="og:description" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)Jenkins 系统设置 前期准备Jenkins 插件安装
+安装GitLab插件
+因为我们项目用的是GitLab来管理源代码，jenkins本身并没有自带GitLab插件，所以我们需要依次选择 ***系统管理 -&amp;gt; 管理插件*** 在&amp;quot;***可选插件***&amp;quot;中选择GitLab Plugin 和">
+<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/login1.png">
+<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/login2.png">
+<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/lang.png">
+<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/location.png">
+<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/email.png">
+<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/createjob1.png">
+<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/name.png">
+<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/ssh.png">
+<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/git.png">
+<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/gitlabhook.png">
+<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/jenkinsgitlabhook.png">
+<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/pod.png">
+<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/codesigning.png">
+<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/xcodebuild.png">
+<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/pgy.png">
+<meta property="og:updated_time" content="2016-04-05T09:54:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)">
+<meta name="twitter:description" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)Jenkins 系统设置 前期准备Jenkins 插件安装
+安装GitLab插件
+因为我们项目用的是GitLab来管理源代码，jenkins本身并没有自带GitLab插件，所以我们需要依次选择 ***系统管理 -&amp;gt; 管理插件*** 在&amp;quot;***可选插件***&amp;quot;中选择GitLab Plugin 和">
+<meta name="twitter:image" content="https://runningyoung.github.io/../images/jenkins/login1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="New World" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://runningyoung.github.io/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+  
+      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="https://runningyoung.github.io/apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = https://runningyoung.github.io;
+      </script>
+  
+
+  
+
+  
+      <script>
+          var _hmt = _hmt || [];
+          (function() {
+              var hm = document.createElement("script");
+              hm.src = "//hm.baidu.com/hm.js?200c79969158a0fa1fe0632060fe4221";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+          })();
+      </script>
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="https://runningyoung.github.io/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">RunningYoung</a></h1>
+        </hgroup>
+
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        
+                        <li>About Me</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="https://runningyoung.github.io/">主页</a></li>
+                        
+                            <li><a href="https://runningyoung.github.io/archives/">所有文章</a></li>
+                        
+                            <li><a href="https://runningyoung.github.io/tags/">标签云</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="/1033773876@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/RunningYoung" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/BDD/" style="font-size: 10px;">BDD</a> <a href="/tags/Block/" style="font-size: 10px;">Block</a> <a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/dependency-injection/" style="font-size: 10px;">dependency injection</a> <a href="/tags/ios-9-新技术/" style="font-size: 10px;">ios 9 新技术</a> <a href="/tags/jenkins/" style="font-size: 20px;">jenkins</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">专注于iOS开发</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">RunningYoung</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="https://runningyoung.github.io/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">RunningYoung</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="/1033773876@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/RunningYoung" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-2016-04-05-jenkins2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/01/2016-04-05-jenkins2/" class="article-date">
+      <time datetime="2016-04-01T03:40:13.000Z" itemprop="datePublished">2016-04-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/">jenkins</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-2"><a href="#iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-2" class="headerlink" title="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)"></a>iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</h1><h2 id="Jenkins-系统设置-前期准备"><a href="#Jenkins-系统设置-前期准备" class="headerlink" title="Jenkins 系统设置 前期准备"></a>Jenkins 系统设置 前期准备</h2><h3 id="Jenkins-插件安装"><a href="#Jenkins-插件安装" class="headerlink" title="Jenkins 插件安装"></a>Jenkins 插件安装</h3><ul>
+<li><p>安装GitLab插件</p>
+<pre><code>因为我们项目用的是GitLab来管理源代码，jenkins本身并没有自带GitLab插件，所以我们需要依次选择 ***系统管理 -&gt; 管理插件*** 在&quot;***可选插件***&quot;中选择GitLab Plugin 和 Gitlab Hook Plugin 这两项，然后安装
+</code></pre></li>
+<li><p>安装Xcode插件<br>同安装GitLab插件步骤一样，我们一次选择  <strong><em>系统管理 -&gt; 管理插件</em></strong> 在”<strong><em>可选插件</em></strong>“中选择Xcode integration这两项，然后安装</p>
+</li>
+<li><p>安装签名证书管理插件<br>   iOS打包内测版时，需要发布证书及相关签名文件，因此这两个插件对于管理iOS证书非常方便。还是在<strong><em>系统管理-&gt;管理插件</em></strong>，在“<strong><em>可选插件</em></strong>”中选中“Credentials Plugin”和“Keychains and Provisioning Profiles Management”安装。</p>
+<ul>
+<li><p>安装FTP插件<br>此插件可用于上传FTP服务器，也可以上传到公司内网的FTP服务器中。”Publish over FTP”</p>
+</li>
+<li><p>安装脚本插件<br>这个插件主要用于build后执行先关脚本.”Publish over FTP”</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="jenkins-系统配置"><a href="#jenkins-系统配置" class="headerlink" title="jenkins 系统配置"></a>jenkins 系统配置</h3><h4 id="jenkins-安全设置：注册，登录"><a href="#jenkins-安全设置：注册，登录" class="headerlink" title="jenkins 安全设置：注册，登录"></a>jenkins 安全设置：注册，登录</h4><p> 进入 <strong><em>系统管理-&gt;Configure Global Security</em></strong> 首次设置如图所示：</p>
+<p> <img src="../images/jenkins/login1.png" alt="首次设置"></p>
+<p> 首次设置完点击保存，然后点击注册-&gt;登录账号，在进入该界面进行账号权限设置，如图</p>
+<p>  <img src="../images/jenkins/login2.png" alt="权限设置"></p>
+<h4 id="jenkins-系统设置"><a href="#jenkins-系统设置" class="headerlink" title="jenkins 系统设置"></a>jenkins 系统设置</h4><p>进入 <strong><em>系统管理-&gt;系统设置</em></strong> 界面：</p>
+<ul>
+<li><p>首先设置一下 jenkins 内部shell 执行编码，目的当在jenkins执行shell命令时，有时候会报 utf-8 编码错误。主要是pod install的时候报错。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[33mWARNING: CocoaPods requires your terminal to be using UTF-8 encoding.</span><br></pre></td></tr></table></figure>
+<p>  设置如下：</p>
+<p>  <img src="../images/jenkins/lang.png" alt="编码设置"></p>
+</li>
+<li><p>jenkins Location 设置<br>主要设置 jenkins 外部访问的URL 和 系统管理员的邮箱地址。用来发送 错误报告的邮箱地址：如图</p>
+<p><img src="../images/jenkins/location.png" alt="url设置"></p>
+</li>
+<li><p>系统错误报告的邮箱设置，上面只设置了邮箱发送的地址（From地址），下面设置，邮箱的服务器，协议，邮箱，密码。如图</p>
+<p>   <img src="../images/jenkins/email.png" alt="email设置"></p>
+</li>
+</ul>
+<h2 id="Jenkins-任务（Jobs）搭建"><a href="#Jenkins-任务（Jobs）搭建" class="headerlink" title="Jenkins 任务（Jobs）搭建"></a>Jenkins 任务（Jobs）搭建</h2><h3 id="新建任务-job"><a href="#新建任务-job" class="headerlink" title="新建任务 job"></a>新建任务 job</h3><p>  在Jenkins中，所有的任务都是以“item”为单位的。接下来我们就新建一个iOS的项目来开始自动化构建。点击“新建”，输入item的名称，选择“构建一个自由风格的软件项目”，然后点击“OK”。如图：</p>
+<p>  <img src="../images/jenkins/createjob1.png" alt="新建Job设置"></p>
+<p> 设置构建信息</p>
+<p> <img src="../images/jenkins/name.png" alt="构建信息设置"></p>
+<h3 id="源码管理"><a href="#源码管理" class="headerlink" title="源码管理"></a>源码管理</h3><p>这里用到的是GitLab，先需要配置SSH，我们可以在Jenkins的证书管理中添加SSH。在Jenkins管理页面，选择“Credentials”，然后选择“Global credentials (unrestricted)”，点击“Add Credentials”，如下图所示，我们填写自己的SSH信息，然后点击“Save”，这样就把SSH添加到Jenkins的全局域中去了。<br>这边需要注意的是如何获取SSH key：这个问题需要参考 gitLab 上配置SSH 的方法。</p>
+<ol>
+<li>查看是否已经有了ssh密钥：cd ~/.ssh，如果没有密钥则不会有此文件夹，有则备份删除</li>
+<li>生成密钥：<code>$ ssh-keygen -t rsa -C “haiyan.xu.vip@gmail.com”</code> 生成过程中必须设置秘钥密码 否则jenkins 设置会不成功。最后得到两个文件：id_rsa和id_rsa.pub</li>
+<li>添加密钥到SSH ：<code>ssh-add 文件名</code> 需要输入管理密码</li>
+<li>在gitlab 上添加 ssh 密钥，这里添加的是 “id_rsa.pub”里面的公钥。</li>
+<li>在jenkins上配置密钥到SSH ，这里添加的是id_rsa里面的私钥。具体设置如图所示：</li>
+</ol>
+<p><img src="../images/jenkins/ssh.png" alt=""></p>
+<p>接下来，我们再回到刚刚新建的任务中，在源码管理中，选择Git，按下图填好相关信息。PS：Credentials不需要选择。如图</p>
+<p><img src="../images/jenkins/git.png" alt=""></p>
+<h3 id="构建触发器设置"><a href="#构建触发器设置" class="headerlink" title="构建触发器设置"></a>构建触发器设置</h3><p>该设置主要是为了实现自动触发 jenkins 构建过程 真正实现自动化设置:<br>这边主要处理的是 <strong><em>gitlab hook</em></strong> 的设置。主要目的是当项目中有人git push 提交过代码之后，就会自动的触发 jenkins 的本Job的构建，实现自动化打包。</p>
+<ol>
+<li>首选需要在gitlab 项目管理官网上设置 添加git hook 的地址：如图：该地址是jenkins 上 提示的地址 下面会提到</li>
+</ol>
+<p><img src="../images/jenkins/gitlabhook.png" alt=""></p>
+<ol>
+<li>jenkins 上对 gitlab hook 进行相关配置 如图所示：</li>
+</ol>
+<p><img src="../images/jenkins/jenkinsgitlabhook.png" alt=""></p>
+<h3 id="构建环境"><a href="#构建环境" class="headerlink" title="构建环境"></a>构建环境</h3><p>在该模块中 主要设置 xcode build 打包时需要的 keychains 和 Provision Profiles 配置文件。<br>如果不配置 就会使用 xcode 自动的配置，来去系统中查找相应的配置，不过有一点需要注意,就是钥匙串中，登陆钥匙串中的证书 要复制到 系统钥匙串中，因为jenkins 访问的是系统中的钥匙串 这样在第一次打包的时候，会提示 是否授权访问钥匙串，点击始终允许就可以了。<br>注意：在电脑上安装好 xcode 配置相关的证书和配置文件，配置文件也要安装到系统目录下。<br>具体操作如下：从该用户目录下的所有描述文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/用户名/Library/MobileDevice/Provisioning Profiles</span><br></pre></td></tr></table></figure>
+<p>复制到系统目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Library/MobileDevice/Provisioning Profiles</span><br></pre></td></tr></table></figure>
+<h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><p>该模块开始设置 iOS打包相关的配置。</p>
+<ol>
+<li><p>点击增加构建步骤-&gt; Execute Shell .首先 在build 之前需要先 pod install ，并且最理想的情况是每次构建的时候 build号都改变。如图所示<br> 需要注意的是，使用全局变量时 必须找到绝对路径才能调用相关的命令：版本号增加<a href="https://www.5288z.com/?p=1651" target="_blank" rel="external">参考链接</a></p>
+<p> <img src="../images/jenkins/pod.png" alt=""></p>
+</li>
+<li><p>点击增加构建步骤 xcode ，具体配置如图：<br>  该配置中需要注意 在OS X 10.10.XX版本 jenkins xcode 插件不支持 生成ipa文件，但 OS X 10.11 支持 这个时候 需要手动进行打包，具体的就是在build 完成之后 添加EXecute Shell ，利用shell脚本打包：代码如下：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcrun -sdk iphones PackageApplication -v [工程目录] -o [ipa输出目录]/xx.ipa</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<pre><code>![](../images/jenkins/xcode.png)
+</code></pre><ol>
+<li><p>Code signing &amp; OS X keychain options 配置：如图</p>
+<p><img src="../images/jenkins/codesigning.png" alt=""></p>
+</li>
+<li><p>Advanced Xcode build options 配置：如图</p>
+<p>  <img src="../images/jenkins/xcodebuild.png" alt=""></p>
+</li>
+</ol>
+<h3 id="构建后操作"><a href="#构建后操作" class="headerlink" title="构建后操作"></a>构建后操作</h3><p> 打包完成之后 需要执行 上传到蒲公英 和 发送邮件 通知开发人员。<br>   具体操作我用python写的脚本来完成此功能：需要的童鞋可以去github上下载：在文章最后！！<br>   具体调用如图：</p>
+<p><img src="../images/jenkins/pgy.png" alt=""></p>
+<p>  最后设置 通知邮件 E-mail Notification 填写接受邮箱即可 每次构建失败都会发生邮件通知！！！</p>
+<p> <a href="https://github.com/RunningYoung/jenkins-pgy-python" target="_blank" rel="external">python 脚本地址</a>!!! 不要吝啬 star！！！不胜感激！！！ </p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">RunningYoung</a></p>
+        <p><span>Created:</span>2016-04-01, 11:40:13</p>
+        <p><span>Updated:</span>2016-04-05, 17:54:53</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/2016/04/01/2016-04-05-jenkins2/" title="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)">https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/</a>
+            <span class="copy-path" data-clipboard-text="From https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/　　By RunningYoung" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/04/06/hello-world/">
+                    Hello World
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/04/01/2016-04-01-jenkins1/">
+                    iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-2"><span class="toc-number">1.</span> <span class="toc-text">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Jenkins-系统设置-前期准备"><span class="toc-number">1.1.</span> <span class="toc-text">Jenkins 系统设置 前期准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Jenkins-插件安装"><span class="toc-number">1.1.1.</span> <span class="toc-text">Jenkins 插件安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jenkins-系统配置"><span class="toc-number">1.1.2.</span> <span class="toc-text">jenkins 系统配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#jenkins-安全设置：注册，登录"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">jenkins 安全设置：注册，登录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jenkins-系统设置"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">jenkins 系统设置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jenkins-任务（Jobs）搭建"><span class="toc-number">1.2.</span> <span class="toc-text">Jenkins 任务（Jobs）搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#新建任务-job"><span class="toc-number">1.2.1.</span> <span class="toc-text">新建任务 job</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码管理"><span class="toc-number">1.2.2.</span> <span class="toc-text">源码管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建触发器设置"><span class="toc-number">1.2.3.</span> <span class="toc-text">构建触发器设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建环境"><span class="toc-number">1.2.4.</span> <span class="toc-text">构建环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建"><span class="toc-number">1.2.5.</span> <span class="toc-text">构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建后操作"><span class="toc-number">1.2.6.</span> <span class="toc-text">构建后操作</span></a></li></ol></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+<script>
+    var valueHide = "Hide";
+    var valueShow = "Show";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+
+    
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'runningyoung'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/04/06/hello-world/" title="Pre: Hello World">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/04/01/2016-04-01-jenkins1/" title="Next: iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 RunningYoung
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/RunningYoung/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by runningyoung
+            </div>
+        </div>
+
+        
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+        </script>
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >Site Visitors: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">Page Hits: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(https://runningyoung.github.io/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-64735170-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
