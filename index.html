@@ -155,7 +155,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/BDD/" style="font-size: 10px;">BDD</a> <a href="/tags/Block/" style="font-size: 10px;">Block</a> <a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/dependency-injection/" style="font-size: 10px;">dependency injection</a> <a href="/tags/ios-9-新技术/" style="font-size: 10px;">ios 9 新技术</a> <a href="/tags/jenkins/" style="font-size: 20px;">jenkins</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a>
+                        <a href="/tags/BDD/" style="font-size: 10px;">BDD</a> <a href="/tags/Block/" style="font-size: 10px;">Block</a> <a href="/tags/Phabricator/" style="font-size: 20px;">Phabricator</a> <a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/dependency-injection/" style="font-size: 10px;">dependency injection</a> <a href="/tags/ios-9-新技术/" style="font-size: 10px;">ios 9 新技术</a> <a href="/tags/jenkins/" style="font-size: 20px;">jenkins</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a>
                     </div>
                 </section>
                 
@@ -214,6 +214,145 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-2016-04-12-Phabricator2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/11/2016-04-12-Phabricator2/" class="article-date">
+      <time datetime="2016-04-11T08:04:53.000Z" itemprop="datePublished">2016-04-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/11/2016-04-12-Phabricator2/">MAC下Code Review工具Phabricator + Arcanist搭建（part 2）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="MAC下Code-Review工具Phabricator-Arcanist搭建（part-2）"><a href="#MAC下Code-Review工具Phabricator-Arcanist搭建（part-2）" class="headerlink" title="MAC下Code Review工具Phabricator + Arcanist搭建（part 2）"></a>MAC下Code Review工具Phabricator + Arcanist搭建（part 2）</h2><blockquote>
+<p>上一篇（MAC下Code Review工具Phabricator + Arcanist搭建（part 1））中我们安装了Phabricator 搭建所需的环境。</p>
+<p>首先在安装Phabricator 之前启动相应的环境.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; nginx.start</span><br><span class="line">&gt; php-fpm.start</span><br><span class="line">&gt; mysql.start</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phabricator/">Phabricator</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2016/04/11/2016-04-12-Phabricator2/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-2016-04-11-Phabricator1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/11/2016-04-11-Phabricator1/" class="article-date">
+      <time datetime="2016-04-11T07:16:37.000Z" itemprop="datePublished">2016-04-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/11/2016-04-11-Phabricator1/">MAC下Code Review工具Phabricator + Arcanist搭建（part 1）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="MAC下Code-Review工具Phabricator-Arcanist搭建（part-1）"><a href="#MAC下Code-Review工具Phabricator-Arcanist搭建（part-1）" class="headerlink" title="MAC下Code Review工具Phabricator + Arcanist搭建（part 1）"></a>MAC下Code Review工具Phabricator + Arcanist搭建（part 1）</h2><blockquote>
+<p>环境:OS X Yosemite 10.10.5</p>
+<p>前提：phabricator主要是由php写的，而且是以website方式运行的，所以mac上要先安装好 php + nginx(或apache) + mysql(很多配置会保存在数据库里)。</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phabricator/">Phabricator</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2016/04/11/2016-04-11-Phabricator1/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -300,7 +439,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-2"><a href="#iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-2" class="headerlink" title="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)"></a>iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</h1>
+              <h1 id="iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-2"><a href="#iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-2" class="headerlink" title="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)"></a>iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</h1><h2 id="Jenkins-系统设置-前期准备"><a href="#Jenkins-系统设置-前期准备" class="headerlink" title="Jenkins 系统设置 前期准备"></a>Jenkins 系统设置 前期准备</h2>
           
       
     </div>
@@ -366,7 +505,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-1"><a href="#iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-1" class="headerlink" title="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)"></a>iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</h1>
+              <h1 id="iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-1"><a href="#iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-1" class="headerlink" title="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)"></a>iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</h1><h2 id="jenkins环境搭建"><a href="#jenkins环境搭建" class="headerlink" title="jenkins环境搭建"></a>jenkins环境搭建</h2>
           
       
     </div>
@@ -432,7 +571,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="Block源码解析和深入理解"><a href="#Block源码解析和深入理解" class="headerlink" title="Block源码解析和深入理解"></a>Block源码解析和深入理解</h3>
+              <h3 id="Block源码解析和深入理解"><a href="#Block源码解析和深入理解" class="headerlink" title="Block源码解析和深入理解"></a>Block源码解析和深入理解</h3><h4 id="Block的本质"><a href="#Block的本质" class="headerlink" title="Block的本质"></a>Block的本质</h4><p>Block是”带有自动变量值的匿名函数”.</p>
           
       
     </div>
@@ -498,7 +637,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="读书笔记（一）"><a href="#读书笔记（一）" class="headerlink" title="读书笔记（一）"></a>读书笔记（一）</h3>
+              <h3 id="读书笔记（一）"><a href="#读书笔记（一）" class="headerlink" title="读书笔记（一）"></a>读书笔记（一）</h3><h4 id="一、instancetype-和-id-作为初始化实例-返回值的不同"><a href="#一、instancetype-和-id-作为初始化实例-返回值的不同" class="headerlink" title="一、instancetype 和 id 作为初始化实例 返回值的不同"></a>一、instancetype 和 id 作为初始化实例 返回值的不同</h4>
           
       
     </div>
@@ -585,138 +724,6 @@
       
         <p class="article-more-link">
           <a href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2015-06-30-iOS-9-AppThinning" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/06/30/2015-06-30-iOS-9-AppThinning/" class="article-date">
-      <time datetime="2015-06-30T07:34:20.000Z" itemprop="datePublished">2015-06-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              ios 9 新技术
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios-9-新技术/">ios 9 新技术</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2015/06/30/2015-06-30-iOS-9-AppThinning/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2015-07-20-ReactiveCocoa" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/06/30/2015-07-20-ReactiveCocoa/" class="article-date">
-      <time datetime="2015-06-30T07:34:20.000Z" itemprop="datePublished">2015-06-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              ReactiveCocoa 学习之路
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ReactiveCocoa/">ReactiveCocoa</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2015/06/30/2015-07-20-ReactiveCocoa/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -867,6 +874,10 @@
 
 
   
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       

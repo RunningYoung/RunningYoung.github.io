@@ -5,16 +5,16 @@
   
   <title>iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1) | New World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)">
+  <meta name="description" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)jenkins环境搭建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)">
 <meta property="og:url" content="https://runningyoung.github.io/2016/04/01/2016-04-01-jenkins1/index.html">
 <meta property="og:site_name" content="New World">
-<meta property="og:description" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)">
-<meta property="og:updated_time" content="2016-04-12T02:54:12.000Z">
+<meta property="og:description" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)jenkins环境搭建">
+<meta property="og:updated_time" content="2016-04-12T03:53:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)">
-<meta name="twitter:description" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)">
+<meta name="twitter:description" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)jenkins环境搭建">
   
     <link rel="alternative" href="/atom.xml" title="New World" type="application/atom+xml">
   
@@ -151,7 +151,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/BDD/" style="font-size: 10px;">BDD</a> <a href="/tags/Block/" style="font-size: 10px;">Block</a> <a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/dependency-injection/" style="font-size: 10px;">dependency injection</a> <a href="/tags/ios-9-新技术/" style="font-size: 10px;">ios 9 新技术</a> <a href="/tags/jenkins/" style="font-size: 20px;">jenkins</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a>
+                        <a href="/tags/BDD/" style="font-size: 10px;">BDD</a> <a href="/tags/Block/" style="font-size: 10px;">Block</a> <a href="/tags/Phabricator/" style="font-size: 20px;">Phabricator</a> <a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/dependency-injection/" style="font-size: 10px;">dependency injection</a> <a href="/tags/ios-9-新技术/" style="font-size: 10px;">ios 9 新技术</a> <a href="/tags/jenkins/" style="font-size: 20px;">jenkins</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a>
                     </div>
                 </section>
                 
@@ -251,8 +251,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-1"><a href="#iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-1" class="headerlink" title="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)"></a>iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</h1><a id="more"></a>
-<h2 id="jenkins环境搭建"><a href="#jenkins环境搭建" class="headerlink" title="jenkins环境搭建"></a>jenkins环境搭建</h2><p>在Mac环境下，我们需要先安装JDK，然后在jenkins的<a href="https://jenkins.io/index.html" target="_blank" rel="external">官网</a>下载最新Mac OS X版本的dmg包。安装完dmg包之后 默然自动开启jenkins服务,默认端口8080.<br>这样就可以直接在浏览器中输入以下地址就可以打开jenkins了：</p>
+        <h1 id="iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-1"><a href="#iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-1" class="headerlink" title="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)"></a>iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</h1><h2 id="jenkins环境搭建"><a href="#jenkins环境搭建" class="headerlink" title="jenkins环境搭建"></a>jenkins环境搭建</h2><a id="more"></a>
+<p>在Mac环境下，我们需要先安装JDK，然后在jenkins的<a href="https://jenkins.io/index.html" target="_blank" rel="external">官网</a>下载最新Mac OS X版本的dmg包。安装完dmg包之后 默然自动开启jenkins服务,默认端口8080.<br>这样就可以直接在浏览器中输入以下地址就可以打开jenkins了：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080</span><br></pre></td></tr></table></figure>
 <h3 id="jenkins-相关启动命令"><a href="#jenkins-相关启动命令" class="headerlink" title="jenkins 相关启动命令"></a>jenkins 相关启动命令</h3><ol>
 <li><p>默认情况下安装完dmg包，mac系统会自动生成全局变量：jenkins(变量地址：/usr/local/Cellar/jenkins/1.618/libexec/jenkins.war)，只要在命令行中直接输入jenkins + 相关参数 即可运行相关命令。如：</p>
@@ -286,7 +286,7 @@
         <p><span>本文标题:</span><a href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">RunningYoung</a></p>
         <p><span>发布时间:</span>2016-04-01, 09:25:16</p>
-        <p><span>最后更新:</span>2016-04-12, 10:54:12</p>
+        <p><span>最后更新:</span>2016-04-12, 11:53:13</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/01/2016-04-01-jenkins1/" title="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)">https://runningyoung.github.io/2016/04/01/2016-04-01-jenkins1/</a>
             <span class="copy-path" data-clipboard-text="原文: https://runningyoung.github.io/2016/04/01/2016-04-01-jenkins1/　　作者: RunningYoung" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -404,7 +404,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-12-Phabricator2/">MAC下Code Review工具Phabricator + Arcanist搭建（part 2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-11-Phabricator1/">MAC下Code Review工具Phabricator + Arcanist搭建（part 1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li></ul>
 
 
 
