@@ -5,29 +5,20 @@
   
   <title>Block源码解析和深入理解 | New World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Block源码解析和深入理解Block的本质Block是”带有自动变量值的匿名函数”.我们通过Clang（LLVM编译器）来将OC的代码转换成C++源码的形式，通过如下命令：
-clang -rewrite-objc 源代码文件名
-下面，我们要转换的Block语法
-1234567int main(int argc, const char * argv[]) &amp;#123;    void (^blk)">
+  <meta name="description" content="Block源码解析和深入理解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Block源码解析和深入理解">
 <meta property="og:url" content="https://runningyoung.github.io/2016/03/07/2016-03-14-Block/index.html">
 <meta property="og:site_name" content="New World">
-<meta property="og:description" content="Block源码解析和深入理解Block的本质Block是”带有自动变量值的匿名函数”.我们通过Clang（LLVM编译器）来将OC的代码转换成C++源码的形式，通过如下命令：
-clang -rewrite-objc 源代码文件名
-下面，我们要转换的Block语法
-1234567int main(int argc, const char * argv[]) &amp;#123;    void (^blk)">
+<meta property="og:description" content="Block源码解析和深入理解">
 <meta property="og:image" content="https://runningyoung.github.io/../images/笔记二/__forwarding.png">
 <meta property="og:image" content="https://runningyoung.github.io/../images/笔记二/block类型.png">
 <meta property="og:image" content="https://runningyoung.github.io/../images/笔记二/复制到堆上.png">
 <meta property="og:image" content="https://runningyoung.github.io/../images/笔记二/__block废弃.png">
-<meta property="og:updated_time" content="2016-03-14T09:24:10.000Z">
+<meta property="og:updated_time" content="2016-04-12T02:54:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Block源码解析和深入理解">
-<meta name="twitter:description" content="Block源码解析和深入理解Block的本质Block是”带有自动变量值的匿名函数”.我们通过Clang（LLVM编译器）来将OC的代码转换成C++源码的形式，通过如下命令：
-clang -rewrite-objc 源代码文件名
-下面，我们要转换的Block语法
-1234567int main(int argc, const char * argv[]) &amp;#123;    void (^blk)">
+<meta name="twitter:description" content="Block源码解析和深入理解">
 <meta name="twitter:image" content="https://runningyoung.github.io/../images/笔记二/__forwarding.png">
   
     <link rel="alternative" href="/atom.xml" title="New World" type="application/atom+xml">
@@ -265,7 +256,8 @@ clang -rewrite-objc 源代码文件名
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="Block源码解析和深入理解"><a href="#Block源码解析和深入理解" class="headerlink" title="Block源码解析和深入理解"></a>Block源码解析和深入理解</h3><h4 id="Block的本质"><a href="#Block的本质" class="headerlink" title="Block的本质"></a>Block的本质</h4><p>Block是”带有自动变量值的匿名函数”.<br>我们通过Clang（LLVM编译器）来将OC的代码转换成C++源码的形式，通过如下命令：</p>
+        <h3 id="Block源码解析和深入理解"><a href="#Block源码解析和深入理解" class="headerlink" title="Block源码解析和深入理解"></a>Block源码解析和深入理解</h3><a id="more"></a>
+<h4 id="Block的本质"><a href="#Block的本质" class="headerlink" title="Block的本质"></a>Block的本质</h4><p>Block是”带有自动变量值的匿名函数”.<br>我们通过Clang（LLVM编译器）来将OC的代码转换成C++源码的形式，通过如下命令：</p>
 <pre><code>clang -rewrite-objc 源代码文件名
 </code></pre><p>下面，我们要转换的Block语法</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    <span class="keyword">void</span> (^blk)(<span class="keyword">void</span>) = ^&#123;</span><br><span class="line">        printf(<span class="string">"Block\n"</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    blk();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -408,7 +400,7 @@ return 0;
         <p><span>本文标题:</span><a href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">RunningYoung</a></p>
         <p><span>发布时间:</span>2016-03-07, 11:37:21</p>
-        <p><span>最后更新:</span>2016-03-14, 17:24:10</p>
+        <p><span>最后更新:</span>2016-04-12, 10:54:04</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/07/2016-03-14-Block/" title="Block源码解析和深入理解">https://runningyoung.github.io/2016/03/07/2016-03-14-Block/</a>
             <span class="copy-path" data-clipboard-text="原文: https://runningyoung.github.io/2016/03/07/2016-03-14-Block/　　作者: RunningYoung" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -526,7 +518,7 @@ return 0;
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li></ul>
 
 
 
