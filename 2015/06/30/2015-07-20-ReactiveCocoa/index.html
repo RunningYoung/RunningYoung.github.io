@@ -114,11 +114,11 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -255,46 +255,46 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="ReactiveCocoa-学习之路之史上最全攻略"><a href="#ReactiveCocoa-学习之路之史上最全攻略" class="headerlink" title="ReactiveCocoa 学习之路之史上最全攻略"></a>ReactiveCocoa 学习之路之史上最全攻略</h2><p>　    本文介绍的是史上最牛叉的ios开发新框架之一，<strong>最大的特点就是：直观和灵活。直观的代码容易编写、阅读和维护，灵活的特性便于应对变态的需求，当然最重要的还是高效。</strong>各路大神(阳神，喵神，唐神等等)都不吝啬对它的赞美之词，而且该框架已被美团等广泛使用，好用的不要不要的..。<strong>本文主要介绍本人在学习ReactiveCocoa的时候的学习过程以及对一些学习资料的总结，欢迎大家批评发炎。</strong>闲话不多吹下面进入正题。</p>
+        <h2 id="ReactiveCocoa-&#x5B66;&#x4E60;&#x4E4B;&#x8DEF;&#x4E4B;&#x53F2;&#x4E0A;&#x6700;&#x5168;&#x653B;&#x7565;"><a href="#ReactiveCocoa-&#x5B66;&#x4E60;&#x4E4B;&#x8DEF;&#x4E4B;&#x53F2;&#x4E0A;&#x6700;&#x5168;&#x653B;&#x7565;" class="headerlink" title="ReactiveCocoa &#x5B66;&#x4E60;&#x4E4B;&#x8DEF;&#x4E4B;&#x53F2;&#x4E0A;&#x6700;&#x5168;&#x653B;&#x7565;"></a>ReactiveCocoa &#x5B66;&#x4E60;&#x4E4B;&#x8DEF;&#x4E4B;&#x53F2;&#x4E0A;&#x6700;&#x5168;&#x653B;&#x7565;</h2><p>&#x3000;    &#x672C;&#x6587;&#x4ECB;&#x7ECD;&#x7684;&#x662F;&#x53F2;&#x4E0A;&#x6700;&#x725B;&#x53C9;&#x7684;ios&#x5F00;&#x53D1;&#x65B0;&#x6846;&#x67B6;&#x4E4B;&#x4E00;&#xFF0C;<strong>&#x6700;&#x5927;&#x7684;&#x7279;&#x70B9;&#x5C31;&#x662F;&#xFF1A;&#x76F4;&#x89C2;&#x548C;&#x7075;&#x6D3B;&#x3002;&#x76F4;&#x89C2;&#x7684;&#x4EE3;&#x7801;&#x5BB9;&#x6613;&#x7F16;&#x5199;&#x3001;&#x9605;&#x8BFB;&#x548C;&#x7EF4;&#x62A4;&#xFF0C;&#x7075;&#x6D3B;&#x7684;&#x7279;&#x6027;&#x4FBF;&#x4E8E;&#x5E94;&#x5BF9;&#x53D8;&#x6001;&#x7684;&#x9700;&#x6C42;&#xFF0C;&#x5F53;&#x7136;&#x6700;&#x91CD;&#x8981;&#x7684;&#x8FD8;&#x662F;&#x9AD8;&#x6548;&#x3002;</strong>&#x5404;&#x8DEF;&#x5927;&#x795E;(&#x9633;&#x795E;&#xFF0C;&#x55B5;&#x795E;&#xFF0C;&#x5510;&#x795E;&#x7B49;&#x7B49;)&#x90FD;&#x4E0D;&#x541D;&#x556C;&#x5BF9;&#x5B83;&#x7684;&#x8D5E;&#x7F8E;&#x4E4B;&#x8BCD;&#xFF0C;&#x800C;&#x4E14;&#x8BE5;&#x6846;&#x67B6;&#x5DF2;&#x88AB;&#x7F8E;&#x56E2;&#x7B49;&#x5E7F;&#x6CDB;&#x4F7F;&#x7528;&#xFF0C;&#x597D;&#x7528;&#x7684;&#x4E0D;&#x8981;&#x4E0D;&#x8981;&#x7684;..&#x3002;<strong>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;&#x672C;&#x4EBA;&#x5728;&#x5B66;&#x4E60;ReactiveCocoa&#x7684;&#x65F6;&#x5019;&#x7684;&#x5B66;&#x4E60;&#x8FC7;&#x7A0B;&#x4EE5;&#x53CA;&#x5BF9;&#x4E00;&#x4E9B;&#x5B66;&#x4E60;&#x8D44;&#x6599;&#x7684;&#x603B;&#x7ED3;&#xFF0C;&#x6B22;&#x8FCE;&#x5927;&#x5BB6;&#x6279;&#x8BC4;&#x53D1;&#x708E;&#x3002;</strong>&#x95F2;&#x8BDD;&#x4E0D;&#x591A;&#x5439;&#x4E0B;&#x9762;&#x8FDB;&#x5165;&#x6B63;&#x9898;&#x3002;</p>
 <a id="more"></a>
-<h3 id="什么是ReactiveCocoa？"><a href="#什么是ReactiveCocoa？" class="headerlink" title="什么是ReactiveCocoa？　"></a>什么是ReactiveCocoa？　</h3><p>　    ReactiveCocoa（其简称为RAC）是由<a href="https://github.com/ReactiveCocoa/ReactiveCocoa" target="_blank" rel="external">Github</a> 开源的一个应用于iOS和OS X开发的新框架。RAC具有函数式编程和响应式编程的特性。</p>
-<p>　    是在iOS平台上对FRP的实现。FRP的核心是信号，信号在ReactiveCocoa(以下简称RAC)中是通过RACSignal来表示的，信号是数据流，可以被绑定和传递。它主要吸取了.Net的 <a href="https://msdn.microsoft.com/en-us/data/gg577609" target="_blank" rel="external">Reactive Extensions</a>的设计和实现。</p>
-<p>　    <a href="http://limboy.me/ios/2013/06/19/frp-reactivecocoa.html" target="_blank" rel="external">大神leezhong在博客中提到的比喻</a>，可以更好地帮我们理解ReactiveCocoa.</p>
+<h3 id="&#x4EC0;&#x4E48;&#x662F;ReactiveCocoa&#xFF1F;"><a href="#&#x4EC0;&#x4E48;&#x662F;ReactiveCocoa&#xFF1F;" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F;ReactiveCocoa&#xFF1F;&#x3000;"></a>&#x4EC0;&#x4E48;&#x662F;ReactiveCocoa&#xFF1F;&#x3000;</h3><p>&#x3000;    ReactiveCocoa&#xFF08;&#x5176;&#x7B80;&#x79F0;&#x4E3A;RAC&#xFF09;&#x662F;&#x7531;<a href="https://github.com/ReactiveCocoa/ReactiveCocoa" target="_blank" rel="external">Github</a> &#x5F00;&#x6E90;&#x7684;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x4E8E;iOS&#x548C;OS X&#x5F00;&#x53D1;&#x7684;&#x65B0;&#x6846;&#x67B6;&#x3002;RAC&#x5177;&#x6709;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x548C;&#x54CD;&#x5E94;&#x5F0F;&#x7F16;&#x7A0B;&#x7684;&#x7279;&#x6027;&#x3002;</p>
+<p>&#x3000;    &#x662F;&#x5728;iOS&#x5E73;&#x53F0;&#x4E0A;&#x5BF9;FRP&#x7684;&#x5B9E;&#x73B0;&#x3002;FRP&#x7684;&#x6838;&#x5FC3;&#x662F;&#x4FE1;&#x53F7;&#xFF0C;&#x4FE1;&#x53F7;&#x5728;ReactiveCocoa(&#x4EE5;&#x4E0B;&#x7B80;&#x79F0;RAC)&#x4E2D;&#x662F;&#x901A;&#x8FC7;RACSignal&#x6765;&#x8868;&#x793A;&#x7684;&#xFF0C;&#x4FE1;&#x53F7;&#x662F;&#x6570;&#x636E;&#x6D41;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;&#x7ED1;&#x5B9A;&#x548C;&#x4F20;&#x9012;&#x3002;&#x5B83;&#x4E3B;&#x8981;&#x5438;&#x53D6;&#x4E86;.Net&#x7684; <a href="https://msdn.microsoft.com/en-us/data/gg577609" target="_blank" rel="external">Reactive Extensions</a>&#x7684;&#x8BBE;&#x8BA1;&#x548C;&#x5B9E;&#x73B0;&#x3002;</p>
+<p>&#x3000;    <a href="http://limboy.me/ios/2013/06/19/frp-reactivecocoa.html" target="_blank" rel="external">&#x5927;&#x795E;leezhong&#x5728;&#x535A;&#x5BA2;&#x4E2D;&#x63D0;&#x5230;&#x7684;&#x6BD4;&#x55BB;</a>&#xFF0C;&#x53EF;&#x4EE5;&#x66F4;&#x597D;&#x5730;&#x5E2E;&#x6211;&#x4EEC;&#x7406;&#x89E3;ReactiveCocoa.</p>
 <blockquote>
-<p>　    可以把信号想象成水龙头，只不过里面不是水，而是玻璃球(value)，直径跟水管的内径一样，这样就能保证玻璃球是依次排列，不会出现并排的情况(数据都是线性处理的，不会出现并发情况)。水龙头的开关默认是关的，除非有了接收方(subscriber)，才会打开。这样只要有新的玻璃球进来，就会自动传送给接收方。可以在水龙头上加一个过滤嘴(filter)，不符合的不让通过，也可以加一个改动装置，把球改变成符合自己的需求(map)。也可以把多个水龙头合并成一个新的水龙头(combineLatest:reduce:)，这样只要其中的一个水龙头有玻璃球出来，这个新合并的水龙头就会得到这个球。　</p>
+<p>&#x3000;    &#x53EF;&#x4EE5;&#x628A;&#x4FE1;&#x53F7;&#x60F3;&#x8C61;&#x6210;&#x6C34;&#x9F99;&#x5934;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x91CC;&#x9762;&#x4E0D;&#x662F;&#x6C34;&#xFF0C;&#x800C;&#x662F;&#x73BB;&#x7483;&#x7403;(value)&#xFF0C;&#x76F4;&#x5F84;&#x8DDF;&#x6C34;&#x7BA1;&#x7684;&#x5185;&#x5F84;&#x4E00;&#x6837;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x4FDD;&#x8BC1;&#x73BB;&#x7483;&#x7403;&#x662F;&#x4F9D;&#x6B21;&#x6392;&#x5217;&#xFF0C;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x5E76;&#x6392;&#x7684;&#x60C5;&#x51B5;(&#x6570;&#x636E;&#x90FD;&#x662F;&#x7EBF;&#x6027;&#x5904;&#x7406;&#x7684;&#xFF0C;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x5E76;&#x53D1;&#x60C5;&#x51B5;)&#x3002;&#x6C34;&#x9F99;&#x5934;&#x7684;&#x5F00;&#x5173;&#x9ED8;&#x8BA4;&#x662F;&#x5173;&#x7684;&#xFF0C;&#x9664;&#x975E;&#x6709;&#x4E86;&#x63A5;&#x6536;&#x65B9;(subscriber)&#xFF0C;&#x624D;&#x4F1A;&#x6253;&#x5F00;&#x3002;&#x8FD9;&#x6837;&#x53EA;&#x8981;&#x6709;&#x65B0;&#x7684;&#x73BB;&#x7483;&#x7403;&#x8FDB;&#x6765;&#xFF0C;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x4F20;&#x9001;&#x7ED9;&#x63A5;&#x6536;&#x65B9;&#x3002;&#x53EF;&#x4EE5;&#x5728;&#x6C34;&#x9F99;&#x5934;&#x4E0A;&#x52A0;&#x4E00;&#x4E2A;&#x8FC7;&#x6EE4;&#x5634;(filter)&#xFF0C;&#x4E0D;&#x7B26;&#x5408;&#x7684;&#x4E0D;&#x8BA9;&#x901A;&#x8FC7;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x52A0;&#x4E00;&#x4E2A;&#x6539;&#x52A8;&#x88C5;&#x7F6E;&#xFF0C;&#x628A;&#x7403;&#x6539;&#x53D8;&#x6210;&#x7B26;&#x5408;&#x81EA;&#x5DF1;&#x7684;&#x9700;&#x6C42;(map)&#x3002;&#x4E5F;&#x53EF;&#x4EE5;&#x628A;&#x591A;&#x4E2A;&#x6C34;&#x9F99;&#x5934;&#x5408;&#x5E76;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6C34;&#x9F99;&#x5934;(combineLatest:reduce:)&#xFF0C;&#x8FD9;&#x6837;&#x53EA;&#x8981;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x6C34;&#x9F99;&#x5934;&#x6709;&#x73BB;&#x7483;&#x7403;&#x51FA;&#x6765;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B0;&#x5408;&#x5E76;&#x7684;&#x6C34;&#x9F99;&#x5934;&#x5C31;&#x4F1A;&#x5F97;&#x5230;&#x8FD9;&#x4E2A;&#x7403;&#x3002;&#x3000;</p>
 </blockquote>
-<h3 id="为什么要用ReactiveCocoa"><a href="#为什么要用ReactiveCocoa" class="headerlink" title="为什么要用ReactiveCocoa"></a>为什么要用ReactiveCocoa</h3><p>　    Native app有很大一部分的时间是在等待事件发生，然后响应事件，比如等待网络请求完成，等待用户的操作，等待某些状态值的改变等等，等这些事件发生后，再做进一步处理。 但是这些等待和响应，并没有一个统一的处理方式。Delegate, Notification, Block, KVO, 常常会不知道该用哪个最合适。有时需要chain或者compose某几个事件，就需要多个状态变量，而状态变量一多，复杂度也就上来了。为了解决这些问题，Github的工程师们开发了ReactiveCocoa。</p>
-<p>　    <strong>其实用简单的一句话来说就是： RAC统一了对KVO、UI Event、Network request、Async work的处理，因为它们本质上都是值的变化(Values over time)。</strong>  </p>
-<h3 id="ReactiveCocoa试图解决什么问题呢"><a href="#ReactiveCocoa试图解决什么问题呢" class="headerlink" title="ReactiveCocoa试图解决什么问题呢"></a>ReactiveCocoa试图解决什么问题呢</h3><p>　    <a href="http://www.devtang.com/blog/2014/02/11/reactivecocoa-introduction/" target="_blank" rel="external">大神唐巧在他博客中这样写道</a>主要解决三个问题：</p>
-<p>　    1.传统iOS开发过程中，状态以及状态之间依赖过多的问题。</p>
-<p>　    2.传统MVC架构的问题：Controller比较复杂，可测试性差</p>
-<p>　    3.提供统一的消息传递机制    </p>
-<p>　    详情请查看<a href="http://www.devtang.com/blog/2014/02/11/reactivecocoa-introduction/" target="_blank" rel="external">大神博文</a>在此就不再赘述</p>
-<h3 id="那么问题来了？如何学习ReactiveCocoa呢"><a href="#那么问题来了？如何学习ReactiveCocoa呢" class="headerlink" title="那么问题来了？如何学习ReactiveCocoa呢"></a>那么问题来了？如何学习ReactiveCocoa呢</h3><p>　    　    网上教程很多，本人只是做了一下总结，又初级到高级所需要看的一些文章。</p>
-<h4 id="初级-教程"><a href="#初级-教程" class="headerlink" title="初级 教程"></a>初级 教程</h4><p>   　    　    对一个新手来说需要掌握最基本的API的使用。必看的一篇文章是<a href="http://www.raywenderlich.com/62699/reactivecocoa-tutorial-pt1" target="_blank" rel="external">RayWenderlich</a> 网站提供的系列教程，其详细程度非常牛逼。当然国内大神们早就对该教程进行翻译了 小伙伴们轻松了！！</p>
-<p>   　    　    第一部分地址：<a href="http://benbeng.leanote.com/post/ReactiveCocoaTutorial-part1" target="_blank" rel="external">ReactiveCocoa入门教程——第一部分</a></p>
-<p>   　    　    第一部分地址：<a href="http://benbeng.leanote.com/post/ReactiveCocoaTutorial-part2" target="_blank" rel="external">ReactiveCocoa入门教程——第一部分</a></p>
-<h4 id="进阶教程"><a href="#进阶教程" class="headerlink" title="进阶教程"></a>进阶教程</h4><p>　    进阶教程主要是进一步分析框架的结构以及实现原理。</p>
-<p>　    参考资料：</p>
-<p>　    1.<a href="http://www.cocoachina.com/ios/20150702/12302.html" target="_blank" rel="external">ReactiveCocoa github上的readme的中文翻译</a></p>
-<p>　    2.<a href="http://blog.csdn.net/xdrt81y/article/details/30624469" target="_blank" rel="external">介绍ReactiveCocoa框架的每个组件的文章,对熟悉ReactiveCocoa API非常有帮助</a>　</p>
-<p>　    3.<a href="http://tech.meituan.com/RACSignalSubscription.html" target="_blank" rel="external">美团网官方博客之RACSignal的Subscription深入分析</a></p>
-<p>　    4.<a href="http://www.cocoachina.com/industry/20140621/8905.html" target="_blank" rel="external">cocoaChina文章-Reactive Cocoa详解</a>    </p>
-<p>　    5.<a href="http://www.cocoachina.com/industry/20140609/8737.html" target="_blank" rel="external">cocoaChina文章-ReactiveCocoa2实战</a></p>
-<p>　    6.<a href="http://www.cocoachina.com/industry/20140115/7702.html" target="_blank" rel="external">cocoaChina文章-说说ReactiveCocoa 2</a></p>
-<p>　    7.<a href="http://nshipster.com/reactivecocoa/" target="_blank" rel="external">NSHipster上的文章-Reactive​Cocoa</a></p>
-<p>　    8.<a href="https://www.bignerdranch.com/blog/data-driven-ios-development-reactivecocoa/" target="_blank" rel="external">国外牛人的一篇文章-Data-Driven iOS Development with ReactiveCocoa</a></p>
-<p>　    9.<a href="http://www.teehanlax.com/blog/getting-started-with-reactivecocoa/" target="_blank" rel="external">国外牛人的一篇文章-Getting Started with ReactiveCocoa </a></p>
-<p>　    10.<a href="http://nshipster.cn/reactivecocoa/" target="_blank" rel="external">NSHipster上一篇关于Recative cocoa的介绍-Reactive​Cocoa</a></p>
-<p>　    11.<a href="http://www.cocoachina.com/ios/20150526/11930.html" target="_blank" rel="external">cocoaChina文章-【长篇高能】ReactiveCocoa 和 MVVM 入门</a></p>
-<p>　    12.<a href="http://supermao.cn/zhe-yang-hao-yong-de-reactivecocoagen-ben-ting-bu-xia-lai/" target="_blank" rel="external">ReactiveCocoa常用语法-这样好用的ReactiveCocoa，根本停不下来</a></p>
-<h4 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h4><p>　    <a href="https://leanpub.com/iosfrp" target="_blank" rel="external">当然如果你比较豪，想买点书看看可以选择这个–《Functional Reactive Programming on iOS》</a></p>
-<h4 id="源码"><a href="#源码" class="headerlink" title="源码　"></a>源码　</h4><p>　    1.<a href="https://github.com/Machx/MVVM-IOS-Example" target="_blank" rel="external">使用ReactiveCocoa框架编写的app源码之《MVVM-IOS-Example》</a></p>
-<p>　    2.<a href="https://github.com/jspahrsummers/GroceryList" target="_blank" rel="external">使用ReactiveCocoa框架编写的app源码之《GroceryList》</a></p>
-<p>　    3.<a href="https://github.com/AshFurrow/C-41" target="_blank" rel="external">使用ReactiveCocoa框架编写的app源码之《C-41》</a></p>
-<h4 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h4><p>　    <a href="https://vimeo.com/65637501" target="_blank" rel="external">ReactiveCocoa at MobiDevDay 2013视频</a>　    
-　
-　</p>
+<h3 id="&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;ReactiveCocoa"><a href="#&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;ReactiveCocoa" class="headerlink" title="&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;ReactiveCocoa"></a>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;ReactiveCocoa</h3><p>&#x3000;    Native app&#x6709;&#x5F88;&#x5927;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x65F6;&#x95F4;&#x662F;&#x5728;&#x7B49;&#x5F85;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#xFF0C;&#x7136;&#x540E;&#x54CD;&#x5E94;&#x4E8B;&#x4EF6;&#xFF0C;&#x6BD4;&#x5982;&#x7B49;&#x5F85;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x5B8C;&#x6210;&#xFF0C;&#x7B49;&#x5F85;&#x7528;&#x6237;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x7B49;&#x5F85;&#x67D0;&#x4E9B;&#x72B6;&#x6001;&#x503C;&#x7684;&#x6539;&#x53D8;&#x7B49;&#x7B49;&#xFF0C;&#x7B49;&#x8FD9;&#x4E9B;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x540E;&#xFF0C;&#x518D;&#x505A;&#x8FDB;&#x4E00;&#x6B65;&#x5904;&#x7406;&#x3002; &#x4F46;&#x662F;&#x8FD9;&#x4E9B;&#x7B49;&#x5F85;&#x548C;&#x54CD;&#x5E94;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x4E00;&#x4E2A;&#x7EDF;&#x4E00;&#x7684;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x3002;Delegate, Notification, Block, KVO, &#x5E38;&#x5E38;&#x4F1A;&#x4E0D;&#x77E5;&#x9053;&#x8BE5;&#x7528;&#x54EA;&#x4E2A;&#x6700;&#x5408;&#x9002;&#x3002;&#x6709;&#x65F6;&#x9700;&#x8981;chain&#x6216;&#x8005;compose&#x67D0;&#x51E0;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x591A;&#x4E2A;&#x72B6;&#x6001;&#x53D8;&#x91CF;&#xFF0C;&#x800C;&#x72B6;&#x6001;&#x53D8;&#x91CF;&#x4E00;&#x591A;&#xFF0C;&#x590D;&#x6742;&#x5EA6;&#x4E5F;&#x5C31;&#x4E0A;&#x6765;&#x4E86;&#x3002;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#xFF0C;Github&#x7684;&#x5DE5;&#x7A0B;&#x5E08;&#x4EEC;&#x5F00;&#x53D1;&#x4E86;ReactiveCocoa&#x3002;</p>
+<p>&#x3000;    <strong>&#x5176;&#x5B9E;&#x7528;&#x7B80;&#x5355;&#x7684;&#x4E00;&#x53E5;&#x8BDD;&#x6765;&#x8BF4;&#x5C31;&#x662F;&#xFF1A; RAC&#x7EDF;&#x4E00;&#x4E86;&#x5BF9;KVO&#x3001;UI Event&#x3001;Network request&#x3001;Async work&#x7684;&#x5904;&#x7406;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x672C;&#x8D28;&#x4E0A;&#x90FD;&#x662F;&#x503C;&#x7684;&#x53D8;&#x5316;(Values over time)&#x3002;</strong>  </p>
+<h3 id="ReactiveCocoa&#x8BD5;&#x56FE;&#x89E3;&#x51B3;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#x5462;"><a href="#ReactiveCocoa&#x8BD5;&#x56FE;&#x89E3;&#x51B3;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#x5462;" class="headerlink" title="ReactiveCocoa&#x8BD5;&#x56FE;&#x89E3;&#x51B3;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#x5462;"></a>ReactiveCocoa&#x8BD5;&#x56FE;&#x89E3;&#x51B3;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#x5462;</h3><p>&#x3000;    <a href="http://www.devtang.com/blog/2014/02/11/reactivecocoa-introduction/" target="_blank" rel="external">&#x5927;&#x795E;&#x5510;&#x5DE7;&#x5728;&#x4ED6;&#x535A;&#x5BA2;&#x4E2D;&#x8FD9;&#x6837;&#x5199;&#x9053;</a>&#x4E3B;&#x8981;&#x89E3;&#x51B3;&#x4E09;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;</p>
+<p>&#x3000;    1.&#x4F20;&#x7EDF;iOS&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x72B6;&#x6001;&#x4EE5;&#x53CA;&#x72B6;&#x6001;&#x4E4B;&#x95F4;&#x4F9D;&#x8D56;&#x8FC7;&#x591A;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x3000;    2.&#x4F20;&#x7EDF;MVC&#x67B6;&#x6784;&#x7684;&#x95EE;&#x9898;&#xFF1A;Controller&#x6BD4;&#x8F83;&#x590D;&#x6742;&#xFF0C;&#x53EF;&#x6D4B;&#x8BD5;&#x6027;&#x5DEE;</p>
+<p>&#x3000;    3.&#x63D0;&#x4F9B;&#x7EDF;&#x4E00;&#x7684;&#x6D88;&#x606F;&#x4F20;&#x9012;&#x673A;&#x5236;    </p>
+<p>&#x3000;    &#x8BE6;&#x60C5;&#x8BF7;&#x67E5;&#x770B;<a href="http://www.devtang.com/blog/2014/02/11/reactivecocoa-introduction/" target="_blank" rel="external">&#x5927;&#x795E;&#x535A;&#x6587;</a>&#x5728;&#x6B64;&#x5C31;&#x4E0D;&#x518D;&#x8D58;&#x8FF0;</p>
+<h3 id="&#x90A3;&#x4E48;&#x95EE;&#x9898;&#x6765;&#x4E86;&#xFF1F;&#x5982;&#x4F55;&#x5B66;&#x4E60;ReactiveCocoa&#x5462;"><a href="#&#x90A3;&#x4E48;&#x95EE;&#x9898;&#x6765;&#x4E86;&#xFF1F;&#x5982;&#x4F55;&#x5B66;&#x4E60;ReactiveCocoa&#x5462;" class="headerlink" title="&#x90A3;&#x4E48;&#x95EE;&#x9898;&#x6765;&#x4E86;&#xFF1F;&#x5982;&#x4F55;&#x5B66;&#x4E60;ReactiveCocoa&#x5462;"></a>&#x90A3;&#x4E48;&#x95EE;&#x9898;&#x6765;&#x4E86;&#xFF1F;&#x5982;&#x4F55;&#x5B66;&#x4E60;ReactiveCocoa&#x5462;</h3><p>&#x3000;    &#x3000;    &#x7F51;&#x4E0A;&#x6559;&#x7A0B;&#x5F88;&#x591A;&#xFF0C;&#x672C;&#x4EBA;&#x53EA;&#x662F;&#x505A;&#x4E86;&#x4E00;&#x4E0B;&#x603B;&#x7ED3;&#xFF0C;&#x53C8;&#x521D;&#x7EA7;&#x5230;&#x9AD8;&#x7EA7;&#x6240;&#x9700;&#x8981;&#x770B;&#x7684;&#x4E00;&#x4E9B;&#x6587;&#x7AE0;&#x3002;</p>
+<h4 id="&#x521D;&#x7EA7;-&#x6559;&#x7A0B;"><a href="#&#x521D;&#x7EA7;-&#x6559;&#x7A0B;" class="headerlink" title="&#x521D;&#x7EA7; &#x6559;&#x7A0B;"></a>&#x521D;&#x7EA7; &#x6559;&#x7A0B;</h4><p>   &#x3000;    &#x3000;    &#x5BF9;&#x4E00;&#x4E2A;&#x65B0;&#x624B;&#x6765;&#x8BF4;&#x9700;&#x8981;&#x638C;&#x63E1;&#x6700;&#x57FA;&#x672C;&#x7684;API&#x7684;&#x4F7F;&#x7528;&#x3002;&#x5FC5;&#x770B;&#x7684;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x662F;<a href="http://www.raywenderlich.com/62699/reactivecocoa-tutorial-pt1" target="_blank" rel="external">RayWenderlich</a> &#x7F51;&#x7AD9;&#x63D0;&#x4F9B;&#x7684;&#x7CFB;&#x5217;&#x6559;&#x7A0B;&#xFF0C;&#x5176;&#x8BE6;&#x7EC6;&#x7A0B;&#x5EA6;&#x975E;&#x5E38;&#x725B;&#x903C;&#x3002;&#x5F53;&#x7136;&#x56FD;&#x5185;&#x5927;&#x795E;&#x4EEC;&#x65E9;&#x5C31;&#x5BF9;&#x8BE5;&#x6559;&#x7A0B;&#x8FDB;&#x884C;&#x7FFB;&#x8BD1;&#x4E86; &#x5C0F;&#x4F19;&#x4F34;&#x4EEC;&#x8F7B;&#x677E;&#x4E86;&#xFF01;&#xFF01;</p>
+<p>   &#x3000;    &#x3000;    &#x7B2C;&#x4E00;&#x90E8;&#x5206;&#x5730;&#x5740;&#xFF1A;<a href="http://benbeng.leanote.com/post/ReactiveCocoaTutorial-part1" target="_blank" rel="external">ReactiveCocoa&#x5165;&#x95E8;&#x6559;&#x7A0B;&#x2014;&#x2014;&#x7B2C;&#x4E00;&#x90E8;&#x5206;</a></p>
+<p>   &#x3000;    &#x3000;    &#x7B2C;&#x4E00;&#x90E8;&#x5206;&#x5730;&#x5740;&#xFF1A;<a href="http://benbeng.leanote.com/post/ReactiveCocoaTutorial-part2" target="_blank" rel="external">ReactiveCocoa&#x5165;&#x95E8;&#x6559;&#x7A0B;&#x2014;&#x2014;&#x7B2C;&#x4E00;&#x90E8;&#x5206;</a></p>
+<h4 id="&#x8FDB;&#x9636;&#x6559;&#x7A0B;"><a href="#&#x8FDB;&#x9636;&#x6559;&#x7A0B;" class="headerlink" title="&#x8FDB;&#x9636;&#x6559;&#x7A0B;"></a>&#x8FDB;&#x9636;&#x6559;&#x7A0B;</h4><p>&#x3000;    &#x8FDB;&#x9636;&#x6559;&#x7A0B;&#x4E3B;&#x8981;&#x662F;&#x8FDB;&#x4E00;&#x6B65;&#x5206;&#x6790;&#x6846;&#x67B6;&#x7684;&#x7ED3;&#x6784;&#x4EE5;&#x53CA;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x3002;</p>
+<p>&#x3000;    &#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;</p>
+<p>&#x3000;    1.<a href="http://www.cocoachina.com/ios/20150702/12302.html" target="_blank" rel="external">ReactiveCocoa github&#x4E0A;&#x7684;readme&#x7684;&#x4E2D;&#x6587;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x3000;    2.<a href="http://blog.csdn.net/xdrt81y/article/details/30624469" target="_blank" rel="external">&#x4ECB;&#x7ECD;ReactiveCocoa&#x6846;&#x67B6;&#x7684;&#x6BCF;&#x4E2A;&#x7EC4;&#x4EF6;&#x7684;&#x6587;&#x7AE0;,&#x5BF9;&#x719F;&#x6089;ReactiveCocoa API&#x975E;&#x5E38;&#x6709;&#x5E2E;&#x52A9;</a>&#x3000;</p>
+<p>&#x3000;    3.<a href="http://tech.meituan.com/RACSignalSubscription.html" target="_blank" rel="external">&#x7F8E;&#x56E2;&#x7F51;&#x5B98;&#x65B9;&#x535A;&#x5BA2;&#x4E4B;RACSignal&#x7684;Subscription&#x6DF1;&#x5165;&#x5206;&#x6790;</a></p>
+<p>&#x3000;    4.<a href="http://www.cocoachina.com/industry/20140621/8905.html" target="_blank" rel="external">cocoaChina&#x6587;&#x7AE0;-Reactive Cocoa&#x8BE6;&#x89E3;</a>    </p>
+<p>&#x3000;    5.<a href="http://www.cocoachina.com/industry/20140609/8737.html" target="_blank" rel="external">cocoaChina&#x6587;&#x7AE0;-ReactiveCocoa2&#x5B9E;&#x6218;</a></p>
+<p>&#x3000;    6.<a href="http://www.cocoachina.com/industry/20140115/7702.html" target="_blank" rel="external">cocoaChina&#x6587;&#x7AE0;-&#x8BF4;&#x8BF4;ReactiveCocoa 2</a></p>
+<p>&#x3000;    7.<a href="http://nshipster.com/reactivecocoa/" target="_blank" rel="external">NSHipster&#x4E0A;&#x7684;&#x6587;&#x7AE0;-Reactive&#x200B;Cocoa</a></p>
+<p>&#x3000;    8.<a href="https://www.bignerdranch.com/blog/data-driven-ios-development-reactivecocoa/" target="_blank" rel="external">&#x56FD;&#x5916;&#x725B;&#x4EBA;&#x7684;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;-Data-Driven iOS Development with ReactiveCocoa</a></p>
+<p>&#x3000;    9.<a href="http://www.teehanlax.com/blog/getting-started-with-reactivecocoa/" target="_blank" rel="external">&#x56FD;&#x5916;&#x725B;&#x4EBA;&#x7684;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;-Getting Started with ReactiveCocoa </a></p>
+<p>&#x3000;    10.<a href="http://nshipster.cn/reactivecocoa/" target="_blank" rel="external">NSHipster&#x4E0A;&#x4E00;&#x7BC7;&#x5173;&#x4E8E;Recative cocoa&#x7684;&#x4ECB;&#x7ECD;-Reactive&#x200B;Cocoa</a></p>
+<p>&#x3000;    11.<a href="http://www.cocoachina.com/ios/20150526/11930.html" target="_blank" rel="external">cocoaChina&#x6587;&#x7AE0;-&#x3010;&#x957F;&#x7BC7;&#x9AD8;&#x80FD;&#x3011;ReactiveCocoa &#x548C; MVVM &#x5165;&#x95E8;</a></p>
+<p>&#x3000;    12.<a href="http://supermao.cn/zhe-yang-hao-yong-de-reactivecocoagen-ben-ting-bu-xia-lai/" target="_blank" rel="external">ReactiveCocoa&#x5E38;&#x7528;&#x8BED;&#x6CD5;-&#x8FD9;&#x6837;&#x597D;&#x7528;&#x7684;ReactiveCocoa&#xFF0C;&#x6839;&#x672C;&#x505C;&#x4E0D;&#x4E0B;&#x6765;</a></p>
+<h4 id="&#x4E66;&#x7C4D;"><a href="#&#x4E66;&#x7C4D;" class="headerlink" title="&#x4E66;&#x7C4D;"></a>&#x4E66;&#x7C4D;</h4><p>&#x3000;    <a href="https://leanpub.com/iosfrp" target="_blank" rel="external">&#x5F53;&#x7136;&#x5982;&#x679C;&#x4F60;&#x6BD4;&#x8F83;&#x8C6A;&#xFF0C;&#x60F3;&#x4E70;&#x70B9;&#x4E66;&#x770B;&#x770B;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x8FD9;&#x4E2A;&#x2013;&#x300A;Functional Reactive Programming on iOS&#x300B;</a></p>
+<h4 id="&#x6E90;&#x7801;"><a href="#&#x6E90;&#x7801;" class="headerlink" title="&#x6E90;&#x7801;&#x3000;"></a>&#x6E90;&#x7801;&#x3000;</h4><p>&#x3000;    1.<a href="https://github.com/Machx/MVVM-IOS-Example" target="_blank" rel="external">&#x4F7F;&#x7528;ReactiveCocoa&#x6846;&#x67B6;&#x7F16;&#x5199;&#x7684;app&#x6E90;&#x7801;&#x4E4B;&#x300A;MVVM-IOS-Example&#x300B;</a></p>
+<p>&#x3000;    2.<a href="https://github.com/jspahrsummers/GroceryList" target="_blank" rel="external">&#x4F7F;&#x7528;ReactiveCocoa&#x6846;&#x67B6;&#x7F16;&#x5199;&#x7684;app&#x6E90;&#x7801;&#x4E4B;&#x300A;GroceryList&#x300B;</a></p>
+<p>&#x3000;    3.<a href="https://github.com/AshFurrow/C-41" target="_blank" rel="external">&#x4F7F;&#x7528;ReactiveCocoa&#x6846;&#x67B6;&#x7F16;&#x5199;&#x7684;app&#x6E90;&#x7801;&#x4E4B;&#x300A;C-41&#x300B;</a></p>
+<h4 id="&#x89C6;&#x9891;"><a href="#&#x89C6;&#x9891;" class="headerlink" title="&#x89C6;&#x9891;"></a>&#x89C6;&#x9891;</h4><p>&#x3000;    <a href="https://vimeo.com/65637501" target="_blank" rel="external">ReactiveCocoa at MobiDevDay 2013&#x89C6;&#x9891;</a>&#x3000;    
+&#x3000;
+&#x3000;</p>
 
       
     </div>
@@ -303,18 +303,18 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">RunningYoung</a></p>
-        <p><span>发布时间:</span>2015-06-30, 15:34:20</p>
-        <p><span>最后更新:</span>2016-04-12, 11:52:58</p>
+        <p><span>Title:</span><a href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">RunningYoung</a></p>
+        <p><span>Created:</span>2015-06-30, 15:34:20</p>
+        <p><span>Updated:</span>2016-04-12, 11:52:58</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/06/30/2015-07-20-ReactiveCocoa/" title="ReactiveCocoa 学习之路(史上最全攻略)">https://runningyoung.github.io/2015/06/30/2015-07-20-ReactiveCocoa/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://runningyoung.github.io/2015/06/30/2015-07-20-ReactiveCocoa/　　作者: RunningYoung" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2015/06/30/2015-07-20-ReactiveCocoa/" title="ReactiveCocoa 学习之路(史上最全攻略)">https://runningyoung.github.io/2015/06/30/2015-07-20-ReactiveCocoa/</a>
+            <span class="copy-path" data-clipboard-text="From https://runningyoung.github.io/2015/06/30/2015-07-20-ReactiveCocoa/　　By RunningYoung" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -323,8 +323,8 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2015/06/30/2015-08-04-dependency-injection/">
-                    关于IOS依赖注入(DI)那些事
+                <a href="/2016/02/24/2016-03-12-read1/">
+                    【iOS读书笔记系列（一）】
                 </a>
             </div>
         
@@ -341,7 +341,7 @@
 </article>
 
     <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
+    <strong class="toc-title">Contents</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ReactiveCocoa-学习之路之史上最全攻略"><span class="toc-number">1.</span> <span class="toc-text">ReactiveCocoa 学习之路之史上最全攻略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是ReactiveCocoa？"><span class="toc-number">1.1.</span> <span class="toc-text">什么是ReactiveCocoa？　</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要用ReactiveCocoa"><span class="toc-number">1.2.</span> <span class="toc-text">为什么要用ReactiveCocoa</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReactiveCocoa试图解决什么问题呢"><span class="toc-number">1.3.</span> <span class="toc-text">ReactiveCocoa试图解决什么问题呢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#那么问题来了？如何学习ReactiveCocoa呢"><span class="toc-number">1.4.</span> <span class="toc-text">那么问题来了？如何学习ReactiveCocoa呢</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#初级-教程"><span class="toc-number">1.4.1.</span> <span class="toc-text">初级 教程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#进阶教程"><span class="toc-number">1.4.2.</span> <span class="toc-text">进阶教程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#书籍"><span class="toc-number">1.4.3.</span> <span class="toc-text">书籍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#源码"><span class="toc-number">1.4.4.</span> <span class="toc-text">源码　</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#视频"><span class="toc-number">1.4.5.</span> <span class="toc-text">视频</span></a></li></ol></li></ol></li></ol>
 </div>
 <style>
@@ -353,10 +353,10 @@
     }
 </style>
 
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 <script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
+    var valueHide = "Hide";
+    var valueShow = "Show";
 
     if ($(".left-col").is(":hidden")) {
         $("#tocButton").attr("value", valueShow);
@@ -410,21 +410,21 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/06/30/2015-08-04-dependency-injection/" title="上一篇: 关于IOS依赖注入(DI)那些事">
+            <a href="/2016/02/24/2016-03-12-read1/" title="Pre: 【iOS读书笔记系列（一）】">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/" title="下一篇: BDD开发 calabash 和 cucumber的使用">
+            <a href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/" title="Next: BDD开发 calabash 和 cucumber的使用">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-12-Phabricator2/">MAC下Code Review工具Phabricator + Arcanist搭建（part 2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-11-Phabricator1/">MAC下Code Review工具Phabricator + Arcanist搭建（part 1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-12-Phabricator2/">MAC下Code Review工具Phabricator + Arcanist搭建（part 2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-11-Phabricator1/">MAC下Code Review工具Phabricator + Arcanist搭建（part 1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li></ul>
 
 
 
@@ -442,7 +442,7 @@
                 &copy; 2016 RunningYoung
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/RunningYoung/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by runningyoung
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/RunningYoung/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by runningyoung
             </div>
         </div>
         
@@ -453,7 +453,7 @@
                 
               </script>
                     <span id="busuanzi_container_site_pv" style='display:none' >
-                        <span id="site-visit" >本站到访数: 
+                        <span id="site-visit" >Site Visitors: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -463,7 +463,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none' >
-                        <span id="page-visit">本页阅读量: 
+                        <span id="page-visit">Page Hits: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
@@ -509,9 +509,9 @@ ga('send', 'pageview');
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">

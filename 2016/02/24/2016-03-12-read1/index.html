@@ -5,20 +5,20 @@
   
   <title>【iOS读书笔记系列（一）】 | New World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="读书笔记（一）一、instancetype 和 id 作为初始化实例 返回值的不同">
+  <meta name="description" content="&amp;#x8BFB;&amp;#x4E66;&amp;#x7B14;&amp;#x8BB0;&amp;#xFF08;&amp;#x4E00;&amp;#xFF09;&amp;#x4E00;&amp;#x3001;instancetype &amp;#x548C; id &amp;#x4F5C;&amp;#x4E3A;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x5B9E;&amp;#x4F8B; &amp;#x8FD4;&amp;#x56DE;&amp;#x503C;&amp;#x7684;&amp;#x4E0D;&amp;#x540">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【iOS读书笔记系列（一）】">
 <meta property="og:url" content="https://runningyoung.github.io/2016/02/24/2016-03-12-read1/index.html">
 <meta property="og:site_name" content="New World">
-<meta property="og:description" content="读书笔记（一）一、instancetype 和 id 作为初始化实例 返回值的不同">
-<meta property="og:image" content="https://runningyoung.github.io/../images/笔记一/ios_frame_drop.png">
-<meta property="og:image" content="https://runningyoung.github.io/../images/笔记一/正常渲染.png">
-<meta property="og:image" content="https://runningyoung.github.io/../images/笔记一/离屏渲染.png">
+<meta property="og:description" content="&amp;#x8BFB;&amp;#x4E66;&amp;#x7B14;&amp;#x8BB0;&amp;#xFF08;&amp;#x4E00;&amp;#xFF09;&amp;#x4E00;&amp;#x3001;instancetype &amp;#x548C; id &amp;#x4F5C;&amp;#x4E3A;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x5B9E;&amp;#x4F8B; &amp;#x8FD4;&amp;#x56DE;&amp;#x503C;&amp;#x7684;&amp;#x4E0D;&amp;#x540">
+<meta property="og:image" content="https://runningyoung.github.io/2016/02/24/2016-03-12-read1/../images/笔记一/ios_frame_drop.png">
+<meta property="og:image" content="https://runningyoung.github.io/2016/02/24/2016-03-12-read1/../images/笔记一/正常渲染.png">
+<meta property="og:image" content="https://runningyoung.github.io/2016/02/24/2016-03-12-read1/../images/笔记一/离屏渲染.png">
 <meta property="og:updated_time" content="2016-04-12T03:44:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【iOS读书笔记系列（一）】">
-<meta name="twitter:description" content="读书笔记（一）一、instancetype 和 id 作为初始化实例 返回值的不同">
-<meta name="twitter:image" content="https://runningyoung.github.io/../images/笔记一/ios_frame_drop.png">
+<meta name="twitter:description" content="&amp;#x8BFB;&amp;#x4E66;&amp;#x7B14;&amp;#x8BB0;&amp;#xFF08;&amp;#x4E00;&amp;#xFF09;&amp;#x4E00;&amp;#x3001;instancetype &amp;#x548C; id &amp;#x4F5C;&amp;#x4E3A;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x5B9E;&amp;#x4F8B; &amp;#x8FD4;&amp;#x56DE;&amp;#x503C;&amp;#x7684;&amp;#x4E0D;&amp;#x540">
+<meta name="twitter:image" content="https://runningyoung.github.io/2016/02/24/2016-03-12-read1/../images/笔记一/ios_frame_drop.png">
   
     <link rel="alternative" href="/atom.xml" title="New World" type="application/atom+xml">
   
@@ -118,11 +118,11 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -259,29 +259,29 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="读书笔记（一）"><a href="#读书笔记（一）" class="headerlink" title="读书笔记（一）"></a>读书笔记（一）</h3><h4 id="一、instancetype-和-id-作为初始化实例-返回值的不同"><a href="#一、instancetype-和-id-作为初始化实例-返回值的不同" class="headerlink" title="一、instancetype 和 id 作为初始化实例 返回值的不同"></a>一、instancetype 和 id 作为初始化实例 返回值的不同</h4><a id="more"></a>
-<p>Objective-C的一些使用惯例不仅仅是好的编程习惯，更是给编译器的隐藏指令。<br>例如， alloc 和 init 的返回类型都是 id ，然而在Xcode中，编译器会检查所有正确类型。它是怎么做到的呢？<br>在Cocoa中，约定 alloc 或 init 的方法总是返回接收器类实例的对象。据说这些方法有一个相关返回类型。<br>虽然类构造方法也是返回 id ，但是类构造方法并没有做同样的类型检查，因为它们不遵循命名规范。<br>你可以自己试着这样：</p>
-<pre><code>[[[NSArray alloc] init] mediaPlaybackAllowsAirPlay]; // ❗ &quot;No visible @interface for `NSArray` declares the selector `mediaPlaybackAllowsAirPlay`&quot;
+        <h3 id="&#x8BFB;&#x4E66;&#x7B14;&#x8BB0;&#xFF08;&#x4E00;&#xFF09;"><a href="#&#x8BFB;&#x4E66;&#x7B14;&#x8BB0;&#xFF08;&#x4E00;&#xFF09;" class="headerlink" title="&#x8BFB;&#x4E66;&#x7B14;&#x8BB0;&#xFF08;&#x4E00;&#xFF09;"></a>&#x8BFB;&#x4E66;&#x7B14;&#x8BB0;&#xFF08;&#x4E00;&#xFF09;</h3><h4 id="&#x4E00;&#x3001;instancetype-&#x548C;-id-&#x4F5C;&#x4E3A;&#x521D;&#x59CB;&#x5316;&#x5B9E;&#x4F8B;-&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x4E0D;&#x540C;"><a href="#&#x4E00;&#x3001;instancetype-&#x548C;-id-&#x4F5C;&#x4E3A;&#x521D;&#x59CB;&#x5316;&#x5B9E;&#x4F8B;-&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x4E0D;&#x540C;" class="headerlink" title="&#x4E00;&#x3001;instancetype &#x548C; id &#x4F5C;&#x4E3A;&#x521D;&#x59CB;&#x5316;&#x5B9E;&#x4F8B; &#x8FD4;&#x56DE;&#x503C;&#x7684;&#x4E0D;&#x540C;"></a>&#x4E00;&#x3001;instancetype &#x548C; id &#x4F5C;&#x4E3A;&#x521D;&#x59CB;&#x5316;&#x5B9E;&#x4F8B; &#x8FD4;&#x56DE;&#x503C;&#x7684;&#x4E0D;&#x540C;</h4><a id="more"></a>
+<p>Objective-C&#x7684;&#x4E00;&#x4E9B;&#x4F7F;&#x7528;&#x60EF;&#x4F8B;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x597D;&#x7684;&#x7F16;&#x7A0B;&#x4E60;&#x60EF;&#xFF0C;&#x66F4;&#x662F;&#x7ED9;&#x7F16;&#x8BD1;&#x5668;&#x7684;&#x9690;&#x85CF;&#x6307;&#x4EE4;&#x3002;<br>&#x4F8B;&#x5982;&#xFF0C; alloc &#x548C; init &#x7684;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x90FD;&#x662F; id &#xFF0C;&#x7136;&#x800C;&#x5728;Xcode&#x4E2D;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x68C0;&#x67E5;&#x6240;&#x6709;&#x6B63;&#x786E;&#x7C7B;&#x578B;&#x3002;&#x5B83;&#x662F;&#x600E;&#x4E48;&#x505A;&#x5230;&#x7684;&#x5462;&#xFF1F;<br>&#x5728;Cocoa&#x4E2D;&#xFF0C;&#x7EA6;&#x5B9A; alloc &#x6216; init &#x7684;&#x65B9;&#x6CD5;&#x603B;&#x662F;&#x8FD4;&#x56DE;&#x63A5;&#x6536;&#x5668;&#x7C7B;&#x5B9E;&#x4F8B;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x636E;&#x8BF4;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x6709;&#x4E00;&#x4E2A;&#x76F8;&#x5173;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x3002;<br>&#x867D;&#x7136;&#x7C7B;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x4E5F;&#x662F;&#x8FD4;&#x56DE; id &#xFF0C;&#x4F46;&#x662F;&#x7C7B;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x5E76;&#x6CA1;&#x6709;&#x505A;&#x540C;&#x6837;&#x7684;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x4E0D;&#x9075;&#x5FAA;&#x547D;&#x540D;&#x89C4;&#x8303;&#x3002;<br>&#x4F60;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x8BD5;&#x7740;&#x8FD9;&#x6837;&#xFF1A;</p>
+<pre><code>[[[NSArray alloc] init] mediaPlaybackAllowsAirPlay]; // &#x2757; &quot;No visible @interface for `NSArray` declares the selector `mediaPlaybackAllowsAirPlay`&quot;
 
 [[NSArray array] mediaPlaybackAllowsAirPlay]; // (No error)
-</code></pre><p>由于alloc 和 init 作为相关返回类型遵循命名规范，执行对NSArray的正确类型检查。然而，等价类构造函数array不遵循命名规范，它被认为是id类型。<br>id类型对禁用类型安全性检查非常有用，但当你确实需要它的时候却没有时，情况会变得非常糟糕。<br>另一种显示声明返回类型（在之前例子中的 (NSArray *)）的方式有了稍微的改进，但是它不利于子类的发挥。<br>所以编译器从这里介入以解决Objective-C类型系统的这个永恒边界情况：<br>instancetype 关键字，它可以表示一个方法的相关返回类型。例如：</p>
+</code></pre><p>&#x7531;&#x4E8E;alloc &#x548C; init &#x4F5C;&#x4E3A;&#x76F8;&#x5173;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x9075;&#x5FAA;&#x547D;&#x540D;&#x89C4;&#x8303;&#xFF0C;&#x6267;&#x884C;&#x5BF9;NSArray&#x7684;&#x6B63;&#x786E;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x7B49;&#x4EF7;&#x7C7B;&#x6784;&#x9020;&#x51FD;&#x6570;array&#x4E0D;&#x9075;&#x5FAA;&#x547D;&#x540D;&#x89C4;&#x8303;&#xFF0C;&#x5B83;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;id&#x7C7B;&#x578B;&#x3002;<br>id&#x7C7B;&#x578B;&#x5BF9;&#x7981;&#x7528;&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x6027;&#x68C0;&#x67E5;&#x975E;&#x5E38;&#x6709;&#x7528;&#xFF0C;&#x4F46;&#x5F53;&#x4F60;&#x786E;&#x5B9E;&#x9700;&#x8981;&#x5B83;&#x7684;&#x65F6;&#x5019;&#x5374;&#x6CA1;&#x6709;&#x65F6;&#xFF0C;&#x60C5;&#x51B5;&#x4F1A;&#x53D8;&#x5F97;&#x975E;&#x5E38;&#x7CDF;&#x7CD5;&#x3002;<br>&#x53E6;&#x4E00;&#x79CD;&#x663E;&#x793A;&#x58F0;&#x660E;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#xFF08;&#x5728;&#x4E4B;&#x524D;&#x4F8B;&#x5B50;&#x4E2D;&#x7684; (NSArray *)&#xFF09;&#x7684;&#x65B9;&#x5F0F;&#x6709;&#x4E86;&#x7A0D;&#x5FAE;&#x7684;&#x6539;&#x8FDB;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x4E0D;&#x5229;&#x4E8E;&#x5B50;&#x7C7B;&#x7684;&#x53D1;&#x6325;&#x3002;<br>&#x6240;&#x4EE5;&#x7F16;&#x8BD1;&#x5668;&#x4ECE;&#x8FD9;&#x91CC;&#x4ECB;&#x5165;&#x4EE5;&#x89E3;&#x51B3;Objective-C&#x7C7B;&#x578B;&#x7CFB;&#x7EDF;&#x7684;&#x8FD9;&#x4E2A;&#x6C38;&#x6052;&#x8FB9;&#x754C;&#x60C5;&#x51B5;&#xFF1A;<br>instancetype &#x5173;&#x952E;&#x5B57;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x76F8;&#x5173;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
 <pre><code>@interface Person
 +(instancetype)personWithName:(NSString *)name;
 @end
 </code></pre><ul>
-<li>instancetype 与 id 不一样, instancetype 只能在方法声明中作为返回类型使用。</li>
+<li>instancetype &#x4E0E; id &#x4E0D;&#x4E00;&#x6837;, instancetype &#x53EA;&#x80FD;&#x5728;&#x65B9;&#x6CD5;&#x58F0;&#x660E;&#x4E2D;&#x4F5C;&#x4E3A;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x4F7F;&#x7528;&#x3002;</li>
 </ul>
-<p>使用 instancetype ，编译器将正确的推断出 +personWithName: 是 Person 的一个实例。<br>为了在不久的将来使用 instancetype ，你可以在Foundation中查找类构造函数。例如UICollectionViewLayoutAttributes 就已经正在使用 instancetype 了。</p>
-<h3 id="二、iOS为什么不要在init初始化方法里调用self-view"><a href="#二、iOS为什么不要在init初始化方法里调用self-view" class="headerlink" title="二、iOS为什么不要在init初始化方法里调用self.view"></a>二、iOS为什么不要在init初始化方法里调用self.view</h3><p>首先.如果你调用self.view的时候,就会调用view的getter方法, 这个时候,view是空的,那么系统就会自动给你创建一个view,然后就会触发ViewDidLoad方法.那么这个时候,如果你init方法里有数组初始化.但是你还没走到那步,而直接就给数组赋值了,那么这个值赋值给了一个不存在的数组.这样就容易出现错误.所以,尽量不要在init方法里写可视化控件的语句.</p>
-<h3 id="三、忽略编译警告"><a href="#三、忽略编译警告" class="headerlink" title="三、忽略编译警告"></a>三、忽略编译警告</h3><p>如果你知道你的代码不会导致内存泄露，你可以通过加入这些代码忽略这些警告</p>
+<p>&#x4F7F;&#x7528; instancetype &#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x5C06;&#x6B63;&#x786E;&#x7684;&#x63A8;&#x65AD;&#x51FA; +personWithName: &#x662F; Person &#x7684;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;<br>&#x4E3A;&#x4E86;&#x5728;&#x4E0D;&#x4E45;&#x7684;&#x5C06;&#x6765;&#x4F7F;&#x7528; instancetype &#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;Foundation&#x4E2D;&#x67E5;&#x627E;&#x7C7B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;&#x4F8B;&#x5982;UICollectionViewLayoutAttributes &#x5C31;&#x5DF2;&#x7ECF;&#x6B63;&#x5728;&#x4F7F;&#x7528; instancetype &#x4E86;&#x3002;</p>
+<h3 id="&#x4E8C;&#x3001;iOS&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x8981;&#x5728;init&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#x91CC;&#x8C03;&#x7528;self-view"><a href="#&#x4E8C;&#x3001;iOS&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x8981;&#x5728;init&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#x91CC;&#x8C03;&#x7528;self-view" class="headerlink" title="&#x4E8C;&#x3001;iOS&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x8981;&#x5728;init&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#x91CC;&#x8C03;&#x7528;self.view"></a>&#x4E8C;&#x3001;iOS&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x8981;&#x5728;init&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#x91CC;&#x8C03;&#x7528;self.view</h3><p>&#x9996;&#x5148;.&#x5982;&#x679C;&#x4F60;&#x8C03;&#x7528;self.view&#x7684;&#x65F6;&#x5019;,&#x5C31;&#x4F1A;&#x8C03;&#x7528;view&#x7684;getter&#x65B9;&#x6CD5;, &#x8FD9;&#x4E2A;&#x65F6;&#x5019;,view&#x662F;&#x7A7A;&#x7684;,&#x90A3;&#x4E48;&#x7CFB;&#x7EDF;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x7ED9;&#x4F60;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;view,&#x7136;&#x540E;&#x5C31;&#x4F1A;&#x89E6;&#x53D1;ViewDidLoad&#x65B9;&#x6CD5;.&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;,&#x5982;&#x679C;&#x4F60;init&#x65B9;&#x6CD5;&#x91CC;&#x6709;&#x6570;&#x7EC4;&#x521D;&#x59CB;&#x5316;.&#x4F46;&#x662F;&#x4F60;&#x8FD8;&#x6CA1;&#x8D70;&#x5230;&#x90A3;&#x6B65;,&#x800C;&#x76F4;&#x63A5;&#x5C31;&#x7ED9;&#x6570;&#x7EC4;&#x8D4B;&#x503C;&#x4E86;,&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x503C;&#x8D4B;&#x503C;&#x7ED9;&#x4E86;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x6570;&#x7EC4;.&#x8FD9;&#x6837;&#x5C31;&#x5BB9;&#x6613;&#x51FA;&#x73B0;&#x9519;&#x8BEF;.&#x6240;&#x4EE5;,&#x5C3D;&#x91CF;&#x4E0D;&#x8981;&#x5728;init&#x65B9;&#x6CD5;&#x91CC;&#x5199;&#x53EF;&#x89C6;&#x5316;&#x63A7;&#x4EF6;&#x7684;&#x8BED;&#x53E5;.</p>
+<h3 id="&#x4E09;&#x3001;&#x5FFD;&#x7565;&#x7F16;&#x8BD1;&#x8B66;&#x544A;"><a href="#&#x4E09;&#x3001;&#x5FFD;&#x7565;&#x7F16;&#x8BD1;&#x8B66;&#x544A;" class="headerlink" title="&#x4E09;&#x3001;&#x5FFD;&#x7565;&#x7F16;&#x8BD1;&#x8B66;&#x544A;"></a>&#x4E09;&#x3001;&#x5FFD;&#x7565;&#x7F16;&#x8BD1;&#x8B66;&#x544A;</h3><p>&#x5982;&#x679C;&#x4F60;&#x77E5;&#x9053;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x4E0D;&#x4F1A;&#x5BFC;&#x81F4;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x52A0;&#x5165;&#x8FD9;&#x4E9B;&#x4EE3;&#x7801;&#x5FFD;&#x7565;&#x8FD9;&#x4E9B;&#x8B66;&#x544A;</p>
 <pre><code>#pragma clang diagnostic push
 #pragma clang diagnostic ignored &quot;-Warc-performSelector-leaks&quot;
 
 [myObj performSelector:mySelector withObject:name];
 
 #pragma clang diagnostic pop
-</code></pre><p>注意我们是如何在相关代码上下文中用 pragma 停用 -Warc-performSelector-leaks 检查的。这确保我们没有全局禁用。如果全局禁用，可能会导致错误。</p>
-<p>使用 #pragma unused():忽略没用使用变量的编译警告</p>
+</code></pre><p>&#x6CE8;&#x610F;&#x6211;&#x4EEC;&#x662F;&#x5982;&#x4F55;&#x5728;&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x7528; pragma &#x505C;&#x7528; -Warc-performSelector-leaks &#x68C0;&#x67E5;&#x7684;&#x3002;&#x8FD9;&#x786E;&#x4FDD;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x5168;&#x5C40;&#x7981;&#x7528;&#x3002;&#x5982;&#x679C;&#x5168;&#x5C40;&#x7981;&#x7528;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x4F7F;&#x7528; #pragma unused():&#x5FFD;&#x7565;&#x6CA1;&#x7528;&#x4F7F;&#x7528;&#x53D8;&#x91CF;&#x7684;&#x7F16;&#x8BD1;&#x8B66;&#x544A;</p>
 <pre><code>-(NSInteger)giveMeFive
 {
     NSString *foo;
@@ -289,16 +289,16 @@
 
     return 5;
 }
-</code></pre><h3 id="四、Block的深入学习"><a href="#四、Block的深入学习" class="headerlink" title="四、Block的深入学习"></a>四、Block的深入学习</h3><h4 id="一些关键点："><a href="#一些关键点：" class="headerlink" title="一些关键点："></a>一些关键点：</h4><pre><code>block 是在栈上创建的
-block 可以复制到堆上
-Block会捕获栈上的变量(或指针)，将其复制为自己私有的const(变量)。
-(如果在Block中修改Block块外的)栈上的变量和指针，那么这些变量和指针必须用__block关键字申明(译者注：否则就会跟上面的情况一样只是捕获他们的瞬时值)。
-block 可以声明成全局静态的
-</code></pre><p>如果 block 没有在其他地方被保持，那么它会随着栈生存并且当栈帧（stack frame）返回的时候消失。仅存在于栈上时，block对对象访问的内存管理和生命周期没有任何影响。</p>
-<p>如果 block 需要在栈帧返回的时候存在，它们需要明确地被复制到堆上，这样，block 会像其他 Cocoa 对象一样增加引用计数。当它们被复制的时候，它会带着它们的捕获作用域一起，retain 他们所有引用的对象。</p>
-<p>如果一个 block引用了一个栈变量或指针，那么这个block初始化的时候会拥有这个变量或指针的const副本，所以(被捕获之后再在栈中改变这个变量或指针的值)是不起作用的。(译者注：所以这时候我们在block中对这种变量进行赋值会编译报错:Variable is not assignable(missing __block type specifier)，因为他们是副本而且是const的.具体见下面的例程)。</p>
-<p>当一个 block 被复制后，__block 声明的栈变量的引用被复制到了堆里，复制完成之后，无论是栈上的block还是刚刚产生在堆上的block(栈上block的副本)都会引用该变量在堆上的副本。</p>
-<p>(下面代码是译者加的)</p>
+</code></pre><h3 id="&#x56DB;&#x3001;Block&#x7684;&#x6DF1;&#x5165;&#x5B66;&#x4E60;"><a href="#&#x56DB;&#x3001;Block&#x7684;&#x6DF1;&#x5165;&#x5B66;&#x4E60;" class="headerlink" title="&#x56DB;&#x3001;Block&#x7684;&#x6DF1;&#x5165;&#x5B66;&#x4E60;"></a>&#x56DB;&#x3001;Block&#x7684;&#x6DF1;&#x5165;&#x5B66;&#x4E60;</h3><h4 id="&#x4E00;&#x4E9B;&#x5173;&#x952E;&#x70B9;&#xFF1A;"><a href="#&#x4E00;&#x4E9B;&#x5173;&#x952E;&#x70B9;&#xFF1A;" class="headerlink" title="&#x4E00;&#x4E9B;&#x5173;&#x952E;&#x70B9;&#xFF1A;"></a>&#x4E00;&#x4E9B;&#x5173;&#x952E;&#x70B9;&#xFF1A;</h4><pre><code>block &#x662F;&#x5728;&#x6808;&#x4E0A;&#x521B;&#x5EFA;&#x7684;
+block &#x53EF;&#x4EE5;&#x590D;&#x5236;&#x5230;&#x5806;&#x4E0A;
+Block&#x4F1A;&#x6355;&#x83B7;&#x6808;&#x4E0A;&#x7684;&#x53D8;&#x91CF;(&#x6216;&#x6307;&#x9488;)&#xFF0C;&#x5C06;&#x5176;&#x590D;&#x5236;&#x4E3A;&#x81EA;&#x5DF1;&#x79C1;&#x6709;&#x7684;const(&#x53D8;&#x91CF;)&#x3002;
+(&#x5982;&#x679C;&#x5728;Block&#x4E2D;&#x4FEE;&#x6539;Block&#x5757;&#x5916;&#x7684;)&#x6808;&#x4E0A;&#x7684;&#x53D8;&#x91CF;&#x548C;&#x6307;&#x9488;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;&#x548C;&#x6307;&#x9488;&#x5FC5;&#x987B;&#x7528;__block&#x5173;&#x952E;&#x5B57;&#x7533;&#x660E;(&#x8BD1;&#x8005;&#x6CE8;&#xFF1A;&#x5426;&#x5219;&#x5C31;&#x4F1A;&#x8DDF;&#x4E0A;&#x9762;&#x7684;&#x60C5;&#x51B5;&#x4E00;&#x6837;&#x53EA;&#x662F;&#x6355;&#x83B7;&#x4ED6;&#x4EEC;&#x7684;&#x77AC;&#x65F6;&#x503C;)&#x3002;
+block &#x53EF;&#x4EE5;&#x58F0;&#x660E;&#x6210;&#x5168;&#x5C40;&#x9759;&#x6001;&#x7684;
+</code></pre><p>&#x5982;&#x679C; block &#x6CA1;&#x6709;&#x5728;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x88AB;&#x4FDD;&#x6301;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x4F1A;&#x968F;&#x7740;&#x6808;&#x751F;&#x5B58;&#x5E76;&#x4E14;&#x5F53;&#x6808;&#x5E27;&#xFF08;stack frame&#xFF09;&#x8FD4;&#x56DE;&#x7684;&#x65F6;&#x5019;&#x6D88;&#x5931;&#x3002;&#x4EC5;&#x5B58;&#x5728;&#x4E8E;&#x6808;&#x4E0A;&#x65F6;&#xFF0C;block&#x5BF9;&#x5BF9;&#x8C61;&#x8BBF;&#x95EE;&#x7684;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x548C;&#x751F;&#x547D;&#x5468;&#x671F;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5F71;&#x54CD;&#x3002;</p>
+<p>&#x5982;&#x679C; block &#x9700;&#x8981;&#x5728;&#x6808;&#x5E27;&#x8FD4;&#x56DE;&#x7684;&#x65F6;&#x5019;&#x5B58;&#x5728;&#xFF0C;&#x5B83;&#x4EEC;&#x9700;&#x8981;&#x660E;&#x786E;&#x5730;&#x88AB;&#x590D;&#x5236;&#x5230;&#x5806;&#x4E0A;&#xFF0C;&#x8FD9;&#x6837;&#xFF0C;block &#x4F1A;&#x50CF;&#x5176;&#x4ED6; Cocoa &#x5BF9;&#x8C61;&#x4E00;&#x6837;&#x589E;&#x52A0;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x3002;&#x5F53;&#x5B83;&#x4EEC;&#x88AB;&#x590D;&#x5236;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5B83;&#x4F1A;&#x5E26;&#x7740;&#x5B83;&#x4EEC;&#x7684;&#x6355;&#x83B7;&#x4F5C;&#x7528;&#x57DF;&#x4E00;&#x8D77;&#xFF0C;retain &#x4ED6;&#x4EEC;&#x6240;&#x6709;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4E00;&#x4E2A; block&#x5F15;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x6808;&#x53D8;&#x91CF;&#x6216;&#x6307;&#x9488;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;block&#x521D;&#x59CB;&#x5316;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x62E5;&#x6709;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x6216;&#x6307;&#x9488;&#x7684;const&#x526F;&#x672C;&#xFF0C;&#x6240;&#x4EE5;(&#x88AB;&#x6355;&#x83B7;&#x4E4B;&#x540E;&#x518D;&#x5728;&#x6808;&#x4E2D;&#x6539;&#x53D8;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x6216;&#x6307;&#x9488;&#x7684;&#x503C;)&#x662F;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#x7684;&#x3002;(&#x8BD1;&#x8005;&#x6CE8;&#xFF1A;&#x6240;&#x4EE5;&#x8FD9;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x5728;block&#x4E2D;&#x5BF9;&#x8FD9;&#x79CD;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#x4F1A;&#x7F16;&#x8BD1;&#x62A5;&#x9519;:Variable is not assignable(missing __block type specifier)&#xFF0C;&#x56E0;&#x4E3A;&#x4ED6;&#x4EEC;&#x662F;&#x526F;&#x672C;&#x800C;&#x4E14;&#x662F;const&#x7684;.&#x5177;&#x4F53;&#x89C1;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x7A0B;)&#x3002;</p>
+<p>&#x5F53;&#x4E00;&#x4E2A; block &#x88AB;&#x590D;&#x5236;&#x540E;&#xFF0C;__block &#x58F0;&#x660E;&#x7684;&#x6808;&#x53D8;&#x91CF;&#x7684;&#x5F15;&#x7528;&#x88AB;&#x590D;&#x5236;&#x5230;&#x4E86;&#x5806;&#x91CC;&#xFF0C;&#x590D;&#x5236;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x65E0;&#x8BBA;&#x662F;&#x6808;&#x4E0A;&#x7684;block&#x8FD8;&#x662F;&#x521A;&#x521A;&#x4EA7;&#x751F;&#x5728;&#x5806;&#x4E0A;&#x7684;block(&#x6808;&#x4E0A;block&#x7684;&#x526F;&#x672C;)&#x90FD;&#x4F1A;&#x5F15;&#x7528;&#x8BE5;&#x53D8;&#x91CF;&#x5728;&#x5806;&#x4E0A;&#x7684;&#x526F;&#x672C;&#x3002;</p>
+<p>(&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x662F;&#x8BD1;&#x8005;&#x52A0;&#x7684;)</p>
 <pre><code>...
 CGFloat blockInt = 10;
 void (^playblock)(void) = ^{
@@ -308,22 +308,22 @@ blockInt ++;
 playblock();
 ...
 
-//结果为:blockInt = 10
-</code></pre><p>最重要的事情是 __block 声明的变量和指针在 block 里面是作为显示操作真实值/对象的结构来对待的。</p>
-<p>block 在 Objective-C 的 runtime(运行时) 里面被当作一等公民对待：他们有一个 isa 指针，一个类也是用 isa 指针在Objective-C 运行时来访问方法和存储数据的。在非 ARC 环境肯定会把它搞得很糟糕，并且悬挂指针会导致 crash。__block 仅仅对 block 内的变量起作用，它只是简单地告诉 block：</p>
-<pre><code>嗨，这个指针或者原始的类型依赖它们在的栈。请用一个栈上的新变量来引用它。我是说，请对它进行双重解引用，不要 retain 它。 谢谢，哥们。
-</code></pre><p>如果在定义之后但是 block 没有被调用前，对象被释放了，那么 block 的执行会导致 crash。 __block 变量不会在 block 中被持有，最后… 指针、引用、解引用以及引用计数变得一团糟。</p>
-<h4 id="self-的循环引用"><a href="#self-的循环引用" class="headerlink" title="self 的循环引用"></a>self 的循环引用</h4><p>当使用代码块和异步分发的时候，要注意避免引用循环。 总是使用 weak 来引用对象，避免引用循环。（译者注：这里更为优雅的方式是采用影子变量@weakify/@strongify 这里有更为详细的说明） 此外，把持有 block 的属性设置为 nil (比如 self.completionBlock = nil) 是一个好的实践。它会打破 block 捕获的作用域带来的引用循环。</p>
-<p>例子:</p>
+//&#x7ED3;&#x679C;&#x4E3A;:blockInt = 10
+</code></pre><p>&#x6700;&#x91CD;&#x8981;&#x7684;&#x4E8B;&#x60C5;&#x662F; __block &#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#x548C;&#x6307;&#x9488;&#x5728; block &#x91CC;&#x9762;&#x662F;&#x4F5C;&#x4E3A;&#x663E;&#x793A;&#x64CD;&#x4F5C;&#x771F;&#x5B9E;&#x503C;/&#x5BF9;&#x8C61;&#x7684;&#x7ED3;&#x6784;&#x6765;&#x5BF9;&#x5F85;&#x7684;&#x3002;</p>
+<p>block &#x5728; Objective-C &#x7684; runtime(&#x8FD0;&#x884C;&#x65F6;) &#x91CC;&#x9762;&#x88AB;&#x5F53;&#x4F5C;&#x4E00;&#x7B49;&#x516C;&#x6C11;&#x5BF9;&#x5F85;&#xFF1A;&#x4ED6;&#x4EEC;&#x6709;&#x4E00;&#x4E2A; isa &#x6307;&#x9488;&#xFF0C;&#x4E00;&#x4E2A;&#x7C7B;&#x4E5F;&#x662F;&#x7528; isa &#x6307;&#x9488;&#x5728;Objective-C &#x8FD0;&#x884C;&#x65F6;&#x6765;&#x8BBF;&#x95EE;&#x65B9;&#x6CD5;&#x548C;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x7684;&#x3002;&#x5728;&#x975E; ARC &#x73AF;&#x5883;&#x80AF;&#x5B9A;&#x4F1A;&#x628A;&#x5B83;&#x641E;&#x5F97;&#x5F88;&#x7CDF;&#x7CD5;&#xFF0C;&#x5E76;&#x4E14;&#x60AC;&#x6302;&#x6307;&#x9488;&#x4F1A;&#x5BFC;&#x81F4; crash&#x3002;__block &#x4EC5;&#x4EC5;&#x5BF9; block &#x5185;&#x7684;&#x53D8;&#x91CF;&#x8D77;&#x4F5C;&#x7528;&#xFF0C;&#x5B83;&#x53EA;&#x662F;&#x7B80;&#x5355;&#x5730;&#x544A;&#x8BC9; block&#xFF1A;</p>
+<pre><code>&#x55E8;&#xFF0C;&#x8FD9;&#x4E2A;&#x6307;&#x9488;&#x6216;&#x8005;&#x539F;&#x59CB;&#x7684;&#x7C7B;&#x578B;&#x4F9D;&#x8D56;&#x5B83;&#x4EEC;&#x5728;&#x7684;&#x6808;&#x3002;&#x8BF7;&#x7528;&#x4E00;&#x4E2A;&#x6808;&#x4E0A;&#x7684;&#x65B0;&#x53D8;&#x91CF;&#x6765;&#x5F15;&#x7528;&#x5B83;&#x3002;&#x6211;&#x662F;&#x8BF4;&#xFF0C;&#x8BF7;&#x5BF9;&#x5B83;&#x8FDB;&#x884C;&#x53CC;&#x91CD;&#x89E3;&#x5F15;&#x7528;&#xFF0C;&#x4E0D;&#x8981; retain &#x5B83;&#x3002; &#x8C22;&#x8C22;&#xFF0C;&#x54E5;&#x4EEC;&#x3002;
+</code></pre><p>&#x5982;&#x679C;&#x5728;&#x5B9A;&#x4E49;&#x4E4B;&#x540E;&#x4F46;&#x662F; block &#x6CA1;&#x6709;&#x88AB;&#x8C03;&#x7528;&#x524D;&#xFF0C;&#x5BF9;&#x8C61;&#x88AB;&#x91CA;&#x653E;&#x4E86;&#xFF0C;&#x90A3;&#x4E48; block &#x7684;&#x6267;&#x884C;&#x4F1A;&#x5BFC;&#x81F4; crash&#x3002; __block &#x53D8;&#x91CF;&#x4E0D;&#x4F1A;&#x5728; block &#x4E2D;&#x88AB;&#x6301;&#x6709;&#xFF0C;&#x6700;&#x540E;&#x2026; &#x6307;&#x9488;&#x3001;&#x5F15;&#x7528;&#x3001;&#x89E3;&#x5F15;&#x7528;&#x4EE5;&#x53CA;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x53D8;&#x5F97;&#x4E00;&#x56E2;&#x7CDF;&#x3002;</p>
+<h4 id="self-&#x7684;&#x5FAA;&#x73AF;&#x5F15;&#x7528;"><a href="#self-&#x7684;&#x5FAA;&#x73AF;&#x5F15;&#x7528;" class="headerlink" title="self &#x7684;&#x5FAA;&#x73AF;&#x5F15;&#x7528;"></a>self &#x7684;&#x5FAA;&#x73AF;&#x5F15;&#x7528;</h4><p>&#x5F53;&#x4F7F;&#x7528;&#x4EE3;&#x7801;&#x5757;&#x548C;&#x5F02;&#x6B65;&#x5206;&#x53D1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8981;&#x6CE8;&#x610F;&#x907F;&#x514D;&#x5F15;&#x7528;&#x5FAA;&#x73AF;&#x3002; &#x603B;&#x662F;&#x4F7F;&#x7528; weak &#x6765;&#x5F15;&#x7528;&#x5BF9;&#x8C61;&#xFF0C;&#x907F;&#x514D;&#x5F15;&#x7528;&#x5FAA;&#x73AF;&#x3002;&#xFF08;&#x8BD1;&#x8005;&#x6CE8;&#xFF1A;&#x8FD9;&#x91CC;&#x66F4;&#x4E3A;&#x4F18;&#x96C5;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x91C7;&#x7528;&#x5F71;&#x5B50;&#x53D8;&#x91CF;@weakify/@strongify &#x8FD9;&#x91CC;&#x6709;&#x66F4;&#x4E3A;&#x8BE6;&#x7EC6;&#x7684;&#x8BF4;&#x660E;&#xFF09; &#x6B64;&#x5916;&#xFF0C;&#x628A;&#x6301;&#x6709; block &#x7684;&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A; nil (&#x6BD4;&#x5982; self.completionBlock = nil) &#x662F;&#x4E00;&#x4E2A;&#x597D;&#x7684;&#x5B9E;&#x8DF5;&#x3002;&#x5B83;&#x4F1A;&#x6253;&#x7834; block &#x6355;&#x83B7;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x5E26;&#x6765;&#x7684;&#x5F15;&#x7528;&#x5FAA;&#x73AF;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;:</p>
 <pre><code>__weak __typeof(self) weakSelf = self;
 [self executeBlock:^(NSData *data, NSError *error) {
     [weakSelf doSomethingWithData:data];
 }];
-</code></pre><p>不要这样:</p>
+</code></pre><p>&#x4E0D;&#x8981;&#x8FD9;&#x6837;:</p>
 <pre><code>[self executeBlock:^(NSData *data, NSError *error) {
     [self doSomethingWithData:data];
 }];
-</code></pre><p>多个语句的例子:</p>
+</code></pre><p>&#x591A;&#x4E2A;&#x8BED;&#x53E5;&#x7684;&#x4F8B;&#x5B50;:</p>
 <pre><code>__weak __typeof(self)weakSelf = self;
 [self executeBlock:^(NSData *data, NSError *error) {
     __strong __typeof(weakSelf) strongSelf = weakSelf;
@@ -332,21 +332,21 @@ playblock();
         [strongSelf doSomethingWithData:data];
     }
 }];
-</code></pre><p>不要这样:</p>
+</code></pre><p>&#x4E0D;&#x8981;&#x8FD9;&#x6837;:</p>
 <pre><code>__weak __typeof(self)weakSelf = self;
 [self executeBlock:^(NSData *data, NSError *error) {
     [weakSelf doSomethingWithData:data];
     [weakSelf doSomethingWithData:data];
 }];
-</code></pre><p>你应该把这两行代码作为 snippet 加到 Xcode 里面并且总是这样使用它们。</p>
+</code></pre><p>&#x4F60;&#x5E94;&#x8BE5;&#x628A;&#x8FD9;&#x4E24;&#x884C;&#x4EE3;&#x7801;&#x4F5C;&#x4E3A; snippet &#x52A0;&#x5230; Xcode &#x91CC;&#x9762;&#x5E76;&#x4E14;&#x603B;&#x662F;&#x8FD9;&#x6837;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#x3002;</p>
 <pre><code>__weak __typeof(self)weakSelf = self;
 __strong __typeof(weakSelf)strongSelf = weakSelf;
-</code></pre><p>这里我们来讨论下 block 里面的 self 的 <strong>weak 和 </strong>strong 限定词的一些微妙的地方。简而言之，我们可以参考 self 在 block 里面的三种不同情况。</p>
-<pre><code>直接在 block 里面使用关键词 self
-在 block 外定义一个 __weak 的 引用到 self，并且在 block 里面使用这个弱引用
-在 block 外定义一个 __weak 的 引用到 self，并在在 block 内部通过这个弱引用定义一个 __strong 的引用。
-</code></pre><p>方案 1. 直接在 block 里面使用关键词 self</p>
-<p>如果我们直接在 block 里面用 self 关键字，对象会在 block 的定义时候被 retain，（实际上 block 是 copied 但是为了简单我们可以忽略这个）。一个 const 的对 self 的引用在 block 里面有自己的位置并且它会影响对象的引用计数。如果这个block被其他的类使用并且(或者)彼此间传来传去，我们可能想要在 block 中保留 self，就像其他在 block 中使用的对象一样. 因为他们是block执行所需要的.</p>
+</code></pre><p>&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x6765;&#x8BA8;&#x8BBA;&#x4E0B; block &#x91CC;&#x9762;&#x7684; self &#x7684; <strong>weak &#x548C; </strong>strong &#x9650;&#x5B9A;&#x8BCD;&#x7684;&#x4E00;&#x4E9B;&#x5FAE;&#x5999;&#x7684;&#x5730;&#x65B9;&#x3002;&#x7B80;&#x800C;&#x8A00;&#x4E4B;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53C2;&#x8003; self &#x5728; block &#x91CC;&#x9762;&#x7684;&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x60C5;&#x51B5;&#x3002;</p>
+<pre><code>&#x76F4;&#x63A5;&#x5728; block &#x91CC;&#x9762;&#x4F7F;&#x7528;&#x5173;&#x952E;&#x8BCD; self
+&#x5728; block &#x5916;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A; __weak &#x7684; &#x5F15;&#x7528;&#x5230; self&#xFF0C;&#x5E76;&#x4E14;&#x5728; block &#x91CC;&#x9762;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x5F31;&#x5F15;&#x7528;
+&#x5728; block &#x5916;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A; __weak &#x7684; &#x5F15;&#x7528;&#x5230; self&#xFF0C;&#x5E76;&#x5728;&#x5728; block &#x5185;&#x90E8;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x5F31;&#x5F15;&#x7528;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A; __strong &#x7684;&#x5F15;&#x7528;&#x3002;
+</code></pre><p>&#x65B9;&#x6848; 1. &#x76F4;&#x63A5;&#x5728; block &#x91CC;&#x9762;&#x4F7F;&#x7528;&#x5173;&#x952E;&#x8BCD; self</p>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x5728; block &#x91CC;&#x9762;&#x7528; self &#x5173;&#x952E;&#x5B57;&#xFF0C;&#x5BF9;&#x8C61;&#x4F1A;&#x5728; block &#x7684;&#x5B9A;&#x4E49;&#x65F6;&#x5019;&#x88AB; retain&#xFF0C;&#xFF08;&#x5B9E;&#x9645;&#x4E0A; block &#x662F; copied &#x4F46;&#x662F;&#x4E3A;&#x4E86;&#x7B80;&#x5355;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;&#x8FD9;&#x4E2A;&#xFF09;&#x3002;&#x4E00;&#x4E2A; const &#x7684;&#x5BF9; self &#x7684;&#x5F15;&#x7528;&#x5728; block &#x91CC;&#x9762;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x4F4D;&#x7F6E;&#x5E76;&#x4E14;&#x5B83;&#x4F1A;&#x5F71;&#x54CD;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E2A;block&#x88AB;&#x5176;&#x4ED6;&#x7684;&#x7C7B;&#x4F7F;&#x7528;&#x5E76;&#x4E14;(&#x6216;&#x8005;)&#x5F7C;&#x6B64;&#x95F4;&#x4F20;&#x6765;&#x4F20;&#x53BB;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x60F3;&#x8981;&#x5728; block &#x4E2D;&#x4FDD;&#x7559; self&#xFF0C;&#x5C31;&#x50CF;&#x5176;&#x4ED6;&#x5728; block &#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#x4E00;&#x6837;. &#x56E0;&#x4E3A;&#x4ED6;&#x4EEC;&#x662F;block&#x6267;&#x884C;&#x6240;&#x9700;&#x8981;&#x7684;.</p>
 <pre><code>dispatch_block_t completionBlock = ^{
     NSLog(@&quot;%@&quot;, self);
 }
@@ -355,7 +355,7 @@ MyViewController *myController = [[MyViewController alloc] init...];
 [self presentViewController:myController
                 animated:YES
                 completion:completionHandler];
-</code></pre><p>没啥大不了。但是如果通过一个属性中的 self 保留 了这个 block（就像下面的例程一样）,对象( self )保留了 block 会怎么样呢？</p>
+</code></pre><p>&#x6CA1;&#x5565;&#x5927;&#x4E0D;&#x4E86;&#x3002;&#x4F46;&#x662F;&#x5982;&#x679C;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x4E2D;&#x7684; self &#x4FDD;&#x7559; &#x4E86;&#x8FD9;&#x4E2A; block&#xFF08;&#x5C31;&#x50CF;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x7A0B;&#x4E00;&#x6837;&#xFF09;,&#x5BF9;&#x8C61;( self )&#x4FDD;&#x7559;&#x4E86; block &#x4F1A;&#x600E;&#x4E48;&#x6837;&#x5462;&#xFF1F;</p>
 <pre><code>self.completionHandler = ^{
     NSLog(@&quot;%@&quot;, self);
 }
@@ -364,11 +364,11 @@ MyViewController *myController = [[MyViewController alloc] init...];
 [self presentViewController:myController
                 animated:YES
                 completion:self.completionHandler];
-</code></pre><p>这就是有名的 retain cycle, 并且我们通常应该避免它。这种情况下我们收到 CLANG 的警告：</p>
-<pre><code>Capturing &apos;self&apos; strongly in this block is likely to lead to a retain cycle （在 block 里面发现了 `self` 的强引用，可能会导致循环引用）
-</code></pre><p>所以 __weak 就有用武之地了。</p>
-<p>方案 2. 在 block 外定义一个 __weak 的 引用到 self，并且在 block 里面使用这个弱引用</p>
-<p>这样会避免循坏引用，也是通常情况下我们的block作为类的属性被self retain 的时候会做的。</p>
+</code></pre><p>&#x8FD9;&#x5C31;&#x662F;&#x6709;&#x540D;&#x7684; retain cycle, &#x5E76;&#x4E14;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x5E94;&#x8BE5;&#x907F;&#x514D;&#x5B83;&#x3002;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;&#x6536;&#x5230; CLANG &#x7684;&#x8B66;&#x544A;&#xFF1A;</p>
+<pre><code>Capturing &apos;self&apos; strongly in this block is likely to lead to a retain cycle &#xFF08;&#x5728; block &#x91CC;&#x9762;&#x53D1;&#x73B0;&#x4E86; `self` &#x7684;&#x5F3A;&#x5F15;&#x7528;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#xFF09;
+</code></pre><p>&#x6240;&#x4EE5; __weak &#x5C31;&#x6709;&#x7528;&#x6B66;&#x4E4B;&#x5730;&#x4E86;&#x3002;</p>
+<p>&#x65B9;&#x6848; 2. &#x5728; block &#x5916;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A; __weak &#x7684; &#x5F15;&#x7528;&#x5230; self&#xFF0C;&#x5E76;&#x4E14;&#x5728; block &#x91CC;&#x9762;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x5F31;&#x5F15;&#x7528;</p>
+<p>&#x8FD9;&#x6837;&#x4F1A;&#x907F;&#x514D;&#x5FAA;&#x574F;&#x5F15;&#x7528;&#xFF0C;&#x4E5F;&#x662F;&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;&#x7684;block&#x4F5C;&#x4E3A;&#x7C7B;&#x7684;&#x5C5E;&#x6027;&#x88AB;self retain &#x7684;&#x65F6;&#x5019;&#x4F1A;&#x505A;&#x7684;&#x3002;</p>
 <pre><code>__weak typeof(self) weakSelf = self;
 self.completionHandler = ^{
     NSLog(@&quot;%@&quot;, weakSelf);
@@ -378,13 +378,13 @@ MyViewController *myController = [[MyViewController alloc] init...];
 [self presentViewController:myController
                 animated:YES
                 completion:self.completionHandler];
-</code></pre><p>这个情况下 block 没有 retain 对象并且对象在属性里面 retain 了 block 。所以这样我们能保证了安全的访问 self。 不过糟糕的是，它可能被设置成 nil 的。问题是：如何让 self 在 block 里面安全地被销毁。</p>
-<p>考虑这么个情况：block 作为属性(property)赋值的结果，从一个对象被复制到另一个对象(如 myController)，在这个复制的 block 执行之前，前者（即之前的那个对象）已经被解除分配。</p>
-<p>下面的更有意思。</p>
-<p>方案 3. 在 block 外定义一个 <strong>weak 的 引用到 self，并在在 block 内部通过这个弱引用定义一个 </strong>strong 的引用</p>
-<p>你可能会想，首先，这是避免 retain cycle 警告的一个技巧。</p>
-<p>这不是重点，这个 self 的强引用是在block 执行时 被创建的，但是否使用 self 在 block 定义时就已经定下来了， 因此self (在block执行时) 会被 retain.</p>
-<p>Apple 文档 中表示 “为了 non-trivial cycles ，你应该这样” ：</p>
+</code></pre><p>&#x8FD9;&#x4E2A;&#x60C5;&#x51B5;&#x4E0B; block &#x6CA1;&#x6709; retain &#x5BF9;&#x8C61;&#x5E76;&#x4E14;&#x5BF9;&#x8C61;&#x5728;&#x5C5E;&#x6027;&#x91CC;&#x9762; retain &#x4E86; block &#x3002;&#x6240;&#x4EE5;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x80FD;&#x4FDD;&#x8BC1;&#x4E86;&#x5B89;&#x5168;&#x7684;&#x8BBF;&#x95EE; self&#x3002; &#x4E0D;&#x8FC7;&#x7CDF;&#x7CD5;&#x7684;&#x662F;&#xFF0C;&#x5B83;&#x53EF;&#x80FD;&#x88AB;&#x8BBE;&#x7F6E;&#x6210; nil &#x7684;&#x3002;&#x95EE;&#x9898;&#x662F;&#xFF1A;&#x5982;&#x4F55;&#x8BA9; self &#x5728; block &#x91CC;&#x9762;&#x5B89;&#x5168;&#x5730;&#x88AB;&#x9500;&#x6BC1;&#x3002;</p>
+<p>&#x8003;&#x8651;&#x8FD9;&#x4E48;&#x4E2A;&#x60C5;&#x51B5;&#xFF1A;block &#x4F5C;&#x4E3A;&#x5C5E;&#x6027;(property)&#x8D4B;&#x503C;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x4ECE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x88AB;&#x590D;&#x5236;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;(&#x5982; myController)&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x590D;&#x5236;&#x7684; block &#x6267;&#x884C;&#x4E4B;&#x524D;&#xFF0C;&#x524D;&#x8005;&#xFF08;&#x5373;&#x4E4B;&#x524D;&#x7684;&#x90A3;&#x4E2A;&#x5BF9;&#x8C61;&#xFF09;&#x5DF2;&#x7ECF;&#x88AB;&#x89E3;&#x9664;&#x5206;&#x914D;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x66F4;&#x6709;&#x610F;&#x601D;&#x3002;</p>
+<p>&#x65B9;&#x6848; 3. &#x5728; block &#x5916;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A; <strong>weak &#x7684; &#x5F15;&#x7528;&#x5230; self&#xFF0C;&#x5E76;&#x5728;&#x5728; block &#x5185;&#x90E8;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x5F31;&#x5F15;&#x7528;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A; </strong>strong &#x7684;&#x5F15;&#x7528;</p>
+<p>&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x60F3;&#xFF0C;&#x9996;&#x5148;&#xFF0C;&#x8FD9;&#x662F;&#x907F;&#x514D; retain cycle &#x8B66;&#x544A;&#x7684;&#x4E00;&#x4E2A;&#x6280;&#x5DE7;&#x3002;</p>
+<p>&#x8FD9;&#x4E0D;&#x662F;&#x91CD;&#x70B9;&#xFF0C;&#x8FD9;&#x4E2A; self &#x7684;&#x5F3A;&#x5F15;&#x7528;&#x662F;&#x5728;block &#x6267;&#x884C;&#x65F6; &#x88AB;&#x521B;&#x5EFA;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5426;&#x4F7F;&#x7528; self &#x5728; block &#x5B9A;&#x4E49;&#x65F6;&#x5C31;&#x5DF2;&#x7ECF;&#x5B9A;&#x4E0B;&#x6765;&#x4E86;&#xFF0C; &#x56E0;&#x6B64;self (&#x5728;block&#x6267;&#x884C;&#x65F6;) &#x4F1A;&#x88AB; retain.</p>
+<p>Apple &#x6587;&#x6863; &#x4E2D;&#x8868;&#x793A; &#x201C;&#x4E3A;&#x4E86; non-trivial cycles &#xFF0C;&#x4F60;&#x5E94;&#x8BE5;&#x8FD9;&#x6837;&#x201D; &#xFF1A;</p>
 <pre><code>MyViewController *myController = [[MyViewController alloc] init...];
 // ...
 MyViewController * __weak weakMyController = myController;
@@ -399,31 +399,31 @@ myController.completionHandler =  ^(NSInteger result) {
         // Probably nothing...
     }
 };
-</code></pre><p>首先，我觉得这个例子看起来是错误的。如果 block 本身在 completionHandler 属性中被 retain 了，那么 self 如何被 delloc 和在 block 之外赋值为 nil 呢? completionHandler 属性可以被声明为 assign 或者 unsafe_unretained 的，来允许对象在 block 被传递之后被销毁。</p>
-<p>我不能理解这样做的理由，如果其他对象需要这个对象（self），block 被传递的时候应该 retain 对象，所以 block 应该不被作为属性存储。这种情况下不应该用 <strong>weak/</strong>strong</p>
-<p>总之，其他情况下，希望 weakSelf 变成 nil 的话，就像第二种情况解释那么写（在 block 之外定义一个弱应用并且在 block 里面使用）。</p>
-<p>还有，Apple的 “trivial block” 是什么呢。我们的理解是 trivial block 是一个不被传送的 block ，它在一个良好定义和控制的作用域里面，weak 修饰只是为了避免循环引用。</p>
-<p>虽然有 Kazuki Sakamoto 和 Tomohiko Furumoto) 讨论的 一 些 的 在线 参考, Matt Galloway 的 (Effective Objective-C 2.0 和 Pro Multithreading and Memory Management for iOS and OS X ，大多数开发者始终没有弄清楚概念。</p>
-<p>在 block 内用强引用的优点是，抢占执行的时候的鲁棒性。在 block 执行的时候, 再次温故下上面的三个例子：</p>
-<p>方案 1. 直接在 block 里面使用关键词 self</p>
-<p>如果 block 被属性 retain，self 和 block 之间会有一个循环引用并且它们不会再被释放。如果 block 被传送并且被其他的对象 copy 了，self 在每一个 copy 里面被 retain</p>
-<p>方案 2. 在 block 外定义一个 __weak 的 引用到 self，并且在 block 里面使用这个弱引用</p>
-<p>不管 block 是否通过属性被 retain ，这里都不会发生循环引用。如果 block 被传递或者 copy 了，在执行的时候，weakSelf 可能已经变成 nil。</p>
-<p>block 的执行可以抢占，而且对 weakSelf 指针的调用时序不同可以导致不同的结果(如：在一个特定的时序下 weakSelf 可能会变成nil)。</p>
+</code></pre><p>&#x9996;&#x5148;&#xFF0C;&#x6211;&#x89C9;&#x5F97;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x770B;&#x8D77;&#x6765;&#x662F;&#x9519;&#x8BEF;&#x7684;&#x3002;&#x5982;&#x679C; block &#x672C;&#x8EAB;&#x5728; completionHandler &#x5C5E;&#x6027;&#x4E2D;&#x88AB; retain &#x4E86;&#xFF0C;&#x90A3;&#x4E48; self &#x5982;&#x4F55;&#x88AB; delloc &#x548C;&#x5728; block &#x4E4B;&#x5916;&#x8D4B;&#x503C;&#x4E3A; nil &#x5462;? completionHandler &#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x88AB;&#x58F0;&#x660E;&#x4E3A; assign &#x6216;&#x8005; unsafe_unretained &#x7684;&#xFF0C;&#x6765;&#x5141;&#x8BB8;&#x5BF9;&#x8C61;&#x5728; block &#x88AB;&#x4F20;&#x9012;&#x4E4B;&#x540E;&#x88AB;&#x9500;&#x6BC1;&#x3002;</p>
+<p>&#x6211;&#x4E0D;&#x80FD;&#x7406;&#x89E3;&#x8FD9;&#x6837;&#x505A;&#x7684;&#x7406;&#x7531;&#xFF0C;&#x5982;&#x679C;&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x9700;&#x8981;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#xFF08;self&#xFF09;&#xFF0C;block &#x88AB;&#x4F20;&#x9012;&#x7684;&#x65F6;&#x5019;&#x5E94;&#x8BE5; retain &#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5; block &#x5E94;&#x8BE5;&#x4E0D;&#x88AB;&#x4F5C;&#x4E3A;&#x5C5E;&#x6027;&#x5B58;&#x50A8;&#x3002;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x4E0D;&#x5E94;&#x8BE5;&#x7528; <strong>weak/</strong>strong</p>
+<p>&#x603B;&#x4E4B;&#xFF0C;&#x5176;&#x4ED6;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5E0C;&#x671B; weakSelf &#x53D8;&#x6210; nil &#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x50CF;&#x7B2C;&#x4E8C;&#x79CD;&#x60C5;&#x51B5;&#x89E3;&#x91CA;&#x90A3;&#x4E48;&#x5199;&#xFF08;&#x5728; block &#x4E4B;&#x5916;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5F31;&#x5E94;&#x7528;&#x5E76;&#x4E14;&#x5728; block &#x91CC;&#x9762;&#x4F7F;&#x7528;&#xFF09;&#x3002;</p>
+<p>&#x8FD8;&#x6709;&#xFF0C;Apple&#x7684; &#x201C;trivial block&#x201D; &#x662F;&#x4EC0;&#x4E48;&#x5462;&#x3002;&#x6211;&#x4EEC;&#x7684;&#x7406;&#x89E3;&#x662F; trivial block &#x662F;&#x4E00;&#x4E2A;&#x4E0D;&#x88AB;&#x4F20;&#x9001;&#x7684; block &#xFF0C;&#x5B83;&#x5728;&#x4E00;&#x4E2A;&#x826F;&#x597D;&#x5B9A;&#x4E49;&#x548C;&#x63A7;&#x5236;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x91CC;&#x9762;&#xFF0C;weak &#x4FEE;&#x9970;&#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x3002;</p>
+<p>&#x867D;&#x7136;&#x6709; Kazuki Sakamoto &#x548C; Tomohiko Furumoto) &#x8BA8;&#x8BBA;&#x7684; &#x4E00; &#x4E9B; &#x7684; &#x5728;&#x7EBF; &#x53C2;&#x8003;, Matt Galloway &#x7684; (Effective Objective-C 2.0 &#x548C; Pro Multithreading and Memory Management for iOS and OS X &#xFF0C;&#x5927;&#x591A;&#x6570;&#x5F00;&#x53D1;&#x8005;&#x59CB;&#x7EC8;&#x6CA1;&#x6709;&#x5F04;&#x6E05;&#x695A;&#x6982;&#x5FF5;&#x3002;</p>
+<p>&#x5728; block &#x5185;&#x7528;&#x5F3A;&#x5F15;&#x7528;&#x7684;&#x4F18;&#x70B9;&#x662F;&#xFF0C;&#x62A2;&#x5360;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#x7684;&#x9C81;&#x68D2;&#x6027;&#x3002;&#x5728; block &#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;, &#x518D;&#x6B21;&#x6E29;&#x6545;&#x4E0B;&#x4E0A;&#x9762;&#x7684;&#x4E09;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<p>&#x65B9;&#x6848; 1. &#x76F4;&#x63A5;&#x5728; block &#x91CC;&#x9762;&#x4F7F;&#x7528;&#x5173;&#x952E;&#x8BCD; self</p>
+<p>&#x5982;&#x679C; block &#x88AB;&#x5C5E;&#x6027; retain&#xFF0C;self &#x548C; block &#x4E4B;&#x95F4;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x5E76;&#x4E14;&#x5B83;&#x4EEC;&#x4E0D;&#x4F1A;&#x518D;&#x88AB;&#x91CA;&#x653E;&#x3002;&#x5982;&#x679C; block &#x88AB;&#x4F20;&#x9001;&#x5E76;&#x4E14;&#x88AB;&#x5176;&#x4ED6;&#x7684;&#x5BF9;&#x8C61; copy &#x4E86;&#xFF0C;self &#x5728;&#x6BCF;&#x4E00;&#x4E2A; copy &#x91CC;&#x9762;&#x88AB; retain</p>
+<p>&#x65B9;&#x6848; 2. &#x5728; block &#x5916;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A; __weak &#x7684; &#x5F15;&#x7528;&#x5230; self&#xFF0C;&#x5E76;&#x4E14;&#x5728; block &#x91CC;&#x9762;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x5F31;&#x5F15;&#x7528;</p>
+<p>&#x4E0D;&#x7BA1; block &#x662F;&#x5426;&#x901A;&#x8FC7;&#x5C5E;&#x6027;&#x88AB; retain &#xFF0C;&#x8FD9;&#x91CC;&#x90FD;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x3002;&#x5982;&#x679C; block &#x88AB;&#x4F20;&#x9012;&#x6216;&#x8005; copy &#x4E86;&#xFF0C;&#x5728;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;weakSelf &#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x53D8;&#x6210; nil&#x3002;</p>
+<p>block &#x7684;&#x6267;&#x884C;&#x53EF;&#x4EE5;&#x62A2;&#x5360;&#xFF0C;&#x800C;&#x4E14;&#x5BF9; weakSelf &#x6307;&#x9488;&#x7684;&#x8C03;&#x7528;&#x65F6;&#x5E8F;&#x4E0D;&#x540C;&#x53EF;&#x4EE5;&#x5BFC;&#x81F4;&#x4E0D;&#x540C;&#x7684;&#x7ED3;&#x679C;(&#x5982;&#xFF1A;&#x5728;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x65F6;&#x5E8F;&#x4E0B; weakSelf &#x53EF;&#x80FD;&#x4F1A;&#x53D8;&#x6210;nil)&#x3002;</p>
 <pre><code>__weak typeof(self) weakSelf = self;
 dispatch_block_t block =  ^{
     [weakSelf doSomething]; // weakSelf != nil
     // preemption, weakSelf turned nil
     [weakSelf doSomethingElse]; // weakSelf == nil
 };
-</code></pre><p>方案 3. 在 block 外定义一个 <strong>weak 的 引用到 self，并在在 block 内部通过这个弱引用定义一个 </strong>strong 的引用。</p>
-<p>不管 block 是否通过属性被 retain ，这里也不会发生循环引用。如果 block 被传递到其他对象并且被复制了，执行的时候，weakSelf 可能被nil，因为强引用被赋值并且不会变成nil的时候，我们确保对象 在 block 调用的完整周期里面被 retain了，如果抢占发生了，随后的对 strongSelf 的执行会继续并且会产生一样的值。如果 strongSelf 的执行到 nil，那么在 block 不能正确执行前已经返回了。</p>
+</code></pre><p>&#x65B9;&#x6848; 3. &#x5728; block &#x5916;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A; <strong>weak &#x7684; &#x5F15;&#x7528;&#x5230; self&#xFF0C;&#x5E76;&#x5728;&#x5728; block &#x5185;&#x90E8;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x5F31;&#x5F15;&#x7528;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A; </strong>strong &#x7684;&#x5F15;&#x7528;&#x3002;</p>
+<p>&#x4E0D;&#x7BA1; block &#x662F;&#x5426;&#x901A;&#x8FC7;&#x5C5E;&#x6027;&#x88AB; retain &#xFF0C;&#x8FD9;&#x91CC;&#x4E5F;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x3002;&#x5982;&#x679C; block &#x88AB;&#x4F20;&#x9012;&#x5230;&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x5E76;&#x4E14;&#x88AB;&#x590D;&#x5236;&#x4E86;&#xFF0C;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;weakSelf &#x53EF;&#x80FD;&#x88AB;nil&#xFF0C;&#x56E0;&#x4E3A;&#x5F3A;&#x5F15;&#x7528;&#x88AB;&#x8D4B;&#x503C;&#x5E76;&#x4E14;&#x4E0D;&#x4F1A;&#x53D8;&#x6210;nil&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x786E;&#x4FDD;&#x5BF9;&#x8C61; &#x5728; block &#x8C03;&#x7528;&#x7684;&#x5B8C;&#x6574;&#x5468;&#x671F;&#x91CC;&#x9762;&#x88AB; retain&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x62A2;&#x5360;&#x53D1;&#x751F;&#x4E86;&#xFF0C;&#x968F;&#x540E;&#x7684;&#x5BF9; strongSelf &#x7684;&#x6267;&#x884C;&#x4F1A;&#x7EE7;&#x7EED;&#x5E76;&#x4E14;&#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x6837;&#x7684;&#x503C;&#x3002;&#x5982;&#x679C; strongSelf &#x7684;&#x6267;&#x884C;&#x5230; nil&#xFF0C;&#x90A3;&#x4E48;&#x5728; block &#x4E0D;&#x80FD;&#x6B63;&#x786E;&#x6267;&#x884C;&#x524D;&#x5DF2;&#x7ECF;&#x8FD4;&#x56DE;&#x4E86;&#x3002;</p>
 <pre><code>__weak typeof(self) weakSelf = self;
 myObj.myBlock =  ^{
     __strong typeof(self) strongSelf = weakSelf;
     if (strongSelf) {
     [strongSelf doSomething]; // strongSelf != nil
-    // preemption, strongSelf still not nil（抢占的时候，strongSelf 还是非 nil 的)
+    // preemption, strongSelf still not nil&#xFF08;&#x62A2;&#x5360;&#x7684;&#x65F6;&#x5019;&#xFF0C;strongSelf &#x8FD8;&#x662F;&#x975E; nil &#x7684;)
     [strongSelf doSomethingElse]; // strongSelf != nil
     }
     else {
@@ -431,69 +431,69 @@ myObj.myBlock =  ^{
         return;
     }
 };
-</code></pre><p>在ARC条件中，如果尝试用 -&gt; 符号访问一个实例变量，编译器会给出非常清晰的错误信息：</p>
-<p>Dereferencing a <strong>weak pointer is not allowed due to possible null value caused by race condition, assign it to a strong variable first. (对一个 </strong>weak 指针的解引用不允许的，因为可能在竞态条件里面变成 null, 所以先把他定义成 strong 的属性)</p>
-<p>可以用下面的代码展示</p>
+</code></pre><p>&#x5728;ARC&#x6761;&#x4EF6;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x5C1D;&#x8BD5;&#x7528; -&gt; &#x7B26;&#x53F7;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x53D8;&#x91CF;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x7ED9;&#x51FA;&#x975E;&#x5E38;&#x6E05;&#x6670;&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#xFF1A;</p>
+<p>Dereferencing a <strong>weak pointer is not allowed due to possible null value caused by race condition, assign it to a strong variable first. (&#x5BF9;&#x4E00;&#x4E2A; </strong>weak &#x6307;&#x9488;&#x7684;&#x89E3;&#x5F15;&#x7528;&#x4E0D;&#x5141;&#x8BB8;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x53EF;&#x80FD;&#x5728;&#x7ADE;&#x6001;&#x6761;&#x4EF6;&#x91CC;&#x9762;&#x53D8;&#x6210; null, &#x6240;&#x4EE5;&#x5148;&#x628A;&#x4ED6;&#x5B9A;&#x4E49;&#x6210; strong &#x7684;&#x5C5E;&#x6027;)</p>
+<p>&#x53EF;&#x4EE5;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5C55;&#x793A;</p>
 <pre><code>__weak typeof(self) weakSelf = self;
 myObj.myBlock =  ^{
     id localVal = weakSelf-&gt;someIVar;
 };
-</code></pre><p>在最后</p>
-<pre><code>方案 1: 只能在 block 不是作为一个 property 的时候使用，否则会导致 retain cycle。
+</code></pre><p>&#x5728;&#x6700;&#x540E;</p>
+<pre><code>&#x65B9;&#x6848; 1: &#x53EA;&#x80FD;&#x5728; block &#x4E0D;&#x662F;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A; property &#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x5BFC;&#x81F4; retain cycle&#x3002;
 
-方案 2: 当 block 被声明为一个 property 的时候使用。
+&#x65B9;&#x6848; 2: &#x5F53; block &#x88AB;&#x58F0;&#x660E;&#x4E3A;&#x4E00;&#x4E2A; property &#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#x3002;
 
-方案 3: 和并发执行有关。当涉及异步的服务的时候，block 可以在之后被执行，并且不会发生关于 self 是否存在的问题。
-</code></pre><h3 id="五、IOS高效添加圆角效果"><a href="#五、IOS高效添加圆角效果" class="headerlink" title="五、IOS高效添加圆角效果"></a>五、IOS高效添加圆角效果</h3><p>误区一：</p>
+&#x65B9;&#x6848; 3: &#x548C;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x6709;&#x5173;&#x3002;&#x5F53;&#x6D89;&#x53CA;&#x5F02;&#x6B65;&#x7684;&#x670D;&#x52A1;&#x7684;&#x65F6;&#x5019;&#xFF0C;block &#x53EF;&#x4EE5;&#x5728;&#x4E4B;&#x540E;&#x88AB;&#x6267;&#x884C;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x5173;&#x4E8E; self &#x662F;&#x5426;&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;&#x3002;
+</code></pre><h3 id="&#x4E94;&#x3001;IOS&#x9AD8;&#x6548;&#x6DFB;&#x52A0;&#x5706;&#x89D2;&#x6548;&#x679C;"><a href="#&#x4E94;&#x3001;IOS&#x9AD8;&#x6548;&#x6DFB;&#x52A0;&#x5706;&#x89D2;&#x6548;&#x679C;" class="headerlink" title="&#x4E94;&#x3001;IOS&#x9AD8;&#x6548;&#x6DFB;&#x52A0;&#x5706;&#x89D2;&#x6548;&#x679C;"></a>&#x4E94;&#x3001;IOS&#x9AD8;&#x6548;&#x6DFB;&#x52A0;&#x5706;&#x89D2;&#x6548;&#x679C;</h3><p>&#x8BEF;&#x533A;&#x4E00;&#xFF1A;</p>
 <pre><code>view.layer.cornerRadius = 5
-</code></pre><p>该代码经过测试是不会造成内存性能损耗。</p>
-<pre><code>view.layer.masksToBounds = Yes // 遮罩layer层以下的视
-图，使圆角生效
-</code></pre><p>这代码才是造成性能损耗的关键因素。由于该代码会导致视图离屏渲染（Color Offscreen-Renderd Yellow）相关文章:<a href="http://www.jianshu.com/p/619cf14640f3" target="_blank" rel="external">UIKit性能调优实战讲解</a></p>
-<p>注意事项：我们应该尽量避免重写 drawRect 方法，用CAShapeLayer代替图层绘制。不恰当的使用这个方法</p>
-<p>会导致内存暴增。举个例子，iPhone6 上与屏幕等大的 UIView，即使重写一个空的 drawRect 方法，它也</p>
-<p>至少占用 750 <em> 1134 </em> 4 字节 ≈ 3.4 Mb 的内存。在内存恶鬼drawRect 及其后续中，作者详细介绍了</p>
-<p>其中原理，据他测试，在 iPhone6 上空的、与屏幕等大的视图重写 drawRect 方法会消耗 5.2 Mb 内存。</p>
-<p>总之，能避免重写 drawRect 方法就尽可能避免。</p>
-<p>其次，这种方法本质上是用遮罩层 mask 来实现，因此同样无可避免的会导致离屏渲染。我试着将此前 34 个</p>
-<p>视图的圆角改用这种方法实现，结果 fps 掉到 11 左右。已经属于卡出翔的节奏了。</p>
-<p>高效设置圆角实战：</p>
-<h4 id="为-UIView-添加圆角"><a href="#为-UIView-添加圆角" class="headerlink" title="为 UIView 添加圆角"></a>为 UIView 添加圆角</h4><p>这种做法的原理是手动画出圆角。虽然我们之前说过，为普通的视图直接设置 cornerRadius 属性即可。但万一不可避免的需要使用 masksToBounds，就可以使用下面这种方法，它的核心代码如下：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">func kt_drawRectWithRoundedCorner(radius radius: <span class="built_in">CGFloat</span>,       </span><br><span class="line">                       borderWidth: <span class="built_in">CGFloat</span>,</span><br><span class="line">                                  backgroundColor: <span class="built_in">UIColor</span>,</span><br><span class="line">                                  borderColor: <span class="built_in">UIColor</span>) -&gt; <span class="built_in">UIImage</span> &#123;    </span><br><span class="line">     <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(sizeToFit, <span class="literal">false</span>, <span class="built_in">UIScreen</span>.mainScreen().scale)</span><br><span class="line">     let context = <span class="built_in">UIGraphicsGetCurrentContext</span>()</span><br><span class="line">     </span><br><span class="line">     <span class="built_in">CGContextMoveToPoint</span>(context, 开始位置);  <span class="comment">// 开始坐标右边开始</span></span><br><span class="line">     <span class="built_in">CGContextAddArcToPoint</span>(context, x1, y1, x2, y2, radius);  <span class="comment">// 这种类型的代码重复四次</span></span><br><span class="line">   </span><br><span class="line">     <span class="built_in">CGContextDrawPath</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>(), .FillStroke)  </span><br><span class="line">     let output = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">     <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">     <span class="keyword">return</span> output</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个方法返回的是 UIImage，也就是说我们利用 Core Graphics 自己画出了一个圆角矩形。除了一些必要的代码外，最核心的就是 CGContextAddArcToPoint 函数。它中间的四个参数表示曲线的起点和终点坐标，最后一个参数表示半径。调用了四次函数后，就可以画出圆角矩形。最后再从当前的绘图上下文中获取图片并返回。<br>有了这个图片后，我们创建一个 UIImageView 并插入到视图层级的底部：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">extension <span class="built_in">UIView</span> &#123;</span><br><span class="line">    func kt_addCorner(radius radius: <span class="built_in">CGFloat</span>,</span><br><span class="line">                      borderWidth: <span class="built_in">CGFloat</span>,</span><br><span class="line">                      backgroundColor: <span class="built_in">UIColor</span>,</span><br><span class="line">                      borderColor: <span class="built_in">UIColor</span>) &#123;</span><br><span class="line">        let imageView = <span class="built_in">UIImageView</span>(image: kt_drawRectWithRoundedCorner(radius: radius,</span><br><span class="line">                                    borderWidth: borderWidth,</span><br><span class="line">                                    backgroundColor: backgroundColor,</span><br><span class="line">                                    borderColor: borderColor))</span><br><span class="line">        <span class="keyword">self</span>.insertSubview(imageView, atIndex: <span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>完整的代码可以在项目中找到，使用时，你只需要这样写：</p>
+</code></pre><p>&#x8BE5;&#x4EE3;&#x7801;&#x7ECF;&#x8FC7;&#x6D4B;&#x8BD5;&#x662F;&#x4E0D;&#x4F1A;&#x9020;&#x6210;&#x5185;&#x5B58;&#x6027;&#x80FD;&#x635F;&#x8017;&#x3002;</p>
+<pre><code>view.layer.masksToBounds = Yes // &#x906E;&#x7F69;layer&#x5C42;&#x4EE5;&#x4E0B;&#x7684;&#x89C6;
+&#x56FE;&#xFF0C;&#x4F7F;&#x5706;&#x89D2;&#x751F;&#x6548;
+</code></pre><p>&#x8FD9;&#x4EE3;&#x7801;&#x624D;&#x662F;&#x9020;&#x6210;&#x6027;&#x80FD;&#x635F;&#x8017;&#x7684;&#x5173;&#x952E;&#x56E0;&#x7D20;&#x3002;&#x7531;&#x4E8E;&#x8BE5;&#x4EE3;&#x7801;&#x4F1A;&#x5BFC;&#x81F4;&#x89C6;&#x56FE;&#x79BB;&#x5C4F;&#x6E32;&#x67D3;&#xFF08;Color Offscreen-Renderd Yellow&#xFF09;&#x76F8;&#x5173;&#x6587;&#x7AE0;:<a href="http://www.jianshu.com/p/619cf14640f3" target="_blank" rel="external">UIKit&#x6027;&#x80FD;&#x8C03;&#x4F18;&#x5B9E;&#x6218;&#x8BB2;&#x89E3;</a></p>
+<p>&#x6CE8;&#x610F;&#x4E8B;&#x9879;&#xFF1A;&#x6211;&#x4EEC;&#x5E94;&#x8BE5;&#x5C3D;&#x91CF;&#x907F;&#x514D;&#x91CD;&#x5199; drawRect &#x65B9;&#x6CD5;&#xFF0C;&#x7528;CAShapeLayer&#x4EE3;&#x66FF;&#x56FE;&#x5C42;&#x7ED8;&#x5236;&#x3002;&#x4E0D;&#x6070;&#x5F53;&#x7684;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;</p>
+<p>&#x4F1A;&#x5BFC;&#x81F4;&#x5185;&#x5B58;&#x66B4;&#x589E;&#x3002;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;iPhone6 &#x4E0A;&#x4E0E;&#x5C4F;&#x5E55;&#x7B49;&#x5927;&#x7684; UIView&#xFF0C;&#x5373;&#x4F7F;&#x91CD;&#x5199;&#x4E00;&#x4E2A;&#x7A7A;&#x7684; drawRect &#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x4E5F;</p>
+<p>&#x81F3;&#x5C11;&#x5360;&#x7528; 750 <em> 1134 </em> 4 &#x5B57;&#x8282; &#x2248; 3.4 Mb &#x7684;&#x5185;&#x5B58;&#x3002;&#x5728;&#x5185;&#x5B58;&#x6076;&#x9B3C;drawRect &#x53CA;&#x5176;&#x540E;&#x7EED;&#x4E2D;&#xFF0C;&#x4F5C;&#x8005;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x4E86;</p>
+<p>&#x5176;&#x4E2D;&#x539F;&#x7406;&#xFF0C;&#x636E;&#x4ED6;&#x6D4B;&#x8BD5;&#xFF0C;&#x5728; iPhone6 &#x4E0A;&#x7A7A;&#x7684;&#x3001;&#x4E0E;&#x5C4F;&#x5E55;&#x7B49;&#x5927;&#x7684;&#x89C6;&#x56FE;&#x91CD;&#x5199; drawRect &#x65B9;&#x6CD5;&#x4F1A;&#x6D88;&#x8017; 5.2 Mb &#x5185;&#x5B58;&#x3002;</p>
+<p>&#x603B;&#x4E4B;&#xFF0C;&#x80FD;&#x907F;&#x514D;&#x91CD;&#x5199; drawRect &#x65B9;&#x6CD5;&#x5C31;&#x5C3D;&#x53EF;&#x80FD;&#x907F;&#x514D;&#x3002;</p>
+<p>&#x5176;&#x6B21;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x7528;&#x906E;&#x7F69;&#x5C42; mask &#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x56E0;&#x6B64;&#x540C;&#x6837;&#x65E0;&#x53EF;&#x907F;&#x514D;&#x7684;&#x4F1A;&#x5BFC;&#x81F4;&#x79BB;&#x5C4F;&#x6E32;&#x67D3;&#x3002;&#x6211;&#x8BD5;&#x7740;&#x5C06;&#x6B64;&#x524D; 34 &#x4E2A;</p>
+<p>&#x89C6;&#x56FE;&#x7684;&#x5706;&#x89D2;&#x6539;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#xFF0C;&#x7ED3;&#x679C; fps &#x6389;&#x5230; 11 &#x5DE6;&#x53F3;&#x3002;&#x5DF2;&#x7ECF;&#x5C5E;&#x4E8E;&#x5361;&#x51FA;&#x7FD4;&#x7684;&#x8282;&#x594F;&#x4E86;&#x3002;</p>
+<p>&#x9AD8;&#x6548;&#x8BBE;&#x7F6E;&#x5706;&#x89D2;&#x5B9E;&#x6218;&#xFF1A;</p>
+<h4 id="&#x4E3A;-UIView-&#x6DFB;&#x52A0;&#x5706;&#x89D2;"><a href="#&#x4E3A;-UIView-&#x6DFB;&#x52A0;&#x5706;&#x89D2;" class="headerlink" title="&#x4E3A; UIView &#x6DFB;&#x52A0;&#x5706;&#x89D2;"></a>&#x4E3A; UIView &#x6DFB;&#x52A0;&#x5706;&#x89D2;</h4><p>&#x8FD9;&#x79CD;&#x505A;&#x6CD5;&#x7684;&#x539F;&#x7406;&#x662F;&#x624B;&#x52A8;&#x753B;&#x51FA;&#x5706;&#x89D2;&#x3002;&#x867D;&#x7136;&#x6211;&#x4EEC;&#x4E4B;&#x524D;&#x8BF4;&#x8FC7;&#xFF0C;&#x4E3A;&#x666E;&#x901A;&#x7684;&#x89C6;&#x56FE;&#x76F4;&#x63A5;&#x8BBE;&#x7F6E; cornerRadius &#x5C5E;&#x6027;&#x5373;&#x53EF;&#x3002;&#x4F46;&#x4E07;&#x4E00;&#x4E0D;&#x53EF;&#x907F;&#x514D;&#x7684;&#x9700;&#x8981;&#x4F7F;&#x7528; masksToBounds&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x7684;&#x6838;&#x5FC3;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">func kt_drawRectWithRoundedCorner(radius radius: <span class="built_in">CGFloat</span>,       </span><br><span class="line">                       borderWidth: <span class="built_in">CGFloat</span>,</span><br><span class="line">                                  backgroundColor: <span class="built_in">UIColor</span>,</span><br><span class="line">                                  borderColor: <span class="built_in">UIColor</span>) -&gt; <span class="built_in">UIImage</span> {    </span><br><span class="line">     <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(sizeToFit, <span class="literal">false</span>, <span class="built_in">UIScreen</span>.mainScreen().scale)</span><br><span class="line">     let context = <span class="built_in">UIGraphicsGetCurrentContext</span>()</span><br><span class="line">     </span><br><span class="line">     <span class="built_in">CGContextMoveToPoint</span>(context, &#x5F00;&#x59CB;&#x4F4D;&#x7F6E;);  <span class="comment">// &#x5F00;&#x59CB;&#x5750;&#x6807;&#x53F3;&#x8FB9;&#x5F00;&#x59CB;</span></span><br><span class="line">     <span class="built_in">CGContextAddArcToPoint</span>(context, x1, y1, x2, y2, radius);  <span class="comment">// &#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x4EE3;&#x7801;&#x91CD;&#x590D;&#x56DB;&#x6B21;</span></span><br><span class="line">   </span><br><span class="line">     <span class="built_in">CGContextDrawPath</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>(), .FillStroke)  </span><br><span class="line">     let output = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">     <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">     <span class="keyword">return</span> output</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x662F; UIImage&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6211;&#x4EEC;&#x5229;&#x7528; Core Graphics &#x81EA;&#x5DF1;&#x753B;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x5706;&#x89D2;&#x77E9;&#x5F62;&#x3002;&#x9664;&#x4E86;&#x4E00;&#x4E9B;&#x5FC5;&#x8981;&#x7684;&#x4EE3;&#x7801;&#x5916;&#xFF0C;&#x6700;&#x6838;&#x5FC3;&#x7684;&#x5C31;&#x662F; CGContextAddArcToPoint &#x51FD;&#x6570;&#x3002;&#x5B83;&#x4E2D;&#x95F4;&#x7684;&#x56DB;&#x4E2A;&#x53C2;&#x6570;&#x8868;&#x793A;&#x66F2;&#x7EBF;&#x7684;&#x8D77;&#x70B9;&#x548C;&#x7EC8;&#x70B9;&#x5750;&#x6807;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x8868;&#x793A;&#x534A;&#x5F84;&#x3002;&#x8C03;&#x7528;&#x4E86;&#x56DB;&#x6B21;&#x51FD;&#x6570;&#x540E;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x753B;&#x51FA;&#x5706;&#x89D2;&#x77E9;&#x5F62;&#x3002;&#x6700;&#x540E;&#x518D;&#x4ECE;&#x5F53;&#x524D;&#x7684;&#x7ED8;&#x56FE;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x83B7;&#x53D6;&#x56FE;&#x7247;&#x5E76;&#x8FD4;&#x56DE;&#x3002;<br>&#x6709;&#x4E86;&#x8FD9;&#x4E2A;&#x56FE;&#x7247;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; UIImageView &#x5E76;&#x63D2;&#x5165;&#x5230;&#x89C6;&#x56FE;&#x5C42;&#x7EA7;&#x7684;&#x5E95;&#x90E8;&#xFF1A;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">extension <span class="built_in">UIView</span> {</span><br><span class="line">    func kt_addCorner(radius radius: <span class="built_in">CGFloat</span>,</span><br><span class="line">                      borderWidth: <span class="built_in">CGFloat</span>,</span><br><span class="line">                      backgroundColor: <span class="built_in">UIColor</span>,</span><br><span class="line">                      borderColor: <span class="built_in">UIColor</span>) {</span><br><span class="line">        let imageView = <span class="built_in">UIImageView</span>(image: kt_drawRectWithRoundedCorner(radius: radius,</span><br><span class="line">                                    borderWidth: borderWidth,</span><br><span class="line">                                    backgroundColor: backgroundColor,</span><br><span class="line">                                    borderColor: borderColor))</span><br><span class="line">        <span class="keyword">self</span>.insertSubview(imageView, atIndex: <span class="number">0</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x5B8C;&#x6574;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x627E;&#x5230;&#xFF0C;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x8FD9;&#x6837;&#x5199;&#xFF1A;</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let view = <span class="built_in">UIView</span>(frame: <span class="built_in">CGRectMake</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line">view.kt_addCorner(radius: <span class="number">6</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="为-UIImageView-添加圆角"><a href="#为-UIImageView-添加圆角" class="headerlink" title="为 UIImageView 添加圆角"></a>为 UIImageView 添加圆角</h4><p>相比于上面一种实现方法，为 UIImageView 添加圆角更为常用。它的实现思路是直接截取图片：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">extension <span class="built_in">UIImage</span> &#123;</span><br><span class="line">    func kt_drawRectWithRoundedCorner(radius radius: <span class="built_in">CGFloat</span>, _ sizetoFit: <span class="built_in">CGSize</span>) -&gt; <span class="built_in">UIImage</span> &#123;</span><br><span class="line">        let rect = <span class="built_in">CGRect</span>(origin: <span class="built_in">CGPoint</span>(x: <span class="number">0</span>, y: <span class="number">0</span>), size: sizetoFit)</span><br><span class="line">         </span><br><span class="line">        <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(rect.size, <span class="literal">false</span>, <span class="built_in">UIScreen</span>.mainScreen().scale)</span><br><span class="line">        <span class="built_in">CGContextAddPath</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>(),</span><br><span class="line">            <span class="built_in">UIBezierPath</span>(roundedRect: rect, byRoundingCorners: <span class="built_in">UIRectCorner</span>.AllCorners,</span><br><span class="line">                cornerRadii: <span class="built_in">CGSize</span>(width: radius, height: radius)).CGPath)</span><br><span class="line">        <span class="built_in">CGContextClip</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>())</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">self</span>.drawInRect(rect)</span><br><span class="line">        <span class="built_in">CGContextDrawPath</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>(), .FillStroke)</span><br><span class="line">        let output = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">        <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">return</span> output</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-<p>圆角路径直接用贝塞尔曲线绘制，一个意外的 bonus 是还可以选择哪几个角有圆角效果。这个函数的效果是将原来的 UIImage 剪裁出圆角。配合着这函数，我们可以为 UIImageView 拓展一个设置圆角的方法：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">extension <span class="built_in">UIImageView</span> &#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     / !!!只有当 imageView 不为nil 时，调用此方法才有效果</span><br><span class="line">     :param: radius 圆角半径</span><br><span class="line">     */</span></span><br><span class="line">    override func kt_addCorner(radius radius: <span class="built_in">CGFloat</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.image = <span class="keyword">self</span>.image?.kt_drawRectWithRoundedCorner(radius: radius, <span class="keyword">self</span>.bounds.size)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>完整的代码可以在项目中找到，使用时，你只需要这样写：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let imageView = let imgView1 = <span class="built_in">UIImageView</span>(image: <span class="built_in">UIImage</span>(name: <span class="string">""</span>))</span><br><span class="line">imageView.kt_addCorner(radius: <span class="number">6</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="六、UIKit-性能优化-读后总结"><a href="#六、UIKit-性能优化-读后总结" class="headerlink" title="六、UIKit 性能优化 读后总结"></a>六、UIKit 性能优化 读后总结</h3><p>原文地址：<a href="http://www.jianshu.com/p/619cf14640f3" target="_blank" rel="external">UIKit性能调优实战讲解</a></p>
-<h4 id="首选来说-为什么我们要进行UIKit优化？"><a href="#首选来说-为什么我们要进行UIKit优化？" class="headerlink" title="首选来说 为什么我们要进行UIKit优化？"></a>首选来说 为什么我们要进行UIKit优化？</h4><p>直接上图：</p>
-<p> <img src="../images/笔记一/ios_frame_drop.png" alt="" title="Title"></p>
-<p>如图所示，正常情况图层的渲染是通过CPU的计算和GPU的处理完成 正常的渲染流程的。</p>
+<h4 id="&#x4E3A;-UIImageView-&#x6DFB;&#x52A0;&#x5706;&#x89D2;"><a href="#&#x4E3A;-UIImageView-&#x6DFB;&#x52A0;&#x5706;&#x89D2;" class="headerlink" title="&#x4E3A; UIImageView &#x6DFB;&#x52A0;&#x5706;&#x89D2;"></a>&#x4E3A; UIImageView &#x6DFB;&#x52A0;&#x5706;&#x89D2;</h4><p>&#x76F8;&#x6BD4;&#x4E8E;&#x4E0A;&#x9762;&#x4E00;&#x79CD;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#xFF0C;&#x4E3A; UIImageView &#x6DFB;&#x52A0;&#x5706;&#x89D2;&#x66F4;&#x4E3A;&#x5E38;&#x7528;&#x3002;&#x5B83;&#x7684;&#x5B9E;&#x73B0;&#x601D;&#x8DEF;&#x662F;&#x76F4;&#x63A5;&#x622A;&#x53D6;&#x56FE;&#x7247;&#xFF1A;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">extension <span class="built_in">UIImage</span> {</span><br><span class="line">    func kt_drawRectWithRoundedCorner(radius radius: <span class="built_in">CGFloat</span>, _ sizetoFit: <span class="built_in">CGSize</span>) -&gt; <span class="built_in">UIImage</span> {</span><br><span class="line">        let rect = <span class="built_in">CGRect</span>(origin: <span class="built_in">CGPoint</span>(x: <span class="number">0</span>, y: <span class="number">0</span>), size: sizetoFit)</span><br><span class="line">         </span><br><span class="line">        <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(rect.size, <span class="literal">false</span>, <span class="built_in">UIScreen</span>.mainScreen().scale)</span><br><span class="line">        <span class="built_in">CGContextAddPath</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>(),</span><br><span class="line">            <span class="built_in">UIBezierPath</span>(roundedRect: rect, byRoundingCorners: <span class="built_in">UIRectCorner</span>.AllCorners,</span><br><span class="line">                cornerRadii: <span class="built_in">CGSize</span>(width: radius, height: radius)).CGPath)</span><br><span class="line">        <span class="built_in">CGContextClip</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>())</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">self</span>.drawInRect(rect)</span><br><span class="line">        <span class="built_in">CGContextDrawPath</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>(), .FillStroke)</span><br><span class="line">        let output = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">        <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">return</span> output</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<p>&#x5706;&#x89D2;&#x8DEF;&#x5F84;&#x76F4;&#x63A5;&#x7528;&#x8D1D;&#x585E;&#x5C14;&#x66F2;&#x7EBF;&#x7ED8;&#x5236;&#xFF0C;&#x4E00;&#x4E2A;&#x610F;&#x5916;&#x7684; bonus &#x662F;&#x8FD8;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x54EA;&#x51E0;&#x4E2A;&#x89D2;&#x6709;&#x5706;&#x89D2;&#x6548;&#x679C;&#x3002;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x6548;&#x679C;&#x662F;&#x5C06;&#x539F;&#x6765;&#x7684; UIImage &#x526A;&#x88C1;&#x51FA;&#x5706;&#x89D2;&#x3002;&#x914D;&#x5408;&#x7740;&#x8FD9;&#x51FD;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E3A; UIImageView &#x62D3;&#x5C55;&#x4E00;&#x4E2A;&#x8BBE;&#x7F6E;&#x5706;&#x89D2;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">extension <span class="built_in">UIImageView</span> {</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     / !!!&#x53EA;&#x6709;&#x5F53; imageView &#x4E0D;&#x4E3A;nil &#x65F6;&#xFF0C;&#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x624D;&#x6709;&#x6548;&#x679C;</span><br><span class="line">     :param: radius &#x5706;&#x89D2;&#x534A;&#x5F84;</span><br><span class="line">     */</span></span><br><span class="line">    override func kt_addCorner(radius radius: <span class="built_in">CGFloat</span>) {</span><br><span class="line">        <span class="keyword">self</span>.image = <span class="keyword">self</span>.image?.kt_drawRectWithRoundedCorner(radius: radius, <span class="keyword">self</span>.bounds.size)</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x5B8C;&#x6574;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x627E;&#x5230;&#xFF0C;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x8FD9;&#x6837;&#x5199;&#xFF1A;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let imageView = let imgView1 = <span class="built_in">UIImageView</span>(image: <span class="built_in">UIImage</span>(name: <span class="string">&quot;&quot;</span>))</span><br><span class="line">imageView.kt_addCorner(radius: <span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="&#x516D;&#x3001;UIKit-&#x6027;&#x80FD;&#x4F18;&#x5316;-&#x8BFB;&#x540E;&#x603B;&#x7ED3;"><a href="#&#x516D;&#x3001;UIKit-&#x6027;&#x80FD;&#x4F18;&#x5316;-&#x8BFB;&#x540E;&#x603B;&#x7ED3;" class="headerlink" title="&#x516D;&#x3001;UIKit &#x6027;&#x80FD;&#x4F18;&#x5316; &#x8BFB;&#x540E;&#x603B;&#x7ED3;"></a>&#x516D;&#x3001;UIKit &#x6027;&#x80FD;&#x4F18;&#x5316; &#x8BFB;&#x540E;&#x603B;&#x7ED3;</h3><p>&#x539F;&#x6587;&#x5730;&#x5740;&#xFF1A;<a href="http://www.jianshu.com/p/619cf14640f3" target="_blank" rel="external">UIKit&#x6027;&#x80FD;&#x8C03;&#x4F18;&#x5B9E;&#x6218;&#x8BB2;&#x89E3;</a></p>
+<h4 id="&#x9996;&#x9009;&#x6765;&#x8BF4;-&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x4EEC;&#x8981;&#x8FDB;&#x884C;UIKit&#x4F18;&#x5316;&#xFF1F;"><a href="#&#x9996;&#x9009;&#x6765;&#x8BF4;-&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x4EEC;&#x8981;&#x8FDB;&#x884C;UIKit&#x4F18;&#x5316;&#xFF1F;" class="headerlink" title="&#x9996;&#x9009;&#x6765;&#x8BF4; &#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x4EEC;&#x8981;&#x8FDB;&#x884C;UIKit&#x4F18;&#x5316;&#xFF1F;"></a>&#x9996;&#x9009;&#x6765;&#x8BF4; &#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x4EEC;&#x8981;&#x8FDB;&#x884C;UIKit&#x4F18;&#x5316;&#xFF1F;</h4><p>&#x76F4;&#x63A5;&#x4E0A;&#x56FE;&#xFF1A;</p>
+<p> <img src="/2016/02/24/2016-03-12-read1/../images/&#x7B14;&#x8BB0;&#x4E00;/ios_frame_drop.png" alt="" title="Title"></p>
+<p>&#x5982;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x56FE;&#x5C42;&#x7684;&#x6E32;&#x67D3;&#x662F;&#x901A;&#x8FC7;CPU&#x7684;&#x8BA1;&#x7B97;&#x548C;GPU&#x7684;&#x5904;&#x7406;&#x5B8C;&#x6210; &#x6B63;&#x5E38;&#x7684;&#x6E32;&#x67D3;&#x6D41;&#x7A0B;&#x7684;&#x3002;</p>
 <ul>
-<li>当CPU和GPU的耗时时间控制在16.67ms之间（如第一部分）图层就会正常渲染。</li>
-<li>当CPU和GPU的耗时时间超过了16.67ms（如第二部分）图层渲染就会掉帧，即屏幕就会出现花屏或者卡顿的现象。<br>所以，为了保证图层的正常渲染以及提高性能，我们着重从缓减CPU 和 GPU 不必要的消耗上，来做优化和调整。</li>
+<li>&#x5F53;CPU&#x548C;GPU&#x7684;&#x8017;&#x65F6;&#x65F6;&#x95F4;&#x63A7;&#x5236;&#x5728;16.67ms&#x4E4B;&#x95F4;&#xFF08;&#x5982;&#x7B2C;&#x4E00;&#x90E8;&#x5206;&#xFF09;&#x56FE;&#x5C42;&#x5C31;&#x4F1A;&#x6B63;&#x5E38;&#x6E32;&#x67D3;&#x3002;</li>
+<li>&#x5F53;CPU&#x548C;GPU&#x7684;&#x8017;&#x65F6;&#x65F6;&#x95F4;&#x8D85;&#x8FC7;&#x4E86;16.67ms&#xFF08;&#x5982;&#x7B2C;&#x4E8C;&#x90E8;&#x5206;&#xFF09;&#x56FE;&#x5C42;&#x6E32;&#x67D3;&#x5C31;&#x4F1A;&#x6389;&#x5E27;&#xFF0C;&#x5373;&#x5C4F;&#x5E55;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#x82B1;&#x5C4F;&#x6216;&#x8005;&#x5361;&#x987F;&#x7684;&#x73B0;&#x8C61;&#x3002;<br>&#x6240;&#x4EE5;&#xFF0C;&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;&#x56FE;&#x5C42;&#x7684;&#x6B63;&#x5E38;&#x6E32;&#x67D3;&#x4EE5;&#x53CA;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#xFF0C;&#x6211;&#x4EEC;&#x7740;&#x91CD;&#x4ECE;&#x7F13;&#x51CF;CPU &#x548C; GPU &#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x6D88;&#x8017;&#x4E0A;&#xFF0C;&#x6765;&#x505A;&#x4F18;&#x5316;&#x548C;&#x8C03;&#x6574;&#x3002;</li>
 </ul>
-<h4 id="1-为什么要把控件尽量设置成不透明，如果是透明的会有什么影响，如何检测这种影响？"><a href="#1-为什么要把控件尽量设置成不透明，如果是透明的会有什么影响，如何检测这种影响？" class="headerlink" title="1.为什么要把控件尽量设置成不透明，如果是透明的会有什么影响，如何检测这种影响？"></a>1.为什么要把控件尽量设置成不透明，如果是透明的会有什么影响，如何检测这种影响？</h4><ul>
-<li>影响：如果控件带有透明度，这就会导致其控件与下层的控件的颜色 混合在一块。例如，上层是蓝色（透明度50%），下层是红色，那么最终显示的是紫色。<br>这种颜色的混合，需要GPU去处理混合的结果，这就一定程度的造成GPU额外的消耗。当实际层次更加复杂的时候（三层，五层）,GPU的消耗更加明显，对性能的影响就很明显了。如果将最上层的透明度设置为1，这样GPU就会忽略该层下面所有层次，节约了不必要的计算，从而提升性能。</li>
-<li>检测：检测步骤，通过苹果自带的软件instruments中的core animation 选项 -&gt; 选择color Blended Layers 选项 红色区域就是透明度的设置.</li>
-<li>优化措施：<ul>
-<li>opaque = true 当然这个UIView默认就是 true的</li>
-<li>alpha = 1 透明度尽量设置为1</li>
-<li>最重要的是要设置背景颜色与父类一直,如果不设置默认会是透明的，另外clearColor（背景色透明）也不能设置，。label.backgroundColor = UIColor.WhiteColor()</li>
+<h4 id="1-&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x628A;&#x63A7;&#x4EF6;&#x5C3D;&#x91CF;&#x8BBE;&#x7F6E;&#x6210;&#x4E0D;&#x900F;&#x660E;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x900F;&#x660E;&#x7684;&#x4F1A;&#x6709;&#x4EC0;&#x4E48;&#x5F71;&#x54CD;&#xFF0C;&#x5982;&#x4F55;&#x68C0;&#x6D4B;&#x8FD9;&#x79CD;&#x5F71;&#x54CD;&#xFF1F;"><a href="#1-&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x628A;&#x63A7;&#x4EF6;&#x5C3D;&#x91CF;&#x8BBE;&#x7F6E;&#x6210;&#x4E0D;&#x900F;&#x660E;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x900F;&#x660E;&#x7684;&#x4F1A;&#x6709;&#x4EC0;&#x4E48;&#x5F71;&#x54CD;&#xFF0C;&#x5982;&#x4F55;&#x68C0;&#x6D4B;&#x8FD9;&#x79CD;&#x5F71;&#x54CD;&#xFF1F;" class="headerlink" title="1.&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x628A;&#x63A7;&#x4EF6;&#x5C3D;&#x91CF;&#x8BBE;&#x7F6E;&#x6210;&#x4E0D;&#x900F;&#x660E;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x900F;&#x660E;&#x7684;&#x4F1A;&#x6709;&#x4EC0;&#x4E48;&#x5F71;&#x54CD;&#xFF0C;&#x5982;&#x4F55;&#x68C0;&#x6D4B;&#x8FD9;&#x79CD;&#x5F71;&#x54CD;&#xFF1F;"></a>1.&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x628A;&#x63A7;&#x4EF6;&#x5C3D;&#x91CF;&#x8BBE;&#x7F6E;&#x6210;&#x4E0D;&#x900F;&#x660E;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x900F;&#x660E;&#x7684;&#x4F1A;&#x6709;&#x4EC0;&#x4E48;&#x5F71;&#x54CD;&#xFF0C;&#x5982;&#x4F55;&#x68C0;&#x6D4B;&#x8FD9;&#x79CD;&#x5F71;&#x54CD;&#xFF1F;</h4><ul>
+<li>&#x5F71;&#x54CD;&#xFF1A;&#x5982;&#x679C;&#x63A7;&#x4EF6;&#x5E26;&#x6709;&#x900F;&#x660E;&#x5EA6;&#xFF0C;&#x8FD9;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x5176;&#x63A7;&#x4EF6;&#x4E0E;&#x4E0B;&#x5C42;&#x7684;&#x63A7;&#x4EF6;&#x7684;&#x989C;&#x8272; &#x6DF7;&#x5408;&#x5728;&#x4E00;&#x5757;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x4E0A;&#x5C42;&#x662F;&#x84DD;&#x8272;&#xFF08;&#x900F;&#x660E;&#x5EA6;50%&#xFF09;&#xFF0C;&#x4E0B;&#x5C42;&#x662F;&#x7EA2;&#x8272;&#xFF0C;&#x90A3;&#x4E48;&#x6700;&#x7EC8;&#x663E;&#x793A;&#x7684;&#x662F;&#x7D2B;&#x8272;&#x3002;<br>&#x8FD9;&#x79CD;&#x989C;&#x8272;&#x7684;&#x6DF7;&#x5408;&#xFF0C;&#x9700;&#x8981;GPU&#x53BB;&#x5904;&#x7406;&#x6DF7;&#x5408;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x8FD9;&#x5C31;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x7684;&#x9020;&#x6210;GPU&#x989D;&#x5916;&#x7684;&#x6D88;&#x8017;&#x3002;&#x5F53;&#x5B9E;&#x9645;&#x5C42;&#x6B21;&#x66F4;&#x52A0;&#x590D;&#x6742;&#x7684;&#x65F6;&#x5019;&#xFF08;&#x4E09;&#x5C42;&#xFF0C;&#x4E94;&#x5C42;&#xFF09;,GPU&#x7684;&#x6D88;&#x8017;&#x66F4;&#x52A0;&#x660E;&#x663E;&#xFF0C;&#x5BF9;&#x6027;&#x80FD;&#x7684;&#x5F71;&#x54CD;&#x5C31;&#x5F88;&#x660E;&#x663E;&#x4E86;&#x3002;&#x5982;&#x679C;&#x5C06;&#x6700;&#x4E0A;&#x5C42;&#x7684;&#x900F;&#x660E;&#x5EA6;&#x8BBE;&#x7F6E;&#x4E3A;1&#xFF0C;&#x8FD9;&#x6837;GPU&#x5C31;&#x4F1A;&#x5FFD;&#x7565;&#x8BE5;&#x5C42;&#x4E0B;&#x9762;&#x6240;&#x6709;&#x5C42;&#x6B21;&#xFF0C;&#x8282;&#x7EA6;&#x4E86;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x8BA1;&#x7B97;&#xFF0C;&#x4ECE;&#x800C;&#x63D0;&#x5347;&#x6027;&#x80FD;&#x3002;</li>
+<li>&#x68C0;&#x6D4B;&#xFF1A;&#x68C0;&#x6D4B;&#x6B65;&#x9AA4;&#xFF0C;&#x901A;&#x8FC7;&#x82F9;&#x679C;&#x81EA;&#x5E26;&#x7684;&#x8F6F;&#x4EF6;instruments&#x4E2D;&#x7684;core animation &#x9009;&#x9879; -&gt; &#x9009;&#x62E9;color Blended Layers &#x9009;&#x9879; &#x7EA2;&#x8272;&#x533A;&#x57DF;&#x5C31;&#x662F;&#x900F;&#x660E;&#x5EA6;&#x7684;&#x8BBE;&#x7F6E;.</li>
+<li>&#x4F18;&#x5316;&#x63AA;&#x65BD;&#xFF1A;<ul>
+<li>opaque = true &#x5F53;&#x7136;&#x8FD9;&#x4E2A;UIView&#x9ED8;&#x8BA4;&#x5C31;&#x662F; true&#x7684;</li>
+<li>alpha = 1 &#x900F;&#x660E;&#x5EA6;&#x5C3D;&#x91CF;&#x8BBE;&#x7F6E;&#x4E3A;1</li>
+<li>&#x6700;&#x91CD;&#x8981;&#x7684;&#x662F;&#x8981;&#x8BBE;&#x7F6E;&#x80CC;&#x666F;&#x989C;&#x8272;&#x4E0E;&#x7236;&#x7C7B;&#x4E00;&#x76F4;,&#x5982;&#x679C;&#x4E0D;&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;&#x4F1A;&#x662F;&#x900F;&#x660E;&#x7684;&#xFF0C;&#x53E6;&#x5916;clearColor&#xFF08;&#x80CC;&#x666F;&#x8272;&#x900F;&#x660E;&#xFF09;&#x4E5F;&#x4E0D;&#x80FD;&#x8BBE;&#x7F6E;&#xFF0C;&#x3002;label.backgroundColor = UIColor.WhiteColor()</li>
 </ul>
 </li>
 </ul>
-<h4 id="4-离屏渲染"><a href="#4-离屏渲染" class="headerlink" title="4.离屏渲染"></a>4.离屏渲染</h4><p>离屏渲染就是相对于正常的渲染流程（将图层直接合成到帧的缓冲区中），增加了一个额外的步骤（先创建屏幕外缓冲区，然后渲染到文理中，最后将结果渲染到帧的缓冲区），这个步骤中需要GPU额外的处理计算，造成很大消耗，所以俗称：离屏渲染。<br>我们先看看正常的渲染通道（Render-Pass）：<br> <img src="../images/笔记一/正常渲染.png" alt="" title="Title"><br>正常的渲染是OpenGL 提交一个命令到 command buff ，随后GPU 进行渲染 ，然后将渲染结果合成到（render buff）帧缓冲区中。<br>但是复杂的效果无法直接渲染出结果，需要分布渲染最后组合起来，比如添加一个蒙版（mask）：<br><img src="../images/笔记一/离屏渲染.png" alt="" title="Title"><br>如图所示，渲染流程中，分为好几部分进行的。在前两个渲染通道中，GPU分别得到纹理（texture，也就是相机图标）和layer(蓝色的蒙版)的渲染<br>结果。但这两个渲染结果没有直接放到render buff（帧缓冲区中），也就是发生了离屏渲染，知道第三个渲染通道，才把两者结合起来放入 render buff （帧缓冲区中）。离屏渲染实际上就是将渲染结果临时保存起来，等到用的时候再取出来，因此相对于普通渲染占用资源。<br>以下情况可能会导致离屏渲染:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.重写drawRect 方法。（一般情况下画图都用CAShapeLayer）</span><br><span class="line">2.有mask（圆角）或者阴影（layer.masksToBounds，layer.shadow），模糊效果也是一种mask (当使用圆角或者阴影是最好开启光栅化以达到缓冲的</span><br><span class="line">效果)</span><br><span class="line">3.光栅化 layer.shouldRasterize = true</span><br></pre></td></tr></table></figure>
-<h4 id="3-光栅化"><a href="#3-光栅化" class="headerlink" title="3. 光栅化"></a>3. 光栅化</h4><p>所谓光栅化其实就是将一个layer预先渲染成位图(bitmap)，然后加入缓存中。如果对于阴影效果这样的比较消耗资源的静态内容进行缓存、<br>可以得到一定幅度的性能提升。</p>
+<h4 id="4-&#x79BB;&#x5C4F;&#x6E32;&#x67D3;"><a href="#4-&#x79BB;&#x5C4F;&#x6E32;&#x67D3;" class="headerlink" title="4.&#x79BB;&#x5C4F;&#x6E32;&#x67D3;"></a>4.&#x79BB;&#x5C4F;&#x6E32;&#x67D3;</h4><p>&#x79BB;&#x5C4F;&#x6E32;&#x67D3;&#x5C31;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;&#x6B63;&#x5E38;&#x7684;&#x6E32;&#x67D3;&#x6D41;&#x7A0B;&#xFF08;&#x5C06;&#x56FE;&#x5C42;&#x76F4;&#x63A5;&#x5408;&#x6210;&#x5230;&#x5E27;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#xFF09;&#xFF0C;&#x589E;&#x52A0;&#x4E86;&#x4E00;&#x4E2A;&#x989D;&#x5916;&#x7684;&#x6B65;&#x9AA4;&#xFF08;&#x5148;&#x521B;&#x5EFA;&#x5C4F;&#x5E55;&#x5916;&#x7F13;&#x51B2;&#x533A;&#xFF0C;&#x7136;&#x540E;&#x6E32;&#x67D3;&#x5230;&#x6587;&#x7406;&#x4E2D;&#xFF0C;&#x6700;&#x540E;&#x5C06;&#x7ED3;&#x679C;&#x6E32;&#x67D3;&#x5230;&#x5E27;&#x7684;&#x7F13;&#x51B2;&#x533A;&#xFF09;&#xFF0C;&#x8FD9;&#x4E2A;&#x6B65;&#x9AA4;&#x4E2D;&#x9700;&#x8981;GPU&#x989D;&#x5916;&#x7684;&#x5904;&#x7406;&#x8BA1;&#x7B97;&#xFF0C;&#x9020;&#x6210;&#x5F88;&#x5927;&#x6D88;&#x8017;&#xFF0C;&#x6240;&#x4EE5;&#x4FD7;&#x79F0;&#xFF1A;&#x79BB;&#x5C4F;&#x6E32;&#x67D3;&#x3002;<br>&#x6211;&#x4EEC;&#x5148;&#x770B;&#x770B;&#x6B63;&#x5E38;&#x7684;&#x6E32;&#x67D3;&#x901A;&#x9053;&#xFF08;Render-Pass&#xFF09;&#xFF1A;<br> <img src="/2016/02/24/2016-03-12-read1/../images/&#x7B14;&#x8BB0;&#x4E00;/&#x6B63;&#x5E38;&#x6E32;&#x67D3;.png" alt="" title="Title"><br>&#x6B63;&#x5E38;&#x7684;&#x6E32;&#x67D3;&#x662F;OpenGL &#x63D0;&#x4EA4;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#x5230; command buff &#xFF0C;&#x968F;&#x540E;GPU &#x8FDB;&#x884C;&#x6E32;&#x67D3; &#xFF0C;&#x7136;&#x540E;&#x5C06;&#x6E32;&#x67D3;&#x7ED3;&#x679C;&#x5408;&#x6210;&#x5230;&#xFF08;render buff&#xFF09;&#x5E27;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x3002;<br>&#x4F46;&#x662F;&#x590D;&#x6742;&#x7684;&#x6548;&#x679C;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x6E32;&#x67D3;&#x51FA;&#x7ED3;&#x679C;&#xFF0C;&#x9700;&#x8981;&#x5206;&#x5E03;&#x6E32;&#x67D3;&#x6700;&#x540E;&#x7EC4;&#x5408;&#x8D77;&#x6765;&#xFF0C;&#x6BD4;&#x5982;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x8499;&#x7248;&#xFF08;mask&#xFF09;&#xFF1A;<br><img src="/2016/02/24/2016-03-12-read1/../images/&#x7B14;&#x8BB0;&#x4E00;/&#x79BB;&#x5C4F;&#x6E32;&#x67D3;.png" alt="" title="Title"><br>&#x5982;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x6E32;&#x67D3;&#x6D41;&#x7A0B;&#x4E2D;&#xFF0C;&#x5206;&#x4E3A;&#x597D;&#x51E0;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x7684;&#x3002;&#x5728;&#x524D;&#x4E24;&#x4E2A;&#x6E32;&#x67D3;&#x901A;&#x9053;&#x4E2D;&#xFF0C;GPU&#x5206;&#x522B;&#x5F97;&#x5230;&#x7EB9;&#x7406;&#xFF08;texture&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x76F8;&#x673A;&#x56FE;&#x6807;&#xFF09;&#x548C;layer(&#x84DD;&#x8272;&#x7684;&#x8499;&#x7248;)&#x7684;&#x6E32;&#x67D3;<br>&#x7ED3;&#x679C;&#x3002;&#x4F46;&#x8FD9;&#x4E24;&#x4E2A;&#x6E32;&#x67D3;&#x7ED3;&#x679C;&#x6CA1;&#x6709;&#x76F4;&#x63A5;&#x653E;&#x5230;render buff&#xFF08;&#x5E27;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#xFF09;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x53D1;&#x751F;&#x4E86;&#x79BB;&#x5C4F;&#x6E32;&#x67D3;&#xFF0C;&#x77E5;&#x9053;&#x7B2C;&#x4E09;&#x4E2A;&#x6E32;&#x67D3;&#x901A;&#x9053;&#xFF0C;&#x624D;&#x628A;&#x4E24;&#x8005;&#x7ED3;&#x5408;&#x8D77;&#x6765;&#x653E;&#x5165; render buff &#xFF08;&#x5E27;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#xFF09;&#x3002;&#x79BB;&#x5C4F;&#x6E32;&#x67D3;&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;&#x5C06;&#x6E32;&#x67D3;&#x7ED3;&#x679C;&#x4E34;&#x65F6;&#x4FDD;&#x5B58;&#x8D77;&#x6765;&#xFF0C;&#x7B49;&#x5230;&#x7528;&#x7684;&#x65F6;&#x5019;&#x518D;&#x53D6;&#x51FA;&#x6765;&#xFF0C;&#x56E0;&#x6B64;&#x76F8;&#x5BF9;&#x4E8E;&#x666E;&#x901A;&#x6E32;&#x67D3;&#x5360;&#x7528;&#x8D44;&#x6E90;&#x3002;<br>&#x4EE5;&#x4E0B;&#x60C5;&#x51B5;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x79BB;&#x5C4F;&#x6E32;&#x67D3;:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.&#x91CD;&#x5199;drawRect &#x65B9;&#x6CD5;&#x3002;&#xFF08;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x753B;&#x56FE;&#x90FD;&#x7528;CAShapeLayer&#xFF09;</span><br><span class="line">2.&#x6709;mask&#xFF08;&#x5706;&#x89D2;&#xFF09;&#x6216;&#x8005;&#x9634;&#x5F71;&#xFF08;layer.masksToBounds&#xFF0C;layer.shadow&#xFF09;&#xFF0C;&#x6A21;&#x7CCA;&#x6548;&#x679C;&#x4E5F;&#x662F;&#x4E00;&#x79CD;mask (&#x5F53;&#x4F7F;&#x7528;&#x5706;&#x89D2;&#x6216;&#x8005;&#x9634;&#x5F71;&#x662F;&#x6700;&#x597D;&#x5F00;&#x542F;&#x5149;&#x6805;&#x5316;&#x4EE5;&#x8FBE;&#x5230;&#x7F13;&#x51B2;&#x7684;</span><br><span class="line">&#x6548;&#x679C;)</span><br><span class="line">3.&#x5149;&#x6805;&#x5316; layer.shouldRasterize = true</span><br></pre></td></tr></table></figure>
+<h4 id="3-&#x5149;&#x6805;&#x5316;"><a href="#3-&#x5149;&#x6805;&#x5316;" class="headerlink" title="3. &#x5149;&#x6805;&#x5316;"></a>3. &#x5149;&#x6805;&#x5316;</h4><p>&#x6240;&#x8C13;&#x5149;&#x6805;&#x5316;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5C06;&#x4E00;&#x4E2A;layer&#x9884;&#x5148;&#x6E32;&#x67D3;&#x6210;&#x4F4D;&#x56FE;(bitmap)&#xFF0C;&#x7136;&#x540E;&#x52A0;&#x5165;&#x7F13;&#x5B58;&#x4E2D;&#x3002;&#x5982;&#x679C;&#x5BF9;&#x4E8E;&#x9634;&#x5F71;&#x6548;&#x679C;&#x8FD9;&#x6837;&#x7684;&#x6BD4;&#x8F83;&#x6D88;&#x8017;&#x8D44;&#x6E90;&#x7684;&#x9759;&#x6001;&#x5185;&#x5BB9;&#x8FDB;&#x884C;&#x7F13;&#x5B58;&#x3001;<br>&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x4E00;&#x5B9A;&#x5E45;&#x5EA6;&#x7684;&#x6027;&#x80FD;&#x63D0;&#x5347;&#x3002;</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">label.layer.shouldRasterize = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>缓冲中的对象有效期只有100ms（0。1s）如果超过这个时间缓存会自动清理。光栅化是把双刃剑，先写入缓存再读取会消耗一定的时间，因此在没有必要的情况下尽量不要使用。除非碰到很复杂、静态的效果才能使用。会导致离屏渲染。</p>
-<h3 id="4-图片大小"><a href="#4-图片大小" class="headerlink" title="4.图片大小"></a>4.图片大小</h3><p>尽量保持图片的大小合适，以及图片的格式 GPU所支持。如果图片偏大偏小，都需要GPU额外的去计算处理造成GPU的消耗，从而增加处理时间。<br>而图片的格式如果GPU 不支持的话同样需要GPU去做额外的转化，消耗大量的时间。</p>
+<p>&#x7F13;&#x51B2;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x6709;&#x6548;&#x671F;&#x53EA;&#x6709;100ms&#xFF08;0&#x3002;1s&#xFF09;&#x5982;&#x679C;&#x8D85;&#x8FC7;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#x7F13;&#x5B58;&#x4F1A;&#x81EA;&#x52A8;&#x6E05;&#x7406;&#x3002;&#x5149;&#x6805;&#x5316;&#x662F;&#x628A;&#x53CC;&#x5203;&#x5251;&#xFF0C;&#x5148;&#x5199;&#x5165;&#x7F13;&#x5B58;&#x518D;&#x8BFB;&#x53D6;&#x4F1A;&#x6D88;&#x8017;&#x4E00;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5C3D;&#x91CF;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x3002;&#x9664;&#x975E;&#x78B0;&#x5230;&#x5F88;&#x590D;&#x6742;&#x3001;&#x9759;&#x6001;&#x7684;&#x6548;&#x679C;&#x624D;&#x80FD;&#x4F7F;&#x7528;&#x3002;&#x4F1A;&#x5BFC;&#x81F4;&#x79BB;&#x5C4F;&#x6E32;&#x67D3;&#x3002;</p>
+<h3 id="4-&#x56FE;&#x7247;&#x5927;&#x5C0F;"><a href="#4-&#x56FE;&#x7247;&#x5927;&#x5C0F;" class="headerlink" title="4.&#x56FE;&#x7247;&#x5927;&#x5C0F;"></a>4.&#x56FE;&#x7247;&#x5927;&#x5C0F;</h3><p>&#x5C3D;&#x91CF;&#x4FDD;&#x6301;&#x56FE;&#x7247;&#x7684;&#x5927;&#x5C0F;&#x5408;&#x9002;&#xFF0C;&#x4EE5;&#x53CA;&#x56FE;&#x7247;&#x7684;&#x683C;&#x5F0F; GPU&#x6240;&#x652F;&#x6301;&#x3002;&#x5982;&#x679C;&#x56FE;&#x7247;&#x504F;&#x5927;&#x504F;&#x5C0F;&#xFF0C;&#x90FD;&#x9700;&#x8981;GPU&#x989D;&#x5916;&#x7684;&#x53BB;&#x8BA1;&#x7B97;&#x5904;&#x7406;&#x9020;&#x6210;GPU&#x7684;&#x6D88;&#x8017;&#xFF0C;&#x4ECE;&#x800C;&#x589E;&#x52A0;&#x5904;&#x7406;&#x65F6;&#x95F4;&#x3002;<br>&#x800C;&#x56FE;&#x7247;&#x7684;&#x683C;&#x5F0F;&#x5982;&#x679C;GPU &#x4E0D;&#x652F;&#x6301;&#x7684;&#x8BDD;&#x540C;&#x6837;&#x9700;&#x8981;GPU&#x53BB;&#x505A;&#x989D;&#x5916;&#x7684;&#x8F6C;&#x5316;&#xFF0C;&#x6D88;&#x8017;&#x5927;&#x91CF;&#x7684;&#x65F6;&#x95F4;&#x3002;</p>
 
       
     </div>
@@ -502,18 +502,18 @@ myObj.myBlock =  ^{
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">RunningYoung</a></p>
-        <p><span>发布时间:</span>2016-02-24, 14:28:01</p>
-        <p><span>最后更新:</span>2016-04-12, 11:44:23</p>
+        <p><span>Title:</span><a href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">RunningYoung</a></p>
+        <p><span>Created:</span>2016-02-24, 14:28:01</p>
+        <p><span>Updated:</span>2016-04-12, 11:44:23</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/02/24/2016-03-12-read1/" title="【iOS读书笔记系列（一）】">https://runningyoung.github.io/2016/02/24/2016-03-12-read1/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://runningyoung.github.io/2016/02/24/2016-03-12-read1/　　作者: RunningYoung" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/02/24/2016-03-12-read1/" title="【iOS读书笔记系列（一）】">https://runningyoung.github.io/2016/02/24/2016-03-12-read1/</a>
+            <span class="copy-path" data-clipboard-text="From https://runningyoung.github.io/2016/02/24/2016-03-12-read1/　　By RunningYoung" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -529,8 +529,8 @@ myObj.myBlock =  ^{
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/06/30/2015-08-04-dependency-injection/">
-                    关于IOS依赖注入(DI)那些事
+                <a href="/2015/06/30/2015-07-20-ReactiveCocoa/">
+                    ReactiveCocoa 学习之路(史上最全攻略)
                 </a>
             </div>
         
@@ -540,7 +540,7 @@ myObj.myBlock =  ^{
 </article>
 
     <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
+    <strong class="toc-title">Contents</strong>
     <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#读书笔记（一）"><span class="toc-number">1.</span> <span class="toc-text">读书笔记（一）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、instancetype-和-id-作为初始化实例-返回值的不同"><span class="toc-number">1.1.</span> <span class="toc-text">一、instancetype 和 id 作为初始化实例 返回值的不同</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、iOS为什么不要在init初始化方法里调用self-view"><span class="toc-number">2.</span> <span class="toc-text">二、iOS为什么不要在init初始化方法里调用self.view</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、忽略编译警告"><span class="toc-number">3.</span> <span class="toc-text">三、忽略编译警告</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、Block的深入学习"><span class="toc-number">4.</span> <span class="toc-text">四、Block的深入学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一些关键点："><span class="toc-number">4.1.</span> <span class="toc-text">一些关键点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#self-的循环引用"><span class="toc-number">4.2.</span> <span class="toc-text">self 的循环引用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、IOS高效添加圆角效果"><span class="toc-number">5.</span> <span class="toc-text">五、IOS高效添加圆角效果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#为-UIView-添加圆角"><span class="toc-number">5.1.</span> <span class="toc-text">为 UIView 添加圆角</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#为-UIImageView-添加圆角"><span class="toc-number">5.2.</span> <span class="toc-text">为 UIImageView 添加圆角</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、UIKit-性能优化-读后总结"><span class="toc-number">6.</span> <span class="toc-text">六、UIKit 性能优化 读后总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#首选来说-为什么我们要进行UIKit优化？"><span class="toc-number">6.1.</span> <span class="toc-text">首选来说 为什么我们要进行UIKit优化？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-为什么要把控件尽量设置成不透明，如果是透明的会有什么影响，如何检测这种影响？"><span class="toc-number">6.2.</span> <span class="toc-text">1.为什么要把控件尽量设置成不透明，如果是透明的会有什么影响，如何检测这种影响？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-离屏渲染"><span class="toc-number">6.3.</span> <span class="toc-text">4.离屏渲染</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-光栅化"><span class="toc-number">6.4.</span> <span class="toc-text">3. 光栅化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-图片大小"><span class="toc-number">7.</span> <span class="toc-text">4.图片大小</span></a></li></ol>
 </div>
 <style>
@@ -552,10 +552,10 @@ myObj.myBlock =  ^{
     }
 </style>
 
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 <script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
+    var valueHide = "Hide";
+    var valueShow = "Show";
 
     if ($(".left-col").is(":hidden")) {
         $("#tocButton").attr("value", valueShow);
@@ -609,21 +609,21 @@ myObj.myBlock =  ^{
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/07/2016-03-14-Block/" title="上一篇: Block源码解析和深入理解">
+            <a href="/2016/03/07/2016-03-14-Block/" title="Pre: Block源码解析和深入理解">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/06/30/2015-08-04-dependency-injection/" title="下一篇: 关于IOS依赖注入(DI)那些事">
+            <a href="/2015/06/30/2015-07-20-ReactiveCocoa/" title="Next: ReactiveCocoa 学习之路(史上最全攻略)">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-12-Phabricator2/">MAC下Code Review工具Phabricator + Arcanist搭建（part 2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-11-Phabricator1/">MAC下Code Review工具Phabricator + Arcanist搭建（part 1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-12-Phabricator2/">MAC下Code Review工具Phabricator + Arcanist搭建（part 2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-11-Phabricator1/">MAC下Code Review工具Phabricator + Arcanist搭建（part 1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li></ul>
 
 
 
@@ -641,7 +641,7 @@ myObj.myBlock =  ^{
                 &copy; 2016 RunningYoung
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/RunningYoung/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by runningyoung
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/RunningYoung/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by runningyoung
             </div>
         </div>
         
@@ -652,7 +652,7 @@ myObj.myBlock =  ^{
                 
               </script>
                     <span id="busuanzi_container_site_pv" style='display:none' >
-                        <span id="site-visit" >本站到访数: 
+                        <span id="site-visit" >Site Visitors: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -662,7 +662,7 @@ myObj.myBlock =  ^{
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none' >
-                        <span id="page-visit">本页阅读量: 
+                        <span id="page-visit">Page Hits: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
@@ -708,9 +708,9 @@ ga('send', 'pageview');
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">

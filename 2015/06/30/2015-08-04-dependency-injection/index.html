@@ -116,11 +116,11 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -257,49 +257,49 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>##dependency injection 关于IOS依赖注入那些事</p>
-<p>　    本文介绍的是另一个屎上最牛叉的ios开发新框架，<strong><em>最大的特点就是：帮助我们开发出松散耦合(loose coupled)、可维护、可测试的代码和程序。这条原则的做法是大家熟知的面向接口，或者说是面向抽象编程。</em></strong> 众所周知 该编程思想在各大语言中都有体现如 jave C++ PHP以及.net中。当然设计模式的广泛程度远远大于这些，IOS 当然也不例外。 <strong><em>本文主要介绍本人在学习dependency injection的时候的学习过程以及对一些学习资料的总结，主要介绍ios中的两大框架<a href="https://github.com/atomicobject/objection" target="_blank" rel="external">objection</a>和<a href="http://typhoonframework.org/" target="_blank" rel="external">Typhoon</a>。</em></strong>   闲话不多吹下面进入正题。</p>
+        <p>##dependency injection &#x5173;&#x4E8E;IOS&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x90A3;&#x4E9B;&#x4E8B;</p>
+<p>&#x3000;    &#x672C;&#x6587;&#x4ECB;&#x7ECD;&#x7684;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x5C4E;&#x4E0A;&#x6700;&#x725B;&#x53C9;&#x7684;ios&#x5F00;&#x53D1;&#x65B0;&#x6846;&#x67B6;&#xFF0C;<strong><em>&#x6700;&#x5927;&#x7684;&#x7279;&#x70B9;&#x5C31;&#x662F;&#xFF1A;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x51FA;&#x677E;&#x6563;&#x8026;&#x5408;(loose coupled)&#x3001;&#x53EF;&#x7EF4;&#x62A4;&#x3001;&#x53EF;&#x6D4B;&#x8BD5;&#x7684;&#x4EE3;&#x7801;&#x548C;&#x7A0B;&#x5E8F;&#x3002;&#x8FD9;&#x6761;&#x539F;&#x5219;&#x7684;&#x505A;&#x6CD5;&#x662F;&#x5927;&#x5BB6;&#x719F;&#x77E5;&#x7684;&#x9762;&#x5411;&#x63A5;&#x53E3;&#xFF0C;&#x6216;&#x8005;&#x8BF4;&#x662F;&#x9762;&#x5411;&#x62BD;&#x8C61;&#x7F16;&#x7A0B;&#x3002;</em></strong> &#x4F17;&#x6240;&#x5468;&#x77E5; &#x8BE5;&#x7F16;&#x7A0B;&#x601D;&#x60F3;&#x5728;&#x5404;&#x5927;&#x8BED;&#x8A00;&#x4E2D;&#x90FD;&#x6709;&#x4F53;&#x73B0;&#x5982; jave C++ PHP&#x4EE5;&#x53CA;.net&#x4E2D;&#x3002;&#x5F53;&#x7136;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7684;&#x5E7F;&#x6CDB;&#x7A0B;&#x5EA6;&#x8FDC;&#x8FDC;&#x5927;&#x4E8E;&#x8FD9;&#x4E9B;&#xFF0C;IOS &#x5F53;&#x7136;&#x4E5F;&#x4E0D;&#x4F8B;&#x5916;&#x3002; <strong><em>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;&#x672C;&#x4EBA;&#x5728;&#x5B66;&#x4E60;dependency injection&#x7684;&#x65F6;&#x5019;&#x7684;&#x5B66;&#x4E60;&#x8FC7;&#x7A0B;&#x4EE5;&#x53CA;&#x5BF9;&#x4E00;&#x4E9B;&#x5B66;&#x4E60;&#x8D44;&#x6599;&#x7684;&#x603B;&#x7ED3;&#xFF0C;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;ios&#x4E2D;&#x7684;&#x4E24;&#x5927;&#x6846;&#x67B6;<a href="https://github.com/atomicobject/objection" target="_blank" rel="external">objection</a>&#x548C;<a href="http://typhoonframework.org/" target="_blank" rel="external">Typhoon</a>&#x3002;</em></strong>   &#x95F2;&#x8BDD;&#x4E0D;&#x591A;&#x5439;&#x4E0B;&#x9762;&#x8FDB;&#x5165;&#x6B63;&#x9898;&#x3002;</p>
 <a id="more"></a>
-<p>###什么是dependency injection？　    </p>
-<p>####简单来说：<br>　    关于什么是依赖注入，在Stack Overflow上面有一个问题，<a href="http://stackoverflow.com/questions/1638919/how-to-explain-dependency-injection-to-a-5-year-old" target="_blank" rel="external">如何向一个5岁的小孩解释依赖注入</a>，其中得分最高的一个答案是：</p>
+<p>###&#x4EC0;&#x4E48;&#x662F;dependency injection&#xFF1F;&#x3000;    </p>
+<p>####&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF1A;<br>&#x3000;    &#x5173;&#x4E8E;&#x4EC0;&#x4E48;&#x662F;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#xFF0C;&#x5728;Stack Overflow&#x4E0A;&#x9762;&#x6709;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;<a href="http://stackoverflow.com/questions/1638919/how-to-explain-dependency-injection-to-a-5-year-old" target="_blank" rel="external">&#x5982;&#x4F55;&#x5411;&#x4E00;&#x4E2A;5&#x5C81;&#x7684;&#x5C0F;&#x5B69;&#x89E3;&#x91CA;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;</a>&#xFF0C;&#x5176;&#x4E2D;&#x5F97;&#x5206;&#x6700;&#x9AD8;&#x7684;&#x4E00;&#x4E2A;&#x7B54;&#x6848;&#x662F;&#xFF1A;</p>
 <blockquote>
-<p>“When you go and get things out of the refrigerator for yourself, you can cause problems. You might leave the door open, you might get something Mommy or Daddy doesn’t want you to have. You might even be looking for something we don’t even have or which has expired.</p>
-<p>What you should be doing is stating a need, “I need something to drink with lunch,” and then we will make sure you have something when you sit down to eat.”</p>
+<p>&#x201C;When you go and get things out of the refrigerator for yourself, you can cause problems. You might leave the door open, you might get something Mommy or Daddy doesn&#x2019;t want you to have. You might even be looking for something we don&#x2019;t even have or which has expired.</p>
+<p>What you should be doing is stating a need, &#x201C;I need something to drink with lunch,&#x201D; and then we will make sure you have something when you sit down to eat.&#x201D;</p>
 </blockquote>
-<p>映射到面向对象程序开发中就是：高层类(5岁小孩)应该依赖底层基础设施(家长)来提供必要的服务。</p>
-<p>编写松耦合的代码说起来很简单，但是实际上写着写着就变成了紧耦合。</p>
-<p>####更详细点的解释：</p>
-<p>依赖倒置解决了高层次模块依赖于低层次模块和其细节的问题。</p>
-<p>　　Dependency injection 是一个将行为从依赖中分离的技术，简单地说，它允许开发者定义一个方法函数依赖于外部其他各种交互，而不需要编码如何获得这些外部交互的实例。 这样就在各种组件之间解耦，从而获得干净的代码，相比依赖的硬编码， 一个组件只有在运行时才调用其所需要的其他组件，因此在代码运行时，通过特定的框架或容器，将其所需要的其他依赖组件进行注入，主动推入。</p>
-<p>　　依赖注入可以看成是 反转控制 inversion of control 的一个特例。反转的是依赖，而不是其他，JNDI也是一种反转控制，它反转的JNDI名称或资源。参考： <a href="http://martinfowler.com/articles/injection.html" target="_blank" rel="external">“Inversion of Control Containers and the Dependency Injection pattern”</a>。</p>
-<p>　　依赖注入是最早Spring和piconcontainer等提出，如今已经是一个缺省主流模式，并扩展到前端如Angular.js等等。</p>
-<p>　　依赖注入与IOC模式类似工厂模式，是一种解决调用者和被调用者依赖耦合关系的模式，自2004年诞生以来，至今已经成为Java和其他领域的主流模式。它解决了对象之间的依赖关系，使得对象只依赖IOC/DI容器，不再直接相互依赖，实现松耦合，然后在对象创建时，由IOC/DI容器将其依赖的对象注入Inject其体内，故又称依赖注入依赖注射模式，最大程度实现松耦合，特别是Autowiring/Autowired自动配对引入，再结合Java的垃圾回收机制，使得在Java中，对象不再需要开发者自己创建，也需要开发者自己销毁，只需要直接使用即可，大大提升了开发效率。</p>
-<p>　　详细解释：依赖注入说白一点，就是容器将某个类依赖的其他类注入到这个类中。
-　　</p>
-<p>###为什么要用dependency injection<br>　    依赖注入框架的运用可以帮我们将APP的设计分割成好几个模块，分给不同的开人员，当完成开发之后再进行合并充分解决了团队之间模块化分工的不足.借objic.io上一篇<a href="http://www.objc.io/issues/15-testing/dependency-injection/" target="_blank" rel="external">关于Dependency Injection</a>的一句话:</p>
+<p>&#x6620;&#x5C04;&#x5230;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7A0B;&#x5E8F;&#x5F00;&#x53D1;&#x4E2D;&#x5C31;&#x662F;&#xFF1A;&#x9AD8;&#x5C42;&#x7C7B;(5&#x5C81;&#x5C0F;&#x5B69;)&#x5E94;&#x8BE5;&#x4F9D;&#x8D56;&#x5E95;&#x5C42;&#x57FA;&#x7840;&#x8BBE;&#x65BD;(&#x5BB6;&#x957F;)&#x6765;&#x63D0;&#x4F9B;&#x5FC5;&#x8981;&#x7684;&#x670D;&#x52A1;&#x3002;</p>
+<p>&#x7F16;&#x5199;&#x677E;&#x8026;&#x5408;&#x7684;&#x4EE3;&#x7801;&#x8BF4;&#x8D77;&#x6765;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x4F46;&#x662F;&#x5B9E;&#x9645;&#x4E0A;&#x5199;&#x7740;&#x5199;&#x7740;&#x5C31;&#x53D8;&#x6210;&#x4E86;&#x7D27;&#x8026;&#x5408;&#x3002;</p>
+<p>####&#x66F4;&#x8BE6;&#x7EC6;&#x70B9;&#x7684;&#x89E3;&#x91CA;&#xFF1A;</p>
+<p>&#x4F9D;&#x8D56;&#x5012;&#x7F6E;&#x89E3;&#x51B3;&#x4E86;&#x9AD8;&#x5C42;&#x6B21;&#x6A21;&#x5757;&#x4F9D;&#x8D56;&#x4E8E;&#x4F4E;&#x5C42;&#x6B21;&#x6A21;&#x5757;&#x548C;&#x5176;&#x7EC6;&#x8282;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x3000;&#x3000;Dependency injection &#x662F;&#x4E00;&#x4E2A;&#x5C06;&#x884C;&#x4E3A;&#x4ECE;&#x4F9D;&#x8D56;&#x4E2D;&#x5206;&#x79BB;&#x7684;&#x6280;&#x672F;&#xFF0C;&#x7B80;&#x5355;&#x5730;&#x8BF4;&#xFF0C;&#x5B83;&#x5141;&#x8BB8;&#x5F00;&#x53D1;&#x8005;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x51FD;&#x6570;&#x4F9D;&#x8D56;&#x4E8E;&#x5916;&#x90E8;&#x5176;&#x4ED6;&#x5404;&#x79CD;&#x4EA4;&#x4E92;&#xFF0C;&#x800C;&#x4E0D;&#x9700;&#x8981;&#x7F16;&#x7801;&#x5982;&#x4F55;&#x83B7;&#x5F97;&#x8FD9;&#x4E9B;&#x5916;&#x90E8;&#x4EA4;&#x4E92;&#x7684;&#x5B9E;&#x4F8B;&#x3002; &#x8FD9;&#x6837;&#x5C31;&#x5728;&#x5404;&#x79CD;&#x7EC4;&#x4EF6;&#x4E4B;&#x95F4;&#x89E3;&#x8026;&#xFF0C;&#x4ECE;&#x800C;&#x83B7;&#x5F97;&#x5E72;&#x51C0;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x76F8;&#x6BD4;&#x4F9D;&#x8D56;&#x7684;&#x786C;&#x7F16;&#x7801;&#xFF0C; &#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x53EA;&#x6709;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x624D;&#x8C03;&#x7528;&#x5176;&#x6240;&#x9700;&#x8981;&#x7684;&#x5176;&#x4ED6;&#x7EC4;&#x4EF6;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x4EE3;&#x7801;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x901A;&#x8FC7;&#x7279;&#x5B9A;&#x7684;&#x6846;&#x67B6;&#x6216;&#x5BB9;&#x5668;&#xFF0C;&#x5C06;&#x5176;&#x6240;&#x9700;&#x8981;&#x7684;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;&#x7EC4;&#x4EF6;&#x8FDB;&#x884C;&#x6CE8;&#x5165;&#xFF0C;&#x4E3B;&#x52A8;&#x63A8;&#x5165;&#x3002;</p>
+<p>&#x3000;&#x3000;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x53EF;&#x4EE5;&#x770B;&#x6210;&#x662F; &#x53CD;&#x8F6C;&#x63A7;&#x5236; inversion of control &#x7684;&#x4E00;&#x4E2A;&#x7279;&#x4F8B;&#x3002;&#x53CD;&#x8F6C;&#x7684;&#x662F;&#x4F9D;&#x8D56;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5176;&#x4ED6;&#xFF0C;JNDI&#x4E5F;&#x662F;&#x4E00;&#x79CD;&#x53CD;&#x8F6C;&#x63A7;&#x5236;&#xFF0C;&#x5B83;&#x53CD;&#x8F6C;&#x7684;JNDI&#x540D;&#x79F0;&#x6216;&#x8D44;&#x6E90;&#x3002;&#x53C2;&#x8003;&#xFF1A; <a href="http://martinfowler.com/articles/injection.html" target="_blank" rel="external">&#x201C;Inversion of Control Containers and the Dependency Injection pattern&#x201D;</a>&#x3002;</p>
+<p>&#x3000;&#x3000;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x662F;&#x6700;&#x65E9;Spring&#x548C;piconcontainer&#x7B49;&#x63D0;&#x51FA;&#xFF0C;&#x5982;&#x4ECA;&#x5DF2;&#x7ECF;&#x662F;&#x4E00;&#x4E2A;&#x7F3A;&#x7701;&#x4E3B;&#x6D41;&#x6A21;&#x5F0F;&#xFF0C;&#x5E76;&#x6269;&#x5C55;&#x5230;&#x524D;&#x7AEF;&#x5982;Angular.js&#x7B49;&#x7B49;&#x3002;</p>
+<p>&#x3000;&#x3000;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x4E0E;IOC&#x6A21;&#x5F0F;&#x7C7B;&#x4F3C;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x89E3;&#x51B3;&#x8C03;&#x7528;&#x8005;&#x548C;&#x88AB;&#x8C03;&#x7528;&#x8005;&#x4F9D;&#x8D56;&#x8026;&#x5408;&#x5173;&#x7CFB;&#x7684;&#x6A21;&#x5F0F;&#xFF0C;&#x81EA;2004&#x5E74;&#x8BDE;&#x751F;&#x4EE5;&#x6765;&#xFF0C;&#x81F3;&#x4ECA;&#x5DF2;&#x7ECF;&#x6210;&#x4E3A;Java&#x548C;&#x5176;&#x4ED6;&#x9886;&#x57DF;&#x7684;&#x4E3B;&#x6D41;&#x6A21;&#x5F0F;&#x3002;&#x5B83;&#x89E3;&#x51B3;&#x4E86;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;&#x4F7F;&#x5F97;&#x5BF9;&#x8C61;&#x53EA;&#x4F9D;&#x8D56;IOC/DI&#x5BB9;&#x5668;&#xFF0C;&#x4E0D;&#x518D;&#x76F4;&#x63A5;&#x76F8;&#x4E92;&#x4F9D;&#x8D56;&#xFF0C;&#x5B9E;&#x73B0;&#x677E;&#x8026;&#x5408;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x65F6;&#xFF0C;&#x7531;IOC/DI&#x5BB9;&#x5668;&#x5C06;&#x5176;&#x4F9D;&#x8D56;&#x7684;&#x5BF9;&#x8C61;&#x6CE8;&#x5165;Inject&#x5176;&#x4F53;&#x5185;&#xFF0C;&#x6545;&#x53C8;&#x79F0;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x4F9D;&#x8D56;&#x6CE8;&#x5C04;&#x6A21;&#x5F0F;&#xFF0C;&#x6700;&#x5927;&#x7A0B;&#x5EA6;&#x5B9E;&#x73B0;&#x677E;&#x8026;&#x5408;&#xFF0C;&#x7279;&#x522B;&#x662F;Autowiring/Autowired&#x81EA;&#x52A8;&#x914D;&#x5BF9;&#x5F15;&#x5165;&#xFF0C;&#x518D;&#x7ED3;&#x5408;Java&#x7684;&#x5783;&#x573E;&#x56DE;&#x6536;&#x673A;&#x5236;&#xFF0C;&#x4F7F;&#x5F97;&#x5728;Java&#x4E2D;&#xFF0C;&#x5BF9;&#x8C61;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x5F00;&#x53D1;&#x8005;&#x81EA;&#x5DF1;&#x521B;&#x5EFA;&#xFF0C;&#x4E5F;&#x9700;&#x8981;&#x5F00;&#x53D1;&#x8005;&#x81EA;&#x5DF1;&#x9500;&#x6BC1;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5373;&#x53EF;&#xFF0C;&#x5927;&#x5927;&#x63D0;&#x5347;&#x4E86;&#x5F00;&#x53D1;&#x6548;&#x7387;&#x3002;</p>
+<p>&#x3000;&#x3000;&#x8BE6;&#x7EC6;&#x89E3;&#x91CA;&#xFF1A;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x8BF4;&#x767D;&#x4E00;&#x70B9;&#xFF0C;&#x5C31;&#x662F;&#x5BB9;&#x5668;&#x5C06;&#x67D0;&#x4E2A;&#x7C7B;&#x4F9D;&#x8D56;&#x7684;&#x5176;&#x4ED6;&#x7C7B;&#x6CE8;&#x5165;&#x5230;&#x8FD9;&#x4E2A;&#x7C7B;&#x4E2D;&#x3002;
+&#x3000;&#x3000;</p>
+<p>###&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;dependency injection<br>&#x3000;    &#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x6846;&#x67B6;&#x7684;&#x8FD0;&#x7528;&#x53EF;&#x4EE5;&#x5E2E;&#x6211;&#x4EEC;&#x5C06;APP&#x7684;&#x8BBE;&#x8BA1;&#x5206;&#x5272;&#x6210;&#x597D;&#x51E0;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x5206;&#x7ED9;&#x4E0D;&#x540C;&#x7684;&#x5F00;&#x4EBA;&#x5458;&#xFF0C;&#x5F53;&#x5B8C;&#x6210;&#x5F00;&#x53D1;&#x4E4B;&#x540E;&#x518D;&#x8FDB;&#x884C;&#x5408;&#x5E76;&#x5145;&#x5206;&#x89E3;&#x51B3;&#x4E86;&#x56E2;&#x961F;&#x4E4B;&#x95F4;&#x6A21;&#x5757;&#x5316;&#x5206;&#x5DE5;&#x7684;&#x4E0D;&#x8DB3;.&#x501F;objic.io&#x4E0A;&#x4E00;&#x7BC7;<a href="http://www.objc.io/issues/15-testing/dependency-injection/" target="_blank" rel="external">&#x5173;&#x4E8E;Dependency Injection</a>&#x7684;&#x4E00;&#x53E5;&#x8BDD;:</p>
 <blockquote>
-<p>My initial motivation for exploring DI came from doing test-driven development, because in TDD you constantly wrestle with the question of “How do I write a unit test for this?” But I discovered that DI is actually concerned with a bigger idea: that our code should be composed of modules that we snap together to build an application.</p>
-<p>There are many benefits to such an approach. Graham Lee’s article, <a href="http://www.bignerdranch.com/blog/dependency-injection-ios/" target="_blank" rel="external">“Dependency Injection, iOS and You,”</a> describes some of them: “to adapt… to new requirements, make bug fixes, add new features, and test components in isolation.” </p>
+<p>My initial motivation for exploring DI came from doing test-driven development, because in TDD you constantly wrestle with the question of &#x201C;How do I write a unit test for this?&#x201D; But I discovered that DI is actually concerned with a bigger idea: that our code should be composed of modules that we snap together to build an application.</p>
+<p>There are many benefits to such an approach. Graham Lee&#x2019;s article, <a href="http://www.bignerdranch.com/blog/dependency-injection-ios/" target="_blank" rel="external">&#x201C;Dependency Injection, iOS and You,&#x201D;</a> describes some of them: &#x201C;to adapt&#x2026; to new requirements, make bug fixes, add new features, and test components in isolation.&#x201D; </p>
 </blockquote>
-<p>大体意思:</p>
-<p>我在探索DI最初的动机来自做测试驱动的开发，因为在TDD你不断地与问题搏斗“我怎样写单元测试吗？”但我发现，DI实际上是涉及一个更大的想法：即我们的代码应该由我们扣合在一起来构建应用程序模块。</p>
-<p>有许多好处，这样的做法。格雷厄姆李的文章，<a href="http://www.bignerdranch.com/blog/dependency-injection-ios/" target="_blank" rel="external">“依赖注入，iOS和你”</a>，介绍了其中一些：“适应……新的要求，作出错误修复，隔离增加新的功能以及测试组件。”</p>
-<p>用文字说这些概念其实很抽象，下面用几张图片说明下：</p>
-<p>通过objection实现依赖注入后，就能更好地实现SRP(Single Responsibility Principle)，代码更简洁，心情更舒畅，生活更美好。拿Pinterest来说，下面的页面就可以划分为3个Section。</p>
-<p><a href="../images/blog/DI01.png" title="Title">点击查看图片</a></p>
-<p><img src="http://m1.yea.im/1O8.png" alt="点击查看图片"></p>
-<p>各个Section可以由不同的人负责，然后串到一起就行，也能一定程度地避免MVC(Mess View Controller)的出现,对于提高开发成员的效率也会有不少的帮助。</p>
-<p>　    <strong>其实用简单的一句话来说就是： 通过DI设计模式，将项目模块化，以提高开发效率。</strong>  </p>
-<p>###dependency injection试图解决什么问题呢<br><strong>我们知道，在IOS基本教程中有一个定律告诉我们：所有的对象都必须创建；或者说：使用对象之前必须创建，但是现在我们可以不必一定遵循这个定律了，我们可以从DI容器中直接获得一个对象然后直接使用，无需事先创建它们。</strong></p>
-<p>　　<strong>这种变革，就如同我们无需考虑对象销毁一样；因为IOS的 ARC 帮助我们实现了对象销毁；现在又无需考虑对象创建，对象的创建和销毁都无需考虑了，这给编程带来的影响是巨大的</strong></p>
-<p>我们可以通过一篇博文了解下原理,该文章是由Limboy大神写的<a href="http://limboy.me/ios/2014/04/15/use-objection-to-decouple-ios-project.html" target="_blank" rel="external">使用objection来模块化开发iOS项目</a></p>
-<p>这里提前介绍了一个DI框架就是Objection,详细介绍就去看博文，在此只分析下DI的设计原理:</p>
-<p><strong>类似于Objection的大部分DI框架，主要为我们提供了一个容器,来管理创建销毁对象，我们并不会过多考虑创建对象的方法内容以及其再其他类中的依赖关系，这些都在框架中为我们解决了，我们只需要再需要的时候调用即可，并不需要重复的导入import，避免不同类直接多次重复的import导致的依赖循环问题。</strong></p>
-<p>###那么问题来了？如何学习dependency injection呢<br>　    　    <strong>ios有关DI依赖注入的框架比较好用的有两个：<a href="https://github.com/atomicobject/objection" target="_blank" rel="external">objection</a> 和 <a href="https://github.com/appsquickly/Typhoon" target="_blank" rel="external">Typhoon</a></strong></p>
-<p>下面就从几个方便来介绍下这两个框架</p>
-<p>####一：<a href="https://github.com/atomicobject/objection" target="_blank" rel="external">objection</a> 和 <a href="https://github.com/appsquickly/Typhoon" target="_blank" rel="external">Typhoon</a>这两个框架有什么区别呢<br>其实这两个框架各有优势：</p>
-<p>1.objection框架，使用起来比较灵活，用法比较简单。示例代码如下：</p>
-<p>属性注册：</p>
+<p>&#x5927;&#x4F53;&#x610F;&#x601D;:</p>
+<p>&#x6211;&#x5728;&#x63A2;&#x7D22;DI&#x6700;&#x521D;&#x7684;&#x52A8;&#x673A;&#x6765;&#x81EA;&#x505A;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x7684;&#x5F00;&#x53D1;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;TDD&#x4F60;&#x4E0D;&#x65AD;&#x5730;&#x4E0E;&#x95EE;&#x9898;&#x640F;&#x6597;&#x201C;&#x6211;&#x600E;&#x6837;&#x5199;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x5417;&#xFF1F;&#x201D;&#x4F46;&#x6211;&#x53D1;&#x73B0;&#xFF0C;DI&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x6D89;&#x53CA;&#x4E00;&#x4E2A;&#x66F4;&#x5927;&#x7684;&#x60F3;&#x6CD5;&#xFF1A;&#x5373;&#x6211;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x5E94;&#x8BE5;&#x7531;&#x6211;&#x4EEC;&#x6263;&#x5408;&#x5728;&#x4E00;&#x8D77;&#x6765;&#x6784;&#x5EFA;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6A21;&#x5757;&#x3002;</p>
+<p>&#x6709;&#x8BB8;&#x591A;&#x597D;&#x5904;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x505A;&#x6CD5;&#x3002;&#x683C;&#x96F7;&#x5384;&#x59C6;&#x674E;&#x7684;&#x6587;&#x7AE0;&#xFF0C;<a href="http://www.bignerdranch.com/blog/dependency-injection-ios/" target="_blank" rel="external">&#x201C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#xFF0C;iOS&#x548C;&#x4F60;&#x201D;</a>&#xFF0C;&#x4ECB;&#x7ECD;&#x4E86;&#x5176;&#x4E2D;&#x4E00;&#x4E9B;&#xFF1A;&#x201C;&#x9002;&#x5E94;&#x2026;&#x2026;&#x65B0;&#x7684;&#x8981;&#x6C42;&#xFF0C;&#x4F5C;&#x51FA;&#x9519;&#x8BEF;&#x4FEE;&#x590D;&#xFF0C;&#x9694;&#x79BB;&#x589E;&#x52A0;&#x65B0;&#x7684;&#x529F;&#x80FD;&#x4EE5;&#x53CA;&#x6D4B;&#x8BD5;&#x7EC4;&#x4EF6;&#x3002;&#x201D;</p>
+<p>&#x7528;&#x6587;&#x5B57;&#x8BF4;&#x8FD9;&#x4E9B;&#x6982;&#x5FF5;&#x5176;&#x5B9E;&#x5F88;&#x62BD;&#x8C61;&#xFF0C;&#x4E0B;&#x9762;&#x7528;&#x51E0;&#x5F20;&#x56FE;&#x7247;&#x8BF4;&#x660E;&#x4E0B;&#xFF1A;</p>
+<p>&#x901A;&#x8FC7;objection&#x5B9E;&#x73B0;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x540E;&#xFF0C;&#x5C31;&#x80FD;&#x66F4;&#x597D;&#x5730;&#x5B9E;&#x73B0;SRP(Single Responsibility Principle)&#xFF0C;&#x4EE3;&#x7801;&#x66F4;&#x7B80;&#x6D01;&#xFF0C;&#x5FC3;&#x60C5;&#x66F4;&#x8212;&#x7545;&#xFF0C;&#x751F;&#x6D3B;&#x66F4;&#x7F8E;&#x597D;&#x3002;&#x62FF;Pinterest&#x6765;&#x8BF4;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x9875;&#x9762;&#x5C31;&#x53EF;&#x4EE5;&#x5212;&#x5206;&#x4E3A;3&#x4E2A;Section&#x3002;</p>
+<p><a href="../images/blog/DI01.png" title="Title">&#x70B9;&#x51FB;&#x67E5;&#x770B;&#x56FE;&#x7247;</a></p>
+<p><img src="http://m1.yea.im/1O8.png" alt="&#x70B9;&#x51FB;&#x67E5;&#x770B;&#x56FE;&#x7247;"></p>
+<p>&#x5404;&#x4E2A;Section&#x53EF;&#x4EE5;&#x7531;&#x4E0D;&#x540C;&#x7684;&#x4EBA;&#x8D1F;&#x8D23;&#xFF0C;&#x7136;&#x540E;&#x4E32;&#x5230;&#x4E00;&#x8D77;&#x5C31;&#x884C;&#xFF0C;&#x4E5F;&#x80FD;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x5730;&#x907F;&#x514D;MVC(Mess View Controller)&#x7684;&#x51FA;&#x73B0;,&#x5BF9;&#x4E8E;&#x63D0;&#x9AD8;&#x5F00;&#x53D1;&#x6210;&#x5458;&#x7684;&#x6548;&#x7387;&#x4E5F;&#x4F1A;&#x6709;&#x4E0D;&#x5C11;&#x7684;&#x5E2E;&#x52A9;&#x3002;</p>
+<p>&#x3000;    <strong>&#x5176;&#x5B9E;&#x7528;&#x7B80;&#x5355;&#x7684;&#x4E00;&#x53E5;&#x8BDD;&#x6765;&#x8BF4;&#x5C31;&#x662F;&#xFF1A; &#x901A;&#x8FC7;DI&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#xFF0C;&#x5C06;&#x9879;&#x76EE;&#x6A21;&#x5757;&#x5316;&#xFF0C;&#x4EE5;&#x63D0;&#x9AD8;&#x5F00;&#x53D1;&#x6548;&#x7387;&#x3002;</strong>  </p>
+<p>###dependency injection&#x8BD5;&#x56FE;&#x89E3;&#x51B3;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#x5462;<br><strong>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x5728;IOS&#x57FA;&#x672C;&#x6559;&#x7A0B;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x5B9A;&#x5F8B;&#x544A;&#x8BC9;&#x6211;&#x4EEC;&#xFF1A;&#x6240;&#x6709;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x5FC5;&#x987B;&#x521B;&#x5EFA;&#xFF1B;&#x6216;&#x8005;&#x8BF4;&#xFF1A;&#x4F7F;&#x7528;&#x5BF9;&#x8C61;&#x4E4B;&#x524D;&#x5FC5;&#x987B;&#x521B;&#x5EFA;&#xFF0C;&#x4F46;&#x662F;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E0D;&#x5FC5;&#x4E00;&#x5B9A;&#x9075;&#x5FAA;&#x8FD9;&#x4E2A;&#x5B9A;&#x5F8B;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4ECE;DI&#x5BB9;&#x5668;&#x4E2D;&#x76F4;&#x63A5;&#x83B7;&#x5F97;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7136;&#x540E;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#xFF0C;&#x65E0;&#x9700;&#x4E8B;&#x5148;&#x521B;&#x5EFA;&#x5B83;&#x4EEC;&#x3002;</strong></p>
+<p>&#x3000;&#x3000;<strong>&#x8FD9;&#x79CD;&#x53D8;&#x9769;&#xFF0C;&#x5C31;&#x5982;&#x540C;&#x6211;&#x4EEC;&#x65E0;&#x9700;&#x8003;&#x8651;&#x5BF9;&#x8C61;&#x9500;&#x6BC1;&#x4E00;&#x6837;&#xFF1B;&#x56E0;&#x4E3A;IOS&#x7684; ARC &#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x4E86;&#x5BF9;&#x8C61;&#x9500;&#x6BC1;&#xFF1B;&#x73B0;&#x5728;&#x53C8;&#x65E0;&#x9700;&#x8003;&#x8651;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x521B;&#x5EFA;&#x548C;&#x9500;&#x6BC1;&#x90FD;&#x65E0;&#x9700;&#x8003;&#x8651;&#x4E86;&#xFF0C;&#x8FD9;&#x7ED9;&#x7F16;&#x7A0B;&#x5E26;&#x6765;&#x7684;&#x5F71;&#x54CD;&#x662F;&#x5DE8;&#x5927;&#x7684;</strong></p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E00;&#x7BC7;&#x535A;&#x6587;&#x4E86;&#x89E3;&#x4E0B;&#x539F;&#x7406;,&#x8BE5;&#x6587;&#x7AE0;&#x662F;&#x7531;Limboy&#x5927;&#x795E;&#x5199;&#x7684;<a href="http://limboy.me/ios/2014/04/15/use-objection-to-decouple-ios-project.html" target="_blank" rel="external">&#x4F7F;&#x7528;objection&#x6765;&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;iOS&#x9879;&#x76EE;</a></p>
+<p>&#x8FD9;&#x91CC;&#x63D0;&#x524D;&#x4ECB;&#x7ECD;&#x4E86;&#x4E00;&#x4E2A;DI&#x6846;&#x67B6;&#x5C31;&#x662F;Objection,&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x5C31;&#x53BB;&#x770B;&#x535A;&#x6587;&#xFF0C;&#x5728;&#x6B64;&#x53EA;&#x5206;&#x6790;&#x4E0B;DI&#x7684;&#x8BBE;&#x8BA1;&#x539F;&#x7406;:</p>
+<p><strong>&#x7C7B;&#x4F3C;&#x4E8E;Objection&#x7684;&#x5927;&#x90E8;&#x5206;DI&#x6846;&#x67B6;&#xFF0C;&#x4E3B;&#x8981;&#x4E3A;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;,&#x6765;&#x7BA1;&#x7406;&#x521B;&#x5EFA;&#x9500;&#x6BC1;&#x5BF9;&#x8C61;&#xFF0C;&#x6211;&#x4EEC;&#x5E76;&#x4E0D;&#x4F1A;&#x8FC7;&#x591A;&#x8003;&#x8651;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x5185;&#x5BB9;&#x4EE5;&#x53CA;&#x5176;&#x518D;&#x5176;&#x4ED6;&#x7C7B;&#x4E2D;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;&#x8FD9;&#x4E9B;&#x90FD;&#x5728;&#x6846;&#x67B6;&#x4E2D;&#x4E3A;&#x6211;&#x4EEC;&#x89E3;&#x51B3;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x518D;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x5373;&#x53EF;&#xFF0C;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x91CD;&#x590D;&#x7684;&#x5BFC;&#x5165;import&#xFF0C;&#x907F;&#x514D;&#x4E0D;&#x540C;&#x7C7B;&#x76F4;&#x63A5;&#x591A;&#x6B21;&#x91CD;&#x590D;&#x7684;import&#x5BFC;&#x81F4;&#x7684;&#x4F9D;&#x8D56;&#x5FAA;&#x73AF;&#x95EE;&#x9898;&#x3002;</strong></p>
+<p>###&#x90A3;&#x4E48;&#x95EE;&#x9898;&#x6765;&#x4E86;&#xFF1F;&#x5982;&#x4F55;&#x5B66;&#x4E60;dependency injection&#x5462;<br>&#x3000;    &#x3000;    <strong>ios&#x6709;&#x5173;DI&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x7684;&#x6846;&#x67B6;&#x6BD4;&#x8F83;&#x597D;&#x7528;&#x7684;&#x6709;&#x4E24;&#x4E2A;&#xFF1A;<a href="https://github.com/atomicobject/objection" target="_blank" rel="external">objection</a> &#x548C; <a href="https://github.com/appsquickly/Typhoon" target="_blank" rel="external">Typhoon</a></strong></p>
+<p>&#x4E0B;&#x9762;&#x5C31;&#x4ECE;&#x51E0;&#x4E2A;&#x65B9;&#x4FBF;&#x6765;&#x4ECB;&#x7ECD;&#x4E0B;&#x8FD9;&#x4E24;&#x4E2A;&#x6846;&#x67B6;</p>
+<p>####&#x4E00;&#xFF1A;<a href="https://github.com/atomicobject/objection" target="_blank" rel="external">objection</a> &#x548C; <a href="https://github.com/appsquickly/Typhoon" target="_blank" rel="external">Typhoon</a>&#x8FD9;&#x4E24;&#x4E2A;&#x6846;&#x67B6;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#x5462;<br>&#x5176;&#x5B9E;&#x8FD9;&#x4E24;&#x4E2A;&#x6846;&#x67B6;&#x5404;&#x6709;&#x4F18;&#x52BF;&#xFF1A;</p>
+<p>1.objection&#x6846;&#x67B6;&#xFF0C;&#x4F7F;&#x7528;&#x8D77;&#x6765;&#x6BD4;&#x8F83;&#x7075;&#x6D3B;&#xFF0C;&#x7528;&#x6CD5;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x3002;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>&#x5C5E;&#x6027;&#x6CE8;&#x518C;&#xFF1A;</p>
 <pre><code>@class Engine, Brakes;
 
 @interface Car : NSObject
@@ -316,18 +316,18 @@
 @property(nonatomic) BOOL awake;
 
 @implementation Car
-objection_requires(@&quot;engine&quot;, @&quot;brakes&quot;) //属性的依赖注入
+objection_requires(@&quot;engine&quot;, @&quot;brakes&quot;) //&#x5C5E;&#x6027;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;
 @synthesize engine, brakes, awake;
 @end
-</code></pre><p>方法注入：</p>
+</code></pre><p>&#x65B9;&#x6CD5;&#x6CE8;&#x5165;&#xFF1A;</p>
 <pre><code>@implementation Truck
 objection_requires(@&quot;engine&quot;, @&quot;brakes&quot;)
-objection_initializer(truckWithMake:model:)//方法的依赖注入
+objection_initializer(truckWithMake:model:)//&#x65B9;&#x6CD5;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;
 + (instancetype)truckWithMake:(NSString *) make model: (NSString *)model {
   ...
 }
 @end
-</code></pre><p>2.对比来说Typhoon的使用起来就比较规范，首先需要创建一个 TyphoonAssembly的子类。其需要注入的方法和属性都需要写在这个统一个子类中，当然可以实现不同的子类来完成不同的功能</p>
+</code></pre><p>2.&#x5BF9;&#x6BD4;&#x6765;&#x8BF4;Typhoon&#x7684;&#x4F7F;&#x7528;&#x8D77;&#x6765;&#x5C31;&#x6BD4;&#x8F83;&#x89C4;&#x8303;&#xFF0C;&#x9996;&#x5148;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; TyphoonAssembly&#x7684;&#x5B50;&#x7C7B;&#x3002;&#x5176;&#x9700;&#x8981;&#x6CE8;&#x5165;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;&#x90FD;&#x9700;&#x8981;&#x5199;&#x5728;&#x8FD9;&#x4E2A;&#x7EDF;&#x4E00;&#x4E2A;&#x5B50;&#x7C7B;&#x4E2D;&#xFF0C;&#x5F53;&#x7136;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4E0D;&#x540C;&#x7684;&#x5B50;&#x7C7B;&#x6765;&#x5B8C;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x529F;&#x80FD;</p>
 <pre><code>@interface MiddleAgesAssembly : TyphoonAssembly
 
 - (Knight*)basicKnight;
@@ -337,7 +337,7 @@ objection_initializer(truckWithMake:model:)//方法的依赖注入
 - (id&lt;Quest&gt;)defaultQuest;
 
 @end
-</code></pre><p>属性注入：</p>
+</code></pre><p>&#x5C5E;&#x6027;&#x6CE8;&#x5165;&#xFF1A;</p>
 <pre><code>- (Knight *)cavalryMan
 {
     return [TyphoonDefinition withClass:[CavalryMan class] 
@@ -347,7 +347,7 @@ objection_initializer(truckWithMake:model:)//方法的依赖注入
     [definition injectProperty:@selector(damselsRescued) with:@(12)];
 }];
 }
-</code></pre><p>方法注入：</p>
+</code></pre><p>&#x65B9;&#x6CD5;&#x6CE8;&#x5165;&#xFF1A;</p>
 <pre><code>- (Knight *)knightWithMethodInjection
 {
        return [TyphoonDefinition withClass:[Knight class] 
@@ -360,63 +360,63 @@ objection_initializer(truckWithMake:model:)//方法的依赖注入
     }];
 }];
 }
-</code></pre><p>3.当然还有一些硬性的区别就是Typhoon现在已经支持Swift。</p>
-<p>4.两者维护时间都超过2年以上。</p>
-<p>Tythoon官方介绍的优势：</p>
-<pre><code>1）Non-invasive. No macros or XML required. Uses powerful ObjC runtime instrumentation.
+</code></pre><p>3.&#x5F53;&#x7136;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x786C;&#x6027;&#x7684;&#x533A;&#x522B;&#x5C31;&#x662F;Typhoon&#x73B0;&#x5728;&#x5DF2;&#x7ECF;&#x652F;&#x6301;Swift&#x3002;</p>
+<p>4.&#x4E24;&#x8005;&#x7EF4;&#x62A4;&#x65F6;&#x95F4;&#x90FD;&#x8D85;&#x8FC7;2&#x5E74;&#x4EE5;&#x4E0A;&#x3002;</p>
+<p>Tythoon&#x5B98;&#x65B9;&#x4ECB;&#x7ECD;&#x7684;&#x4F18;&#x52BF;&#xFF1A;</p>
+<pre><code>1&#xFF09;Non-invasive. No macros or XML required. Uses powerful ObjC runtime instrumentation.
 
-2）No magic strings – supports IDE refactoring, code-completion and compile-time checking.
+2&#xFF09;No magic strings &#x2013; supports IDE refactoring, code-completion and compile-time checking.
 
-3）Provides full-modularization and encapsulation of configuration details. Let your architecture tell a story.
+3&#xFF09;Provides full-modularization and encapsulation of configuration details. Let your architecture tell a story.
 
-4）Dependencies declared in any order. (The order that makes sense to humans).
+4&#xFF09;Dependencies declared in any order. (The order that makes sense to humans).
 
-5）Makes it easy to have multiple configurations of the same base-class or protocol.
+5&#xFF09;Makes it easy to have multiple configurations of the same base-class or protocol.
 
- 6）Supports injection of view controllers and storyboard integration. Supports both initializer and property injection, plus life-cycle management.
+ 6&#xFF09;Supports injection of view controllers and storyboard integration. Supports both initializer and property injection, plus life-cycle management.
 
-7）Powerful memory management features. Provides pre-configured objects, without the memory overhead of singletons.
+7&#xFF09;Powerful memory management features. Provides pre-configured objects, without the memory overhead of singletons.
 
-8）Excellent support for circular dependencies.
+8&#xFF09;Excellent support for circular dependencies.
 
-9）Lean. Has a very low footprint, so is appropriate for CPU and memory constrained devices.
+9&#xFF09;Lean. Has a very low footprint, so is appropriate for CPU and memory constrained devices.
 
-10）While being feature-packed, Typhoon weighs-in at just 3000 lines of code in total.
+10&#xFF09;While being feature-packed, Typhoon weighs-in at just 3000 lines of code in total.
 
- 11）Battle-tested — used in all kinds of Appstore-featured apps.
-</code></pre><p>大体翻译过来：</p>
-<pre><code>1)非侵入性。不需要宏或XML。使用强大的ObjC运行时仪器。
-2)没有魔法字符串——支持IDE重构,完成和编译时检查。
-3)提供full-modularization和封装的配置细节。让你的架构告诉一个故事。
-4)依赖关系中声明的任何顺序。(对人类有意义的顺序)。
-5)很容易有多个配置相同的基类或协议。
-6)支持注射的视图控制器和故事板集成。同时支持初始化器和属性注入,以及生命周期管理。
-7)强大的内存管理功能。提供预配置对象,没有单件的内存开销。
-8)优秀的支持循环依赖。
-9)精益。占用很低,所以适合CPU和内存受限的设备。
-10),功能强大,台风重总共只有3000行代码。
-11)久经沙场,用于各种Appstore-featured应用。
-</code></pre><p>　    　    针对这两个框架网上教程并不多，收集了一些比较有用的资料。最主要的用法还得看官方文档分别在：</p>
-<p><a href="https://github.com/atomicobject/objection" target="_blank" rel="external">objection</a> 和 <a href="https://github.com/appsquickly/Typhoon" target="_blank" rel="external">Typhoon</a></p>
-<p>###大体学习步骤：</p>
-<p>####（一）了解依赖注入的原理</p>
-<p>依赖注入各大语言都一样，相关资料：</p>
-<p>其中最需要看的是来自</p>
-<p>objc.io官网的博文 <a href="http://www.objc.io/issues/15-testing/dependency-injection/" target="_blank" rel="external">Dependency Injection</a> 和 Typhoon原创大神(Graham Lee)的文章 <a href="https://www.bignerdranch.com/blog/dependency-injection-ios/" target="_blank" rel="external">Dependency Injection, iOS and You</a> 不看后悔一辈子^_^</p>
-<p>1.<a href="http://blog.csdn.net/column/details/aopbrief.html" target="_blank" rel="external">CSDN专题系列–依赖注入及AOP简述</a></p>
-<p>2.<a href="http://blog.csdn.net/yqj2065/article/details/8510074" target="_blank" rel="external">某知名博主写的文章–依赖注入（Dependency Injection）模式</a></p>
-<p>3.<a href="http://kb.cnblogs.com/page/45266/4/" target="_blank" rel="external">来自博客园的深度理解–深度理解依赖注入</a></p>
-<p>4.<a href="http://blog.csdn.net/linshaolie/article/details/47037941#report" target="_blank" rel="external">国人翻译的国外牛人的文章—依赖注入——让iOS代码更简洁</a></p>
-<p>####进阶内容了解和学习框架</p>
-<p>#####首先来看看有关objection的资料<br>资料比较少</p>
-<p>1.Limboy大大大神的–<a href="http://limboy.me/ios/2014/04/15/use-objection-to-decouple-ios-project.html" target="_blank" rel="external">使用objection来模块化开发iOS项目</a></p>
-<p>2.<a href="https://github.com/atomicobject/objection" target="_blank" rel="external">objection的官方github文档</a></p>
-<p>#####其次Typhoon的教程可能就比较详细了—-<a href="http://typhoonframework.org/" target="_blank" rel="external">官网</a></p>
-<p>1.<a href="https://github.com/appsquickly/Typhoon/wiki/Quick-Start" target="_blank" rel="external">首先来看官方github文档详细程度已经不需要其他教程了</a>😄😄😄</p>
-<p>2.<a href="http://datab.us/Search/Typhoon%2BFramework%2BPrimer%2BPlayListIDPLhU81D62nv-Yd5jCW9LRjI4_AfI5NwJhe" target="_blank" rel="external">关于Typhoon的视频教程</a></p>
-<p>3.<a href="http://blog.csdn.net/liangliang103377/article/details/47279819" target="_blank" rel="external">国外大神的教程整理 翻译（一）</a></p>
-<p>4.<a href="http://blog.csdn.net/liangliang103377/article/details/47279863" target="_blank" rel="external">国外大神的教程整理 翻译（二）</a></p>
-<p>5.<a href="http://blog.csdn.net/liangliang103377/article/details/47279899" target="_blank" rel="external">国外大神的教程整理 翻译（三）</a></p>
+ 11&#xFF09;Battle-tested &#x2014; used in all kinds of Appstore-featured apps.
+</code></pre><p>&#x5927;&#x4F53;&#x7FFB;&#x8BD1;&#x8FC7;&#x6765;&#xFF1A;</p>
+<pre><code>1)&#x975E;&#x4FB5;&#x5165;&#x6027;&#x3002;&#x4E0D;&#x9700;&#x8981;&#x5B8F;&#x6216;XML&#x3002;&#x4F7F;&#x7528;&#x5F3A;&#x5927;&#x7684;ObjC&#x8FD0;&#x884C;&#x65F6;&#x4EEA;&#x5668;&#x3002;
+2)&#x6CA1;&#x6709;&#x9B54;&#x6CD5;&#x5B57;&#x7B26;&#x4E32;&#x2014;&#x2014;&#x652F;&#x6301;IDE&#x91CD;&#x6784;,&#x5B8C;&#x6210;&#x548C;&#x7F16;&#x8BD1;&#x65F6;&#x68C0;&#x67E5;&#x3002;
+3)&#x63D0;&#x4F9B;full-modularization&#x548C;&#x5C01;&#x88C5;&#x7684;&#x914D;&#x7F6E;&#x7EC6;&#x8282;&#x3002;&#x8BA9;&#x4F60;&#x7684;&#x67B6;&#x6784;&#x544A;&#x8BC9;&#x4E00;&#x4E2A;&#x6545;&#x4E8B;&#x3002;
+4)&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x4E2D;&#x58F0;&#x660E;&#x7684;&#x4EFB;&#x4F55;&#x987A;&#x5E8F;&#x3002;(&#x5BF9;&#x4EBA;&#x7C7B;&#x6709;&#x610F;&#x4E49;&#x7684;&#x987A;&#x5E8F;)&#x3002;
+5)&#x5F88;&#x5BB9;&#x6613;&#x6709;&#x591A;&#x4E2A;&#x914D;&#x7F6E;&#x76F8;&#x540C;&#x7684;&#x57FA;&#x7C7B;&#x6216;&#x534F;&#x8BAE;&#x3002;
+6)&#x652F;&#x6301;&#x6CE8;&#x5C04;&#x7684;&#x89C6;&#x56FE;&#x63A7;&#x5236;&#x5668;&#x548C;&#x6545;&#x4E8B;&#x677F;&#x96C6;&#x6210;&#x3002;&#x540C;&#x65F6;&#x652F;&#x6301;&#x521D;&#x59CB;&#x5316;&#x5668;&#x548C;&#x5C5E;&#x6027;&#x6CE8;&#x5165;,&#x4EE5;&#x53CA;&#x751F;&#x547D;&#x5468;&#x671F;&#x7BA1;&#x7406;&#x3002;
+7)&#x5F3A;&#x5927;&#x7684;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x529F;&#x80FD;&#x3002;&#x63D0;&#x4F9B;&#x9884;&#x914D;&#x7F6E;&#x5BF9;&#x8C61;,&#x6CA1;&#x6709;&#x5355;&#x4EF6;&#x7684;&#x5185;&#x5B58;&#x5F00;&#x9500;&#x3002;
+8)&#x4F18;&#x79C0;&#x7684;&#x652F;&#x6301;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x3002;
+9)&#x7CBE;&#x76CA;&#x3002;&#x5360;&#x7528;&#x5F88;&#x4F4E;,&#x6240;&#x4EE5;&#x9002;&#x5408;CPU&#x548C;&#x5185;&#x5B58;&#x53D7;&#x9650;&#x7684;&#x8BBE;&#x5907;&#x3002;
+10),&#x529F;&#x80FD;&#x5F3A;&#x5927;,&#x53F0;&#x98CE;&#x91CD;&#x603B;&#x5171;&#x53EA;&#x6709;3000&#x884C;&#x4EE3;&#x7801;&#x3002;
+11)&#x4E45;&#x7ECF;&#x6C99;&#x573A;,&#x7528;&#x4E8E;&#x5404;&#x79CD;Appstore-featured&#x5E94;&#x7528;&#x3002;
+</code></pre><p>&#x3000;    &#x3000;    &#x9488;&#x5BF9;&#x8FD9;&#x4E24;&#x4E2A;&#x6846;&#x67B6;&#x7F51;&#x4E0A;&#x6559;&#x7A0B;&#x5E76;&#x4E0D;&#x591A;&#xFF0C;&#x6536;&#x96C6;&#x4E86;&#x4E00;&#x4E9B;&#x6BD4;&#x8F83;&#x6709;&#x7528;&#x7684;&#x8D44;&#x6599;&#x3002;&#x6700;&#x4E3B;&#x8981;&#x7684;&#x7528;&#x6CD5;&#x8FD8;&#x5F97;&#x770B;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x5206;&#x522B;&#x5728;&#xFF1A;</p>
+<p><a href="https://github.com/atomicobject/objection" target="_blank" rel="external">objection</a> &#x548C; <a href="https://github.com/appsquickly/Typhoon" target="_blank" rel="external">Typhoon</a></p>
+<p>###&#x5927;&#x4F53;&#x5B66;&#x4E60;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<p>####&#xFF08;&#x4E00;&#xFF09;&#x4E86;&#x89E3;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x7684;&#x539F;&#x7406;</p>
+<p>&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x5404;&#x5927;&#x8BED;&#x8A00;&#x90FD;&#x4E00;&#x6837;&#xFF0C;&#x76F8;&#x5173;&#x8D44;&#x6599;&#xFF1A;</p>
+<p>&#x5176;&#x4E2D;&#x6700;&#x9700;&#x8981;&#x770B;&#x7684;&#x662F;&#x6765;&#x81EA;</p>
+<p>objc.io&#x5B98;&#x7F51;&#x7684;&#x535A;&#x6587; <a href="http://www.objc.io/issues/15-testing/dependency-injection/" target="_blank" rel="external">Dependency Injection</a> &#x548C; Typhoon&#x539F;&#x521B;&#x5927;&#x795E;(Graham Lee)&#x7684;&#x6587;&#x7AE0; <a href="https://www.bignerdranch.com/blog/dependency-injection-ios/" target="_blank" rel="external">Dependency Injection, iOS and You</a> &#x4E0D;&#x770B;&#x540E;&#x6094;&#x4E00;&#x8F88;&#x5B50;^_^</p>
+<p>1.<a href="http://blog.csdn.net/column/details/aopbrief.html" target="_blank" rel="external">CSDN&#x4E13;&#x9898;&#x7CFB;&#x5217;&#x2013;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x53CA;AOP&#x7B80;&#x8FF0;</a></p>
+<p>2.<a href="http://blog.csdn.net/yqj2065/article/details/8510074" target="_blank" rel="external">&#x67D0;&#x77E5;&#x540D;&#x535A;&#x4E3B;&#x5199;&#x7684;&#x6587;&#x7AE0;&#x2013;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#xFF08;Dependency Injection&#xFF09;&#x6A21;&#x5F0F;</a></p>
+<p>3.<a href="http://kb.cnblogs.com/page/45266/4/" target="_blank" rel="external">&#x6765;&#x81EA;&#x535A;&#x5BA2;&#x56ED;&#x7684;&#x6DF1;&#x5EA6;&#x7406;&#x89E3;&#x2013;&#x6DF1;&#x5EA6;&#x7406;&#x89E3;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;</a></p>
+<p>4.<a href="http://blog.csdn.net/linshaolie/article/details/47037941#report" target="_blank" rel="external">&#x56FD;&#x4EBA;&#x7FFB;&#x8BD1;&#x7684;&#x56FD;&#x5916;&#x725B;&#x4EBA;&#x7684;&#x6587;&#x7AE0;&#x2014;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x2014;&#x2014;&#x8BA9;iOS&#x4EE3;&#x7801;&#x66F4;&#x7B80;&#x6D01;</a></p>
+<p>####&#x8FDB;&#x9636;&#x5185;&#x5BB9;&#x4E86;&#x89E3;&#x548C;&#x5B66;&#x4E60;&#x6846;&#x67B6;</p>
+<p>#####&#x9996;&#x5148;&#x6765;&#x770B;&#x770B;&#x6709;&#x5173;objection&#x7684;&#x8D44;&#x6599;<br>&#x8D44;&#x6599;&#x6BD4;&#x8F83;&#x5C11;</p>
+<p>1.Limboy&#x5927;&#x5927;&#x5927;&#x795E;&#x7684;&#x2013;<a href="http://limboy.me/ios/2014/04/15/use-objection-to-decouple-ios-project.html" target="_blank" rel="external">&#x4F7F;&#x7528;objection&#x6765;&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;iOS&#x9879;&#x76EE;</a></p>
+<p>2.<a href="https://github.com/atomicobject/objection" target="_blank" rel="external">objection&#x7684;&#x5B98;&#x65B9;github&#x6587;&#x6863;</a></p>
+<p>#####&#x5176;&#x6B21;Typhoon&#x7684;&#x6559;&#x7A0B;&#x53EF;&#x80FD;&#x5C31;&#x6BD4;&#x8F83;&#x8BE6;&#x7EC6;&#x4E86;&#x2014;-<a href="http://typhoonframework.org/" target="_blank" rel="external">&#x5B98;&#x7F51;</a></p>
+<p>1.<a href="https://github.com/appsquickly/Typhoon/wiki/Quick-Start" target="_blank" rel="external">&#x9996;&#x5148;&#x6765;&#x770B;&#x5B98;&#x65B9;github&#x6587;&#x6863;&#x8BE6;&#x7EC6;&#x7A0B;&#x5EA6;&#x5DF2;&#x7ECF;&#x4E0D;&#x9700;&#x8981;&#x5176;&#x4ED6;&#x6559;&#x7A0B;&#x4E86;</a>&#x1F604;&#x1F604;&#x1F604;</p>
+<p>2.<a href="http://datab.us/Search/Typhoon%2BFramework%2BPrimer%2BPlayListIDPLhU81D62nv-Yd5jCW9LRjI4_AfI5NwJhe" target="_blank" rel="external">&#x5173;&#x4E8E;Typhoon&#x7684;&#x89C6;&#x9891;&#x6559;&#x7A0B;</a></p>
+<p>3.<a href="http://blog.csdn.net/liangliang103377/article/details/47279819" target="_blank" rel="external">&#x56FD;&#x5916;&#x5927;&#x795E;&#x7684;&#x6559;&#x7A0B;&#x6574;&#x7406; &#x7FFB;&#x8BD1;&#xFF08;&#x4E00;&#xFF09;</a></p>
+<p>4.<a href="http://blog.csdn.net/liangliang103377/article/details/47279863" target="_blank" rel="external">&#x56FD;&#x5916;&#x5927;&#x795E;&#x7684;&#x6559;&#x7A0B;&#x6574;&#x7406; &#x7FFB;&#x8BD1;&#xFF08;&#x4E8C;&#xFF09;</a></p>
+<p>5.<a href="http://blog.csdn.net/liangliang103377/article/details/47279899" target="_blank" rel="external">&#x56FD;&#x5916;&#x5927;&#x795E;&#x7684;&#x6559;&#x7A0B;&#x6574;&#x7406; &#x7FFB;&#x8BD1;&#xFF08;&#x4E09;&#xFF09;</a></p>
 
       
     </div>
@@ -425,18 +425,18 @@ objection_initializer(truckWithMake:model:)//方法的依赖注入
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">RunningYoung</a></p>
-        <p><span>发布时间:</span>2015-06-30, 15:34:20</p>
-        <p><span>最后更新:</span>2016-04-12, 11:43:52</p>
+        <p><span>Title:</span><a href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">RunningYoung</a></p>
+        <p><span>Created:</span>2015-06-30, 15:34:20</p>
+        <p><span>Updated:</span>2016-04-12, 11:43:52</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/06/30/2015-08-04-dependency-injection/" title="关于IOS依赖注入(DI)那些事">https://runningyoung.github.io/2015/06/30/2015-08-04-dependency-injection/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://runningyoung.github.io/2015/06/30/2015-08-04-dependency-injection/　　作者: RunningYoung" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2015/06/30/2015-08-04-dependency-injection/" title="关于IOS依赖注入(DI)那些事">https://runningyoung.github.io/2015/06/30/2015-08-04-dependency-injection/</a>
+            <span class="copy-path" data-clipboard-text="From https://runningyoung.github.io/2015/06/30/2015-08-04-dependency-injection/　　By RunningYoung" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -445,15 +445,15 @@ objection_initializer(truckWithMake:model:)//方法的依赖注入
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/02/24/2016-03-12-read1/">
-                    【iOS读书笔记系列（一）】
+                <a href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">
+                    BDD开发 calabash 和 cucumber的使用
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/06/30/2015-07-20-ReactiveCocoa/">
-                    ReactiveCocoa 学习之路(史上最全攻略)
+                <a href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">
+                    Iterm2+ZSH 打造终极Shell
                 </a>
             </div>
         
@@ -463,7 +463,7 @@ objection_initializer(truckWithMake:model:)//方法的依赖注入
 </article>
 
     <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
+    <strong class="toc-title">Contents</strong>
     
 </div>
 <style>
@@ -475,10 +475,10 @@ objection_initializer(truckWithMake:model:)//方法的依赖注入
     }
 </style>
 
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 <script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
+    var valueHide = "Hide";
+    var valueShow = "Show";
 
     if ($(".left-col").is(":hidden")) {
         $("#tocButton").attr("value", valueShow);
@@ -532,21 +532,21 @@ objection_initializer(truckWithMake:model:)//方法的依赖注入
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/02/24/2016-03-12-read1/" title="上一篇: 【iOS读书笔记系列（一）】">
+            <a href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/" title="Pre: BDD开发 calabash 和 cucumber的使用">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/06/30/2015-07-20-ReactiveCocoa/" title="下一篇: ReactiveCocoa 学习之路(史上最全攻略)">
+            <a href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/" title="Next: Iterm2+ZSH 打造终极Shell">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-12-Phabricator2/">MAC下Code Review工具Phabricator + Arcanist搭建（part 2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-11-Phabricator1/">MAC下Code Review工具Phabricator + Arcanist搭建（part 1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-12-Phabricator2/">MAC下Code Review工具Phabricator + Arcanist搭建（part 2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-11-Phabricator1/">MAC下Code Review工具Phabricator + Arcanist搭建（part 1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li></ul>
 
 
 
@@ -564,7 +564,7 @@ objection_initializer(truckWithMake:model:)//方法的依赖注入
                 &copy; 2016 RunningYoung
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/RunningYoung/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by runningyoung
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/RunningYoung/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by runningyoung
             </div>
         </div>
         
@@ -575,7 +575,7 @@ objection_initializer(truckWithMake:model:)//方法的依赖注入
                 
               </script>
                     <span id="busuanzi_container_site_pv" style='display:none' >
-                        <span id="site-visit" >本站到访数: 
+                        <span id="site-visit" >Site Visitors: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -585,7 +585,7 @@ objection_initializer(truckWithMake:model:)//方法的依赖注入
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none' >
-                        <span id="page-visit">本页阅读量: 
+                        <span id="page-visit">Page Hits: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
@@ -631,9 +631,9 @@ ga('send', 'pageview');
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">

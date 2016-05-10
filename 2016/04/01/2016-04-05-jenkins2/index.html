@@ -5,32 +5,32 @@
   
   <title>iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2) | New World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)Jenkins 系统设置 前期准备">
+  <meta name="description" content="iOS&amp;#x6301;&amp;#x7EED;&amp;#x96C6;&amp;#x6210;&amp;#xFF1A;jenkins+gitlab+&amp;#x84B2;&amp;#x516C;&amp;#x82F1;+&amp;#x90AE;&amp;#x4EF6;&amp;#x901A;&amp;#x77E5;(Part 2)Jenkins &amp;#x7CFB;&amp;#x7EDF;&amp;#x8BBE;&amp;#x7F6E; &amp;#x524D;&amp;#x671F;&amp;#x51C6;&amp;#x5907;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)">
 <meta property="og:url" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/index.html">
 <meta property="og:site_name" content="New World">
-<meta property="og:description" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)Jenkins 系统设置 前期准备">
-<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/login1.png">
-<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/login2.png">
-<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/lang.png">
-<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/location.png">
-<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/email.png">
-<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/createjob1.png">
-<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/name.png">
-<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/ssh.png">
-<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/git.png">
-<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/gitlabhook.png">
-<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/jenkinsgitlabhook.png">
-<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/pod.png">
-<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/codesigning.png">
-<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/xcodebuild.png">
-<meta property="og:image" content="https://runningyoung.github.io/../images/jenkins/pgy.png">
-<meta property="og:updated_time" content="2016-04-12T03:44:51.000Z">
+<meta property="og:description" content="iOS&amp;#x6301;&amp;#x7EED;&amp;#x96C6;&amp;#x6210;&amp;#xFF1A;jenkins+gitlab+&amp;#x84B2;&amp;#x516C;&amp;#x82F1;+&amp;#x90AE;&amp;#x4EF6;&amp;#x901A;&amp;#x77E5;(Part 2)Jenkins &amp;#x7CFB;&amp;#x7EDF;&amp;#x8BBE;&amp;#x7F6E; &amp;#x524D;&amp;#x671F;&amp;#x51C6;&amp;#x5907;">
+<meta property="og:image" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/images/jenkins/login1.png">
+<meta property="og:image" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/images/jenkins/login2.png">
+<meta property="og:image" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/images/jenkins/lang.png">
+<meta property="og:image" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/images/jenkins/location.png">
+<meta property="og:image" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/images/jenkins/email.png">
+<meta property="og:image" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/images/jenkins/createjob1.png">
+<meta property="og:image" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/images/jenkins/name.png">
+<meta property="og:image" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/images/jenkins/ssh.png">
+<meta property="og:image" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/images/jenkins/git.png">
+<meta property="og:image" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/images/jenkins/gitlabhook.png">
+<meta property="og:image" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/images/jenkins/jenkinsgitlabhook.png">
+<meta property="og:image" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/images/jenkins/pod.png">
+<meta property="og:image" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/images/jenkins/codesigning.png">
+<meta property="og:image" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/../images/jenkins/xcodebuild.png">
+<meta property="og:image" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/../images/jenkins/pgy.png">
+<meta property="og:updated_time" content="2016-05-10T07:33:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)">
-<meta name="twitter:description" content="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)Jenkins 系统设置 前期准备">
-<meta name="twitter:image" content="https://runningyoung.github.io/../images/jenkins/login1.png">
+<meta name="twitter:description" content="iOS&amp;#x6301;&amp;#x7EED;&amp;#x96C6;&amp;#x6210;&amp;#xFF1A;jenkins+gitlab+&amp;#x84B2;&amp;#x516C;&amp;#x82F1;+&amp;#x90AE;&amp;#x4EF6;&amp;#x901A;&amp;#x77E5;(Part 2)Jenkins &amp;#x7CFB;&amp;#x7EDF;&amp;#x8BBE;&amp;#x7F6E; &amp;#x524D;&amp;#x671F;&amp;#x51C6;&amp;#x5907;">
+<meta name="twitter:image" content="https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/images/jenkins/login1.png">
   
     <link rel="alternative" href="/atom.xml" title="New World" type="application/atom+xml">
   
@@ -130,11 +130,11 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -271,90 +271,90 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-2"><a href="#iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-2" class="headerlink" title="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)"></a>iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</h1><h2 id="Jenkins-系统设置-前期准备"><a href="#Jenkins-系统设置-前期准备" class="headerlink" title="Jenkins 系统设置 前期准备"></a>Jenkins 系统设置 前期准备</h2><a id="more"></a>
-<h3 id="Jenkins-插件安装"><a href="#Jenkins-插件安装" class="headerlink" title="Jenkins 插件安装"></a>Jenkins 插件安装</h3><ul>
-<li><p>安装GitLab插件</p>
-<pre><code>因为我们项目用的是GitLab来管理源代码，jenkins本身并没有自带GitLab插件，所以我们需要依次选择 ***系统管理 -&gt; 管理插件*** 在&quot;***可选插件***&quot;中选择GitLab Plugin 和 Gitlab Hook Plugin 这两项，然后安装
+        <h1 id="iOS&#x6301;&#x7EED;&#x96C6;&#x6210;&#xFF1A;jenkins-gitlab-&#x84B2;&#x516C;&#x82F1;-&#x90AE;&#x4EF6;&#x901A;&#x77E5;-Part-2"><a href="#iOS&#x6301;&#x7EED;&#x96C6;&#x6210;&#xFF1A;jenkins-gitlab-&#x84B2;&#x516C;&#x82F1;-&#x90AE;&#x4EF6;&#x901A;&#x77E5;-Part-2" class="headerlink" title="iOS&#x6301;&#x7EED;&#x96C6;&#x6210;&#xFF1A;jenkins+gitlab+&#x84B2;&#x516C;&#x82F1;+&#x90AE;&#x4EF6;&#x901A;&#x77E5;(Part 2)"></a>iOS&#x6301;&#x7EED;&#x96C6;&#x6210;&#xFF1A;jenkins+gitlab+&#x84B2;&#x516C;&#x82F1;+&#x90AE;&#x4EF6;&#x901A;&#x77E5;(Part 2)</h1><h2 id="Jenkins-&#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E;-&#x524D;&#x671F;&#x51C6;&#x5907;"><a href="#Jenkins-&#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E;-&#x524D;&#x671F;&#x51C6;&#x5907;" class="headerlink" title="Jenkins &#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E; &#x524D;&#x671F;&#x51C6;&#x5907;"></a>Jenkins &#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E; &#x524D;&#x671F;&#x51C6;&#x5907;</h2><a id="more"></a>
+<h3 id="Jenkins-&#x63D2;&#x4EF6;&#x5B89;&#x88C5;"><a href="#Jenkins-&#x63D2;&#x4EF6;&#x5B89;&#x88C5;" class="headerlink" title="Jenkins &#x63D2;&#x4EF6;&#x5B89;&#x88C5;"></a>Jenkins &#x63D2;&#x4EF6;&#x5B89;&#x88C5;</h3><ul>
+<li><p>&#x5B89;&#x88C5;GitLab&#x63D2;&#x4EF6;</p>
+<pre><code>&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x9879;&#x76EE;&#x7528;&#x7684;&#x662F;GitLab&#x6765;&#x7BA1;&#x7406;&#x6E90;&#x4EE3;&#x7801;&#xFF0C;jenkins&#x672C;&#x8EAB;&#x5E76;&#x6CA1;&#x6709;&#x81EA;&#x5E26;GitLab&#x63D2;&#x4EF6;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4F9D;&#x6B21;&#x9009;&#x62E9; ***&#x7CFB;&#x7EDF;&#x7BA1;&#x7406; -&gt; &#x7BA1;&#x7406;&#x63D2;&#x4EF6;*** &#x5728;&quot;***&#x53EF;&#x9009;&#x63D2;&#x4EF6;***&quot;&#x4E2D;&#x9009;&#x62E9;GitLab Plugin &#x548C; Gitlab Hook Plugin &#x8FD9;&#x4E24;&#x9879;&#xFF0C;&#x7136;&#x540E;&#x5B89;&#x88C5;
 </code></pre></li>
-<li><p>安装Xcode插件<br>同安装GitLab插件步骤一样，我们一次选择  <strong><em>系统管理 -&gt; 管理插件</em></strong> 在”<strong><em>可选插件</em></strong>“中选择Xcode integration这两项，然后安装</p>
+<li><p>&#x5B89;&#x88C5;Xcode&#x63D2;&#x4EF6;<br>&#x540C;&#x5B89;&#x88C5;GitLab&#x63D2;&#x4EF6;&#x6B65;&#x9AA4;&#x4E00;&#x6837;&#xFF0C;&#x6211;&#x4EEC;&#x4E00;&#x6B21;&#x9009;&#x62E9;  <strong><em>&#x7CFB;&#x7EDF;&#x7BA1;&#x7406; -&gt; &#x7BA1;&#x7406;&#x63D2;&#x4EF6;</em></strong> &#x5728;&#x201D;<strong><em>&#x53EF;&#x9009;&#x63D2;&#x4EF6;</em></strong>&#x201C;&#x4E2D;&#x9009;&#x62E9;Xcode integration&#x8FD9;&#x4E24;&#x9879;&#xFF0C;&#x7136;&#x540E;&#x5B89;&#x88C5;</p>
 </li>
-<li><p>安装签名证书管理插件<br>   iOS打包内测版时，需要发布证书及相关签名文件，因此这两个插件对于管理iOS证书非常方便。还是在<strong><em>系统管理-&gt;管理插件</em></strong>，在“<strong><em>可选插件</em></strong>”中选中“Credentials Plugin”和“Keychains and Provisioning Profiles Management”安装。</p>
+<li><p>&#x5B89;&#x88C5;&#x7B7E;&#x540D;&#x8BC1;&#x4E66;&#x7BA1;&#x7406;&#x63D2;&#x4EF6;<br>   iOS&#x6253;&#x5305;&#x5185;&#x6D4B;&#x7248;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x53D1;&#x5E03;&#x8BC1;&#x4E66;&#x53CA;&#x76F8;&#x5173;&#x7B7E;&#x540D;&#x6587;&#x4EF6;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x4E24;&#x4E2A;&#x63D2;&#x4EF6;&#x5BF9;&#x4E8E;&#x7BA1;&#x7406;iOS&#x8BC1;&#x4E66;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#x3002;&#x8FD8;&#x662F;&#x5728;<strong><em>&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;-&gt;&#x7BA1;&#x7406;&#x63D2;&#x4EF6;</em></strong>&#xFF0C;&#x5728;&#x201C;<strong><em>&#x53EF;&#x9009;&#x63D2;&#x4EF6;</em></strong>&#x201D;&#x4E2D;&#x9009;&#x4E2D;&#x201C;Credentials Plugin&#x201D;&#x548C;&#x201C;Keychains and Provisioning Profiles Management&#x201D;&#x5B89;&#x88C5;&#x3002;</p>
 <ul>
-<li><p>安装FTP插件<br>此插件可用于上传FTP服务器，也可以上传到公司内网的FTP服务器中。”Publish over FTP”</p>
+<li><p>&#x5B89;&#x88C5;FTP&#x63D2;&#x4EF6;<br>&#x6B64;&#x63D2;&#x4EF6;&#x53EF;&#x7528;&#x4E8E;&#x4E0A;&#x4F20;FTP&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0A;&#x4F20;&#x5230;&#x516C;&#x53F8;&#x5185;&#x7F51;&#x7684;FTP&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x3002;&#x201D;Publish over FTP&#x201D;</p>
 </li>
-<li><p>安装脚本插件<br>这个插件主要用于build后执行先关脚本.”Publish over FTP”</p>
+<li><p>&#x5B89;&#x88C5;&#x811A;&#x672C;&#x63D2;&#x4EF6;<br>&#x8FD9;&#x4E2A;&#x63D2;&#x4EF6;&#x4E3B;&#x8981;&#x7528;&#x4E8E;build&#x540E;&#x6267;&#x884C;&#x5148;&#x5173;&#x811A;&#x672C;.&#x201D;Publish over FTP&#x201D;</p>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="jenkins-系统配置"><a href="#jenkins-系统配置" class="headerlink" title="jenkins 系统配置"></a>jenkins 系统配置</h3><h4 id="jenkins-安全设置：注册，登录"><a href="#jenkins-安全设置：注册，登录" class="headerlink" title="jenkins 安全设置：注册，登录"></a>jenkins 安全设置：注册，登录</h4><p> 进入 <strong><em>系统管理-&gt;Configure Global Security</em></strong> 首次设置如图所示：</p>
-<p> <img src="../images/jenkins/login1.png" alt="首次设置"></p>
-<p> 首次设置完点击保存，然后点击注册-&gt;登录账号，在进入该界面进行账号权限设置，如图</p>
-<p>  <img src="../images/jenkins/login2.png" alt="权限设置"></p>
-<h4 id="jenkins-系统设置"><a href="#jenkins-系统设置" class="headerlink" title="jenkins 系统设置"></a>jenkins 系统设置</h4><p>进入 <strong><em>系统管理-&gt;系统设置</em></strong> 界面：</p>
+<h3 id="jenkins-&#x7CFB;&#x7EDF;&#x914D;&#x7F6E;"><a href="#jenkins-&#x7CFB;&#x7EDF;&#x914D;&#x7F6E;" class="headerlink" title="jenkins &#x7CFB;&#x7EDF;&#x914D;&#x7F6E;"></a>jenkins &#x7CFB;&#x7EDF;&#x914D;&#x7F6E;</h3><h4 id="jenkins-&#x5B89;&#x5168;&#x8BBE;&#x7F6E;&#xFF1A;&#x6CE8;&#x518C;&#xFF0C;&#x767B;&#x5F55;"><a href="#jenkins-&#x5B89;&#x5168;&#x8BBE;&#x7F6E;&#xFF1A;&#x6CE8;&#x518C;&#xFF0C;&#x767B;&#x5F55;" class="headerlink" title="jenkins &#x5B89;&#x5168;&#x8BBE;&#x7F6E;&#xFF1A;&#x6CE8;&#x518C;&#xFF0C;&#x767B;&#x5F55;"></a>jenkins &#x5B89;&#x5168;&#x8BBE;&#x7F6E;&#xFF1A;&#x6CE8;&#x518C;&#xFF0C;&#x767B;&#x5F55;</h4><p> &#x8FDB;&#x5165; <strong><em>&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;-&gt;Configure Global Security</em></strong> &#x9996;&#x6B21;&#x8BBE;&#x7F6E;&#x5982;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p> <img src="/2016/04/01/2016-04-05-jenkins2/images/jenkins/login1.png" alt="&#x9996;&#x6B21;&#x8BBE;&#x7F6E;"></p>
+<p> &#x9996;&#x6B21;&#x8BBE;&#x7F6E;&#x5B8C;&#x70B9;&#x51FB;&#x4FDD;&#x5B58;&#xFF0C;&#x7136;&#x540E;&#x70B9;&#x51FB;&#x6CE8;&#x518C;-&gt;&#x767B;&#x5F55;&#x8D26;&#x53F7;&#xFF0C;&#x5728;&#x8FDB;&#x5165;&#x8BE5;&#x754C;&#x9762;&#x8FDB;&#x884C;&#x8D26;&#x53F7;&#x6743;&#x9650;&#x8BBE;&#x7F6E;&#xFF0C;&#x5982;&#x56FE;</p>
+<p>  <img src="/2016/04/01/2016-04-05-jenkins2/images/jenkins/login2.png" alt="&#x6743;&#x9650;&#x8BBE;&#x7F6E;"></p>
+<h4 id="jenkins-&#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E;"><a href="#jenkins-&#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E;" class="headerlink" title="jenkins &#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E;"></a>jenkins &#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E;</h4><p>&#x8FDB;&#x5165; <strong><em>&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;-&gt;&#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E;</em></strong> &#x754C;&#x9762;&#xFF1A;</p>
 <ul>
-<li><p>首先设置一下 jenkins 内部shell 执行编码，目的当在jenkins执行shell命令时，有时候会报 utf-8 编码错误。主要是pod install的时候报错。</p>
+<li><p>&#x9996;&#x5148;&#x8BBE;&#x7F6E;&#x4E00;&#x4E0B; jenkins &#x5185;&#x90E8;shell &#x6267;&#x884C;&#x7F16;&#x7801;&#xFF0C;&#x76EE;&#x7684;&#x5F53;&#x5728;jenkins&#x6267;&#x884C;shell&#x547D;&#x4EE4;&#x65F6;&#xFF0C;&#x6709;&#x65F6;&#x5019;&#x4F1A;&#x62A5; utf-8 &#x7F16;&#x7801;&#x9519;&#x8BEF;&#x3002;&#x4E3B;&#x8981;&#x662F;pod install&#x7684;&#x65F6;&#x5019;&#x62A5;&#x9519;&#x3002;</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[33mWARNING: CocoaPods requires your terminal to be using UTF-8 encoding.</span><br></pre></td></tr></table></figure>
-<p>  设置如下：</p>
-<p>  <img src="../images/jenkins/lang.png" alt="编码设置"></p>
+<p>  &#x8BBE;&#x7F6E;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>  <img src="/2016/04/01/2016-04-05-jenkins2/images/jenkins/lang.png" alt="&#x7F16;&#x7801;&#x8BBE;&#x7F6E;"></p>
 </li>
-<li><p>jenkins Location 设置<br>主要设置 jenkins 外部访问的URL 和 系统管理员的邮箱地址。用来发送 错误报告的邮箱地址：如图</p>
-<p><img src="../images/jenkins/location.png" alt="url设置"></p>
+<li><p>jenkins Location &#x8BBE;&#x7F6E;<br>&#x4E3B;&#x8981;&#x8BBE;&#x7F6E; jenkins &#x5916;&#x90E8;&#x8BBF;&#x95EE;&#x7684;URL &#x548C; &#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x5458;&#x7684;&#x90AE;&#x7BB1;&#x5730;&#x5740;&#x3002;&#x7528;&#x6765;&#x53D1;&#x9001; &#x9519;&#x8BEF;&#x62A5;&#x544A;&#x7684;&#x90AE;&#x7BB1;&#x5730;&#x5740;&#xFF1A;&#x5982;&#x56FE;</p>
+<p><img src="/2016/04/01/2016-04-05-jenkins2/images/jenkins/location.png" alt="url&#x8BBE;&#x7F6E;"></p>
 </li>
-<li><p>系统错误报告的邮箱设置，上面只设置了邮箱发送的地址（From地址），下面设置，邮箱的服务器，协议，邮箱，密码。如图</p>
-<p>   <img src="../images/jenkins/email.png" alt="email设置"></p>
+<li><p>&#x7CFB;&#x7EDF;&#x9519;&#x8BEF;&#x62A5;&#x544A;&#x7684;&#x90AE;&#x7BB1;&#x8BBE;&#x7F6E;&#xFF0C;&#x4E0A;&#x9762;&#x53EA;&#x8BBE;&#x7F6E;&#x4E86;&#x90AE;&#x7BB1;&#x53D1;&#x9001;&#x7684;&#x5730;&#x5740;&#xFF08;From&#x5730;&#x5740;&#xFF09;&#xFF0C;&#x4E0B;&#x9762;&#x8BBE;&#x7F6E;&#xFF0C;&#x90AE;&#x7BB1;&#x7684;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x534F;&#x8BAE;&#xFF0C;&#x90AE;&#x7BB1;&#xFF0C;&#x5BC6;&#x7801;&#x3002;&#x5982;&#x56FE;</p>
+<p>   <img src="/2016/04/01/2016-04-05-jenkins2/images/jenkins/email.png" alt="email&#x8BBE;&#x7F6E;"></p>
 </li>
 </ul>
-<h2 id="Jenkins-任务（Jobs）搭建"><a href="#Jenkins-任务（Jobs）搭建" class="headerlink" title="Jenkins 任务（Jobs）搭建"></a>Jenkins 任务（Jobs）搭建</h2><h3 id="新建任务-job"><a href="#新建任务-job" class="headerlink" title="新建任务 job"></a>新建任务 job</h3><p>  在Jenkins中，所有的任务都是以“item”为单位的。接下来我们就新建一个iOS的项目来开始自动化构建。点击“新建”，输入item的名称，选择“构建一个自由风格的软件项目”，然后点击“OK”。如图：</p>
-<p>  <img src="../images/jenkins/createjob1.png" alt="新建Job设置"></p>
-<p> 设置构建信息</p>
-<p> <img src="../images/jenkins/name.png" alt="构建信息设置"></p>
-<h3 id="源码管理"><a href="#源码管理" class="headerlink" title="源码管理"></a>源码管理</h3><p>这里用到的是GitLab，先需要配置SSH，我们可以在Jenkins的证书管理中添加SSH。在Jenkins管理页面，选择“Credentials”，然后选择“Global credentials (unrestricted)”，点击“Add Credentials”，如下图所示，我们填写自己的SSH信息，然后点击“Save”，这样就把SSH添加到Jenkins的全局域中去了。<br>这边需要注意的是如何获取SSH key：这个问题需要参考 gitLab 上配置SSH 的方法。</p>
+<h2 id="Jenkins-&#x4EFB;&#x52A1;&#xFF08;Jobs&#xFF09;&#x642D;&#x5EFA;"><a href="#Jenkins-&#x4EFB;&#x52A1;&#xFF08;Jobs&#xFF09;&#x642D;&#x5EFA;" class="headerlink" title="Jenkins &#x4EFB;&#x52A1;&#xFF08;Jobs&#xFF09;&#x642D;&#x5EFA;"></a>Jenkins &#x4EFB;&#x52A1;&#xFF08;Jobs&#xFF09;&#x642D;&#x5EFA;</h2><h3 id="&#x65B0;&#x5EFA;&#x4EFB;&#x52A1;-job"><a href="#&#x65B0;&#x5EFA;&#x4EFB;&#x52A1;-job" class="headerlink" title="&#x65B0;&#x5EFA;&#x4EFB;&#x52A1; job"></a>&#x65B0;&#x5EFA;&#x4EFB;&#x52A1; job</h3><p>  &#x5728;Jenkins&#x4E2D;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x4EFB;&#x52A1;&#x90FD;&#x662F;&#x4EE5;&#x201C;item&#x201D;&#x4E3A;&#x5355;&#x4F4D;&#x7684;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x5C31;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;iOS&#x7684;&#x9879;&#x76EE;&#x6765;&#x5F00;&#x59CB;&#x81EA;&#x52A8;&#x5316;&#x6784;&#x5EFA;&#x3002;&#x70B9;&#x51FB;&#x201C;&#x65B0;&#x5EFA;&#x201D;&#xFF0C;&#x8F93;&#x5165;item&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x9009;&#x62E9;&#x201C;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x81EA;&#x7531;&#x98CE;&#x683C;&#x7684;&#x8F6F;&#x4EF6;&#x9879;&#x76EE;&#x201D;&#xFF0C;&#x7136;&#x540E;&#x70B9;&#x51FB;&#x201C;OK&#x201D;&#x3002;&#x5982;&#x56FE;&#xFF1A;</p>
+<p>  <img src="/2016/04/01/2016-04-05-jenkins2/images/jenkins/createjob1.png" alt="&#x65B0;&#x5EFA;Job&#x8BBE;&#x7F6E;"></p>
+<p> &#x8BBE;&#x7F6E;&#x6784;&#x5EFA;&#x4FE1;&#x606F;</p>
+<p> <img src="/2016/04/01/2016-04-05-jenkins2/images/jenkins/name.png" alt="&#x6784;&#x5EFA;&#x4FE1;&#x606F;&#x8BBE;&#x7F6E;"></p>
+<h3 id="&#x6E90;&#x7801;&#x7BA1;&#x7406;"><a href="#&#x6E90;&#x7801;&#x7BA1;&#x7406;" class="headerlink" title="&#x6E90;&#x7801;&#x7BA1;&#x7406;"></a>&#x6E90;&#x7801;&#x7BA1;&#x7406;</h3><p>&#x8FD9;&#x91CC;&#x7528;&#x5230;&#x7684;&#x662F;GitLab&#xFF0C;&#x5148;&#x9700;&#x8981;&#x914D;&#x7F6E;SSH&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;Jenkins&#x7684;&#x8BC1;&#x4E66;&#x7BA1;&#x7406;&#x4E2D;&#x6DFB;&#x52A0;SSH&#x3002;&#x5728;Jenkins&#x7BA1;&#x7406;&#x9875;&#x9762;&#xFF0C;&#x9009;&#x62E9;&#x201C;Credentials&#x201D;&#xFF0C;&#x7136;&#x540E;&#x9009;&#x62E9;&#x201C;Global credentials (unrestricted)&#x201D;&#xFF0C;&#x70B9;&#x51FB;&#x201C;Add Credentials&#x201D;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x6211;&#x4EEC;&#x586B;&#x5199;&#x81EA;&#x5DF1;&#x7684;SSH&#x4FE1;&#x606F;&#xFF0C;&#x7136;&#x540E;&#x70B9;&#x51FB;&#x201C;Save&#x201D;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x628A;SSH&#x6DFB;&#x52A0;&#x5230;Jenkins&#x7684;&#x5168;&#x5C40;&#x57DF;&#x4E2D;&#x53BB;&#x4E86;&#x3002;<br>&#x8FD9;&#x8FB9;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x5982;&#x4F55;&#x83B7;&#x53D6;SSH key&#xFF1A;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x9700;&#x8981;&#x53C2;&#x8003; gitLab &#x4E0A;&#x914D;&#x7F6E;SSH &#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
 <ol>
-<li>查看是否已经有了ssh密钥：cd ~/.ssh，如果没有密钥则不会有此文件夹，有则备份删除</li>
-<li>生成密钥：<code>$ ssh-keygen -t rsa -C “haiyan.xu.vip@gmail.com”</code> 生成过程中必须设置秘钥密码 否则jenkins 设置会不成功。最后得到两个文件：id_rsa和id_rsa.pub</li>
-<li>添加密钥到SSH ：<code>ssh-add 文件名</code> 需要输入管理密码</li>
-<li>在gitlab 上添加 ssh 密钥，这里添加的是 “id_rsa.pub”里面的公钥。</li>
-<li>在jenkins上配置密钥到SSH ，这里添加的是id_rsa里面的私钥。具体设置如图所示：</li>
+<li>&#x67E5;&#x770B;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x6709;&#x4E86;ssh&#x5BC6;&#x94A5;&#xFF1A;cd ~/.ssh&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5BC6;&#x94A5;&#x5219;&#x4E0D;&#x4F1A;&#x6709;&#x6B64;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x6709;&#x5219;&#x5907;&#x4EFD;&#x5220;&#x9664;</li>
+<li>&#x751F;&#x6210;&#x5BC6;&#x94A5;&#xFF1A;<code>$ ssh-keygen -t rsa -C &#x201C;haiyan.xu.vip@gmail.com&#x201D;</code> &#x751F;&#x6210;&#x8FC7;&#x7A0B;&#x4E2D;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x79D8;&#x94A5;&#x5BC6;&#x7801; &#x5426;&#x5219;jenkins &#x8BBE;&#x7F6E;&#x4F1A;&#x4E0D;&#x6210;&#x529F;&#x3002;&#x6700;&#x540E;&#x5F97;&#x5230;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#xFF1A;id_rsa&#x548C;id_rsa.pub</li>
+<li>&#x6DFB;&#x52A0;&#x5BC6;&#x94A5;&#x5230;SSH &#xFF1A;<code>ssh-add &#x6587;&#x4EF6;&#x540D;</code> &#x9700;&#x8981;&#x8F93;&#x5165;&#x7BA1;&#x7406;&#x5BC6;&#x7801;</li>
+<li>&#x5728;gitlab &#x4E0A;&#x6DFB;&#x52A0; ssh &#x5BC6;&#x94A5;&#xFF0C;&#x8FD9;&#x91CC;&#x6DFB;&#x52A0;&#x7684;&#x662F; &#x201C;id_rsa.pub&#x201D;&#x91CC;&#x9762;&#x7684;&#x516C;&#x94A5;&#x3002;</li>
+<li>&#x5728;jenkins&#x4E0A;&#x914D;&#x7F6E;&#x5BC6;&#x94A5;&#x5230;SSH &#xFF0C;&#x8FD9;&#x91CC;&#x6DFB;&#x52A0;&#x7684;&#x662F;id_rsa&#x91CC;&#x9762;&#x7684;&#x79C1;&#x94A5;&#x3002;&#x5177;&#x4F53;&#x8BBE;&#x7F6E;&#x5982;&#x56FE;&#x6240;&#x793A;&#xFF1A;</li>
 </ol>
-<p><img src="../images/jenkins/ssh.png" alt=""></p>
-<p>接下来，我们再回到刚刚新建的任务中，在源码管理中，选择Git，按下图填好相关信息。PS：Credentials不需要选择。如图</p>
-<p><img src="../images/jenkins/git.png" alt=""></p>
-<h3 id="构建触发器设置"><a href="#构建触发器设置" class="headerlink" title="构建触发器设置"></a>构建触发器设置</h3><p>该设置主要是为了实现自动触发 jenkins 构建过程 真正实现自动化设置:<br>这边主要处理的是 <strong><em>gitlab hook</em></strong> 的设置。主要目的是当项目中有人git push 提交过代码之后，就会自动的触发 jenkins 的本Job的构建，实现自动化打包。</p>
+<p><img src="/2016/04/01/2016-04-05-jenkins2/images/jenkins/ssh.png" alt=""></p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x6211;&#x4EEC;&#x518D;&#x56DE;&#x5230;&#x521A;&#x521A;&#x65B0;&#x5EFA;&#x7684;&#x4EFB;&#x52A1;&#x4E2D;&#xFF0C;&#x5728;&#x6E90;&#x7801;&#x7BA1;&#x7406;&#x4E2D;&#xFF0C;&#x9009;&#x62E9;Git&#xFF0C;&#x6309;&#x4E0B;&#x56FE;&#x586B;&#x597D;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x3002;PS&#xFF1A;Credentials&#x4E0D;&#x9700;&#x8981;&#x9009;&#x62E9;&#x3002;&#x5982;&#x56FE;</p>
+<p><img src="/2016/04/01/2016-04-05-jenkins2/images/jenkins/git.png" alt=""></p>
+<h3 id="&#x6784;&#x5EFA;&#x89E6;&#x53D1;&#x5668;&#x8BBE;&#x7F6E;"><a href="#&#x6784;&#x5EFA;&#x89E6;&#x53D1;&#x5668;&#x8BBE;&#x7F6E;" class="headerlink" title="&#x6784;&#x5EFA;&#x89E6;&#x53D1;&#x5668;&#x8BBE;&#x7F6E;"></a>&#x6784;&#x5EFA;&#x89E6;&#x53D1;&#x5668;&#x8BBE;&#x7F6E;</h3><p>&#x8BE5;&#x8BBE;&#x7F6E;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x89E6;&#x53D1; jenkins &#x6784;&#x5EFA;&#x8FC7;&#x7A0B; &#x771F;&#x6B63;&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x5316;&#x8BBE;&#x7F6E;:<br>&#x8FD9;&#x8FB9;&#x4E3B;&#x8981;&#x5904;&#x7406;&#x7684;&#x662F; <strong><em>gitlab hook</em></strong> &#x7684;&#x8BBE;&#x7F6E;&#x3002;&#x4E3B;&#x8981;&#x76EE;&#x7684;&#x662F;&#x5F53;&#x9879;&#x76EE;&#x4E2D;&#x6709;&#x4EBA;git push &#x63D0;&#x4EA4;&#x8FC7;&#x4EE3;&#x7801;&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x7684;&#x89E6;&#x53D1; jenkins &#x7684;&#x672C;Job&#x7684;&#x6784;&#x5EFA;&#xFF0C;&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x5316;&#x6253;&#x5305;&#x3002;</p>
 <ol>
-<li>首选需要在gitlab 项目管理官网上设置 添加git hook 的地址：如图：该地址是jenkins 上 提示的地址 下面会提到</li>
+<li>&#x9996;&#x9009;&#x9700;&#x8981;&#x5728;gitlab &#x9879;&#x76EE;&#x7BA1;&#x7406;&#x5B98;&#x7F51;&#x4E0A;&#x8BBE;&#x7F6E; &#x6DFB;&#x52A0;git hook &#x7684;&#x5730;&#x5740;&#xFF1A;&#x5982;&#x56FE;&#xFF1A;&#x8BE5;&#x5730;&#x5740;&#x662F;jenkins &#x4E0A; &#x63D0;&#x793A;&#x7684;&#x5730;&#x5740; &#x4E0B;&#x9762;&#x4F1A;&#x63D0;&#x5230;</li>
 </ol>
-<p><img src="../images/jenkins/gitlabhook.png" alt=""></p>
+<p><img src="/2016/04/01/2016-04-05-jenkins2/images/jenkins/gitlabhook.png" alt=""></p>
 <ol>
-<li>jenkins 上对 gitlab hook 进行相关配置 如图所示：</li>
+<li>jenkins &#x4E0A;&#x5BF9; gitlab hook &#x8FDB;&#x884C;&#x76F8;&#x5173;&#x914D;&#x7F6E; &#x5982;&#x56FE;&#x6240;&#x793A;&#xFF1A;</li>
 </ol>
-<p><img src="../images/jenkins/jenkinsgitlabhook.png" alt=""></p>
-<h3 id="构建环境"><a href="#构建环境" class="headerlink" title="构建环境"></a>构建环境</h3><p>在该模块中 主要设置 xcode build 打包时需要的 keychains 和 Provision Profiles 配置文件。<br>如果不配置 就会使用 xcode 自动的配置，来去系统中查找相应的配置，不过有一点需要注意,就是钥匙串中，登陆钥匙串中的证书 要复制到 系统钥匙串中，因为jenkins 访问的是系统中的钥匙串 这样在第一次打包的时候，会提示 是否授权访问钥匙串，点击始终允许就可以了。<br>注意：在电脑上安装好 xcode 配置相关的证书和配置文件，配置文件也要安装到系统目录下。<br>具体操作如下：从该用户目录下的所有描述文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/用户名/Library/MobileDevice/Provisioning Profiles</span><br></pre></td></tr></table></figure>
-<p>复制到系统目录下</p>
+<p><img src="/2016/04/01/2016-04-05-jenkins2/images/jenkins/jenkinsgitlabhook.png" alt=""></p>
+<h3 id="&#x6784;&#x5EFA;&#x73AF;&#x5883;"><a href="#&#x6784;&#x5EFA;&#x73AF;&#x5883;" class="headerlink" title="&#x6784;&#x5EFA;&#x73AF;&#x5883;"></a>&#x6784;&#x5EFA;&#x73AF;&#x5883;</h3><p>&#x5728;&#x8BE5;&#x6A21;&#x5757;&#x4E2D; &#x4E3B;&#x8981;&#x8BBE;&#x7F6E; xcode build &#x6253;&#x5305;&#x65F6;&#x9700;&#x8981;&#x7684; keychains &#x548C; Provision Profiles &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;<br>&#x5982;&#x679C;&#x4E0D;&#x914D;&#x7F6E; &#x5C31;&#x4F1A;&#x4F7F;&#x7528; xcode &#x81EA;&#x52A8;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x6765;&#x53BB;&#x7CFB;&#x7EDF;&#x4E2D;&#x67E5;&#x627E;&#x76F8;&#x5E94;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x4E0D;&#x8FC7;&#x6709;&#x4E00;&#x70B9;&#x9700;&#x8981;&#x6CE8;&#x610F;,&#x5C31;&#x662F;&#x94A5;&#x5319;&#x4E32;&#x4E2D;&#xFF0C;&#x767B;&#x9646;&#x94A5;&#x5319;&#x4E32;&#x4E2D;&#x7684;&#x8BC1;&#x4E66; &#x8981;&#x590D;&#x5236;&#x5230; &#x7CFB;&#x7EDF;&#x94A5;&#x5319;&#x4E32;&#x4E2D;&#xFF0C;&#x56E0;&#x4E3A;jenkins &#x8BBF;&#x95EE;&#x7684;&#x662F;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x94A5;&#x5319;&#x4E32; &#x8FD9;&#x6837;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x6253;&#x5305;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x63D0;&#x793A; &#x662F;&#x5426;&#x6388;&#x6743;&#x8BBF;&#x95EE;&#x94A5;&#x5319;&#x4E32;&#xFF0C;&#x70B9;&#x51FB;&#x59CB;&#x7EC8;&#x5141;&#x8BB8;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;<br>&#x6CE8;&#x610F;&#xFF1A;&#x5728;&#x7535;&#x8111;&#x4E0A;&#x5B89;&#x88C5;&#x597D; xcode &#x914D;&#x7F6E;&#x76F8;&#x5173;&#x7684;&#x8BC1;&#x4E66;&#x548C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E5F;&#x8981;&#x5B89;&#x88C5;&#x5230;&#x7CFB;&#x7EDF;&#x76EE;&#x5F55;&#x4E0B;&#x3002;<br>&#x5177;&#x4F53;&#x64CD;&#x4F5C;&#x5982;&#x4E0B;&#xFF1A;&#x4ECE;&#x8BE5;&#x7528;&#x6237;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6240;&#x6709;&#x63CF;&#x8FF0;&#x6587;&#x4EF6;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/&#x7528;&#x6237;&#x540D;/Library/MobileDevice/Provisioning Profiles</span><br></pre></td></tr></table></figure>
+<p>&#x590D;&#x5236;&#x5230;&#x7CFB;&#x7EDF;&#x76EE;&#x5F55;&#x4E0B;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Library/MobileDevice/Provisioning Profiles</span><br></pre></td></tr></table></figure>
-<h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><p>该模块开始设置 iOS打包相关的配置。</p>
+<h3 id="&#x6784;&#x5EFA;"><a href="#&#x6784;&#x5EFA;" class="headerlink" title="&#x6784;&#x5EFA;"></a>&#x6784;&#x5EFA;</h3><p>&#x8BE5;&#x6A21;&#x5757;&#x5F00;&#x59CB;&#x8BBE;&#x7F6E; iOS&#x6253;&#x5305;&#x76F8;&#x5173;&#x7684;&#x914D;&#x7F6E;&#x3002;</p>
 <ol>
-<li><p>点击增加构建步骤-&gt; Execute Shell .首先 在build 之前需要先 pod install ，并且最理想的情况是每次构建的时候 build号都改变。如图所示<br> 需要注意的是，使用全局变量时 必须找到绝对路径才能调用相关的命令：版本号增加<a href="https://www.5288z.com/?p=1651" target="_blank" rel="external">参考链接</a></p>
-<p> <img src="../images/jenkins/pod.png" alt=""></p>
+<li><p>&#x70B9;&#x51FB;&#x589E;&#x52A0;&#x6784;&#x5EFA;&#x6B65;&#x9AA4;-&gt; Execute Shell .&#x9996;&#x5148; &#x5728;build &#x4E4B;&#x524D;&#x9700;&#x8981;&#x5148; pod install &#xFF0C;&#x5E76;&#x4E14;&#x6700;&#x7406;&#x60F3;&#x7684;&#x60C5;&#x51B5;&#x662F;&#x6BCF;&#x6B21;&#x6784;&#x5EFA;&#x7684;&#x65F6;&#x5019; build&#x53F7;&#x90FD;&#x6539;&#x53D8;&#x3002;&#x5982;&#x56FE;&#x6240;&#x793A;<br> &#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x4F7F;&#x7528;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x65F6; &#x5FC5;&#x987B;&#x627E;&#x5230;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x624D;&#x80FD;&#x8C03;&#x7528;&#x76F8;&#x5173;&#x7684;&#x547D;&#x4EE4;&#xFF1A;&#x7248;&#x672C;&#x53F7;&#x589E;&#x52A0;<a href="https://www.5288z.com/?p=1651" target="_blank" rel="external">&#x53C2;&#x8003;&#x94FE;&#x63A5;</a></p>
+<p> <img src="/2016/04/01/2016-04-05-jenkins2/images/jenkins/pod.png" alt=""></p>
 </li>
-<li><p>点击增加构建步骤 xcode ，具体配置如图：<br>  该配置中需要注意 在OS X 10.10.XX版本 jenkins xcode 插件不支持 生成ipa文件，但 OS X 10.11 支持 这个时候 需要手动进行打包，具体的就是在build 完成之后 添加EXecute Shell ，利用shell脚本打包：代码如下：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcrun -sdk iphones PackageApplication -v [工程目录] -o [ipa输出目录]/xx.ipa</span><br></pre></td></tr></table></figure>
+<li><p>&#x70B9;&#x51FB;&#x589E;&#x52A0;&#x6784;&#x5EFA;&#x6B65;&#x9AA4; xcode &#xFF0C;&#x5177;&#x4F53;&#x914D;&#x7F6E;&#x5982;&#x56FE;&#xFF1A;<br>  &#x8BE5;&#x914D;&#x7F6E;&#x4E2D;&#x9700;&#x8981;&#x6CE8;&#x610F; &#x5728;OS X 10.10.XX&#x7248;&#x672C; jenkins xcode &#x63D2;&#x4EF6;&#x4E0D;&#x652F;&#x6301; &#x751F;&#x6210;ipa&#x6587;&#x4EF6;&#xFF0C;&#x4F46; OS X 10.11 &#x652F;&#x6301; &#x8FD9;&#x4E2A;&#x65F6;&#x5019; &#x9700;&#x8981;&#x624B;&#x52A8;&#x8FDB;&#x884C;&#x6253;&#x5305;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x5C31;&#x662F;&#x5728;build &#x5B8C;&#x6210;&#x4E4B;&#x540E; &#x6DFB;&#x52A0;EXecute Shell &#xFF0C;&#x5229;&#x7528;shell&#x811A;&#x672C;&#x6253;&#x5305;&#xFF1A;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcrun -sdk iphones PackageApplication -v [&#x5DE5;&#x7A0B;&#x76EE;&#x5F55;] -o [ipa&#x8F93;&#x51FA;&#x76EE;&#x5F55;]/xx.ipa</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<pre><code>![](../images/jenkins/xcode.png)
+<pre><code>![](/images/jenkins/xcode.png)
 </code></pre><ol>
-<li><p>Code signing &amp; OS X keychain options 配置：如图</p>
-<p><img src="../images/jenkins/codesigning.png" alt=""></p>
+<li><p>Code signing &amp; OS X keychain options &#x914D;&#x7F6E;&#xFF1A;&#x5982;&#x56FE;</p>
+<p><img src="/2016/04/01/2016-04-05-jenkins2/images/jenkins/codesigning.png" alt=""></p>
 </li>
-<li><p>Advanced Xcode build options 配置：如图</p>
-<p>  <img src="../images/jenkins/xcodebuild.png" alt=""></p>
+<li><p>Advanced Xcode build options &#x914D;&#x7F6E;&#xFF1A;&#x5982;&#x56FE;</p>
+<p>  <img src="/2016/04/01/2016-04-05-jenkins2/../images/jenkins/xcodebuild.png" alt=""></p>
 </li>
 </ol>
-<h3 id="构建后操作"><a href="#构建后操作" class="headerlink" title="构建后操作"></a>构建后操作</h3><p> 打包完成之后 需要执行 上传到蒲公英 和 发送邮件 通知开发人员。<br>   具体操作我用python写的脚本来完成此功能：需要的童鞋可以去github上下载：在文章最后！！<br>   具体调用如图：</p>
-<p><img src="../images/jenkins/pgy.png" alt=""></p>
-<p>  最后设置 通知邮件 E-mail Notification 填写接受邮箱即可 每次构建失败都会发生邮件通知！！！</p>
-<p> <a href="https://github.com/RunningYoung/jenkins-pgy-python" target="_blank" rel="external">python 脚本地址</a>!!! 不要吝啬 star！！！不胜感激！！！ </p>
+<h3 id="&#x6784;&#x5EFA;&#x540E;&#x64CD;&#x4F5C;"><a href="#&#x6784;&#x5EFA;&#x540E;&#x64CD;&#x4F5C;" class="headerlink" title="&#x6784;&#x5EFA;&#x540E;&#x64CD;&#x4F5C;"></a>&#x6784;&#x5EFA;&#x540E;&#x64CD;&#x4F5C;</h3><p> &#x6253;&#x5305;&#x5B8C;&#x6210;&#x4E4B;&#x540E; &#x9700;&#x8981;&#x6267;&#x884C; &#x4E0A;&#x4F20;&#x5230;&#x84B2;&#x516C;&#x82F1; &#x548C; &#x53D1;&#x9001;&#x90AE;&#x4EF6; &#x901A;&#x77E5;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x3002;<br>   &#x5177;&#x4F53;&#x64CD;&#x4F5C;&#x6211;&#x7528;python&#x5199;&#x7684;&#x811A;&#x672C;&#x6765;&#x5B8C;&#x6210;&#x6B64;&#x529F;&#x80FD;&#xFF1A;&#x9700;&#x8981;&#x7684;&#x7AE5;&#x978B;&#x53EF;&#x4EE5;&#x53BB;github&#x4E0A;&#x4E0B;&#x8F7D;&#xFF1A;&#x5728;&#x6587;&#x7AE0;&#x6700;&#x540E;&#xFF01;&#xFF01;<br>   &#x5177;&#x4F53;&#x8C03;&#x7528;&#x5982;&#x56FE;&#xFF1A;</p>
+<p><img src="/2016/04/01/2016-04-05-jenkins2/../images/jenkins/pgy.png" alt=""></p>
+<p>  &#x6700;&#x540E;&#x8BBE;&#x7F6E; &#x901A;&#x77E5;&#x90AE;&#x4EF6; E-mail Notification &#x586B;&#x5199;&#x63A5;&#x53D7;&#x90AE;&#x7BB1;&#x5373;&#x53EF; &#x6BCF;&#x6B21;&#x6784;&#x5EFA;&#x5931;&#x8D25;&#x90FD;&#x4F1A;&#x53D1;&#x751F;&#x90AE;&#x4EF6;&#x901A;&#x77E5;&#xFF01;&#xFF01;&#xFF01;</p>
+<p> <a href="https://github.com/RunningYoung/jenkins-pgy-python" target="_blank" rel="external">python &#x811A;&#x672C;&#x5730;&#x5740;</a>!!! &#x4E0D;&#x8981;&#x541D;&#x556C; star&#xFF01;&#xFF01;&#xFF01;&#x4E0D;&#x80DC;&#x611F;&#x6FC0;&#xFF01;&#xFF01;&#xFF01; </p>
 
       
     </div>
@@ -363,18 +363,18 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">RunningYoung</a></p>
-        <p><span>发布时间:</span>2016-04-01, 11:40:13</p>
-        <p><span>最后更新:</span>2016-04-12, 11:44:51</p>
+        <p><span>Title:</span><a href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">RunningYoung</a></p>
+        <p><span>Created:</span>2016-04-01, 11:40:13</p>
+        <p><span>Updated:</span>2016-05-10, 15:33:08</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/04/01/2016-04-05-jenkins2/" title="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)">https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/　　作者: RunningYoung" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/04/01/2016-04-05-jenkins2/" title="iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)">https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/</a>
+            <span class="copy-path" data-clipboard-text="From https://runningyoung.github.io/2016/04/01/2016-04-05-jenkins2/　　By RunningYoung" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -401,7 +401,7 @@
 </article>
 
     <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
+    <strong class="toc-title">Contents</strong>
     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iOS持续集成：jenkins-gitlab-蒲公英-邮件通知-Part-2"><span class="toc-number">1.</span> <span class="toc-text">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Jenkins-系统设置-前期准备"><span class="toc-number">1.1.</span> <span class="toc-text">Jenkins 系统设置 前期准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Jenkins-插件安装"><span class="toc-number">1.1.1.</span> <span class="toc-text">Jenkins 插件安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jenkins-系统配置"><span class="toc-number">1.1.2.</span> <span class="toc-text">jenkins 系统配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#jenkins-安全设置：注册，登录"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">jenkins 安全设置：注册，登录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jenkins-系统设置"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">jenkins 系统设置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jenkins-任务（Jobs）搭建"><span class="toc-number">1.2.</span> <span class="toc-text">Jenkins 任务（Jobs）搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#新建任务-job"><span class="toc-number">1.2.1.</span> <span class="toc-text">新建任务 job</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码管理"><span class="toc-number">1.2.2.</span> <span class="toc-text">源码管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建触发器设置"><span class="toc-number">1.2.3.</span> <span class="toc-text">构建触发器设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建环境"><span class="toc-number">1.2.4.</span> <span class="toc-text">构建环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建"><span class="toc-number">1.2.5.</span> <span class="toc-text">构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建后操作"><span class="toc-number">1.2.6.</span> <span class="toc-text">构建后操作</span></a></li></ol></li></ol></li></ol>
 </div>
 <style>
@@ -413,10 +413,10 @@
     }
 </style>
 
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 <script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
+    var valueHide = "Hide";
+    var valueShow = "Show";
 
     if ($(".left-col").is(":hidden")) {
         $("#tocButton").attr("value", valueShow);
@@ -470,21 +470,21 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/04/06/hello-world/" title="上一篇: Hello World">
+            <a href="/2016/04/06/hello-world/" title="Pre: Hello World">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/04/01/2016-04-01-jenkins1/" title="下一篇: iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)">
+            <a href="/2016/04/01/2016-04-01-jenkins1/" title="Next: iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-12-Phabricator2/">MAC下Code Review工具Phabricator + Arcanist搭建（part 2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-11-Phabricator1/">MAC下Code Review工具Phabricator + Arcanist搭建（part 1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-12-Phabricator2/">MAC下Code Review工具Phabricator + Arcanist搭建（part 2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-11-Phabricator1/">MAC下Code Review工具Phabricator + Arcanist搭建（part 1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li></ul>
 
 
 
@@ -502,7 +502,7 @@
                 &copy; 2016 RunningYoung
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/RunningYoung/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by runningyoung
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/RunningYoung/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by runningyoung
             </div>
         </div>
         
@@ -513,7 +513,7 @@
                 
               </script>
                     <span id="busuanzi_container_site_pv" style='display:none' >
-                        <span id="site-visit" >本站到访数: 
+                        <span id="site-visit" >Site Visitors: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -523,7 +523,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none' >
-                        <span id="page-visit">本页阅读量: 
+                        <span id="page-visit">Page Hits: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
@@ -569,9 +569,9 @@ ga('send', 'pageview');
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
