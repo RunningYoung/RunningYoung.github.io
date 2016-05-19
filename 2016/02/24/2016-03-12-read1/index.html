@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>【iOS读书笔记系列（一）】 | New World</title>
+  <title>【iOS读书笔记系列(UIKit性能优化和block深入理解)（一)】 | New World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="&amp;#x8BFB;&amp;#x4E66;&amp;#x7B14;&amp;#x8BB0;&amp;#xFF08;&amp;#x4E00;&amp;#xFF09;&amp;#x4E00;&amp;#x3001;instancetype &amp;#x548C; id &amp;#x4F5C;&amp;#x4E3A;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x5B9E;&amp;#x4F8B; &amp;#x8FD4;&amp;#x56DE;&amp;#x503C;&amp;#x7684;&amp;#x4E0D;&amp;#x540">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【iOS读书笔记系列（一）】">
+<meta property="og:title" content="【iOS读书笔记系列(UIKit性能优化和block深入理解)（一)】">
 <meta property="og:url" content="https://runningyoung.github.io/2016/02/24/2016-03-12-read1/index.html">
 <meta property="og:site_name" content="New World">
 <meta property="og:description" content="&amp;#x8BFB;&amp;#x4E66;&amp;#x7B14;&amp;#x8BB0;&amp;#xFF08;&amp;#x4E00;&amp;#xFF09;&amp;#x4E00;&amp;#x3001;instancetype &amp;#x548C; id &amp;#x4F5C;&amp;#x4E3A;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x5B9E;&amp;#x4F8B; &amp;#x8FD4;&amp;#x56DE;&amp;#x503C;&amp;#x7684;&amp;#x4E0D;&amp;#x540">
 <meta property="og:image" content="http://7xsugd.com2.z0.glb.clouddn.com/runningyoungBlog/images/ios_frame_drop.png">
 <meta property="og:image" content="http://7xsugd.com2.z0.glb.clouddn.com/runningyoungBlog/images/正常渲染.png">
 <meta property="og:image" content="http://7xsugd.com2.z0.glb.clouddn.com/runningyoungBlog/images/离屏渲染.png">
-<meta property="og:updated_time" content="2016-05-12T03:15:05.000Z">
+<meta property="og:updated_time" content="2016-05-19T09:58:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【iOS读书笔记系列（一）】">
+<meta name="twitter:title" content="【iOS读书笔记系列(UIKit性能优化和block深入理解)（一)】">
 <meta name="twitter:description" content="&amp;#x8BFB;&amp;#x4E66;&amp;#x7B14;&amp;#x8BB0;&amp;#xFF08;&amp;#x4E00;&amp;#xFF09;&amp;#x4E00;&amp;#x3001;instancetype &amp;#x548C; id &amp;#x4F5C;&amp;#x4E3A;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x5B9E;&amp;#x4F8B; &amp;#x8FD4;&amp;#x56DE;&amp;#x503C;&amp;#x7684;&amp;#x4E0D;&amp;#x540">
 <meta name="twitter:image" content="http://7xsugd.com2.z0.glb.clouddn.com/runningyoungBlog/images/ios_frame_drop.png">
   
@@ -234,7 +234,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      【iOS读书笔记系列（一）】
+      【iOS读书笔记系列(UIKit性能优化和block深入理解)（一)】
     </h1>
   
 
@@ -502,12 +502,12 @@ myObj.myBlock =  ^{
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></p>
+        <p><span>Title:</span><a href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列(UIKit性能优化和block深入理解)（一)】</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">RunningYoung</a></p>
         <p><span>Created:</span>2016-02-24, 14:28:01</p>
-        <p><span>Updated:</span>2016-05-12, 11:15:05</p>
+        <p><span>Updated:</span>2016-05-19, 17:58:16</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/02/24/2016-03-12-read1/" title="【iOS读书笔记系列（一）】">https://runningyoung.github.io/2016/02/24/2016-03-12-read1/</a>
+            <span>Full URL:</span><a class="post-url" href="/2016/02/24/2016-03-12-read1/" title="【iOS读书笔记系列(UIKit性能优化和block深入理解)（一)】">https://runningyoung.github.io/2016/02/24/2016-03-12-read1/</a>
             <span class="copy-path" data-clipboard-text="From https://runningyoung.github.io/2016/02/24/2016-03-12-read1/　　By RunningYoung" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
@@ -529,8 +529,8 @@ myObj.myBlock =  ^{
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">
-                    Iterm2+ZSH 打造终极Shell
+                <a href="/2015/06/30/2015-07-20-ReactiveCocoa/">
+                    ReactiveCocoa 学习之路(史上最全攻略)
                 </a>
             </div>
         
@@ -617,13 +617,13 @@ myObj.myBlock =  ^{
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/" title="Next: Iterm2+ZSH 打造终极Shell">
+            <a href="/2015/06/30/2015-07-20-ReactiveCocoa/" title="Next: ReactiveCocoa 学习之路(史上最全攻略)">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/2016-05-16-HTTPS/">HTTPS 原理及安全加密方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/01/2016-05-01-Swift-Read2/">Swift Runtime分析：还像OC Runtime一样吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-12-Phabricator2/">MAC下Code Review工具Phabricator + Arcanist搭建（part 2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-11-Phabricator1/">MAC下Code Review工具Phabricator + Arcanist搭建（part 1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/2016-05-16-HTTPS/">HTTPS 原理及安全加密方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/01/2016-05-01-Swift-Read2/">Swift Runtime分析：还像OC Runtime一样吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-12-Phabricator2/">MAC下Code Review工具Phabricator + Arcanist搭建（part 2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-11-Phabricator1/">MAC下Code Review工具Phabricator + Arcanist搭建（part 1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列(UIKit性能优化和block深入理解)（一)】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li></ul>
 
 
 
