@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="utf-8">
+  
+  <title>HTTPS 原理及安全加密方案 | New World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="HTTPS &amp;#x539F;&amp;#x7406;&amp;#x53CA;&amp;#x5B89;&amp;#x5168;&amp;#x52A0;&amp;#x5BC6;&amp;#x65B9;&amp;#x6848;&amp;#x4E00;&amp;#x3001;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;HTTPS&amp;#x5728;&amp;#x8BF4;HTTPS&amp;#x4E4B;&amp;#x524D;&amp;#x5148;&amp;#x8BF4;&amp;#x8BF4;&amp;#x4EC0;&amp;#x4E48;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTPS 原理及安全加密方案">
+<meta property="og:url" content="https://runningyoung.github.io/2016/05/16/2016-05-16-HTTPS/index.html">
+<meta property="og:site_name" content="New World">
+<meta property="og:description" content="HTTPS &amp;#x539F;&amp;#x7406;&amp;#x53CA;&amp;#x5B89;&amp;#x5168;&amp;#x52A0;&amp;#x5BC6;&amp;#x65B9;&amp;#x6848;&amp;#x4E00;&amp;#x3001;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;HTTPS&amp;#x5728;&amp;#x8BF4;HTTPS&amp;#x4E4B;&amp;#x524D;&amp;#x5148;&amp;#x8BF4;&amp;#x8BF4;&amp;#x4EC0;&amp;#x4E48;">
+<meta property="og:image" content="http://7xsugd.com1.z0.glb.clouddn.com/%E8%AF%81%E4%B9%A6%E6%B5%81%E7%A8%8B1.png">
+<meta property="og:image" content="http://7xsugd.com1.z0.glb.clouddn.com/%E8%AF%81%E4%B9%A6%E6%B5%81%E7%A8%8B2.png">
+<meta property="og:updated_time" content="2016-05-19T06:59:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTTPS 原理及安全加密方案">
+<meta name="twitter:description" content="HTTPS &amp;#x539F;&amp;#x7406;&amp;#x53CA;&amp;#x5B89;&amp;#x5168;&amp;#x52A0;&amp;#x5BC6;&amp;#x65B9;&amp;#x6848;&amp;#x4E00;&amp;#x3001;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;HTTPS&amp;#x5728;&amp;#x8BF4;HTTPS&amp;#x4E4B;&amp;#x524D;&amp;#x5148;&amp;#x8BF4;&amp;#x8BF4;&amp;#x4EC0;&amp;#x4E48;">
+<meta name="twitter:image" content="http://7xsugd.com1.z0.glb.clouddn.com/%E8%AF%81%E4%B9%A6%E6%B5%81%E7%A8%8B1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="New World" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/avatar.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+  
+      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+
+  
+      <script>
+          var _hmt = _hmt || [];
+          (function() {
+              var hm = document.createElement("script");
+              hm.src = "//hm.baidu.com/hm.js?200c79969158a0fa1fe0632060fe4221";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+          })();
+      </script>
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">RunningYoung</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Steadfast some, don&#39;t try so hard, what you want, time will give yo  qq交流群：114803643，CSDN博客链接:http://blog.csdn.net/liangliang103377</p>
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        
+                        <li>About Me</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/RunningYoung" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/BDD/" style="font-size: 10px;">BDD</a> <a href="/tags/Block/" style="font-size: 10px;">Block</a> <a href="/tags/Phabricator/" style="font-size: 20px;">Phabricator</a> <a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/dependency-injection/" style="font-size: 10px;">dependency injection</a> <a href="/tags/ios-9-新技术/" style="font-size: 10px;">ios 9 新技术</a> <a href="/tags/jenkins/" style="font-size: 20px;">jenkins</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">专注于iOS开发</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">RunningYoung</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">RunningYoung</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Steadfast some, don&#39;t try so hard, what you want, time will give yo  qq交流群：114803643，CSDN博客链接:http://blog.csdn.net/liangliang103377</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/RunningYoung" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-2016-05-16-HTTPS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/16/2016-05-16-HTTPS/" class="article-date">
+      <time datetime="2016-05-16T07:33:44.000Z" itemprop="datePublished">2016-05-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTTPS 原理及安全加密方案
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安全/">安全</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="HTTPS-&#x539F;&#x7406;&#x53CA;&#x5B89;&#x5168;&#x52A0;&#x5BC6;&#x65B9;&#x6848;"><a href="#HTTPS-&#x539F;&#x7406;&#x53CA;&#x5B89;&#x5168;&#x52A0;&#x5BC6;&#x65B9;&#x6848;" class="headerlink" title="HTTPS &#x539F;&#x7406;&#x53CA;&#x5B89;&#x5168;&#x52A0;&#x5BC6;&#x65B9;&#x6848;"></a>HTTPS &#x539F;&#x7406;&#x53CA;&#x5B89;&#x5168;&#x52A0;&#x5BC6;&#x65B9;&#x6848;</h2><h3 id="&#x4E00;&#x3001;&#x4EC0;&#x4E48;&#x662F;HTTPS"><a href="#&#x4E00;&#x3001;&#x4EC0;&#x4E48;&#x662F;HTTPS" class="headerlink" title="&#x4E00;&#x3001;&#x4EC0;&#x4E48;&#x662F;HTTPS"></a>&#x4E00;&#x3001;&#x4EC0;&#x4E48;&#x662F;HTTPS</h3><p>&#x5728;&#x8BF4;HTTPS&#x4E4B;&#x524D;&#x5148;&#x8BF4;&#x8BF4;&#x4EC0;&#x4E48;&#x662F;HTTP&#xFF0C;HTTP&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x5E73;&#x65F6;&#x6D4F;&#x89C8;&#x7F51;&#x9875;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#x7684;&#x4E00;&#x79CD;&#x534F;&#x8BAE;&#x3002;HTTP&#x534F;&#x8BAE;&#x4F20;&#x8F93;&#x7684;&#x6570;&#x636E;&#x90FD;&#x662F;&#x672A;&#x52A0;&#x5BC6;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x660E;&#x6587;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x4F7F;&#x7528;HTTP&#x534F;&#x8BAE;&#x4F20;&#x8F93;&#x9690;&#x79C1;&#x4FE1;&#x606F;&#x975E;&#x5E38;&#x4E0D;&#x5B89;&#x5168;&#x3002;&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;&#x8FD9;&#x4E9B;&#x9690;&#x79C1;&#x6570;&#x636E;&#x80FD;&#x52A0;&#x5BC6;&#x4F20;&#x8F93;&#xFF0C;&#x4E8E;&#x662F;&#x7F51;&#x666F;&#x516C;&#x53F8;&#x8BBE;&#x8BA1;&#x4E86;SSL&#xFF08;Secure Sockets Layer&#xFF09;&#x534F;&#x8BAE;&#x7528;&#x4E8E;&#x5BF9;HTTP&#x534F;&#x8BAE;&#x4F20;&#x8F93;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x52A0;&#x5BC6;&#xFF0C;&#x4ECE;&#x800C;&#x5C31;&#x8BDE;&#x751F;&#x4E86;HTTPS&#x3002;SSL&#x76EE;&#x524D;&#x7684;&#x7248;&#x672C;&#x662F;3.0&#xFF0C;&#x88AB;IETF&#xFF08;Internet Engineering Task Force&#xFF09;&#x5B9A;&#x4E49;&#x5728;RFC 6101&#x4E2D;&#xFF0C;&#x4E4B;&#x540E;IETF&#x5BF9;SSL 3.0&#x8FDB;&#x884C;&#x4E86;&#x5347;&#x7EA7;&#xFF0C;&#x4E8E;&#x662F;&#x51FA;&#x73B0;&#x4E86;TLS&#xFF08;Transport Layer Security&#xFF09; 1.0&#xFF0C;&#x5B9A;&#x4E49;&#x5728;RFC 2246&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x7684;HTTPS&#x90FD;&#x662F;&#x7528;&#x7684;TLS&#x534F;&#x8BAE;&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x4E8E;SSL&#x51FA;&#x73B0;&#x7684;&#x65F6;&#x95F4;&#x6BD4;&#x8F83;&#x65E9;&#xFF0C;&#x5E76;&#x4E14;&#x4F9D;&#x65E7;&#x88AB;&#x73B0;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x6240;&#x652F;&#x6301;&#xFF0C;&#x56E0;&#x6B64;SSL&#x4F9D;&#x7136;&#x662F;HTTPS&#x7684;&#x4EE3;&#x540D;&#x8BCD;&#xFF0C;&#x4F46;&#x65E0;&#x8BBA;&#x662F;TLS&#x8FD8;&#x662F;SSL&#x90FD;&#x662F;&#x4E0A;&#x4E2A;&#x4E16;&#x7EAA;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;SSL&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x662F;3.0&#xFF0C;&#x4ECA;&#x540E;TLS&#x5C06;&#x4F1A;&#x7EE7;&#x627F;SSL&#x4F18;&#x826F;&#x8840;&#x7EDF;&#x7EE7;&#x7EED;&#x4E3A;&#x6211;&#x4EEC;&#x8FDB;&#x884C;&#x52A0;&#x5BC6;&#x670D;&#x52A1;&#x3002;&#x76EE;&#x524D;TLS&#x7684;&#x7248;&#x672C;&#x662F;1.2&#xFF0C;&#x5B9A;&#x4E49;&#x5728;RFC 5246&#x4E2D;&#xFF0C;&#x6682;&#x65F6;&#x8FD8;&#x6CA1;&#x6709;&#x88AB;&#x5E7F;&#x6CDB;&#x7684;&#x4F7F;&#x7528;&#x3002;</p>
+<a id="more"></a>
+<p>&#x5BF9;&#x5386;&#x53F2;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x670B;&#x53CB;&#x53EF;&#x4EE5;&#x53C2;&#x8003;<a href="http://en.wikipedia.org/wiki/Transport_Layer_Security" target="_blank" rel="external">http://en.wikipedia.org/wiki/Transport_Layer_Security</a>&#xFF0C;&#x8FD9;&#x91CC;&#x6709;&#x5BF9;TLS/SSL&#x8BE6;&#x5C3D;&#x7684;&#x53D9;&#x8FF0;&#x3002;</p>
+<h3 id="&#x4E8C;&#x3001;HTTPS&#x5230;&#x5E95;&#x5B89;&#x5168;&#x5417;&#xFF1F;"><a href="#&#x4E8C;&#x3001;HTTPS&#x5230;&#x5E95;&#x5B89;&#x5168;&#x5417;&#xFF1F;" class="headerlink" title="&#x4E8C;&#x3001;HTTPS&#x5230;&#x5E95;&#x5B89;&#x5168;&#x5417;&#xFF1F;"></a>&#x4E8C;&#x3001;HTTPS&#x5230;&#x5E95;&#x5B89;&#x5168;&#x5417;&#xFF1F;</h3><p>&#x8FD9;&#x4E2A;&#x7B54;&#x6848;&#x662F;&#x80AF;&#x5B9A;&#x7684;&#xFF0C;&#x5F88;&#x5B89;&#x5168;&#x3002;&#x8C37;&#x6B4C;&#x516C;&#x53F8;&#x5DF2;&#x7ECF;&#x884C;&#x52A8;&#x8D77;&#x6765;&#x8981;&#x5927;&#x529B;&#x63A8;&#x5E7F;HTTPS&#x7684;&#x4F7F;&#x7528;&#xFF0C;&#x5728;&#x672A;&#x6765;&#x51E0;&#x5468;&#xFF0C;&#x8C37;&#x6B4C;&#x5C06;&#x5BF9;&#x5168;&#x7403;&#x6240;&#x6709;&#x672C;&#x5730;&#x57DF;&#x540D;&#x90FD;&#x542F;&#x7528;HTTPS&#xFF0C;&#x7528;&#x6237;&#x53EA;&#x8981;&#x5728;&#x641C;&#x7D22;&#x524D;&#x7528;Google&#x5E10;&#x53F7;&#x767B;&#x5F55;&#xFF0C;&#x4E4B;&#x540E;&#x6240;&#x6709;&#x7684;&#x641C;&#x7D22;&#x64CD;&#x4F5C;&#x90FD;&#x5C06;&#x4F7F;&#x7528;TLS&#x534F;&#x8BAE;&#x52A0;&#x5BC6;&#xFF0C;&#x89C1;&#xFF1A;<a href="http://thenextweb.com/google/2012/03/05/google-calls-for-a-more-secure-web-expands-ssl-encryption-to-local-domains/" target="_blank" rel="external">http://thenextweb.com/google/2012/03/05/google-calls-for-a-more-secure-web-expands-ssl-encryption-to-local-domains/</a>&#x3002;</p>
+<h3 id="&#x4E09;&#x3001;HTTPS&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;"><a href="#&#x4E09;&#x3001;HTTPS&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;" class="headerlink" title="&#x4E09;&#x3001;HTTPS&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;"></a>&#x4E09;&#x3001;HTTPS&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;</h3><p>HTTPS&#x5728;&#x4F20;&#x8F93;&#x6570;&#x636E;&#x4E4B;&#x524D;&#x9700;&#x8981;&#x5BA2;&#x6237;&#x7AEF;&#xFF08;&#x6D4F;&#x89C8;&#x5668;&#xFF09;&#x4E0E;&#x670D;&#x52A1;&#x7AEF;&#xFF08;&#x7F51;&#x7AD9;&#xFF09;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x4E00;&#x6B21;&#x63E1;&#x624B;&#xFF0C;&#x5728;&#x63E1;&#x624B;&#x8FC7;&#x7A0B;&#x4E2D;&#x5C06;&#x786E;&#x7ACB;&#x53CC;&#x65B9;&#x52A0;&#x5BC6;&#x4F20;&#x8F93;&#x6570;&#x636E;&#x7684;&#x5BC6;&#x7801;&#x4FE1;&#x606F;&#x3002;TLS/SSL&#x534F;&#x8BAE;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x4E00;&#x5957;&#x52A0;&#x5BC6;&#x4F20;&#x8F93;&#x7684;&#x534F;&#x8BAE;&#xFF0C;&#x66F4;&#x662F;&#x4E00;&#x4EF6;&#x7ECF;&#x8FC7;&#x827A;&#x672F;&#x5BB6;&#x7CBE;&#x5FC3;&#x8BBE;&#x8BA1;&#x7684;&#x827A;&#x672F;&#x54C1;&#xFF0C;TLS/SSL&#x4E2D;&#x4F7F;&#x7528;&#x4E86;&#x975E;&#x5BF9;&#x79F0;&#x52A0;&#x5BC6;&#xFF0C;&#x5BF9;&#x79F0;&#x52A0;&#x5BC6;&#x4EE5;&#x53CA;HASH&#x7B97;&#x6CD5;&#x3002;&#x63E1;&#x624B;&#x8FC7;&#x7A0B;&#x7684;&#x7B80;&#x5355;&#x63CF;&#x8FF0;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>1.&#x6D4F;&#x89C8;&#x5668;&#x5C06;&#x81EA;&#x5DF1;&#x652F;&#x6301;&#x7684;&#x4E00;&#x5957;&#x52A0;&#x5BC6;&#x89C4;&#x5219;&#x53D1;&#x9001;&#x7ED9;&#x7F51;&#x7AD9;&#x3002;</p>
+<p>2.&#x7F51;&#x7AD9;&#x4ECE;&#x4E2D;&#x9009;&#x51FA;&#x4E00;&#x7EC4;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#x4E0E;HASH&#x7B97;&#x6CD5;&#xFF0C;&#x5E76;&#x5C06;&#x81EA;&#x5DF1;&#x7684;&#x8EAB;&#x4EFD;&#x4FE1;&#x606F;&#x4EE5;&#x8BC1;&#x4E66;&#x7684;&#x5F62;&#x5F0F;&#x53D1;&#x56DE;&#x7ED9;&#x6D4F;&#x89C8;&#x5668;&#x3002;&#x8BC1;&#x4E66;&#x91CC;&#x9762;&#x5305;&#x542B;&#x4E86;&#x7F51;&#x7AD9;&#x5730;&#x5740;&#xFF0C;&#x52A0;&#x5BC6;&#x516C;&#x94A5;&#xFF0C;&#x4EE5;&#x53CA;&#x8BC1;&#x4E66;&#x7684;&#x9881;&#x53D1;&#x673A;&#x6784;&#x7B49;&#x4FE1;&#x606F;&#x3002;</p>
+<p>3.&#x83B7;&#x5F97;&#x7F51;&#x7AD9;&#x8BC1;&#x4E66;&#x4E4B;&#x540E;&#x6D4F;&#x89C8;&#x5668;&#x8981;&#x505A;&#x4EE5;&#x4E0B;&#x5DE5;&#x4F5C;&#xFF1A;</p>
+<p>a) &#x9A8C;&#x8BC1;&#x8BC1;&#x4E66;&#x7684;&#x5408;&#x6CD5;&#x6027;&#xFF08;&#x9881;&#x53D1;&#x8BC1;&#x4E66;&#x7684;&#x673A;&#x6784;&#x662F;&#x5426;&#x5408;&#x6CD5;&#xFF0C;&#x8BC1;&#x4E66;&#x4E2D;&#x5305;&#x542B;&#x7684;&#x7F51;&#x7AD9;&#x5730;&#x5740;&#x662F;&#x5426;&#x4E0E;&#x6B63;&#x5728;&#x8BBF;&#x95EE;&#x7684;&#x5730;&#x5740;&#x4E00;&#x81F4;&#x7B49;&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x8BC1;&#x4E66;&#x53D7;&#x4FE1;&#x4EFB;&#xFF0C;&#x5219;&#x6D4F;&#x89C8;&#x5668;&#x680F;&#x91CC;&#x9762;&#x4F1A;&#x663E;&#x793A;&#x4E00;&#x4E2A;&#x5C0F;&#x9501;&#x5934;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x7ED9;&#x51FA;&#x8BC1;&#x4E66;&#x4E0D;&#x53D7;&#x4FE1;&#x7684;&#x63D0;&#x793A;&#x3002;</p>
+<p>b) &#x5982;&#x679C;&#x8BC1;&#x4E66;&#x53D7;&#x4FE1;&#x4EFB;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x7528;&#x6237;&#x63A5;&#x53D7;&#x4E86;&#x4E0D;&#x53D7;&#x4FE1;&#x7684;&#x8BC1;&#x4E66;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E32;&#x968F;&#x673A;&#x6570;&#x7684;&#x5BC6;&#x7801;&#xFF0C;&#x5E76;&#x7528;&#x8BC1;&#x4E66;&#x4E2D;&#x63D0;&#x4F9B;&#x7684;&#x516C;&#x94A5;&#x52A0;&#x5BC6;&#x3002;</p>
+<p>c) &#x4F7F;&#x7528;&#x7EA6;&#x5B9A;&#x597D;&#x7684;HASH&#x8BA1;&#x7B97;&#x63E1;&#x624B;&#x6D88;&#x606F;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x751F;&#x6210;&#x7684;&#x968F;&#x673A;&#x6570;&#x5BF9;&#x6D88;&#x606F;&#x8FDB;&#x884C;&#x52A0;&#x5BC6;&#xFF0C;&#x6700;&#x540E;&#x5C06;&#x4E4B;&#x524D;&#x751F;&#x6210;&#x7684;&#x6240;&#x6709;&#x4FE1;&#x606F;&#x53D1;&#x9001;&#x7ED9;&#x7F51;&#x7AD9;&#x3002;</p>
+<p>4.&#x7F51;&#x7AD9;&#x63A5;&#x6536;&#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x6765;&#x7684;&#x6570;&#x636E;&#x4E4B;&#x540E;&#x8981;&#x505A;&#x4EE5;&#x4E0B;&#x7684;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<p>a) &#x4F7F;&#x7528;&#x81EA;&#x5DF1;&#x7684;&#x79C1;&#x94A5;&#x5C06;&#x4FE1;&#x606F;&#x89E3;&#x5BC6;&#x53D6;&#x51FA;&#x5BC6;&#x7801;&#xFF0C;&#x4F7F;&#x7528;&#x5BC6;&#x7801;&#x89E3;&#x5BC6;&#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x6765;&#x7684;&#x63E1;&#x624B;&#x6D88;&#x606F;&#xFF0C;&#x5E76;&#x9A8C;&#x8BC1;HASH&#x662F;&#x5426;&#x4E0E;&#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x6765;&#x7684;&#x4E00;&#x81F4;&#x3002;</p>
+<p>b) &#x4F7F;&#x7528;&#x5BC6;&#x7801;&#x52A0;&#x5BC6;&#x4E00;&#x6BB5;&#x63E1;&#x624B;&#x6D88;&#x606F;&#xFF0C;&#x53D1;&#x9001;&#x7ED9;&#x6D4F;&#x89C8;&#x5668;&#x3002;</p>
+<p>5.&#x6D4F;&#x89C8;&#x5668;&#x89E3;&#x5BC6;&#x5E76;&#x8BA1;&#x7B97;&#x63E1;&#x624B;&#x6D88;&#x606F;&#x7684;HASH&#xFF0C;&#x5982;&#x679C;&#x4E0E;&#x670D;&#x52A1;&#x7AEF;&#x53D1;&#x6765;&#x7684;HASH&#x4E00;&#x81F4;&#xFF0C;&#x6B64;&#x65F6;&#x63E1;&#x624B;&#x8FC7;&#x7A0B;&#x7ED3;&#x675F;&#xFF0C;&#x4E4B;&#x540E;&#x6240;&#x6709;&#x7684;&#x901A;&#x4FE1;&#x6570;&#x636E;&#x5C06;&#x7531;&#x4E4B;&#x524D;&#x6D4F;&#x89C8;&#x5668;&#x751F;&#x6210;&#x7684;&#x968F;&#x673A;&#x5BC6;&#x7801;&#x5E76;&#x5229;&#x7528;&#x5BF9;&#x79F0;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#x8FDB;&#x884C;&#x52A0;&#x5BC6;&#x3002;<br>&#x8FD9;&#x91CC;&#x6D4F;&#x89C8;&#x5668;&#x4E0E;&#x7F51;&#x7AD9;&#x4E92;&#x76F8;&#x53D1;&#x9001;&#x52A0;&#x5BC6;&#x7684;&#x63E1;&#x624B;&#x6D88;&#x606F;&#x5E76;&#x9A8C;&#x8BC1;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;&#x53CC;&#x65B9;&#x90FD;&#x83B7;&#x5F97;&#x4E86;&#x4E00;&#x81F4;&#x7684;&#x5BC6;&#x7801;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x7684;&#x52A0;&#x5BC6;&#x89E3;&#x5BC6;&#x6570;&#x636E;&#xFF0C;&#x4E3A;&#x540E;&#x7EED;&#x771F;&#x6B63;&#x6570;&#x636E;&#x7684;&#x4F20;&#x8F93;&#x505A;&#x4E00;&#x6B21;&#x6D4B;&#x8BD5;&#x3002;&#x53E6;&#x5916;&#xFF0C;HTTPS&#x4E00;&#x822C;&#x4F7F;&#x7528;&#x7684;&#x52A0;&#x5BC6;&#x4E0E;HASH&#x7B97;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>&#x975E;&#x5BF9;&#x79F0;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#xFF1A;RSA&#xFF0C;DSA/DSS</p>
+<p>&#x5BF9;&#x79F0;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#xFF1A;AES&#xFF0C;RC4&#xFF0C;3DES</p>
+<p>HASH&#x7B97;&#x6CD5;&#xFF1A;MD5&#xFF0C;SHA1&#xFF0C;SHA256</p>
+<p>&#x5176;&#x4E2D;&#x975E;&#x5BF9;&#x79F0;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#x7528;&#x4E8E;&#x5728;&#x63E1;&#x624B;&#x8FC7;&#x7A0B;&#x4E2D;&#x52A0;&#x5BC6;&#x751F;&#x6210;&#x7684;&#x5BC6;&#x7801;&#xFF0C;&#x5BF9;&#x79F0;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#x7528;&#x4E8E;&#x5BF9;&#x771F;&#x6B63;&#x4F20;&#x8F93;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x52A0;&#x5BC6;&#xFF0C;&#x800C;HASH&#x7B97;&#x6CD5;&#x7528;&#x4E8E;&#x9A8C;&#x8BC1;&#x6570;&#x636E;&#x7684;&#x5B8C;&#x6574;&#x6027;&#x3002;&#x7531;&#x4E8E;&#x6D4F;&#x89C8;&#x5668;&#x751F;&#x6210;&#x7684;&#x5BC6;&#x7801;&#x662F;&#x6574;&#x4E2A;&#x6570;&#x636E;&#x52A0;&#x5BC6;&#x7684;&#x5173;&#x952E;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x4F20;&#x8F93;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#x4E86;&#x975E;&#x5BF9;&#x79F0;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#x5BF9;&#x5176;&#x52A0;&#x5BC6;&#x3002;&#x975E;&#x5BF9;&#x79F0;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#x4F1A;&#x751F;&#x6210;&#x516C;&#x94A5;&#x548C;&#x79C1;&#x94A5;&#xFF0C;&#x516C;&#x94A5;&#x53EA;&#x80FD;&#x7528;&#x4E8E;&#x52A0;&#x5BC6;&#x6570;&#x636E;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x968F;&#x610F;&#x4F20;&#x8F93;&#xFF0C;&#x800C;&#x7F51;&#x7AD9;&#x7684;&#x79C1;&#x94A5;&#x7528;&#x4E8E;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x89E3;&#x5BC6;&#xFF0C;&#x6240;&#x4EE5;&#x7F51;&#x7AD9;&#x90FD;&#x4F1A;&#x975E;&#x5E38;&#x5C0F;&#x5FC3;&#x7684;&#x4FDD;&#x7BA1;&#x81EA;&#x5DF1;&#x7684;&#x79C1;&#x94A5;&#xFF0C;&#x9632;&#x6B62;&#x6CC4;&#x6F0F;&#x3002;</p>
+<p>TLS&#x63E1;&#x624B;&#x8FC7;&#x7A0B;&#x4E2D;&#x5982;&#x679C;&#x6709;&#x4EFB;&#x4F55;&#x9519;&#x8BEF;&#xFF0C;&#x90FD;&#x4F1A;&#x4F7F;&#x52A0;&#x5BC6;&#x8FDE;&#x63A5;&#x65AD;&#x5F00;&#xFF0C;&#x4ECE;&#x800C;&#x963B;&#x6B62;&#x4E86;&#x9690;&#x79C1;&#x4FE1;&#x606F;&#x7684;&#x4F20;&#x8F93;&#x3002;&#x6B63;&#x662F;&#x7531;&#x4E8E;HTTPS&#x975E;&#x5E38;&#x7684;&#x5B89;&#x5168;&#xFF0C;&#x653B;&#x51FB;&#x8005;&#x65E0;&#x6CD5;&#x4ECE;&#x4E2D;&#x627E;&#x5230;&#x4E0B;&#x624B;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x4E8E;&#x662F;&#x66F4;&#x591A;&#x7684;&#x662F;&#x91C7;&#x7528;&#x4E86;&#x5047;&#x8BC1;&#x4E66;&#x7684;&#x624B;&#x6CD5;&#x6765;&#x6B3A;&#x9A97;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x4ECE;&#x800C;&#x83B7;&#x53D6;&#x660E;&#x6587;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E9B;&#x624B;&#x6BB5;&#x90FD;&#x53EF;&#x4EE5;&#x88AB;&#x8BC6;&#x522B;&#x51FA;&#x6765;&#xFF0C;&#x6211;&#x5C06;&#x5728;&#x540E;&#x7EED;&#x7684;&#x6587;&#x7AE0;&#x8FDB;&#x884C;&#x8BB2;&#x8FF0;&#x3002;</p>
+<p>&#x4E0D;&#x8FC7;2010&#x5E74;&#x8FD8;&#x662F;&#x6709;&#x5B89;&#x5168;&#x4E13;&#x5BB6;&#x53D1;&#x73B0;&#x4E86;TLS 1.0&#x534F;&#x8BAE;&#x5904;&#x7406;&#x7684;&#x4E00;&#x4E2A;&#x6F0F;&#x6D1E;&#xFF1A;</p>
+<p><a href="http://www.theregister.co.uk/2011/09/19/beast_exploits_paypal_ssl/" target="_blank" rel="external">http://www.theregister.co.uk/2011/09/19/beast_exploits_paypal_ssl/</a>&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x8FD9;&#x79CD;&#x79F0;&#x4E3A;BEAST&#x7684;&#x653B;&#x51FB;&#x65B9;&#x5F0F;&#x65E9;&#x5728;2002&#x5E74;&#x5C31;&#x5DF2;&#x7ECF;&#x88AB;&#x5B89;&#x5168;&#x4E13;&#x5BB6;&#x53D1;&#x73B0;&#xFF0C;&#x53EA;&#x662F;&#x6CA1;&#x6709;&#x516C;&#x5F00;&#x800C;&#x5DF2;&#x3002;&#x76EE;&#x524D;&#x5FAE;&#x8F6F;&#x548C;Google&#x5DF2;&#x7ECF;&#x5BF9;&#x6B64;&#x6F0F;&#x6D1E;&#x8FDB;&#x884C;&#x4E86;&#x4FEE;&#x590D;&#x3002;&#x89C1;&#xFF1A;<a href="http://support.microsoft.com/kb/2643584/en-us https://src.chromium.org/viewvc/chrome?view=rev&amp;revision=90643" target="_blank" rel="external">http://support.microsoft.com/kb/2643584/en-us https://src.chromium.org/viewvc/chrome?view=rev&amp;revision=90643</a></p>
+<h3 id="HTTPS&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x65F6;&#x8BC1;&#x4E66;&#x7684;&#x9A8C;&#x8BC1;&#x6D41;&#x7A0B;"><a href="#HTTPS&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x65F6;&#x8BC1;&#x4E66;&#x7684;&#x9A8C;&#x8BC1;&#x6D41;&#x7A0B;" class="headerlink" title="HTTPS&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x65F6;&#x8BC1;&#x4E66;&#x7684;&#x9A8C;&#x8BC1;&#x6D41;&#x7A0B;"></a>HTTPS&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x65F6;&#x8BC1;&#x4E66;&#x7684;&#x9A8C;&#x8BC1;&#x6D41;&#x7A0B;</h3><p><img src="http://7xsugd.com1.z0.glb.clouddn.com/%E8%AF%81%E4%B9%A6%E6%B5%81%E7%A8%8B1.png" alt="&#x8BC1;&#x4E66;&#x9A8C;&#x8BC1;&#x6D41;&#x7A0B;1"></p>
+<p><img src="http://7xsugd.com1.z0.glb.clouddn.com/%E8%AF%81%E4%B9%A6%E6%B5%81%E7%A8%8B2.png" alt="&#x8BC1;&#x4E66;&#x9A8C;&#x8BC1;&#x6D41;&#x7A0B;2"></p>
+<h3 id="2-&#x4EC0;&#x4E48;&#x662F;SSL-Pinning&#xFF1F;"><a href="#2-&#x4EC0;&#x4E48;&#x662F;SSL-Pinning&#xFF1F;" class="headerlink" title="2.&#x4EC0;&#x4E48;&#x662F;SSL Pinning&#xFF1F;"></a>2.&#x4EC0;&#x4E48;&#x662F;SSL Pinning&#xFF1F;</h3><p>&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x8BC1;&#x4E66;&#x7ED1;&#x5B9A;&#xFF0C;&#x662F;&#x6307;&#x5BA2;&#x6237;&#x7AEF;&#x76F4;&#x63A5;&#x4FDD;&#x5B58;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x8BC1;&#x4E66;&#xFF0C;&#x5EFA;&#x7ACB;https&#x8FDE;&#x63A5;&#x65F6;&#x76F4;&#x63A5;&#x5BF9;&#x6BD4;&#x670D;&#x52A1;&#x7AEF;&#x8FD4;&#x56DE;&#x7684;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x4FDD;&#x5B58;&#x7684;&#x4E24;&#x4E2A;&#x8BC1;&#x4E66;&#x662F;&#x5426;&#x4E00;&#x6837;&#xFF0C;&#x4E00;&#x6837;&#x5C31;&#x8868;&#x660E;&#x8BC1;&#x4E66;&#x662F;&#x771F;&#x7684;&#xFF0C;&#x4E0D;&#x518D;&#x53BB;&#x7CFB;&#x7EDF;&#x7684;&#x4FE1;&#x4EFB;&#x8BC1;&#x4E66;&#x673A;&#x6784;&#x91CC;&#x5BFB;&#x627E;&#x9A8C;&#x8BC1;&#x3002;&#x8FD9;&#x9002;&#x7528;&#x4E8E;&#x975E;&#x6D4F;&#x89C8;&#x5668;&#x5E94;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x6D4F;&#x89C8;&#x5668;&#x8DDF;&#x5F88;&#x591A;&#x672A;&#x77E5;&#x670D;&#x52A1;&#x7AEF;&#x6253;&#x4EA4;&#x9053;&#xFF0C;&#x65E0;&#x6CD5;&#x628A;&#x6BCF;&#x4E2A;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x8BC1;&#x4E66;&#x90FD;&#x4FDD;&#x5B58;&#x5230;&#x672C;&#x5730;&#xFF0C;&#x4F46;CS&#x67B6;&#x6784;&#x7684;&#x50CF;&#x624B;&#x673A;APP&#x4E8B;&#x5148;&#x5DF2;&#x7ECF;&#x77E5;&#x9053;&#x8981;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x7684;&#x670D;&#x52A1;&#x7AEF;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x4FDD;&#x5B58;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x8BC1;&#x4E66;&#x7528;&#x4E8E;&#x6821;&#x9A8C;&#x3002;</p>
+<p>&#x4E3A;&#x4EC0;&#x4E48;&#x76F4;&#x63A5;&#x5BF9;&#x6BD4;&#x5C31;&#x80FD;&#x4FDD;&#x8BC1;&#x8BC1;&#x4E66;&#x6CA1;&#x95EE;&#x9898;&#xFF1F;&#x5982;&#x679C;&#x4E2D;&#x95F4;&#x4EBA;&#x4ECE;&#x5BA2;&#x6237;&#x7AEF;&#x53D6;&#x51FA;&#x8BC1;&#x4E66;&#xFF0C;&#x518D;&#x4F2A;&#x88C5;&#x6210;&#x670D;&#x52A1;&#x7AEF;&#x8DDF;&#x5176;&#x4ED6;&#x5BA2;&#x6237;&#x7AEF;&#x901A;&#x4FE1;&#xFF0C;&#x5B83;&#x53D1;&#x9001;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8FD9;&#x4E2A;&#x8BC1;&#x4E66;&#x4E0D;&#x5C31;&#x80FD;&#x901A;&#x8FC7;&#x9A8C;&#x8BC1;&#x5417;&#xFF1F;&#x786E;&#x5B9E;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x9A8C;&#x8BC1;&#xFF0C;&#x4F46;&#x540E;&#x7EED;&#x7684;&#x6D41;&#x7A0B;&#x8D70;&#x4E0D;&#x4E0B;&#x53BB;&#xFF0C;&#x56E0;&#x4E3A;&#x4E0B;&#x4E00;&#x6B65;&#x5BA2;&#x6237;&#x7AEF;&#x4F1A;&#x7528;&#x8BC1;&#x4E66;&#x91CC;&#x7684;&#x516C;&#x94A5;&#x52A0;&#x5BC6;&#xFF0C;&#x4E2D;&#x95F4;&#x4EBA;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x8BC1;&#x4E66;&#x7684;&#x79C1;&#x94A5;&#x5C31;&#x89E3;&#x4E0D;&#x51FA;&#x5185;&#x5BB9;&#xFF0C;&#x4E5F;&#x5C31;&#x622A;&#x83B7;&#x4E0D;&#x5230;&#x6570;&#x636E;&#xFF0C;&#x8FD9;&#x4E2A;&#x8BC1;&#x4E66;&#x7684;&#x79C1;&#x94A5;&#x53EA;&#x6709;&#x771F;&#x6B63;&#x7684;&#x670D;&#x52A1;&#x7AEF;&#x6709;&#xFF0C;&#x4E2D;&#x95F4;&#x4EBA;&#x4F2A;&#x9020;&#x8BC1;&#x4E66;&#x4E3B;&#x8981;&#x4F2A;&#x9020;&#x7684;&#x662F;&#x516C;&#x94A5;&#x3002;</p>
+<p>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;SSL Pinning&#xFF1F;&#x6B63;&#x5E38;&#x7684;&#x9A8C;&#x8BC1;&#x65B9;&#x5F0F;&#x4E0D;&#x591F;&#x5417;&#xFF1F;&#x5982;&#x679C;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x8BC1;&#x4E66;&#x662F;&#x4ECE;&#x53D7;&#x4FE1;&#x4EFB;&#x7684;&#x7684;CA&#x673A;&#x6784;&#x9881;&#x53D1;&#x7684;&#xFF0C;&#x9A8C;&#x8BC1;&#x662F;&#x6CA1;&#x95EE;&#x9898;&#x7684;&#xFF0C;&#x4F46;CA&#x673A;&#x6784;&#x9881;&#x53D1;&#x8BC1;&#x4E66;&#x6BD4;&#x8F83;&#x6602;&#x8D35;&#xFF0C;&#x5C0F;&#x4F01;&#x4E1A;&#x6216;&#x4E2A;&#x4EBA;&#x7528;&#x6237;&#x53EF;&#x80FD;&#x4F1A;&#x9009;&#x62E9;&#x81EA;&#x5DF1;&#x9881;&#x53D1;&#x8BC1;&#x4E66;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x7CFB;&#x7EDF;&#x53D7;&#x4FE1;&#x4EFB;&#x7684;CA&#x673A;&#x6784;&#x5217;&#x8868;&#x9A8C;&#x8BC1;&#x8FD9;&#x4E2A;&#x8BC1;&#x4E66;&#x7684;&#x771F;&#x4F2A;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;SSL Pinning&#x8FD9;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#x53BB;&#x9A8C;&#x8BC1;&#x3002;</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2016/05/16/2016-05-16-HTTPS/">HTTPS 原理及安全加密方案</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">RunningYoung</a></p>
+        <p><span>Created:</span>2016-05-16, 15:33:44</p>
+        <p><span>Updated:</span>2016-05-19, 14:59:23</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/2016/05/16/2016-05-16-HTTPS/" title="HTTPS 原理及安全加密方案">https://runningyoung.github.io/2016/05/16/2016-05-16-HTTPS/</a>
+            <span class="copy-path" data-clipboard-text="From https://runningyoung.github.io/2016/05/16/2016-05-16-HTTPS/　　By RunningYoung" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/05/01/2016-05-01-Swift-Read2/">
+                    Swift Runtime分析：还像OC Runtime一样吗？
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTPS-原理及安全加密方案"><span class="toc-number">1.</span> <span class="toc-text">HTTPS 原理及安全加密方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、什么是HTTPS"><span class="toc-number">1.1.</span> <span class="toc-text">一、什么是HTTPS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、HTTPS到底安全吗？"><span class="toc-number">1.2.</span> <span class="toc-text">二、HTTPS到底安全吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、HTTPS的工作原理"><span class="toc-number">1.3.</span> <span class="toc-text">三、HTTPS的工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTPS建立连接时证书的验证流程"><span class="toc-number">1.4.</span> <span class="toc-text">HTTPS建立连接时证书的验证流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-什么是SSL-Pinning？"><span class="toc-number">1.5.</span> <span class="toc-text">2.什么是SSL Pinning？</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+<script>
+    var valueHide = "Hide";
+    var valueShow = "Show";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+
+    
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'runningyoung'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/05/01/2016-05-01-Swift-Read2/" title="Next: Swift Runtime分析：还像OC Runtime一样吗？">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/2016-05-16-HTTPS/">HTTPS 原理及安全加密方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/01/2016-05-01-Swift-Read2/">Swift Runtime分析：还像OC Runtime一样吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-12-Phabricator2/">MAC下Code Review工具Phabricator + Arcanist搭建（part 2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-11-Phabricator1/">MAC下Code Review工具Phabricator + Arcanist搭建（part 1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列（一）】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      
+<footer id="footer">
+    <div class="outer">
+
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 RunningYoung
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/RunningYoung/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by runningyoung
+            </div>
+        </div>
+        
+        
+
+            <div class="visit">
+              
+                
+              </script>
+                    <span id="busuanzi_container_site_pv" style='display:none' >
+                        <span id="site-visit" >Site Visitors: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none' >
+                        <span id="page-visit">Page Hits: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 12;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-64735170-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

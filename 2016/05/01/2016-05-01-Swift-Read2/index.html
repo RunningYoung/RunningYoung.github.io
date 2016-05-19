@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | New World</title>
+  <title>Swift Runtime分析：还像OC Runtime一样吗？ | New World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="Swift Runtime&amp;#x5206;&amp;#x6790;&amp;#xFF1A;&amp;#x8FD8;&amp;#x50CF;OC Runtime&amp;#x4E00;&amp;#x6837;&amp;#x5417;&amp;#xFF1F;&amp;#x52A8;&amp;#x6001;&amp;#x6027;&amp;#x6BD4;&amp;#x8F83;&amp;#x91CD;&amp;#x8981;&amp;#x7684;&amp;#x4E00;&amp;#x70B9;&amp;#x5C31;&amp;#x662F;&amp;#x80FD;&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://runningyoung.github.io/2016/04/06/hello-world/index.html">
+<meta property="og:title" content="Swift Runtime分析：还像OC Runtime一样吗？">
+<meta property="og:url" content="https://runningyoung.github.io/2016/05/01/2016-05-01-Swift-Read2/index.html">
 <meta property="og:site_name" content="New World">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta property="og:updated_time" content="2016-04-12T03:44:56.000Z">
+<meta property="og:description" content="Swift Runtime&amp;#x5206;&amp;#x6790;&amp;#xFF1A;&amp;#x8FD8;&amp;#x50CF;OC Runtime&amp;#x4E00;&amp;#x6837;&amp;#x5417;&amp;#xFF1F;&amp;#x52A8;&amp;#x6001;&amp;#x6027;&amp;#x6BD4;&amp;#x8F83;&amp;#x91CD;&amp;#x8981;&amp;#x7684;&amp;#x4E00;&amp;#x70B9;&amp;#x5C31;&amp;#x662F;&amp;#x80FD;&amp;">
+<meta property="og:image" content="http://7xsugd.com1.z0.glb.clouddn.com/runningyoungBlog/images/OCreplaceSwift.jpg">
+<meta property="og:updated_time" content="2016-05-19T06:59:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="Swift Runtime分析：还像OC Runtime一样吗？">
+<meta name="twitter:description" content="Swift Runtime&amp;#x5206;&amp;#x6790;&amp;#xFF1A;&amp;#x8FD8;&amp;#x50CF;OC Runtime&amp;#x4E00;&amp;#x6837;&amp;#x5417;&amp;#xFF1F;&amp;#x52A8;&amp;#x6001;&amp;#x6027;&amp;#x6BD4;&amp;#x8F83;&amp;#x91CD;&amp;#x8981;&amp;#x7684;&amp;#x4E00;&amp;#x70B9;&amp;#x5C31;&amp;#x662F;&amp;#x80FD;&amp;">
+<meta name="twitter:image" content="http://7xsugd.com1.z0.glb.clouddn.com/runningyoungBlog/images/OCreplaceSwift.jpg">
   
     <link rel="alternative" href="/atom.xml" title="New World" type="application/atom+xml">
   
@@ -213,11 +215,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-2016-05-01-Swift-Read2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/06/hello-world/" class="article-date">
-      <time datetime="2016-04-06T06:49:14.000Z" itemprop="datePublished">2016-04-06</time>
+      <a href="/2016/05/01/2016-05-01-Swift-Read2/" class="article-date">
+      <time datetime="2016-05-01T07:33:44.000Z" itemprop="datePublished">2016-05-01</time>
 </a>
     </div>
   
@@ -230,7 +232,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Swift Runtime分析：还像OC Runtime一样吗？
     </h1>
   
 
@@ -238,8 +240,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -247,16 +257,55 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+        <h2 id="Swift-Runtime&#x5206;&#x6790;&#xFF1A;&#x8FD8;&#x50CF;OC-Runtime&#x4E00;&#x6837;&#x5417;&#xFF1F;"><a href="#Swift-Runtime&#x5206;&#x6790;&#xFF1A;&#x8FD8;&#x50CF;OC-Runtime&#x4E00;&#x6837;&#x5417;&#xFF1F;" class="headerlink" title="Swift Runtime&#x5206;&#x6790;&#xFF1A;&#x8FD8;&#x50CF;OC Runtime&#x4E00;&#x6837;&#x5417;&#xFF1F;"></a>Swift Runtime&#x5206;&#x6790;&#xFF1A;&#x8FD8;&#x50CF;OC Runtime&#x4E00;&#x6837;&#x5417;&#xFF1F;</h2><p><strong><em>&#x52A8;&#x6001;&#x6027;&#x6BD4;&#x8F83;&#x91CD;&#x8981;&#x7684;&#x4E00;&#x70B9;&#x5C31;&#x662F;&#x80FD;&#x591F;&#x62FF;&#x5230;&#x67D0;&#x4E2A;&#x7C7B;&#x6240;&#x6709;&#x7684;&#x65B9;&#x6CD5;&#x3001;&#x5C5E;&#x6027;&#x3002;</em></strong></p>
 <a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<h3 id="&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;&#xFF1A;"><a href="#&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;&#xFF1A;" class="headerlink" title="&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;&#xFF1A;"></a>&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;&#xFF1A;</h3><ol>
+<li>&#xFF08;&#x7EAF;swift&#x7C7B;&#xFF09; &#x7EAF;Swift&#x7C7B;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x5DF2;&#x7ECF;&#x4E0D;&#x518D;&#x662F;Objective-c&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x53D1;&#x6D88;&#x606F;&#xFF0C;&#x800C;&#x662F;&#x7C7B;&#x4F3C;C++&#x7684;vtable&#xFF0C;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x5C31;&#x786E;&#x5B9A;&#x4E86;&#x8C03;&#x7528;&#x54EA;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x6240;&#x4EE5;&#x6CA1;&#x6CD5;&#x901A;&#x8FC7;runtime&#x83B7;&#x53D6;&#x65B9;&#x6CD5;&#x3001;&#x5C5E;&#x6027;&#x3002;</li>
+</ol>
+<ol>
+<li>&#xFF08;&#x7EE7;&#x627F;&#x81EA;NSObject&#x7684;swift&#x7C7B;&#xFF09;TestSwiftVC&#x7EE7;&#x627F;&#x81EA;UIViewController&#xFF0C;&#x57FA;&#x7C7B;NSObject&#xFF0C;&#x800C;Swift&#x4E3A;&#x4E86;&#x517C;&#x5BB9;Objective-C&#xFF0C;&#x51E1;&#x662F;&#x7EE7;&#x627F;&#x81EA;NSObject&#x7684;&#x7C7B;&#x90FD;&#x4F1A;&#x4FDD;&#x7559;&#x5176;&#x52A8;&#x6001;&#x6027;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x80FD;&#x901A;&#x8FC7;runtime&#x62FF;&#x5230;&#x4ED6;&#x7684;&#x65B9;&#x6CD5;&#x3002;</li>
+</ol>
+<ol>
+<li>&#xFF08;&#x7EE7;&#x627F;&#x81EA;NSObjcet&#x7684;swift&#x7C7B;&#x4E2D;&#x5E26;&#x6709;swift&#x539F;&#x751F;&#x5C5E;&#x6027;&#x7684;&#x53C2;&#x6570;&#xFF08;&#x5373;swift&#x7279;&#x6709;&#x7684;&#xFF0C;&#x5982;&#xFF1A;&#x5143;&#x7EC4;&#x7C7B;&#x578B;&#xFF0C;&#xFF09;&#xFF09; &#x4F46;&#x4E3A;&#x4EC0;&#x4E48;testReturnTuple testReturnVoidWithaCharacter&#x5374;&#x53C8;&#x83B7;&#x53D6;&#x4E0D;&#x5230;&#x5462;&#xFF1F;</li>
+</ol>
+<p>&#x4ECE;Objective-c&#x7684;runtime &#x7279;&#x6027;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;&#x6240;&#x6709;&#x8FD0;&#x884C;&#x65F6;&#x65B9;&#x6CD5;&#x90FD;&#x4F9D;&#x8D56;TypeEncoding&#xFF0C;&#x4E5F;&#x5C31;&#x662F;method_getTypeEncoding&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x4ED6;&#x6307;&#x5B9A;&#x4E86;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4EE5;&#x53CA;&#x5728;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65F6;&#x53C2;&#x6570;&#x5165;&#x6808;&#x6240;&#x8981;&#x7684;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#xFF0C;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x6807;&#x8BC6;&#x5C31;&#x65E0;&#x6CD5;&#x52A8;&#x6001;&#x7684;&#x538B;&#x5165;&#x53C2;&#x6570;&#xFF08;&#x6BD4;&#x5982;testReturnVoidWithaId: Optional(&#x201C;v24@0:8@16&#x201D;) Optional(&#x201C;v&#x201D;)&#xFF0C;&#x8868;&#x793A;&#x6B64;&#x65B9;&#x6CD5;&#x53C2;&#x6570;&#x5171;&#x9700;24&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;void&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;id&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x4E3A;selector&#xFF0C;&#x7B2C;&#x4E09;&#x4E2A;&#x4E3A;id&#xFF09;&#xFF0C;&#x800C;Character&#x548C;Tuple&#x662F;Swift&#x7279;&#x6709;&#x7684;&#xFF0C;&#x65E0;&#x6CD5;&#x6620;&#x5C04;&#x5230;OC&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x66F4;&#x65E0;&#x6CD5;&#x7528;OC&#x7684;typeEncoding&#x8868;&#x793A;&#xFF0C;&#x4E5F;&#x5C31;&#x6CA1;&#x6CD5;&#x901A;&#x8FC7;runtime&#x83B7;&#x53D6;&#x4E86;&#x3002;</p>
+<h3 id="Method-Swizzling"><a href="#Method-Swizzling" class="headerlink" title="Method Swizzling"></a>Method Swizzling</h3><p><strong><em>&#x52A8;&#x6001;&#x6027;&#x6700;&#x5E38;&#x7528;&#x7684;&#x5C31;&#x662F;&#x65B9;&#x6CD5;&#x66FF;&#x6362;&#xFF08;Method Swizzling&#xFF09;&#xFF0C;&#x5C06;&#x7C7B;&#x7684;&#x67D0;&#x4E2A;&#x65B9;&#x6CD5;&#x66FF;&#x6362;&#x6210;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4ECE;&#x800C;&#x8FBE;&#x5230;hook&#x7684;&#x4F5C;&#x7528;&#x3002;</em></strong></p>
+<ol>
+<li><p>&#x5BF9;&#x4E8E;&#x7EAF;Swift&#x7C7B;&#xFF08;&#x5982;TestASwiftClass&#xFF09;&#x6765;&#x8BF4;&#xFF0C;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;objc runtime&#x66FF;&#x6362;&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x4E3A;&#x7531;&#x4E0A;&#x9762;&#x7684;&#x6D4B;&#x8BD5;&#x53EF;&#x77E5;&#x62FF;&#x4E0D;&#x5230;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x3001;&#x5C5E;&#x6027;</p>
+</li>
+<li><p>&#x5BF9;&#x4E8E;&#x7EE7;&#x627F;&#x81EA;NSObject&#x7C7B;&#xFF08;&#x5982;TestSwiftVC&#xFF09;&#x6765;&#x8BF4;&#xFF0C;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;runtime&#x83B7;&#x53D6;&#x5230;&#x7684;&#x65B9;&#x6CD5;&#x80AF;&#x5B9A;&#x6CA1;&#x6CD5;&#x66FF;&#x6362;&#x4E86;&#x3002;&#x901A;&#x8FC7;runtime&#x83B7;&#x53D6;&#x5230;&#x7684;&#x65B9;&#x6CD5;&#x80FD;&#x88AB;&#x66FF;&#x6362;&#x3002;</p>
+</li>
+<li>&#x5728;&#x6D4B;&#x8BD5;&#x4E2D;&#x88AB;runtime&#x83B7;&#x53D6;&#x5230;&#x7684;swift &#x65B9;&#x6CD5;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x7279;&#x6027; &#x5728;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#x4ED6;&#x7684;&#x6808;&#x7684;&#x524D;&#x4E00;&#x5E27;&#x4E3A;@objc&#x4FEE;&#x9970;&#x3002;</li>
+</ol>
+<ul>
+<li>@objc</li>
+</ul>
+<p>&#x627E;&#x5230;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x8BFB;&#x8BFB;&#x3002;<br>&#x53EF;&#x4EE5;&#x77E5;&#x9053;@objc&#x662F;&#x7528;&#x6765;&#x5C06;Swift&#x7684;API&#x5BFC;&#x51FA;&#x7ED9;Objective-C&#x548C;Objective-C runtime&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x7684;&#x7C7B;&#x7EE7;&#x627F;&#x81EA;Objective-c&#x7684;&#x7C7B;&#xFF08;&#x5982;NSObject&#xFF09;&#x5C06;&#x4F1A;&#x81EA;&#x52A8;&#x88AB;&#x7F16;&#x8BD1;&#x5668;&#x63D2;&#x5165;@objc&#x6807;&#x8BC6;&#x3002; </p>
+<p>&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x52A0;&#x4E86;@objc&#x7684;&#x65B9;&#x6CD5;&#x3001;&#x5C5E;&#x6027;&#x5747;&#x53EF;&#x4EE5;&#x88AB;runtime&#x83B7;&#x53D6;&#x5230;&#x4E86;&#xFF0C;&#x4F46;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x6240;&#x6709;&#x7684;&#x90FD;&#x4F1A;&#x88AB;&#x83B7;&#x5F97; &#x5177;&#x4F53;&#x539F;&#x56E0;&#x4E0B;&#x6587;&#x4F1A;&#x63D0;&#x5230;&#x3002;</p>
+<ul>
+<li>dynamic</li>
+</ul>
+<p>&#x4F46;&#x662F;&#x6587;&#x6863;&#x91CC;&#x8FD8;&#x6709;&#x4E00;&#x53E5;&#x8BF4;&#x660E;&#xFF1A; </p>
+<p>&#x52A0;&#x4E86;@objc&#x6807;&#x8BC6;&#x7684;&#x65B9;&#x6CD5;&#x3001;&#x5C5E;&#x6027;&#x65E0;&#x6CD5;&#x4FDD;&#x8BC1;&#x90FD;&#x4F1A;&#x88AB;&#x8FD0;&#x884C;&#x65F6;&#x8C03;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;Swift&#x4F1A;&#x505A;&#x9759;&#x6001;&#x4F18;&#x5316;&#x3002;&#x8981;&#x60F3;&#x5B8C;&#x5168;&#x88AB;&#x52A8;&#x6001;&#x8C03;&#x7528;&#xFF0C;&#x5FC5;&#x987B;&#x4F7F;&#x7528;dynamic&#x4FEE;&#x9970;&#x3002;&#x4F7F;&#x7528;dynamic&#x4FEE;&#x9970;&#x5C06;&#x4F1A;&#x9690;&#x5F0F;&#x7684;&#x52A0;&#x4E0A;@objc&#x6807;&#x8BC6;&#x3002;&#x505A;Method Swizzling&#xFF0C;&#x83B7;&#x5F97;&#x6210;&#x529F;</p>
+<h3 id="Objective-C&#x83B7;&#x53D6;Swift-runtime&#x4FE1;&#x606F;"><a href="#Objective-C&#x83B7;&#x53D6;Swift-runtime&#x4FE1;&#x606F;" class="headerlink" title="Objective-C&#x83B7;&#x53D6;Swift runtime&#x4FE1;&#x606F;"></a>Objective-C&#x83B7;&#x53D6;Swift runtime&#x4FE1;&#x606F;</h3><p>&#x5728;Objective-c&#x4EE3;&#x7801;&#x91CC;&#x4F7F;&#x7528;objc_getClass(&#x201C;TestSwiftVC&#x201D;);&#x4F1A;&#x53D1;&#x73B0;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;&#x7A7A;&#xFF0C;&#x8FD9;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;Swift&#x4EE3;&#x7801;&#x4E2D;&#x7684;TestSwiftVC&#x7C7B;&#xFF0C;&#x5728;OC&#x4E2D;&#x8FD8;&#x662F;&#x8FD9;&#x4E2A;&#x540D;&#x5B57;&#x5417;&#xFF1F; </p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;Swift&#x4E2D;&#x7684;TestSwiftVC&#x7C7B;&#x5728;OC&#x4E2D;&#x7684;&#x7C7B;&#x540D;&#x5DF2;&#x7ECF;&#x53D8;&#x6210;TestSwift.TestSwiftVC&#xFF0C;&#x5373;&#x89C4;&#x5219;&#x4E3A;SWIFT_MODULE_NAME.&#x7C7B;&#x540D;&#x79F0;&#xFF0C;&#x5728;&#x666E;&#x901A;&#x6E90;&#x7801;&#x9879;&#x76EE;&#x91CC;SWIFT_MODULE_NAME&#x5373;&#x4E3A;ProductName&#xFF0C;&#x5728;&#x6253;&#x597D;&#x7684;Cocoa Touch Framework&#x91CC;&#x4E3A;&#x5219;&#x4E3A;&#x5BFC;&#x51FA;&#x7684;&#x5305;&#x540D;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x8981;&#x60F3;&#x4ECE;Objective-c&#x4E2D;&#x83B7;&#x53D6;Swift&#x7C7B;&#x7684;runtime&#x4FE1;&#x606F;&#x5F97;&#x8FD9;&#x6837;&#x5199;&#xFF1A;</p>
+<p>id cls = objc_getClass(&#x201C;TestSwift.TestASwiftClass&#x201D;);<br>showClsRuntime(cls);</p>
+<h3 id="Objective-C&#x66FF;&#x6362;Swift&#x51FD;&#x6570;"><a href="#Objective-C&#x66FF;&#x6362;Swift&#x51FD;&#x6570;" class="headerlink" title="Objective-C&#x66FF;&#x6362;Swift&#x51FD;&#x6570;"></a>Objective-C&#x66FF;&#x6362;Swift&#x51FD;&#x6570;</h3><p>&#x7ED9;TestSwiftVC&#x548C;TestASwiftClass&#x7684;testReturnVoidWithaId&#x51FD;&#x6570;&#x52A0;&#x4E0A;dynamic&#x4FEE;&#x9970;&#xFF0C;&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5728;Objective-C&#x4EE3;&#x7801;&#x91CC;&#x66FF;&#x6362;&#x4E3A;testReturnVoidWithaIdImp&#x51FD;&#x6570;&#xFF1A;</p>
+<p><img src="http://7xsugd.com1.z0.glb.clouddn.com/runningyoungBlog/images/OCreplaceSwift.jpg" alt=""></p>
+<p>&#x8BF4;&#x660E;&#x4E24;&#x8005;&#x7684;&#x65B9;&#x6CD5;&#x5728;&#x52A0;&#x4E0A;dynamic&#x4FEE;&#x9970;&#x540E;&#xFF0C;&#x5747;&#x80FD;&#x5728;Objective-c&#x91CC;&#x88AB;&#x66FF;&#x6362;</p>
+<h3 id="&#x603B;&#x7ED3;"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h3><ul>
+<li>&#x7EAF;Swift&#x7C7B;&#x6CA1;&#x6709;&#x52A8;&#x6001;&#x6027;&#xFF0C;&#x4F46;&#x5728;&#x65B9;&#x6CD5;&#x3001;&#x5C5E;&#x6027;&#x524D;&#x6DFB;&#x52A0;dynamic&#x4FEE;&#x9970;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x52A8;&#x6001;&#x6027;&#x3002;</li>
+</ul>
+<ul>
+<li>&#x7EE7;&#x627F;&#x81EA;NSObject&#x7684;Swift&#x7C7B;&#xFF0C;&#x5176;&#x7EE7;&#x627F;&#x81EA;&#x7236;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x5177;&#x6709;&#x52A8;&#x6001;&#x6027;&#xFF0C;&#x5176;&#x4ED6;&#x81EA;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;&#x3001;&#x5C5E;&#x6027;&#x9700;&#x8981;&#x52A0;dynamic&#x4FEE;&#x9970;&#x624D;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x52A8;&#x6001;&#x6027;&#x3002;</li>
+</ul>
+<ul>
+<li>&#x82E5;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x3001;&#x5C5E;&#x6027;&#x7C7B;&#x578B;&#x4E3A;Swift&#x7279;&#x6709;&#x3001;&#x65E0;&#x6CD5;&#x6620;&#x5C04;&#x5230;Objective-C&#x7684;&#x7C7B;&#x578B;(&#x5982;Character&#x3001;Tuple)&#xFF0C;&#x5219;&#x6B64;&#x65B9;&#x6CD5;&#x3001;&#x5C5E;&#x6027;&#x65E0;&#x6CD5;&#x6DFB;&#x52A0;dynamic&#x4FEE;&#x9970;&#xFF08;&#x4F1A;&#x7F16;&#x8BD1;&#x9519;&#x8BEF;&#xFF09;</li>
+</ul>
+<ul>
+<li>Swift&#x7C7B;&#x5728;Objective-C&#x4E2D;&#x4F1A;&#x6709;&#x6A21;&#x5757;&#x524D;&#x7F00;</li>
+</ul>
 
       
     </div>
@@ -265,13 +314,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/04/06/hello-world/">Hello World</a></p>
+        <p><span>Title:</span><a href="/2016/05/01/2016-05-01-Swift-Read2/">Swift Runtime分析：还像OC Runtime一样吗？</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">RunningYoung</a></p>
-        <p><span>Created:</span>2016-04-06, 14:49:14</p>
-        <p><span>Updated:</span>2016-04-12, 11:44:56</p>
+        <p><span>Created:</span>2016-05-01, 15:33:44</p>
+        <p><span>Updated:</span>2016-05-19, 14:59:37</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/04/06/hello-world/" title="Hello World">https://runningyoung.github.io/2016/04/06/hello-world/</a>
-            <span class="copy-path" data-clipboard-text="From https://runningyoung.github.io/2016/04/06/hello-world/　　By RunningYoung" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/05/01/2016-05-01-Swift-Read2/" title="Swift Runtime分析：还像OC Runtime一样吗？">https://runningyoung.github.io/2016/05/01/2016-05-01-Swift-Read2/</a>
+            <span class="copy-path" data-clipboard-text="From https://runningyoung.github.io/2016/05/01/2016-05-01-Swift-Read2/　　By RunningYoung" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -285,15 +334,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/04/11/2016-04-11-Phabricator1/">
-                    MAC下Code Review工具Phabricator + Arcanist搭建（part 1）
+                <a href="/2016/05/16/2016-05-16-HTTPS/">
+                    HTTPS 原理及安全加密方案
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/04/01/2016-04-05-jenkins2/">
-                    iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)
+                <a href="/2016/04/11/2016-04-12-Phabricator2/">
+                    MAC下Code Review工具Phabricator + Arcanist搭建（part 2）
                 </a>
             </div>
         
@@ -304,7 +353,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Swift-Runtime分析：还像OC-Runtime一样吗？"><span class="toc-number">1.</span> <span class="toc-text">Swift Runtime分析：还像OC Runtime一样吗？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法和属性："><span class="toc-number">1.1.</span> <span class="toc-text">方法和属性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Method-Swizzling"><span class="toc-number">1.2.</span> <span class="toc-text">Method Swizzling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Objective-C获取Swift-runtime信息"><span class="toc-number">1.3.</span> <span class="toc-text">Objective-C获取Swift runtime信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Objective-C替换Swift函数"><span class="toc-number">1.4.</span> <span class="toc-text">Objective-C替换Swift函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">1.5.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -372,7 +421,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/04/11/2016-04-11-Phabricator1/" title="Pre: MAC下Code Review工具Phabricator + Arcanist搭建（part 1）">
+            <a href="/2016/05/16/2016-05-16-HTTPS/" title="Pre: HTTPS 原理及安全加密方案">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -380,7 +429,7 @@
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/04/01/2016-04-05-jenkins2/" title="Next: iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)">
+            <a href="/2016/04/11/2016-04-12-Phabricator2/" title="Next: MAC下Code Review工具Phabricator + Arcanist搭建（part 2）">
                 <i class="fa fa-angle-right"></i>
             </a>
         
