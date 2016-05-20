@@ -14,7 +14,7 @@
 <meta property="og:image" content="http://7xsugd.com2.z0.glb.clouddn.com/runningyoungBlog/images/ios_frame_drop.png">
 <meta property="og:image" content="http://7xsugd.com2.z0.glb.clouddn.com/runningyoungBlog/images/正常渲染.png">
 <meta property="og:image" content="http://7xsugd.com2.z0.glb.clouddn.com/runningyoungBlog/images/离屏渲染.png">
-<meta property="og:updated_time" content="2016-05-19T09:58:16.000Z">
+<meta property="og:updated_time" content="2016-05-20T03:44:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【iOS读书笔记系列(UIKit性能优化和block深入理解)（一)】">
 <meta name="twitter:description" content="&amp;#x8BFB;&amp;#x4E66;&amp;#x7B14;&amp;#x8BB0;&amp;#xFF08;&amp;#x4E00;&amp;#xFF09;&amp;#x4E00;&amp;#x3001;instancetype &amp;#x548C; id &amp;#x4F5C;&amp;#x4E3A;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x5B9E;&amp;#x4F8B; &amp;#x8FD4;&amp;#x56DE;&amp;#x503C;&amp;#x7684;&amp;#x4E0D;&amp;#x540">
@@ -118,11 +118,11 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -157,7 +157,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/BDD/" style="font-size: 10px;">BDD</a> <a href="/tags/Block/" style="font-size: 10px;">Block</a> <a href="/tags/Phabricator/" style="font-size: 20px;">Phabricator</a> <a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/dependency-injection/" style="font-size: 10px;">dependency injection</a> <a href="/tags/ios-9-新技术/" style="font-size: 10px;">ios 9 新技术</a> <a href="/tags/jenkins/" style="font-size: 20px;">jenkins</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a>
+                        <a href="/tags/BDD/" style="font-size: 10px;">BDD</a> <a href="/tags/Block/" style="font-size: 10px;">Block</a> <a href="/tags/Phabricator/" style="font-size: 20px;">Phabricator</a> <a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/dependency-injection/" style="font-size: 10px;">dependency injection</a> <a href="/tags/ios-9-新技术/" style="font-size: 10px;">ios 9 新技术</a> <a href="/tags/jenkins/" style="font-size: 20px;">jenkins</a> <a href="/tags/安全/" style="font-size: 20px;">安全</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a>
                     </div>
                 </section>
                 
@@ -494,6 +494,7 @@ myObj.myBlock =  ^{
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">label.layer.shouldRasterize = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>&#x7F13;&#x51B2;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x6709;&#x6548;&#x671F;&#x53EA;&#x6709;100ms&#xFF08;0&#x3002;1s&#xFF09;&#x5982;&#x679C;&#x8D85;&#x8FC7;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#x7F13;&#x5B58;&#x4F1A;&#x81EA;&#x52A8;&#x6E05;&#x7406;&#x3002;&#x5149;&#x6805;&#x5316;&#x662F;&#x628A;&#x53CC;&#x5203;&#x5251;&#xFF0C;&#x5148;&#x5199;&#x5165;&#x7F13;&#x5B58;&#x518D;&#x8BFB;&#x53D6;&#x4F1A;&#x6D88;&#x8017;&#x4E00;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5C3D;&#x91CF;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x3002;&#x9664;&#x975E;&#x78B0;&#x5230;&#x5F88;&#x590D;&#x6742;&#x3001;&#x9759;&#x6001;&#x7684;&#x6548;&#x679C;&#x624D;&#x80FD;&#x4F7F;&#x7528;&#x3002;&#x4F1A;&#x5BFC;&#x81F4;&#x79BB;&#x5C4F;&#x6E32;&#x67D3;&#x3002;</p>
 <h3 id="4-&#x56FE;&#x7247;&#x5927;&#x5C0F;"><a href="#4-&#x56FE;&#x7247;&#x5927;&#x5C0F;" class="headerlink" title="4.&#x56FE;&#x7247;&#x5927;&#x5C0F;"></a>4.&#x56FE;&#x7247;&#x5927;&#x5C0F;</h3><p>&#x5C3D;&#x91CF;&#x4FDD;&#x6301;&#x56FE;&#x7247;&#x7684;&#x5927;&#x5C0F;&#x5408;&#x9002;&#xFF0C;&#x4EE5;&#x53CA;&#x56FE;&#x7247;&#x7684;&#x683C;&#x5F0F; GPU&#x6240;&#x652F;&#x6301;&#x3002;&#x5982;&#x679C;&#x56FE;&#x7247;&#x504F;&#x5927;&#x504F;&#x5C0F;&#xFF0C;&#x90FD;&#x9700;&#x8981;GPU&#x989D;&#x5916;&#x7684;&#x53BB;&#x8BA1;&#x7B97;&#x5904;&#x7406;&#x9020;&#x6210;GPU&#x7684;&#x6D88;&#x8017;&#xFF0C;&#x4ECE;&#x800C;&#x589E;&#x52A0;&#x5904;&#x7406;&#x65F6;&#x95F4;&#x3002;<br>&#x800C;&#x56FE;&#x7247;&#x7684;&#x683C;&#x5F0F;&#x5982;&#x679C;GPU &#x4E0D;&#x652F;&#x6301;&#x7684;&#x8BDD;&#x540C;&#x6837;&#x9700;&#x8981;GPU&#x53BB;&#x505A;&#x989D;&#x5916;&#x7684;&#x8F6C;&#x5316;&#xFF0C;&#x6D88;&#x8017;&#x5927;&#x91CF;&#x7684;&#x65F6;&#x95F4;&#x3002;</p>
+<p><a href="http://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/" target="_blank" rel="external">&#x53C2;&#x8003;&#x6587;&#x7AE0;</a></p>
 
       
     </div>
@@ -502,18 +503,18 @@ myObj.myBlock =  ^{
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列(UIKit性能优化和block深入理解)（一)】</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">RunningYoung</a></p>
-        <p><span>Created:</span>2016-02-24, 14:28:01</p>
-        <p><span>Updated:</span>2016-05-19, 17:58:16</p>
+        <p><span>本文标题:</span><a href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列(UIKit性能优化和block深入理解)（一)】</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">RunningYoung</a></p>
+        <p><span>发布时间:</span>2016-02-24, 14:28:01</p>
+        <p><span>最后更新:</span>2016-05-20, 11:44:17</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/02/24/2016-03-12-read1/" title="【iOS读书笔记系列(UIKit性能优化和block深入理解)（一)】">https://runningyoung.github.io/2016/02/24/2016-03-12-read1/</a>
-            <span class="copy-path" data-clipboard-text="From https://runningyoung.github.io/2016/02/24/2016-03-12-read1/　　By RunningYoung" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/02/24/2016-03-12-read1/" title="【iOS读书笔记系列(UIKit性能优化和block深入理解)（一)】">https://runningyoung.github.io/2016/02/24/2016-03-12-read1/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://runningyoung.github.io/2016/02/24/2016-03-12-read1/　　作者: RunningYoung" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -529,8 +530,8 @@ myObj.myBlock =  ^{
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/06/30/2015-07-20-ReactiveCocoa/">
-                    ReactiveCocoa 学习之路(史上最全攻略)
+                <a href="/2015/06/30/2015-08-04-dependency-injection/">
+                    关于IOS依赖注入(DI)那些事
                 </a>
             </div>
         
@@ -540,7 +541,7 @@ myObj.myBlock =  ^{
 </article>
 
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Contents</strong>
+    <strong class="toc-title">文章目录</strong>
     <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#读书笔记（一）"><span class="toc-number">1.</span> <span class="toc-text">读书笔记（一）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、instancetype-和-id-作为初始化实例-返回值的不同"><span class="toc-number">1.1.</span> <span class="toc-text">一、instancetype 和 id 作为初始化实例 返回值的不同</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、iOS为什么不要在init初始化方法里调用self-view"><span class="toc-number">2.</span> <span class="toc-text">二、iOS为什么不要在init初始化方法里调用self.view</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、忽略编译警告"><span class="toc-number">3.</span> <span class="toc-text">三、忽略编译警告</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、Block的深入学习"><span class="toc-number">4.</span> <span class="toc-text">四、Block的深入学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一些关键点："><span class="toc-number">4.1.</span> <span class="toc-text">一些关键点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#self-的循环引用"><span class="toc-number">4.2.</span> <span class="toc-text">self 的循环引用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、IOS高效添加圆角效果"><span class="toc-number">5.</span> <span class="toc-text">五、IOS高效添加圆角效果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#为-UIView-添加圆角"><span class="toc-number">5.1.</span> <span class="toc-text">为 UIView 添加圆角</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#为-UIImageView-添加圆角"><span class="toc-number">5.2.</span> <span class="toc-text">为 UIImageView 添加圆角</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、UIKit-性能优化-读后总结"><span class="toc-number">6.</span> <span class="toc-text">六、UIKit 性能优化 读后总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#首选来说-为什么我们要进行UIKit优化？"><span class="toc-number">6.1.</span> <span class="toc-text">首选来说 为什么我们要进行UIKit优化？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-为什么要把控件尽量设置成不透明，如果是透明的会有什么影响，如何检测这种影响？"><span class="toc-number">6.2.</span> <span class="toc-text">1.为什么要把控件尽量设置成不透明，如果是透明的会有什么影响，如何检测这种影响？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-离屏渲染"><span class="toc-number">6.3.</span> <span class="toc-text">4.离屏渲染</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-光栅化"><span class="toc-number">6.4.</span> <span class="toc-text">3. 光栅化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-图片大小"><span class="toc-number">7.</span> <span class="toc-text">4.图片大小</span></a></li></ol>
 </div>
 <style>
@@ -552,10 +553,10 @@ myObj.myBlock =  ^{
     }
 </style>
 
-<input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 <script>
-    var valueHide = "Hide";
-    var valueShow = "Show";
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
 
     if ($(".left-col").is(":hidden")) {
         $("#tocButton").attr("value", valueShow);
@@ -609,21 +610,21 @@ myObj.myBlock =  ^{
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/07/2016-03-14-Block/" title="Pre: Block源码解析和深入理解">
+            <a href="/2016/03/07/2016-03-14-Block/" title="上一篇: Block源码解析和深入理解">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/06/30/2015-07-20-ReactiveCocoa/" title="Next: ReactiveCocoa 学习之路(史上最全攻略)">
+            <a href="/2015/06/30/2015-08-04-dependency-injection/" title="下一篇: 关于IOS依赖注入(DI)那些事">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/2016-05-16-HTTPS/">HTTPS 原理及安全加密方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/01/2016-05-01-Swift-Read2/">Swift Runtime分析：还像OC Runtime一样吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-12-Phabricator2/">MAC下Code Review工具Phabricator + Arcanist搭建（part 2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-11-Phabricator1/">MAC下Code Review工具Phabricator + Arcanist搭建（part 1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列(UIKit性能优化和block深入理解)（一)】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/20/2016-05-20- cryptology/">深入理解密码技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/2016-05-16-HTTPS/">HTTPS原理解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/01/2016-05-01-Swift-Read2/">Swift Runtime分析：还像OC Runtime一样吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-12-Phabricator2/">MAC下Code Review工具Phabricator + Arcanist搭建（part 2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/2016-04-11-Phabricator1/">MAC下Code Review工具Phabricator + Arcanist搭建（part 1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-05-jenkins2/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/2016-04-01-jenkins1/">iOS持续集成：jenkins+gitlab+蒲公英+邮件通知(Part 1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/2016-03-14-Block/">Block源码解析和深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/2016-03-12-read1/">【iOS读书笔记系列(UIKit性能优化和block深入理解)（一)】</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-08-04-dependency-injection/">关于IOS依赖注入(DI)那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-08-Iterm2+ZSH-Shell/">Iterm2+ZSH 打造终极Shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-11-20-(BDD)calabash和cucumber/">BDD开发 calabash 和 cucumber的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-07-20-ReactiveCocoa/">ReactiveCocoa 学习之路(史上最全攻略)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/30/2015-06-30-iOS-9-AppThinning/">iOS 9 App Thinning</a></li></ul>
 
 
 
@@ -641,7 +642,7 @@ myObj.myBlock =  ^{
                 &copy; 2016 RunningYoung
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/RunningYoung/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by runningyoung
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/RunningYoung/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by runningyoung
             </div>
         </div>
         
@@ -652,7 +653,7 @@ myObj.myBlock =  ^{
                 
               </script>
                     <span id="busuanzi_container_site_pv" style='display:none' >
-                        <span id="site-visit" >Site Visitors: 
+                        <span id="site-visit" >本站到访数: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -662,7 +663,7 @@ myObj.myBlock =  ^{
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none' >
-                        <span id="page-visit">Page Hits: 
+                        <span id="page-visit">本页阅读量: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
@@ -708,9 +709,9 @@ ga('send', 'pageview');
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
